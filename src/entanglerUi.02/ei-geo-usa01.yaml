@@ -2,11 +2,22 @@
 # Brygg Ullmer, Clemson University
 # Begun 2021-12-17
 
-module(ei-geo-world01, []).
+module(ei-geo-usa01, []).
 
 nodes:
-  ma1: {city: Boston,      lat: , long: , pop: }
-  sc1: {city: Columbia,    lat: , long: , pop: }
-  la1: {city: Baton Rouge, lat: , long: , pop: }
+  ma1: {state: MA, city: Boston,      lat: , long: , pop-msa: }
+  sc1: {state: SC, city: Columbia,    lat: , long: , pop-msa: }
+  nc1: {state: NC, city: Raleigh,     lat: , long: , pop-msa: }
+  la1: {state: LA, city: Baton Rouge, lat: , long: , pop-msa: }
+
+capacitive:
+  warp:  #X-oriented
+    i10: []
+    i20: []
+  weft:
+
+ledStrip:
+  i10: []
+  i20: []
 
 ### end ###
