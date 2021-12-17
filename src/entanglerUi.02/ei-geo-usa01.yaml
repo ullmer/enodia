@@ -1,0 +1,12 @@
+# Enodia interaction panel : geographical : world 01
+# Brygg Ullmer, Clemson University
+# Begun 2021-12-17
+
+module(ei-geo-world01, []).
+
+nodes:
+  ma1: {city: Boston,      lat: , long: , pop: }
+  sc1: {city: Columbia,    lat: , long: , pop: }
+  la1: {city: Baton Rouge, lat: , long: , pop: }
+
+### end ###
