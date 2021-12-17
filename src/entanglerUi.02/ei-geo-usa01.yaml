@@ -22,6 +22,9 @@ domain:
   sc1: {state: South Carolina, sab: SC, city: Columbia, cab: CAE, pop-msa:}
 
 capacitive:
+ self1: {c1: sc1, c2: nc1, c3: ga1, c4: va1, c5: fl1, c6: ky1, c7: ny1}
+
+ mut:
   X:  #"warp"; X-axis / lat.,  TX
     i10: {1:}
     i20: {3:}
