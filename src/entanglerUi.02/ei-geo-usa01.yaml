@@ -6,15 +6,15 @@ module(ei-geo-usa01, []).
 
 nodes:
   ma1: {state: MA, cab: BOS, x: , y: , lat: , long:}
-  sc1: {state: SC, cab: CAE, x: y:, lat: 34.000343, long: -81.033211}
-  nc1: {state: NC, cab: RDU, x: lat: , long: , pop-msa: }
-  va1: {state: VA, cab: RDU, x: lat: , long: , pop-msa: }
-  ga1: {state: GA, cab: ATL, x: I20, Y: I75, lat: , long: , pop-msa: }
   la1: {state: LA, cab: BTR, x: I10, Y: I49, lat: 30.457069, long: -91.187393}
-  fl1: {state: FL, cab:    , x: I  , Y: I  , lat: , long: , pop-msa: }
-  ky1: {state: KY, cab:    , x: I  , Y: I  , lat: , long: , pop-msa: }
-  pa1: {state: PA, cab:    , x: I  , Y: I  , lat: , long: , pop-msa: }
-  ny1: {state: NY, cab:    , x: I  , Y: I  , lat: , long: , pop-msa: }
+  sc1: {state: SC, cab: CAE, x: I20, y: I77, lat: 34.000343, long: -81.033211}
+  nc1: {state: NC, cab: RDU, x: I40, y: I85, lat: 35.78043,  long: -78.639099}
+  va1: {state: VA, cab: RDU, x: lat: , long: }
+  ga1: {state: GA, cab: ATL, x: I20, Y: I75, lat: , long: }
+  fl1: {state: FL, cab:    , x: I  , Y: I  , lat: , long: }
+  ky1: {state: KY, cab:    , x: I  , Y: I  , lat: , long: }
+  pa1: {state: PA, cab:    , x: I  , Y: I  , lat: , long: }
+  ny1: {state: NY, cab:    , x: I  , Y: I  , lat: , long: }
 
 domain:
  places:
