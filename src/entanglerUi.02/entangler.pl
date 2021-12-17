@@ -2,13 +2,15 @@
 % By Brygg Ullmer, Clemson University
 % Begun 2021-12-16
 
-illuminated(Cell) :- 
+illuminated(CellCoord) :- 
   withinActiveSpread(Concept1), 
   cellRepresents(Cell, Concept1), 
   actionablyEntangled(Concept1, Concept2), 
-  (rya(Concept2); rya(Concept1)).
+  (valin(Concept2); valin(Concept1)).
 
-rya(Concept) :- cellRepresents(Cell, Concept), selected(Cell).
+valin(Concept) :- cellRepresents(Cell, Concept), cellSelected(CellCoord).
+
+%rya(Concept) :- cellRepresents(Cell, Concept), selected(Cell).
 
 withinActiveSpread(Concept) :- 
   ipanelWithinSpread(Ipanel), 
