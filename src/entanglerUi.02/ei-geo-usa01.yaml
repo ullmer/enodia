@@ -6,7 +6,7 @@ module(ei-geo-usa01, []).
 
 nodes:
   ma1: {state: MA, cab: BOS, x: , y: , lat: , long:}
-  sc1: {state: SC, cab: CAE, x: y:, lat: , long: , pop-msa: }
+  sc1: {state: SC, cab: CAE, x: y:, lat: 34.000343, long: -81.033211}
   nc1: {state: NC, cab: RDU, x: lat: , long: , pop-msa: }
   va1: {state: VA, cab: RDU, x: lat: , long: , pop-msa: }
   ga1: {state: GA, cab: ATL, x: I20, Y: I75, lat: , long: , pop-msa: }
