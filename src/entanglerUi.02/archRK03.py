@@ -28,8 +28,12 @@ def getBldgInfo(targetpage):
   except: pass
   return result
 
-rkb   = "Category:Rem Koolhaas buildings"
-bldgs = getBldgs(rkb)
+rkb  = "Category:Rem Koolhaas buildings"
+scs  = "Category:Santiago_Calatrava_structures"
+mvdr = "Category:Ludwig_Mies_van_der_Rohe_buildings"
+#bldgs = getBldgs(rkb)
+#bldgs = getBldgs(scs)
+bldgs = getBldgs(mvdr)
 
 idx = 0
 for b in bldgs:
