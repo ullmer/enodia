@@ -6,7 +6,7 @@ buildings:
            opening: 2012-05-16, floors: 34, roof: 159m}
   cdm:    {wpName: Casa da Música, country: prt, cab: OPO}
   cctvh:  {wpName: CCTV Headquarters, country: uae, cab: chn, cab: pek}
-  caa:    {wpName: Concrete (Alserkal Avenue), country:  {location: "[[Al Quoz]], [[Dubai]]", }
+  caa:    {wpName: Concrete (Alserkal Avenue), country: UAE  {location: "[[Al Quoz]], [[Dubai]]", }
   wpName: Dee and Charles Wyly Theatre: {}
   wpName: Embassy of the Netherlands, Berlin: {location: "[[Berlin]], Germany", }
   wpName: Garage Museum of Contemporary Art: {location: "[[Moscow]], Russia", }
