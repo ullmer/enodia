@@ -24,6 +24,9 @@ def getBldgLocation(targetpage):
 rkb   = "Category:Rem Koolhaas buildings"
 bldgs = getBldgs(rkb)
 
-#  page = wptools.page('Seattle Central Library').get_parse()
+for i in range(3):
+  b = bldgs[i]
+  loc = getBldgLocation(b)
+  print('Building %s : location %s' % (b, loc))
 
 ### end ###
