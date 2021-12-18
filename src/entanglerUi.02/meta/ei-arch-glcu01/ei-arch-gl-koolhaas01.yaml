@@ -4,9 +4,9 @@ buildings:
   121e22: {wpName: 121 East 22nd}
   btcc:   {wpName: Beijing Television Cultural Center, country: chn, cab: pek, 
            opening: 2012-05-16, floors: 34, roof: 159m}
-  wpName: Casa da Música: {location: "[[Cedofeita, Santo Ildefonso, Sé, Miragaia, São Nicolau e Vitória]]", }
-  wpName: CCTV Headquarters: {location: "East Third Ring Road<br>Guanghua Road<br>Beijing, China", }
-  wpName: Concrete (Alserkal Avenue): {location: "[[Al Quoz]], [[Dubai]]", }
+  cdm:    {wpName: Casa da Música, country: prt, cab: OPO}
+  cctvh:  {wpName: CCTV Headquarters, country: uae, cab: chn, cab: pek}
+  caa:    {wpName: Concrete (Alserkal Avenue), country:  {location: "[[Al Quoz]], [[Dubai]]", }
   wpName: Dee and Charles Wyly Theatre: {}
   wpName: Embassy of the Netherlands, Berlin: {location: "[[Berlin]], Germany", }
   wpName: Garage Museum of Contemporary Art: {location: "[[Moscow]], Russia", }
