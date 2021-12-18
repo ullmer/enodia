@@ -5,7 +5,7 @@
 import wikipediaapi
 import wptools
 
-%%%%%%%%%%%%%%%%% get buildings %%%%%%%%%%%%%%%%%
+##################### get buildings #####################
 
 def getBldgs(targetpage):
   ww=wikipediaapi.Wikipedia('en')
@@ -13,19 +13,22 @@ def getBldgs(targetpage):
   buildings = page1.categorymembers.keys()
   return buildings
 
-%%%%%%%%%%%%%%%%% get building location %%%%%%%%%%%%%%%%%
+################## get building location ##################
 
 def getBldgLocation(targetpage):
   page = wptools.page(targetpage).get_parse()
-  infobox = page2.data['infobox']
+  infobox = page.data['infobox']
   location = infobox['location']
   return location
 
 rkb   = "Category:Rem Koolhaas buildings"
 bldgs = getBldgs(rkb)
 
-for i in range(3):
-  b = bldgs[i]
+idx = 0
+for b in bldgs:
+  idx += 1
+  if idx > 3: break
+
   loc = getBldgLocation(b)
   print('Building %s : location %s' % (b, loc))
 
