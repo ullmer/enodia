@@ -34,7 +34,7 @@ bldgs = getBldgs(rkb)
 idx = 0
 for b in bldgs:
   idx += 1
-  if idx > 7: break
+  #if idx > 7: break
 
   binfo = getBldgInfo(b)
   print('%s: {%s}' % (b, binfo))
