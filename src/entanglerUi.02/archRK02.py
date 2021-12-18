@@ -16,7 +16,7 @@ def getBldgs(targetpage):
 ################## get building location ##################
 
 def getBldgLocation(targetpage):
-  page = wptools.page(targetpage).get_parse()
+  page = wptools.page(targetpage, silent=True).get_parse()
   try:
     infobox = page.data['infobox']
     location = infobox['location']
@@ -29,7 +29,7 @@ bldgs = getBldgs(rkb)
 idx = 0
 for b in bldgs:
   idx += 1
-  if idx > 3: break
+  if idx > 7: break
 
   loc = getBldgLocation(b)
   print('Building %s : location %s' % (b, loc))
