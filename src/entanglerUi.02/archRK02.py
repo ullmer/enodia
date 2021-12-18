@@ -17,9 +17,11 @@ def getBldgs(targetpage):
 
 def getBldgLocation(targetpage):
   page = wptools.page(targetpage).get_parse()
-  infobox = page.data['infobox']
-  location = infobox['location']
-  return location
+  try:
+    infobox = page.data['infobox']
+    location = infobox['location']
+    return location
+  except: return None
 
 rkb   = "Category:Rem Koolhaas buildings"
 bldgs = getBldgs(rkb)
