@@ -19,11 +19,12 @@ def getBldgInfo(targetpage):
   page = wptools.page(targetpage, silent=True).get_parse()
   result = ''
   try:
-    infobox = page.data['infobox']
-    location  = infobox['location'];    result += ('location: %s, ' % location)
-    completed = infobox['completed'];   result += ('completed: %s, ' % completed)
-    floors    = infobox['Floor count']; result += ('floors: %s, ' % floors)
-    roof      = infobox['Roof'];        result += ('roof: %s, ' % roof)
+    infobox  = page.data['infobox']
+    location = infobox['location'];      result += ('location: "%s", ' % location)
+    opening  = infobox['opening'];       result += ('opening: "%s", ' % opening)
+    floors   = infobox['floor_count'];   result += ('floors: "%s", ' % floors)
+    roof     = infobox['roof'];          result += ('roof: "%s", ' % roof)
+    type     = infobox['building_type']; result += ('bldgType: "%s", ' % type)
   except: pass
   return result
 
