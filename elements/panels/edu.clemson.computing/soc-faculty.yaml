@@ -27,14 +27,18 @@ rank:
   slecturer: [Feaster, Kittelstad, Plaue]
   pop:       [Kwon, Russell, Shue, Taylor, Van Scoy]
 
-institutions:
- facultyTerminalDegree:
-  brown.edu:   [Tessendorf]
-  clemson.edu: [Patterson] 
-  gatech.edu:  [Caine, Kraemer, Zordan]
+institutions: #ftd: Faculty with Terminal Degrees
+  brown.edu:   {ftd: [Tessendorf]}
+  clemson.edu: {ftd: [Patterson]} 
+  gatech.edu:  {ftd: [Caine, Kraemer, Zordan]
   indiana.edu: [Freeman]
   mit.edu:     [Dean, Goddard, Ullmer]
   ncsu.edu:    [Martin]
+  osu.edu:     [Sitaraman]
+  psu.edu:     [McNeese]
+  tum.de:      [Hubig]
+  tamu.edu:    [Duchowski]
+  unibe.ch:   
   
  coordinates:
 
