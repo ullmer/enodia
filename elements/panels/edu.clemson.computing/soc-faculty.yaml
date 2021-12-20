@@ -33,13 +33,16 @@ institutions: #ftd: Faculty w/ Terminal Degrees; sab, cab: State, City Abbrv
                                                   sab: SC, cab: CEU, ia3: USA}
   mines.edu:      {ftd: [Liu],                    sab: CO, cab: DEN, ia3: USA}   
   udel.edu:       {ftd: [Li],                     sab: DE, cab: ILG, ia3: USA}
+  gmu.edu:        {ftd: [Shue],                   sab: VA, cab: DCA, ia3: USA}
   gatech.edu:     {ftd: [Caine, Kraemer, Zordan, Plaue], 
                                                   sab: GA, cab: ATL, ia3: USA}
   indiana.edu:    {ftd: [Freeman],                sab: IN, cab: BMG, ia3: USA}
+  jhu.edu:        {ftd: [Taylor],                 sab: MD, cab: BWI, ia3: USA}
   mit.edu:        {ftd: [Dean, Goddard, Ullmer],  sab: MA, cab: BOS, ia3: USA}
   ncsu.edu:       {ftd: [Martin],                 sab: NC, cab: RDU, ia3: USA}
   osu.edu:        {ftd: [Sitaraman],              sab: OH, cab: OSU, ia3: USA}
   psu.edu:        {ftd: [McNeese],                sab: PA, cab: UNV, ia3: USA}
+  scad.edu:       {ftd: [Kwon],                   sab: GA, cab: SAV, ia3: USA}
   tum.de:         {ftd: [Hubig],                           cab: MUC, ia3: DEU}
   tamu.edu:       {ftd: [Duchowski],              sab: TX, cab: CLL, ia3: USA}
   unibe.ch:       {ftd: [Dhillon Singh],                   cab: BRN, ia3: CHE}
