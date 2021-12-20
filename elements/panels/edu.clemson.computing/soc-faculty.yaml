@@ -28,17 +28,17 @@ rank:
   pop:       [Kwon, Russell, Shue, Taylor, Van Scoy]
 
 institutions: #ftd: Faculty with Terminal Degrees
-  brown.edu:   {ftd: [Tessendorf]}
-  clemson.edu: {ftd: [Patterson]} 
-  gatech.edu:  {ftd: [Caine, Kraemer, Zordan]
-  indiana.edu: [Freeman]
-  mit.edu:     [Dean, Goddard, Ullmer]
-  ncsu.edu:    [Martin]
-  osu.edu:     [Sitaraman]
-  psu.edu:     [McNeese]
-  tum.de:      [Hubig]
-  tamu.edu:    [Duchowski]
-  unibe.ch:   
+  brown.edu:   {ftd: [Tessendorf],             sab: RI, cab: PVD, ia3: USA}
+  clemson.edu: {ftd: [Patterson],              sab: SC, cab: CEU, ia3: USA} 
+  gatech.edu:  {ftd: [Caine, Kraemer, Zordan], sab: GA, cab: ATL, ia3: USA}
+  indiana.edu: {ftd: [Freeman],                sab: IN, cab: BMG, ia3: USA}
+  mit.edu:     {ftd: [Dean, Goddard, Ullmer],  sab: MA, cab: BOS, ia3: USA}
+  ncsu.edu:    {ftd: [Martin]
+  osu.edu:     {ftd: [Sitaraman]
+  psu.edu:     {ftd: [McNeese]
+  tum.de:      {ftd: [Hubig]
+  tamu.edu:    {ftd: [Duchowski]
+  unibe.ch:    {ftd: [
   
  coordinates:
 
