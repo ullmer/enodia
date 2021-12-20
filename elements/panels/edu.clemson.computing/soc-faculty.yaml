@@ -33,11 +33,11 @@ institutions: #ftd: Faculty with Terminal Degrees
   gatech.edu:    {ftd: [Caine, Kraemer, Zordan], sab: GA, cab: ATL, ia3: USA}
   indiana.edu:   {ftd: [Freeman],                sab: IN, cab: BMG, ia3: USA}
   mit.edu:       {ftd: [Dean, Goddard, Ullmer],  sab: MA, cab: BOS, ia3: USA}
-  ncsu.edu:      {ftd: [Martin],                 sab: NC, cab: 
-  osu.edu:       {ftd: [Sitaraman],              sab: OH,
-  psu.edu:       {ftd: [McNeese],                sab: PA,
-  tum.de:        {ftd: [Hubig],                           cab:   ia3: DEU}
-  tamu.edu:      {ftd: [Duchowski],
+  ncsu.edu:      {ftd: [Martin],                 sab: NC, cab: RDU, ia3: USA}
+  osu.edu:       {ftd: [Sitaraman],              sab: OH, cab: OSU, ia3: USA}
+  psu.edu:       {ftd: [McNeese],                sab: PA, cab: UNV, ia3: USA}
+  tum.de:        {ftd: [Hubig],                           cab: MUC, ia3: DEU}
+  tamu.edu:      {ftd: [Duchowski],              sab: TX, cab: CLL, ia3: USA}
   unibe.ch:      {ftd: [Dhillon Singh],                   cab: BRN, ia3: CHE}
   caluniv.ac.in: {ftd: [Srimani],                         cab: CCU, ia3: IND}
   :    {ftd: [],                   sab, cab:   ia3: }
