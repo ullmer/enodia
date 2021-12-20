@@ -27,7 +27,7 @@ rank:
   slecturer: [Feaster, Kittelstad, Plaue]
   pop:       [Kwon, Russell, Shue, Taylor, Van Scoy]
 
-institutions: #ftd: Faculty with Terminal Degrees
+institutions: #ftd: Faculty w/ Terminal Degrees; sab, cab: State, City Abbrv
   brown.edu:     {ftd: [Tessendorf],             sab: RI, cab: PVD, ia3: USA}
   clemson.edu:   {ftd: [Patterson],              sab: SC, cab: CEU, ia3: USA} 
   gatech.edu:    {ftd: [Caine, Kraemer, Zordan], sab: GA, cab: ATL, ia3: USA}
@@ -40,7 +40,8 @@ institutions: #ftd: Faculty with Terminal Degrees
   tamu.edu:      {ftd: [Duchowski],              sab: TX, cab: CLL, ia3: USA}
   unibe.ch:      {ftd: [Dhillon Singh],                   cab: BRN, ia3: CHE}
   caluniv.ac.in: {ftd: [Srimani],                         cab: CCU, ia3: IND}
-  :    {ftd: [],                   sab, cab:   ia3: }
+  uci.edu:       {ftd: [Knijnenburg],            sab: CA, cab: SNA, ia3: USA}
+  ucf.edu:       {ftd: [Wang],                   sab: FL, cab: MCO, ia3: USA}
   :    {ftd: [],                   cab:   ia3: }
   :    {ftd: [],                   sab, cab:   ia3: }
   :    {ftd: [],                   cab:   ia3: }
