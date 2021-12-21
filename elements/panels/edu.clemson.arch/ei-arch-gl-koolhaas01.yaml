@@ -1,0 +1,24 @@
+
+buildings:
+  111fs:  {wpName: 111 First Street}
+  121e22: {wpName: 121 East 22nd}
+  btcc:   {wpName: Beijing Television Cultural Center, country: chn, cab: pek, 
+           opening: 2012-05-16, floors: 34, roof: 159m}
+  cdm:    {wpName: Casa da Música, country: prt, cab: OPO}
+  cctvh:  {wpName: CCTV Headquarters, country: uae, cab: chn, cab: pek}
+  caa:    {wpName: Concrete (Alserkal Avenue), country: UAE  {location: "[[Al Quoz]], [[Dubai]]", }
+  wpName: Dee and Charles Wyly Theatre: {}
+  wpName: Embassy of the Netherlands, Berlin: {location: "[[Berlin]], Germany", }
+  wpName: Garage Museum of Contemporary Art: {location: "[[Moscow]], Russia", }
+  wpName: Guggenheim Hermitage Museum: {location: "[[The Venetian Las Vegas|The Venetian Resort Hotel Casino]], {{nowrap|[[Las Vegas, Nevada]]}}", }
+  wpName: Kunsthal: {location: "[[Rotterdam]], [[Netherlands]]", }
+  wpName: Leeum, Samsung Museum of Art: {}
+  wpName: McCormick Tribune Campus Center: {}
+  wpName: Nederlands Dans Theater: {}
+  wpName: Prada Transformer: {}
+  wpName: De Rotterdam: {location: "[[Rotterdam]] ([[Kop van Zuid|Wilhelmina Pier]])", opening: "2013", floors: "44", }
+  wpName: Timmerhuis: {location: "[[Stadsdriehoek]], [[Rotterdam]]", }
+  wpName: Seattle Central Library: {location: "1000 Fourth Avenue<br>[[Seattle, Washington]], U.S.", opening: "May 23, 2004", floors: "11", roof: "{{convert|185.01|ft|m|abbr|=|on}}", bldgType: "Public Library", }
+  wpName: Seoul National University Museum of Art: {}
+  wpName: Shenzhen Stock Exchange: {}
+  wpName: Torre Bicentenario: {location: "Pedregal 24, Molino del Rey<br/> Lomas de Chapultepec, [[Mexico City]]", }

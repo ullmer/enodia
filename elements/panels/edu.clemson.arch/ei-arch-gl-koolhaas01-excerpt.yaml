@@ -1,0 +1,6 @@
+
+buildings:
+  btcc:   {wpName: Beijing Television Cultural Center, country: chn, cab: pek, 
+           opening: 2012-05-16, floors: 34, roof: 159m}
+  cdm:    {wpName: Casa da Música, country: prt, cab: OPO}
+  cctvh:  {wpName: CCTV Headquarters, country: uae, cab: chn, cab: pek}
