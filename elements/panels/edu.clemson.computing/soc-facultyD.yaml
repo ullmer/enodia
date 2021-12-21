@@ -8,16 +8,14 @@
   washington.edu: {ftd: [Jin],                    sab: WA, cab: SEA, ia3: USA}
 
 geoRelations:
-  present:
-    ia3:
-      people:
-        usa: []
-    sab:
-      people:
-        sc:  []
-    cab:
-      people:
-        sc:  []
-  past:
+  ia3:
+    people:
+      usa: {present: []; past: []}
+  sab:
+    people:
+      sc: {present: []; past: []}
+  cab:
+    people:
+      clt:  []
 
 ### end ###
