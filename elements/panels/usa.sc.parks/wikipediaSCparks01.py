@@ -5,9 +5,6 @@
 import wikipediaapi
 import wptools
 
-
-#parks, site, area
-
 ##################### get buildings #####################
 
 def getCategoryMembers(targetpage):
@@ -19,8 +16,17 @@ def getCategoryMembers(targetpage):
 def getLinks(targetpage):
   ww=wikipediaapi.Wikipedia('en')
   page1 = ww.page(targetpage)
-  links = page1.links()
+  links = page1.links
   return links
+
+def plausibleTarget(candidateStr):
+
+  targetStrs = ['parks', 'site', 'area']
+  lowerCandStr = candidateStr.lower()
+  print(lowerCandStr)
+  for targetStr in targetStrs:
+    if lowerCandStr.find(targetStr) != -1: return True
+  return False 
 
 ################## get building location ##################
 
@@ -42,10 +48,10 @@ scParks = "List of South Carolina state parks"
 linkHash  = getLinks(scParks)
 
 idx = 0
-for link in linkHash.keys():
+for linkKey in linkHash.keys():
   idx += 1
-  if idx > 7: break
-  print(linkHash[link])
+  if idx > 20: break
+  if plausibleTarget(linkKey): print(linkKey)
 
   #loc = getBldgLocation(b)
   #print('Building %s : location %s' % (b, loc))
