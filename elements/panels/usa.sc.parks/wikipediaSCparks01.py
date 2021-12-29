@@ -20,13 +20,17 @@ def getLinks(targetpage):
   return links
 
 def plausibleTarget(candidateStr):
-
-  targetStrs = ['parks', 'site', 'area']
+  targetStrs = ['park', 'site', 'area']
   lowerCandStr = candidateStr.lower()
-  print(lowerCandStr)
   for targetStr in targetStrs:
     if lowerCandStr.find(targetStr) != -1: return True
   return False 
+  
+def withinExclusions(linkKey):
+  exclusionStrs = ['List of', 'Template:', 'Template talk:', 'Category:', 'Lists of']
+  for exclusionStr in exclusionStrs:
+    if linkKey.find(exclusionStr) != -1: return True
+  return False
 
 ################## get building location ##################
 
@@ -50,8 +54,8 @@ linkHash  = getLinks(scParks)
 idx = 0
 for linkKey in linkHash.keys():
   idx += 1
-  if idx > 20: break
-  if plausibleTarget(linkKey): print(linkKey)
+  if plausibleTarget(linkKey) and not withinExclusions(linkKey):
+    print(linkKey)
 
   #loc = getBldgLocation(b)
   #print('Building %s : location %s' % (b, loc))
