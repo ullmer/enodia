@@ -17,21 +17,6 @@ def getCategoryMembers(targetpage):
   categories = page1.categorymembers.keys()
   return categories
 
-#next draws from https://stackoverflow.com/questions/18916616/get-first-link-of-wikipedia-article-using-wikipedia-api
-
-def isValid(ref,paragraph): #by Christopher Chiche, per above
-   if not ref or "#" in ref or "//" in ref or ":" in ref: return False
-   if "/wiki/" not in ref:   return False
-   if ref not in paragraph:  return False
-   prefix = paragraph.split(ref,1)[0]
-   if prefix.count("(")!=prefix.count(")"): return False
-   return True
-
-def validateTag(tag): #by Christopher Chiche, per above
-   name = tag.name
-   isParagraph = name == "p"
-   isList = name == "ul"
-   return isParagraph or isList
 
 def getLinksOrdered(targetpage):  
    links = []
@@ -40,7 +25,6 @@ def getLinksOrdered(targetpage):
    soup = BeautifulSoup(req.content, 'html.parser')
    s2 = soup.find(id="mw-content-text")
    for paragraph in s2:
-     print("foo")
      try:
        for link in paragraph.find_all("a"): 
          links.append(link["href"])
