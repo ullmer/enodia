@@ -48,7 +48,6 @@ def getBldgLocation(targetpage):
   except: return None
 
 scParks = "List of South Carolina state parks"
-#parkEls = getCategoryMembers(scParks)
 linkHash  = getLinks(scParks)
 
 idx = 0
