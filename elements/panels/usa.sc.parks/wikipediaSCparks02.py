@@ -38,13 +38,14 @@ def getLinksOrdered(targetpage):
 
    req = requests.get(targetpage)
    soup = BeautifulSoup(req.content, 'html.parser')
-   soup = soup.find(id="mw-content-text")
-   for paragraph in soup.find_all(validateTag, recursive=False):
-      for link in paragraph.find_all("a"):
-         links.append(link)
-         #ref = link.get("href")
-         #if isValid(str(ref),str(paragraph)):
-         #   links.append(link)
+   s2 = soup.find(id="mw-content-text")
+   for paragraph in s2:
+     print("foo")
+     try:
+       for link in paragraph.find_all("a"): 
+         links.append(link["href"])
+         #print("FOO>> ", link)
+     except: pass
    return links
 
 def getLinks(targetpage):
