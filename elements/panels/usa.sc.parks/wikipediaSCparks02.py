@@ -72,7 +72,8 @@ def getBldgLocation(targetpage):
 park1   = "Aiken State Park"
 #linkHash  = getLinks(park1)
 links = getLinksOrdered("https://en.wikipedia.org/wiki/Aiken_State_Park")
-print(links)
+
+for link in links: print(link)
 
 #idx = 0
 #for linkKey in linkHash.keys():
