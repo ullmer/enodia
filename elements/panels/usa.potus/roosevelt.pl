@@ -7,8 +7,9 @@
 :- discontiguous(married/2).
 :- discontiguous(parents/3).
 
-males([i.d.roosevelt, j.roosevelt, f.d.roosevelt, f.d.roosevelt2]).
-females([r.howland, s.a.delano, a.e.roosevelt, a.e.roosevelt2]).
+parents(j.s.thomas, c.m.v.rosenvelt, [e.roosevelt, a.m.roosevelt, n.roosevelt]).
+parents(h.j.kunst, n.roosevelt, [n.roosevelt2, jo.roosevelt, ja.roosevelt]).
+parents(
 
 parents(r.howland,  j.roosevelt, [j.r.roosevelt]).
 parents(s.a.delano, j.roosevelt, [f.d.roosevelt]).
@@ -21,8 +22,7 @@ married(a.e.roosevelt, f.d.roosevelt).
 
 potus(f.d.roosevelt, 32, 1933, 1945).
 
-person(f.d.roosevelt, roosevelt, franklin, d, 
-       1882, hyde park, ny, 1945, warm springs, ga).
+person(f.d.roosevelt, roosevelt, franklin, d, 1882, hydepark, ny, 1945, warmsprings, ga).
 
 nicknames(f.d.roosevelt, [fdr]).
 nicknames(t.roosevelt, [teddy]).

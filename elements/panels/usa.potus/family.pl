@@ -5,8 +5,12 @@
 
 %:- module(family, []).
 
-male(X)        :- males(Y),     member(X, Y).
-female(X)      :- females(Y),   member(X, Y).
+male(P)    :- parents(_, P, _).
+female(P)  :- parents(P, _, _).
+
+%male(X)    :- males(Y),   member(X, Y).
+%female(X)  :- females(Y), member(X, Y).
+
 father(F, C)   :- parents(_, F, L), member(C, L).
 mother(M, C)   :- parents(M, _, L), member(C, L).
 parent(P, C)   :- mother(P,C); father(P,C).
@@ -42,9 +46,10 @@ daughter(Child,Parent) :- female(Child), parent(Parent,Child).
 
 grandfather(GF,GC) :- male(GF),   parent(GF,Somebody),parent(Somebody,GC).
 grandmother(GM,GC) :- female(GM), parent(GM,Somebody),parent(Somebody,GC).
-aunt(X,Y)     :- female(X), sister(X,Mom), mother(Mom,Y).
-aunt(X,Y)     :- female(X), sister(X,Dad), father(Dad,Y).
+
 uncle(X,Y)    :- brother(Par, X), parent(Par,Y).
+aunt(X,Y)     :- sister(Par, X),  parent(Par,Y).
+
 nephew(X,Y)   :- male(Y),   (aunt(Y, X); uncle(Y, X)).
 niece(X,Y)    :- female(Y), (aunt(Y, X); uncle(Y, X)).
 
