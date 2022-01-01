@@ -7,9 +7,16 @@
 :- discontiguous(married/2).
 :- discontiguous(parents/3).
 
+girls([molly.mabray, trini.mumford, vera.malakas])
+dogs([suki]).
+
 parents(layla.mabray, walter-mabray, [molly.mabray]). married(layla.mabray, walter.mabray).
+parents(nkw, nehtan.kon, [layla.mabray]).
 
 person(molly.mabray, mabra, molly).
+
+nicknames(nehtan.kon, [nat, grandpa.nat, lightning]).
+
 %nicknames(molly.mabray, [molly]).
 
 %:s/.*/\L&/
