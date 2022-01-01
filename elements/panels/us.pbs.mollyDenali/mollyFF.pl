@@ -7,24 +7,24 @@
 :- discontiguous(married/2).
 :- discontiguous(parents/3).
 
-girls([molly.mabray, trini.mumford, vera.malakas]).
-boys([tookone.ookami, oscar.marsh]).
+girls([molly_mabray, trini_mumford, vera_malakas]).
+boys([tookone_ookami, oscar_marsh]).
 
-friends(molly.mabray, [tookone.ookami, trini.mumford, oscar.marsh]).
+friends(molly_mabray, [tookone_ookami, trini_mumford, oscar_marsh]).
 
 dogs([suki]).
 
-pets(molly.mabray,   [suki, bandifer]).
-pets(tookone.ookami, [anka, luka, laika, tukoni, skippy, jax, 
+pets(molly_mabray,   [suki, bandifer]).
+pets(tookone_ookami, [anka, luka, laika, tukoni, skippy, jax, 
                       rascal, kiwi, kobi, atsoo, sasha, mouse, bandifer]).
 
-parents(layla.mabray, walter-mabray, [molly.mabray]). married(layla.mabray, walter.mabray).
-parents(atsaq.ookami, kenji.ookami,  [tookone.ookami, jay.ookami, john.ookami]).
-parents(joy.mumford, daniel.mumford, [trini.mumford]).
-parents(renate.marsh, omf,           [oscar.marsh]).
-parents(midge.marsh,  rmf,           [renate.marsh]).
-parents(mmm, mmf,                    [midge.marsh, annie.marsh]).
-parents(nkw, nehtan.kon, [layla.mabray]).
+parents(layla_mabray, walter_mabray, [molly_mabray]).  married(layla_mabray, walter_mabray).
+parents(atsaq_ookami, kenji_ookami,  [tookone_ookami, jay_ookami, john_ookami]).
+parents(joy_mumford, daniel_mumford, [trini_mumford]). married(joy_mumford, daniel_mumford).
+parents(renate_marsh, omf,           [oscar_marsh]).   
+parents(midge_marsh,  rmf,           [renate_marsh]).
+parents(mmm, mmf,                    [midge_marsh, annie_marsh]).
+parents(nkw, nehtan_kon, [layla_mabray]).
 
 person(molly.mabray, mabra, molly).
 
