@@ -4,6 +4,9 @@
 
 import wikipediaapi
 import wptools
+import requests
+from bs4 import BeautifulSoup
+import sys
 
 ##################### get buildings #####################
 
@@ -12,6 +15,24 @@ def getCategoryMembers(targetpage):
   page1 = ww.page(targetpage)
   categories = page1.categorymembers.keys()
   return categories
+
+def spaceToUnderscore(str):
+  result = string.replace(" ", "_")
+  return result
+
+def getLinksOrdered(targetpage):  
+   links = []
+
+   req = requests.get(targetpage)
+   soup = BeautifulSoup(req.content, 'html.parser')
+   s2 = soup.find(id="mw-content-text")
+   for paragraph in s2:
+     try:
+       for link in paragraph.find_all("a"): 
+         links.append(link["href"])
+         #print("FOO>> ", link)
+     except: pass
+   return links
 
 def getLinks(targetpage):
   ww=wikipediaapi.Wikipedia('en')
@@ -47,16 +68,25 @@ def getBldgLocation(targetpage):
     return location
   except: return None
 
+#scParks = "List of South Carolina state parks"
+#linkHash  = getLinks(scParks)
+
+park1   = "Aiken State Park"
+#linkHash  = getLinks(park1)
+links = getLinksOrdered("https://en.wikipedia.org/wiki/Aiken_State_Park")
+
+for link in links: print(link)
+
 scParks = "List of South Carolina state parks"
 linkHash  = getLinks(scParks)
+
 
 idx = 0
 for linkKey in linkHash.keys():
   idx += 1
   if plausibleTarget(linkKey) and not withinExclusions(linkKey):
-    print(linkKey)
-
-  #loc = getBldgLocation(b)
-  #print('Building %s : location %s' % (b, loc))
+    #print(linkKey)
+    link2 = spaceToUnderscore(linkKey)
+    recordLinks(link2)
 
 ### end ###
