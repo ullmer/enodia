@@ -27,6 +27,8 @@ parents(mmm, mmf,                    [midge_marsh, annie_marsh]).
 parents(nkw, nehtan_kon, [layla_mabray]).
 
 person(molly_mabray, mabray, molly).
+person(layla_mabray, mabray, layla).
+person(
 
 nicknames(tookkone_ookami, [tooey]).
 nicknames(midge_marsh, [auntie_midge]).
