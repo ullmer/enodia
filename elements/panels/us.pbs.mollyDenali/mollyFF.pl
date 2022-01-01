@@ -8,13 +8,22 @@
 :- discontiguous(parents/3).
 
 girls([molly.mabray, trini.mumford, vera.malakas])
+
+friends[molly.mabray, tookone.ookami, trini.mumford]).
+
 dogs([suki]).
 
+pets(molly.mabray,   [suki, bandifer]).
+pets(tookone.ookami, [anka, luka, laika, tukoni, skippy, jax, 
+                      rascal, kiwi, kobi, atsoo, sasha, mouse, bandifer]).
+
 parents(layla.mabray, walter-mabray, [molly.mabray]). married(layla.mabray, walter.mabray).
+parents(atsaq.ookami, kenji.ookami,  [tookone.ookami, jay.ookami, john.ookami]).
 parents(nkw, nehtan.kon, [layla.mabray]).
 
 person(molly.mabray, mabra, molly).
 
+nicknames(tookkone.ookami, [tooey]).
 nicknames(nehtan.kon, [nat, grandpa.nat, lightning]).
 
 %nicknames(molly.mabray, [molly]).
