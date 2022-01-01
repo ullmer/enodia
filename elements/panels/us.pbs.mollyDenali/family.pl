@@ -6,7 +6,13 @@
 %:- module(family, []).
 
 male(P)    :- parents(_, P, _).
+male(P)    :- boys(B), member(P, B).
+
 female(P)  :- parents(P, _, _).
+female(P)  :- girls(G), member(P, G).
+
+friend(P1, P2) :- (friends(P1, F), member(P2, F));
+                  (friends(P2, G), member(P1, G)).
 
 %male(X)    :- males(Y),   member(X, Y).
 %female(X)  :- females(Y), member(X, Y).

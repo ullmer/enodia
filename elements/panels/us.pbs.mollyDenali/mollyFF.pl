@@ -7,7 +7,7 @@
 :- discontiguous(married/2).
 :- discontiguous(parents/3).
 
-girls([molly.mabray, trini.mumford, vera.malakas])
+girls([molly.mabray, trini.mumford, vera.malakas]).
 boys([tookone.ookami, oscar.marsh]).
 
 friends(molly.mabray, [tookone.ookami, trini.mumford, oscar.marsh]).
