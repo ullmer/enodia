@@ -26,13 +26,11 @@ parents(midge_marsh,  rmf,           [renate_marsh]).
 parents(mmm, mmf,                    [midge_marsh, annie_marsh]).
 parents(nkw, nehtan_kon, [layla_mabray]).
 
-person(molly.mabray, mabra, molly).
+person(molly_mabray, mabray, molly).
 
-nicknames(tookkone.ookami, [tooey]).
-nicknames(midge.marsh, [auntie.midge]).
-nicknames(nehtan.kon, [nat, grandpa.nat, lightning]).
-
-%nicknames(molly.mabray, [molly]).
+nicknames(tookkone_ookami, [tooey]).
+nicknames(midge_marsh, [auntie_midge]).
+nicknames(nehtan_kon, [nat, grandpa_nat, lightning]).
 
 %:s/.*/\L&/
 
