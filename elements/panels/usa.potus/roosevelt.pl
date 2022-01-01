@@ -7,10 +7,11 @@
 :- discontiguous(married/2).
 :- discontiguous(parents/3).
 
+males([i.d.roosevelt, j.roosevelt, f.d.roosevelt, f.d.roosevelt2]).
+females([r.howland, s.a.delano, a.e.roosevelt, a.e.roosevelt2]).
 
-males([
-females([a.e.roosevelt, a.e.roosevelt2]
-
+parents(r.howland,  j.roosevelt, [j.r.roosevelt]).
+parents(s.a.delano, j.roosevelt, [f.d.roosevelt]).
 
 parents(a.e.roosevelt, f.d.roosevelt, 
   [a.e.roosevelt2, j.roosevelt2, f.d.roosevelt2, e.roosevelt, 
