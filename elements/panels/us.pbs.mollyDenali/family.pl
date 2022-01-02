@@ -36,6 +36,10 @@ partners(X, Y) :- married(X, Y); parents(X, Y, _).
 wife(X, Y)     :- married(X, Y), female(X).
 husband(X, Y)  :- married(X, Y), husband(X).
 
+relationFF(X, F1, F2) :-                  %F1 and F2 are firstnames
+  fullFirst(FL1, F1), fullFirst(FL2, F2), %FL1 and FL2 are fullnames
+  relation(X, FL1, FL2).
+
 relation(father, X, Y)   :- father(X, Y).
 relation(mother, X, Y)   :- mother(X, Y).
 relation(sister, X, Y)   :- sister(X, Y).
