@@ -11,8 +11,10 @@ fullLast(Fullname,  Lastname)  :-
 fullFirst(Fullname, Firstname) :- 
   person(lf, Fullname, L), nth0(1, L, Firstname).
 
-fullNick(Fullname,  Nicknames) :- 
+fullNickL(Fullname,  Nicknames) :- 
   person(lfn, Fullname, L), nth0(2, L, Nicknames).
+
+fullNick(Fullname,  Nickname) :- fullNickL(Fullname, L), member(Nickname, L).
 
 male(P)    :- parents(_, P, _).
 male(P)    :- boys(B), member(P, B).
