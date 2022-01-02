@@ -5,9 +5,14 @@
 
 %:- module(family, []).
 
-fullFirst(Fullname, Firstname) :- person(flf,  [Fullname, Firstname, _]).
-fullNick(Fullname, Nickname)   :- 
-  person(flfn, [Fullname, _, N]), member(Nickname, N).
+fullLast(Fullname,  Lastname)  :- 
+  person(lf, Fullname, L), nth0(0, L, Lastname).
+
+fullFirst(Fullname, Firstname) :- 
+  person(lf, Fullname, L), nth0(1, L, Firstname).
+
+fullNick(Fullname,  Nicknames) :- 
+  person(lfn, Fullname, L), nth0(2, L, Nicknames).
 
 male(P)    :- parents(_, P, _).
 male(P)    :- boys(B), member(P, B).

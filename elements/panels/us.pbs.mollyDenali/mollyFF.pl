@@ -28,20 +28,20 @@ parents(nkw, nehtan_kon, [layla_mabray]).
 personMeta(flfn, [full, last, first, nickname]). %specify level of detail to describe people
 personMeta(flf,  [full, last, first]).           %specify level of detail to describe people
 
-person(flf, [molly_mabray,  mabray, molly]).
-person(flf, [layla_mabray,  mabray, layla]).
-person(flf, [walter_mabray, mabray, walter]).
+person(lf, molly_mabray,  [mabray, molly]).
+person(lf, layla_mabray,  [mabray, layla]).
+person(lf, walter_mabray, [mabray, walter]).
 
-person(flf, [trini_mumford,  mumford, trini]).
-person(flf, [joy_mumford,    mumford, joy]).
-person(flf, [daniel_mumford, mumford, daniel]).
+person(lf, trini_mumford,  [mumford, trini]).
+person(lf, joy_mumford,    [mumford, joy]).
+person(lf, daniel_mumford, [mumford, daniel]).
 
-person(flfn, [tookone_ookami, ookami, tookkone, [tooey]]).
-person(flf,  [atsaq_ookami,   ookami, atsaq]).
-person(flf,  [kenji_ookami,   ookami, kenji]).
+person(lfn, tookone_ookami, [ookami, tookkone, [tooey]]).
+person(lf,  atsaq_ookami,   [ookami, atsaq]).
+person(lf,  kenji_ookami,   [ookami, kenji]).
 
-person(flfn, [midge_marsh, marsh, midge,  [auntie_midge, chief_midge]]).
-person(flfn, [nehtan_kon,  kon,   nehtan, [nat, grandpa_nat, lightning]]).
+person(lfn, midge_marsh, [marsh, midge,  [auntie_midge, chief_midge]]).
+person(lfn, nehtan_kon,  [kon,   nehtan, [nat, grandpa_nat, lightning]]).
 
 %:s/.*/\L&/
 
