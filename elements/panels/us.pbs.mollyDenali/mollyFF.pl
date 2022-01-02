@@ -33,15 +33,15 @@ person(flf, [layla_mabray,  mabray, layla]).
 person(flf, [walter_mabray, mabray, walter]).
 
 person(flf, [trini_mumford,  mumford, trini]).
-person(flf, [joy_mumford,    mumford, joy]
+person(flf, [joy_mumford,    mumford, joy]).
 person(flf, [daniel_mumford, mumford, daniel]).
 
 person(flfn, [tookone_ookami, ookami, tookkone, [tooey]]).
 person(flf,  [atsaq_ookami,   ookami, atsaq]).
 person(flf,  [kenji_ookami,   ookami, kenji]).
 
-person(flfn, [midge_marsh, marsh, midge,  [auntie_midge, chief_midge]).
-person(flfn, [nehtan_kon,  kon,   nehtan, [nat, grandpa_nat, lightning]).
+person(flfn, [midge_marsh, marsh, midge,  [auntie_midge, chief_midge]]).
+person(flfn, [nehtan_kon,  kon,   nehtan, [nat, grandpa_nat, lightning]]).
 
 %:s/.*/\L&/
 
