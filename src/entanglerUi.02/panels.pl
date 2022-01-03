@@ -2,28 +2,30 @@
 % Brygg Ullmer, Clemson University
 % Begun 2022-01-03
 
-commonDenominators([people, places, times, unsdg]).
+commonDenominators([people, places, times, unsdg, researchInterests]).
 
 defaultDescr('panel.pl') %e.g., "elements/panels/unsdg/panel.pl"
 
 panelDescr(hd, [handleStr, denominators]).
 
 qualRelation(people, strong,   El1, El2) :- %qualitative relation
-  associatedPerson(El1, P1), associatedPerson(El2, P1), P1=P2.
+  associatedPerson(El1, P1), associatedPerson(El2, P2), samePerson(P1, P2).
+  
+qualRelation(people, strong,   El1, El2) :- %qualitative relation
+  associatedPerson(El1, P1), associatedPerson(El2, P2), samePerson(P1, P2).
   
 qualRelation(places, moderate, El1, El2) :- %qualitative relation
-  presentLocation(El1, Place1), presentLocation(El2, Place2), Place1=Place2.
+  presentLocation(El1, P1), presentLocation(El2, P2), samePlace(P1, P2).
   
 qualRelation(places, weak, El1, El2) :- %qualitative relation
-  presentLocation(El1, Place1n), presentLocation(El2, Place2n), %n: now
-  pastLocation(El1, Place1t), pastLocation(El2, Place2t),       %t: then
-  (Place1n = Place2t; Place1p = Place2p; Place1p = Place2n).
+  presentLocation(El1, P1n), presentLocation(El2, P2n), %n: now
+  pastLocation(El1, P1t), pastLocation(El2, P2t),       %t: then
+  (samePlace(P1n, P2t); samePlace(P1p, P2p); samePlace(P1p, P2n)).
 
-Place1=Place2.
-  
+panel(edu.clemson.computing, ['edu.clemson.computing', 
+                              [people, researchInterests]]).
 
-edu.clemson.computing
-panel(edu.clemson.arch, ['edu.clemson.arch', [people
+panel(edu.clemson.arch,      ['edu.clemson.arch',      [people, 
 
 globe.qantipode
 unsdg
