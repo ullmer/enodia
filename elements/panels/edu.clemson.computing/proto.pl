@@ -2,6 +2,7 @@
 % domain categories 
 
 metaCat(hn,       [handle, name]).
+metaCat(hnflfl,   [handle, name, firstname, lastname, firstnameStr, lastnameStr]).
 metaCat(hncp,     [handle, name, category, people]).
 metaCat(hdncpsci, [handle, domain, name, category, people, sab, cab, ia3]). 
   %sab, cab, ia3: state, city, country abbrevs
@@ -19,6 +20,8 @@ doCat(division, hcc,  hncp, ['hcc', soc, 'Human-Centered Computing']).
 
 doCat(acadRank, asst, hncp,  ['asst', acadRank, 'Assistant Professor', 
                              [jb, lc...]]).
+
+doCat(person, bcd, hnflfl, ['bcd', 'Brian C. Dean', brian, dean, 'Brian', 'Dean']).
 
 doCat(inst, brown, hdncpsci, ['brown', 'brown.edu', 'Brown University', [jt], ri, pvd, usa]).
 
