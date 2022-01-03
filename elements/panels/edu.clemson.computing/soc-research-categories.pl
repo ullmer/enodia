@@ -7,7 +7,8 @@ metaCat(hncp, [handle, name, category, people]).
 doCat(research, ai,   hn,   ['ai',   'Artificial Intelligence']).     %handle, name
 doCat(research, aie,  hncp, ['aie',  ai, 'AI Education', [kc, bk]]).  %handle, name, category, people
 docat(research, dmml, hncp, ['dmml', ai, 'Data Mining & Machine Learning', 
-                                   [bcd, ah, nh, sj, sj, ik, kl, fl, ep, jw, yy, ar, nl]].
+                                   [bcd, ah, nh, sj, sj, ik, kl, fl, ep, jw, yy, ar, nl]]).
+docat(research, haii, hncp, ['haii', ai, 'Human-AI Interaction', [kc, bk, nm]]).
 
 Artificial Intelligence:
   AI Education: [Kelly Caine, Bart Knijnenburg]
