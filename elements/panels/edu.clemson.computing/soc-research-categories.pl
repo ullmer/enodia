@@ -1,11 +1,13 @@
 
 % domain categories 
 
-doCat(hn,   research, ai,   ['ai',   'Artificial Intelligence']).     %handle, name
-doCat(hncp, research, aie,  ['aie',  ai, 'AI Education', [kc, bk]]).  %handle, name, category, people
-docat(hncp, research, dmml, ['dmml', ai, 'Data Mining & Machine Learning', 
-                                   [bcd, ah, nh, sj, sj, ik, kl, fl, ep, jw, yy, ar, nl]].
+metaCat(hn,   [handle, name]).
+metaCat(hncp, [handle, name, category, people]).
 
+doCat(research, ai,   hn,   ['ai',   'Artificial Intelligence']).     %handle, name
+doCat(research, aie,  hncp, ['aie',  ai, 'AI Education', [kc, bk]]).  %handle, name, category, people
+docat(research, dmml, hncp, ['dmml', ai, 'Data Mining & Machine Learning', 
+                                   [bcd, ah, nh, sj, sj, ik, kl, fl, ep, jw, yy, ar, nl]].
 
 Artificial Intelligence:
   AI Education: [Kelly Caine, Bart Knijnenburg]
