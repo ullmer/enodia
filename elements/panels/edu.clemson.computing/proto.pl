@@ -2,16 +2,17 @@
 % domain categories 
 
 doCatDescr(hn,       [handle, name]).
-doCatDescr(hnflfl,   [handle, name, firstname, lastname, firstnameStr, lastnameStr]).
+doCatDescr(hnflfl,   [handle, name, firstname, lastname, 
+                                    firstnameStr, lastnameStr]).
 doCatDescr(hncp,     [handle, name, category, people]).
 doCatDescr(hdncpsci, [handle, domain, name, category, people, sab, cab, ia3]). 
   %sab, cab, ia3: state, city, country abbrevs
 
 doCat(research, ai,   hn,   ['ai',   'Artificial Intelligence']).     %handle, name
 doCat(research, aie,  hncp, ['aie',  ai, 'AI Education', [kc, bk]]).  %handle, name, category, people
-docat(research, dmml, hncp, ['dmml', ai, 'Data Mining & Machine Learning', 
+doCat(research, dmml, hncp, ['dmml', ai, 'Data Mining & Machine Learning', 
                                    [bcd, ah, nh, sj, sj, ik, kl, fl, ep, jw, yy, ar, nl]]).
-docat(research, haii, hncp, ['haii', ai, 'Human-AI Interaction', [kc, bk, nm]]).
+doCat(research, haii, hncp, ['haii', ai, 'Human-AI Interaction', [kc, bk, nm]]).
 
 doCat(division, cs,  hncp, ['cs',  soc, 'Computer Science',
   [bcd, nh, kl, fl, jw, yy, wg, sh, ps, ms, jm, js, mw, dd, pr, ms, aa, rg, lc, ar, zz, nl]]).
@@ -19,12 +20,13 @@ doCat(division, cs,  hncp, ['cs',  soc, 'Computer Science',
 doCat(division, hcc,  hncp, ['hcc', soc, 'Human-Centered Computing']).
 
 doCat(acadRank, asst, hncp,  ['asst', acadRank, 'Assistant Professor', 
-                             [jb, lc...]]).
+                             [jb, lc]]).
 
 doCat(person, bcd, hnflfl, ['bcd', 'Brian C. Dean', brian, dean, 'Brian', 'Dean']).
 
 doCat(inst, brown, hdncpsci, ['brown', 'brown.edu', 'Brown University', [jt], ri, pvd, usa]).
 
+/*
 Artificial Intelligence:
   AI Education: [Kelly Caine, Bart Knijnenburg]
   Data Mining & Machine Learning: [Brian C. Dean, Alexander Herzog, 
@@ -70,4 +72,4 @@ institutions: #ftd: Faculty w/ Terminal Degrees; sab, cab: State, City Abbrv
   mines.edu:      {ftd: [Liu],                    sab: CO, cab: DEN, ia3: USA}
   udel.edu:       {ftd: [Li],                     sab: DE, cab: ILG, ia3: USA}
   gmu.edu:        {ftd: [Shue],                   sab: VA, cab: DCA, ia3: USA}
-
+*/
