@@ -1,10 +1,10 @@
 
 % domain categories 
 
-metaCat(hn,       [handle, name]).
-metaCat(hnflfl,   [handle, name, firstname, lastname, firstnameStr, lastnameStr]).
-metaCat(hncp,     [handle, name, category, people]).
-metaCat(hdncpsci, [handle, domain, name, category, people, sab, cab, ia3]). 
+doCatDescr(hn,       [handle, name]).
+doCatDescr(hnflfl,   [handle, name, firstname, lastname, firstnameStr, lastnameStr]).
+doCatDescr(hncp,     [handle, name, category, people]).
+doCatDescr(hdncpsci, [handle, domain, name, category, people, sab, cab, ia3]). 
   %sab, cab, ia3: state, city, country abbrevs
 
 doCat(research, ai,   hn,   ['ai',   'Artificial Intelligence']).     %handle, name
