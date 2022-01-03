@@ -3,6 +3,8 @@ module(soc01a, []).
 :- use_module(library(yaml)).
 :- use_module(library(dicts)).
 
+passertz(X) :- writeln(X), assertz(X).
+
 %%%%%%%%%%%%% string processing and auto-abbreviation helpers %%%%%%%%%%%%%%%
 
 strToWords(Str, Words)    :- split_string(Str, " -", " ", Words).
@@ -30,7 +32,7 @@ assertDivisions(YAML) :- dict_keys(YAML.'divisions', Divisions),
  foreach(member(Division, Divisions), assertDivision(YAML, Division)).
 
 assertDivision(YAML, Division) :-
- assertz(division(Division)),
+ passertz(division(Division)),
  forall(member(Faculty, YAML.'divisions'.Division), 
    addFaculty(Division, Faculty)).
 
@@ -50,7 +52,7 @@ assertManualResearchAbbrev(YAML, ManualAlias) :- %writeln(ManualAlias),
 assertManualResearchAbbrv(ManualAlias, SpecificAlias) :- 
   %writeln(['amra1', SpecificAlias]),
   string(SpecificAlias), 
-  assertz(areaAbbrev(ManualAlias, SpecificAlias)).
+  passertz(areaAbbrev(ManualAlias, SpecificAlias)).
 
 assertManualResearchAbbrv(ManualAlias, SpecificAliases) :- 
   %debug(['amra2', SpecificAliases]),
@@ -61,7 +63,7 @@ assertManualResearchAbbrv(ManualAlias, SpecificAliases) :-
 %%%%%%%%%%%%%%%%% add faculty %%%%%%%%%%%%%%%%%%%
 
 addFaculty(Division, Faculty) :-
-  assertz(faculty(Faculty)), assertz(divisionMember(Faculty, Division)).
+  passertz(faculty(Faculty)), passertz(divisionMember(Faculty, Division)).
 
 assertResearchAreas(YAMLwhole) :- 
  YAML = YAMLwhole.'researchAreas', dict_keys(YAML, MajorAreas),
@@ -73,16 +75,16 @@ assertResearchAreas(YAMLwhole) :-
 
 assertSpecificAreas(YAML, MajorArea) :- 
  Area = YAML.MajorArea, dict_keys(Area, SpecificAreas),
- assertz(researchArea(MajorArea)),
+ passertz(researchArea(MajorArea)),
  forall(member(SpecificArea, SpecificAreas), 
    assertSpecificArea(MajorArea, SpecificArea, Area.SpecificArea)).
    
 assertSpecificArea(MajorArea, SpecificArea, PersonList) :-
-  assertz(researchArea(MajorArea, SpecificArea)),
+  passertz(researchArea(MajorArea, SpecificArea)),
   forall(member(Person, PersonList), 
-    assertz(researchFocus(Person, MajorArea, SpecificArea))).
+    passertz(researchFocus(Person, MajorArea, SpecificArea))).
 
-:- dynamic(areaAbbrev/2). % most instantiations to be expressed via assertz; 
+:- dynamic(areaAbbrev/2). % most instantiations to be expressed via passertz; 
                           % but one must exist for findall
 areaAbbrev([], []).
 
@@ -98,7 +100,7 @@ assertAreaAbbreviation(Area) :- areaAbbrev(Area, _).
 
 assertAreaAbbreviation(Area) :- %writeln(Area),
   strToAbbrev(Area, Abbrev),
-  assertz(areaAbbrev(Area, Abbrev)).
+  passertz(areaAbbrev(Area, Abbrev)).
 
 areaAbbrevRE(Area, AbbrevRE) :-
   areaAbbrev(Area, Abbrev), wildcard_match(AbbrevRE, Abbrev).
@@ -117,7 +119,6 @@ majorAreaAbbrev(Area, Abbrev) :- researchArea(Area), areaAbbrev(Area, Abbrev).
 
 listMajorAreas(L2) :- 
   findall([Abbrev, Area], majorAreaAbbrev(Area, Abbrev), L1), sort(L1, L2).
-
 
 
 listDivisions(L2) :- 
@@ -171,7 +172,7 @@ personAbbrevRE(FullName, Abbrev, AbbrevRE) :-
 assertPersonAbbreviation(Person) :- personAbbrev(Person, _).
 assertPersonAbbreviation(Person) :-
   strToAbbrev(Person, Abbrev),
-  assertz(personAbbrev(Person, Abbrev)).
+  passertz(personAbbrev(Person, Abbrev)).
 
 assertPersonAbbreviations() :-
   findall(Person, faculty(Person), People),
