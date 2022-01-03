@@ -10,6 +10,8 @@ illuminated(CurrentSpread, IPanel, CellCoord) :-
   (chosen(Concept2); chosen(Concept1)).  
    %considered rya, valin, picked, pinched, selected as alternatives
 
+%commonDenominators([people, places, times, unsdg]).
+
 withinActiveSpread(Concept) :- 
   ipanelWithinSpread(Ipanel), 
   conceptWithinIpanel(Concept, Ipanel).
