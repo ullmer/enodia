@@ -6,33 +6,42 @@ doCat(division, cs,  hncp, [soc, 'Computer Science',
   [apon, dean, hubig, liu, luo, wang, yang, goddard, hedetniemi, srimani, smotherman,
    martin, sorber, westall, donar, rodeghero, sitaraman, ge, cheng, razi, zhang, li]]).
 
-doCat(inst, brown, dncpsci, ['brown.edu', 'Brown University', [tessendorf], ri, pvd, usa]).
 
-doCat(person, apon,       flr,  ['Amy', 'Apon',          full]).
-doCat(person, dean,       fmlr, ['Brian', 'C.', 'Dean',  full]).
-doCat(person, hubig,      flr,  ['Nina', 'Hubig',        asst]).
-doCat(person, liu,        flr,  ['Kai', 'Liu',           asst]).
-doCat(person, luo,        flr,  ['Feng', 'Luo',          full]).
-doCat(person, wang,       flr,  ['James', 'Wang',        full]).
-doCat(person, yang,       flr,  ['Yin', 'Yang',          assoc]).
-doCat(person, goddard,    flr,  ['Wayne', 'Goddard',     full]).
+doCat(person, apon,       flr,  ['Amy',    'Apon',       full]).
+doCat(person, dean,       fmlr, ['Brian',  'C.', 'Dean', full]).
+doCat(person, hubig,      flr,  ['Nina',   'Hubig',      asst]).
+doCat(person, liu,        flr,  ['Kai',    'Liu',        asst]).
+doCat(person, luo,        flr,  ['Feng',   'Luo',        full]).
+doCat(person, wang,       flr,  ['James',  'Wang',       full]).
+doCat(person, yang,       flr,  ['Yin',    'Yang',       assoc]).
+doCat(person, goddard,    flr,  ['Wayne',  'Goddard',    full]).
 doCat(person, hedetniemi, flr,  ['Sandra', 'Hedetniemi', full]).
 doCat(person, srimani,    flr,  ['Pradip', 'Srimani',    full]).
-doCat(person, smotherman, flr,  ['Mark', 'Smotherman',   assoc]).
-doCat(person, martin,     flr,  ['Jim', 'Martin',        full]).
-doCat(person, sorber,     flr,  ['Jacob', 'Sorber',      assoc]).
-doCat(person, westall,    flr,  ['Mike', 'Westall',      ]).
-doCat(person, donar,      flr,  ['David', 'Donar']).
-doCat(person, rodeghero,  flr,  ['Paige, 'Rodeghero']).
-doCat(person, sitaraman,  flr,  ['Murali', 'Sitaraman']).
-doCat(person, ge,         flr,  ['Rong', 'Ge']).
-doCat(person, cheng,      flr,  ['Long', 'Cheng']).
-doCat(person, razi,       flr,  ['Abolfazi', 'Razi']).
-doCat(person, zhang,      flr,  ['Zhenkai', 'Zhang']).
-doCat(person, li,         flr,  ['Nianyi', 'Li',     asst]).
+doCat(person, smotherman, flr,  ['Mark',   'Smotherman', assoc]).
+doCat(person, martin,     flr,  ['Jim',    'Martin',     full]).
+doCat(person, sorber,     flr,  ['Jacob',  'Sorber',     assoc]).
+doCat(person, westall,    flr,  ['Mike',   'Westall',    resprof]).
+doCat(person, donar,      flr,  ['David',  'Donar',      adjassoc]).
+doCat(person, rodeghero,  flr,  ['Paige,   'Rodeghero',  asst]).
+doCat(person, sitaraman,  flr,  ['Murali', 'Sitaraman',  prof]).
+doCat(person, ge,         flr,  ['Rong',   'Ge',         assoc]).
+doCat(person, cheng,      flr,  ['Long',   'Cheng',      asst]).
+doCat(person, razi,       flr,  ['Abolfazi', 'Razi',     assoc]).
+doCat(person, zhang,      flr,  ['Zhenkai',  'Zhang',    asst]).
+doCat(person, li,         flr,  ['Nianyi',   'Li',       asst]).
 
-  HCC: [Kelly Caine, Bart Knijnenburg, Nathan McNeese, Sabarish Babu, 
-        Andrew Robb, Brygg Ullmer, Eileen Kraemer, Guo Freeman, Julian Brinkley]
+doCat(person, caine,       flr,  ['Kelly',    'Caine',       assoc]).
+doCat(person, knijnenburg, flr,  ['Bart',     'Knijnenburg', assoc]).
+doCat(person, mcneese,     flr,  ['Nathan',   'McNeese',     asst]).
+doCat(person, babu,        flr,  ['Sabarish', 'Babu',        assoc]).
+doCat(person, robb,        flr,  ['Andrew',   'Robb ',       asst]).
+doCat(person, ,      flr,  ['
+doCat(person, ,      flr,  ['
+doCat(person, ,      flr,  ['
+Brygg Ullmer
+Eileen Kraemer
+Guo Freeman
+Julian Brinkley
 
   VC:  [Shuangshuang Jin, Sophie Joerg, Ioannis Karamouzas, Eric Patterson, 
         Federico Iuricich, Jerry Tessendorf, Victor Zordan, 
@@ -41,6 +50,8 @@ doCat(person, li,         flr,  ['Nianyi', 'Li',     asst]).
   FOI: [Svetlana Drachova, Yvon Feaster, Alexander Herzog, 
         Catherine Kittelstad, Christopher Plaue, Carrie Russell, Mitch Shue, 
         Yu-Shan Sun, Connie Taylor, Roger Van Scoy, Nicolas Widman]
+
+doCat(inst, brown, dncpsci, ['brown.edu', 'Brown University', [tessendorf], ri, pvd, usa]).
 
 rank:
   asst:      [Brinkley, Cheng, Singh Dhillon, Freeman, Hubig, Iuricich,
