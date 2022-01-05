@@ -1,12 +1,11 @@
+% Prolog representation of Clemson University School of Computing faculty
+% Brygg Ullmer, Clemson University
+% Begun 2021-01-05
 
-category(acadRank, Rank, L) :-
-  person(P), 
+category(acadRank, Rank, P) :- acadRank(P, Rank).
 
 acadRank(P, Rank) :- person(P, flr,  L), nth0(L, 2, Rank).
 acadRank(P, Rank) :- person(P, fmlr, L), nth0(L, 3, Rank).
-
-asst, hncp,  [acadRank, 'Assistant Professor',
-        [brinkley, chen]]).
 
 category(division, cs,  hncp, [soc, 'Computer Science',
   [apon, dean, hubig, liu, luo, wang, yang, goddard, hedetniemi, srimani, 
