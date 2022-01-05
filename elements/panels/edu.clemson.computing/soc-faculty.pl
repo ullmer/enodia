@@ -7,6 +7,8 @@ category(acadRank, Rank, P) :- acadRank(P, Rank).
 acadRank(P, Rank) :- person(P, flr,  L), nth0(L, 2, Rank).
 acadRank(P, Rank) :- person(P, fmlr, L), nth0(L, 3, Rank).
 
+%%%%%%%%%%%%%% CS %%%%%%%%%%%%%%
+
 category(division, cs,  hncp, [soc, 'Computer Science',
   [apon, dean, hubig, liu, luo, wang, yang, goddard, hedetniemi, srimani, 
    smotherman, martin, sorber, westall, donar, rodeghero, sitaraman, ge, 
@@ -35,18 +37,21 @@ person(zhang,      flr,  ['Zhenkai',  'Zhang',    asst]).
 person(westall,    flr,  ['Mike',   'Westall',    resprof]).
 person(donar,      flr,  ['David',  'Donar',      adjassoc]).
 
-category(division, hcc,  hncp, [soc, 'Human-Centered Computing',
-  [caine, 
+%%%%%%%%%%%%%% HCC %%%%%%%%%%%%%%
 
-person(caine,       flr,  ['Kelly',    'Caine',       assoc]).
-person(knijnenburg, flr,  ['Bart',     'Knijnenburg', assoc]).
-person(mcneese,     flr,  ['Nathan',   'McNeese',     asst]).
+category(division, hcc,  hncp, [soc, 'Human-Centered Computing',
+  [babu, brinkley, caine, freeman, knijnenburg, kraemer, 
+   mcneese, robb, ullmer]]).
+
 person(babu,        flr,  ['Sabarish', 'Babu',        assoc]).
+person(brinkley,    flr,  ['Julian',   'Brinkley',    asst]).
+person(caine,       flr,  ['Kelly',    'Caine',       assoc]).
+person(freeman,     flr,  ['Guo',      'Freeman',     asst]).
+person(knijnenburg, flr,  ['Bart',     'Knijnenburg', assoc]).
+person(kraemer,     flr,  ['Eileen',   'Kraemer',     full]).
+person(mcneese,     flr,  ['Nathan',   'McNeese',     asst]).
 person(robb,        flr,  ['Andrew',   'Robb',        asst]).
 person(ullmer,      flr,  ['Brygg',    'Ullmer',      full]).
-person(kraemer,     flr,  ['Eileen',   'Kraemer',     full]).
-person(freeman,     flr,  ['Guo',      'Freeman',     asst]).
-person(brinkley,    flr,  ['Julian',   'Brinkley',    asst]).
 
 doCat(person, ,      flr,  ['
   VC:  [Shuangshuang Jin, Sophie Joerg, Ioannis Karamouzas, Eric Patterson, 
