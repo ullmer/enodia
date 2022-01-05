@@ -4,8 +4,14 @@
 
 category(acadRank, Rank, P) :- acadRank(P, Rank).
 
-acadRank(P, Rank) :- person(P, flr,  L), nth0(L, 2, Rank).
-acadRank(P, Rank) :- person(P, fmlr, L), nth0(L, 3, Rank).
+acadRank(P, Rank) :- person(P, flr,  L),  nth0(L, 2, Rank).
+acadRank(P, Rank) :- person(P, fmlr, L),  nth0(L, 3, Rank).
+acadRank(P, Rank) :- person(P, fmlrr, L), nth0(L, 3, Rank).
+
+division(P, Division) :- person(P, flr,  L),  nth0(L, 2, Rank).
+acadRank(P, Rank) :- person(P, fmlr, L),  nth0(L, 3, Rank).
+acadRank(P, Rank) :- person(P, fmlrr, L), nth0(L, 3, Rank).
+
 
 %%%%%%%%%%%%%% CS %%%%%%%%%%%%%%
 
@@ -14,9 +20,9 @@ category(division, cs,  hncp, [soc, 'Computer Science',
    smotherman, martin, sorber, westall, donar, rodeghero, sitaraman, ge, 
    cheng, razi, zhang, li]]).
 
-person(apon,       flr,  ['Amy',    'Apon',       full]).
+person(apon,       flrr, ['Amy',    'Apon',       full, director]).
 person(cheng,      flr,  ['Long',   'Cheng',      asst]).
-person(dean,       fmlr, ['Brian',  'C.', 'Dean', full]).
+person(dean,       fmlrr,['Brian',  'C.', 'Dean', full, chair]).
 person(hubig,      flr,  ['Nina',   'Hubig',      asst]).
 person(li,         flr,  ['Nianyi',   'Li',       asst]).
 person(liu,        flr,  ['Kai',    'Liu',        asst]).
@@ -59,19 +65,13 @@ category(division, vc,  hncp, [soc, 'Visual Computing',
   [jin, joerg, karamouzas, patterson, iuricich, tessendorf, zordan, 
    singhdhillon, duchowski, kwon]]).
 
-person(jin,     flr,  ['Shuangshuang', 'Jin',    assoc]).
-person(,        flr,  ['
-Sophie Joerg
-person(,        flr,  ['
-Ioannis Karamouzas
-person(,        flr,  ['
-Eric Patterson
-person(,        flr,  ['
-Federico Iuricich
-person(,        flr,  ['
-Jerry Tessendorf
-person(,        flr,  ['
-Victor Zordan
+person(jin,        flr,  ['Shuangshuang', 'Jin',    assoc]).
+person(joerg,      flr,  ['Sophie',       'Joerg',  assoc]).
+person(karamouzas, flr,  ['Ioannis',      'Karamouzas', asst]).
+person(patterson,  flr,  ['Eric', 'Patterson', assoc]).
+person(iuricich,   flr,  ['Federico', 'Iuricich', asst]).
+person(tessendorf, flr,  ['Jerry', 'Tessendorf', full]).
+person(zordan,     flr,  ['Victor, 'Zordan', full]).
 person(,        flr,  ['
 Daljit Singh Dhillon
 person(,        flr,  ['
