@@ -8,29 +8,28 @@ doCat(division, cs,  hncp, [soc, 'Computer Science',
 
 doCat(inst, brown, dncpsci, ['brown.edu', 'Brown University', [tessendorf], ri, pvd, usa]).
 
-doCat(person, apon,       fl,  ['Amy', 'Apon']).
-doCat(person, dean,       fml, ['Brian', 'C.', 'Dean']).
-doCat(person, hubig,      fl,  ['Nina', 'Hubig']).
-doCat(person, liu,        fl,  ['Kai', 'Liu']).
-doCat(person, luo,        fl,  ['Feng', 'Luo']).
-doCat(person, wang,       fl,  ['James', 'Wang']).
-doCat(person, yang,       fl,  ['Yin', 'Yang']).
-doCat(person, goddard,    fl,  ['Wayne', 'Goddard']).
-doCat(person, hedetniemi, fl,  ['Sandra', 'Hedetniemi']).
-doCat(person, srimani,    fl,  ['Pradip', 'Srimani']).
-doCat(person, smotherman, fl,  ['Mark', 'Smotherman']).
-doCat(person, martin,     fl,  ['Jim', 'Martin']).
-doCat(person, sorber,     fl,  ['Jacob', 'Sorber']).
-doCat(person, westall,    fl,  ['Mike', 'Westall']).
-doCat(person, donar,      fl,  ['David', 'Donar']).
-doCat(person, rodeghero,  fl,  ['Paige, 'Rodeghero']).
-doCat(person, sitaraman,  fl,  ['Murali', 'Sitaraman']).
-doCat(person, ge,         fl,  ['Rong', 'Ge']).
-doCat(person, cheng,      fl,  ['Long', 'Cheng']).
-doCat(person, razi,       fl,  ['Abolfazi', 'Razi']).
-doCat(person, zhang,      fl,  ['Zhenkai', 'Zhang']).
-doCat(person, li,         fl,  ['Nianyi', 'Li']).
-
+doCat(person, apon,       flr,  ['Amy', 'Apon',          full]).
+doCat(person, dean,       fmlr, ['Brian', 'C.', 'Dean',  full]).
+doCat(person, hubig,      flr,  ['Nina', 'Hubig',        asst]).
+doCat(person, liu,        flr,  ['Kai', 'Liu',           asst]).
+doCat(person, luo,        flr,  ['Feng', 'Luo',          full]).
+doCat(person, wang,       flr,  ['James', 'Wang',        full]).
+doCat(person, yang,       flr,  ['Yin', 'Yang',          assoc]).
+doCat(person, goddard,    flr,  ['Wayne', 'Goddard',     full]).
+doCat(person, hedetniemi, flr,  ['Sandra', 'Hedetniemi', full]).
+doCat(person, srimani,    flr,  ['Pradip', 'Srimani']).
+doCat(person, smotherman, flr,  ['Mark', 'Smotherman']).
+doCat(person, martin,     flr,  ['Jim', 'Martin']).
+doCat(person, sorber,     flr,  ['Jacob', 'Sorber']).
+doCat(person, westall,    flr,  ['Mike', 'Westall']).
+doCat(person, donar,      flr,  ['David', 'Donar']).
+doCat(person, rodeghero,  flr,  ['Paige, 'Rodeghero']).
+doCat(person, sitaraman,  flr,  ['Murali', 'Sitaraman']).
+doCat(person, ge,         flr,  ['Rong', 'Ge']).
+doCat(person, cheng,      flr,  ['Long', 'Cheng']).
+doCat(person, razi,       flr,  ['Abolfazi', 'Razi']).
+doCat(person, zhang,      flr,  ['Zhenkai', 'Zhang']).
+doCat(person, li,         flr,  ['Nianyi', 'Li',     asst]).
 
   HCC: [Kelly Caine, Bart Knijnenburg, Nathan McNeese, Sabarish Babu, 
         Andrew Robb, Brygg Ullmer, Eileen Kraemer, Guo Freeman, Julian Brinkley]
