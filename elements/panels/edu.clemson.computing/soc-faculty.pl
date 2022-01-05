@@ -12,32 +12,31 @@ category(division, cs,  hncp, [soc, 'Computer Science',
    smotherman, martin, sorber, westall, donar, rodeghero, sitaraman, ge, 
    cheng, razi, zhang, li]]).
 
-category(division, cs,  hncp, [soc, 'Computer Science',
-  [apon, dean, hubig, liu, luo, wang, yang, goddard, hedetniemi, srimani, 
-
-
 person(apon,       flr,  ['Amy',    'Apon',       full]).
+person(cheng,      flr,  ['Long',   'Cheng',      asst]).
 person(dean,       fmlr, ['Brian',  'C.', 'Dean', full]).
 person(hubig,      flr,  ['Nina',   'Hubig',      asst]).
+person(li,         flr,  ['Nianyi',   'Li',       asst]).
 person(liu,        flr,  ['Kai',    'Liu',        asst]).
 person(luo,        flr,  ['Feng',   'Luo',        full]).
-person(wang,       flr,  ['James',  'Wang',       full]).
-person(yang,       flr,  ['Yin',    'Yang',       assoc]).
+person(ge,         flr,  ['Rong',   'Ge',         assoc]).
 person(goddard,    flr,  ['Wayne',  'Goddard',    full]).
 person(hedetniemi, flr,  ['Sandra', 'Hedetniemi', full]).
-person(srimani,    flr,  ['Pradip', 'Srimani',    full]).
-person(smotherman, flr,  ['Mark',   'Smotherman', assoc]).
 person(martin,     flr,  ['Jim',    'Martin',     full]).
-person(sorber,     flr,  ['Jacob',  'Sorber',     assoc]).
-person(westall,    flr,  ['Mike',   'Westall',    resprof]).
-person(donar,      flr,  ['David',  'Donar',      adjassoc]).
 person(rodeghero,  flr,  ['Paige,   'Rodeghero',  asst]).
 person(sitaraman,  flr,  ['Murali', 'Sitaraman',  prof]).
-person(ge,         flr,  ['Rong',   'Ge',         assoc]).
-person(cheng,      flr,  ['Long',   'Cheng',      asst]).
+person(smotherman, flr,  ['Mark',   'Smotherman', assoc]).
+person(sorber,     flr,  ['Jacob',  'Sorber',     assoc]).
+person(srimani,    flr,  ['Pradip', 'Srimani',    full]).
 person(razi,       flr,  ['Abolfazi', 'Razi',     assoc]).
+person(wang,       flr,  ['James',  'Wang',       full]).
+person(yang,       flr,  ['Yin',    'Yang',       assoc]).
 person(zhang,      flr,  ['Zhenkai',  'Zhang',    asst]).
-person(li,         flr,  ['Nianyi',   'Li',       asst]).
+person(westall,    flr,  ['Mike',   'Westall',    resprof]).
+person(donar,      flr,  ['David',  'Donar',      adjassoc]).
+
+category(division, hcc,  hncp, [soc, 'Human-Centered Computing',
+  [caine, 
 
 person(caine,       flr,  ['Kelly',    'Caine',       assoc]).
 person(knijnenburg, flr,  ['Bart',     'Knijnenburg', assoc]).
