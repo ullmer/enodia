@@ -53,6 +53,16 @@ person(mcneese,     flr,  ['Nathan',   'McNeese',     asst]).
 person(robb,        flr,  ['Andrew',   'Robb',        asst]).
 person(ullmer,      flr,  ['Brygg',    'Ullmer',      full]).
 
+%%%%%%%%%%%%%% VC %%%%%%%%%%%%%%
+
+category(division, vc,  hncp, [soc, 'Visual Computing',
+  [jin, joerg, karamouzas, patterson, iuricich, tessendorf, zordan, 
+   singhdhillon, duchowski, kwon]]).
+
+person(babu,        flr,  ['Sabarish', 'Babu',        assoc]).
+person(brinkley,    flr,  ['Julian',   'Brinkley',    asst]).
+person(caine,       flr,  ['Kelly',    'Caine',       assoc]).
+
 doCat(person, ,      flr,  ['
   VC:  [Shuangshuang Jin, Sophie Joerg, Ioannis Karamouzas, Eric Patterson, 
         Federico Iuricich, Jerry Tessendorf, Victor Zordan, 
