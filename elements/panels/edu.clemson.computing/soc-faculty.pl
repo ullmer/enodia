@@ -1,16 +1,19 @@
 
-doCat(acadRank, Rank, L) :-
-  doCat( 
+category(acadRank, Rank, L) :-
+  person(P), 
+
+acadRank(P, Rank) :- person(P, flr,  L), nth0(L, 2, Rank).
+acadRank(P, Rank) :- person(P, fmlr, L), nth0(L, 3, Rank).
 
 asst, hncp,  [acadRank, 'Assistant Professor',
         [brinkley, chen]]).
 
-doCat(division, cs,  hncp, [soc, 'Computer Science',
+category(division, cs,  hncp, [soc, 'Computer Science',
   [apon, dean, hubig, liu, luo, wang, yang, goddard, hedetniemi, srimani, 
    smotherman, martin, sorber, westall, donar, rodeghero, sitaraman, ge, 
    cheng, razi, zhang, li]]).
 
-doCat(division, cs,  hncp, [soc, 'Computer Science',
+category(division, cs,  hncp, [soc, 'Computer Science',
   [apon, dean, hubig, liu, luo, wang, yang, goddard, hedetniemi, srimani, 
 
 
