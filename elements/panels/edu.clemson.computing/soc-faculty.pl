@@ -59,14 +59,28 @@ category(division, vc,  hncp, [soc, 'Visual Computing',
   [jin, joerg, karamouzas, patterson, iuricich, tessendorf, zordan, 
    singhdhillon, duchowski, kwon]]).
 
-person(babu,        flr,  ['Sabarish', 'Babu',        assoc]).
-person(brinkley,    flr,  ['Julian',   'Brinkley',    asst]).
-person(caine,       flr,  ['Kelly',    'Caine',       assoc]).
+person(jin,     flr,  ['Shuangshuang', 'Jin',    assoc]).
+person(,        flr,  ['
+Sophie Joerg
+person(,        flr,  ['
+Ioannis Karamouzas
+person(,        flr,  ['
+Eric Patterson
+person(,        flr,  ['
+Federico Iuricich
+person(,        flr,  ['
+Jerry Tessendorf
+person(,        flr,  ['
+Victor Zordan
+person(,        flr,  ['
+Daljit Singh Dhillon
+person(,        flr,  ['
+Andrew Duchowski
+person(,        flr,  ['
+Insun Kwon
+person(,        flr,  ['
 
-doCat(person, ,      flr,  ['
-  VC:  [Shuangshuang Jin, Sophie Joerg, Ioannis Karamouzas, Eric Patterson, 
-        Federico Iuricich, Jerry Tessendorf, Victor Zordan, 
-        Daljit Singh Dhillon, Andrew Duchowski, Insun Kwon]
+
 
   FOI: [Svetlana Drachova, Yvon Feaster, Alexander Herzog, 
         Catherine Kittelstad, Christopher Plaue, Carrie Russell, Mitch Shue, 
