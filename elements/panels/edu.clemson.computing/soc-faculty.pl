@@ -17,11 +17,11 @@ doCat(person, wang,       flr,  ['James', 'Wang',        full]).
 doCat(person, yang,       flr,  ['Yin', 'Yang',          assoc]).
 doCat(person, goddard,    flr,  ['Wayne', 'Goddard',     full]).
 doCat(person, hedetniemi, flr,  ['Sandra', 'Hedetniemi', full]).
-doCat(person, srimani,    flr,  ['Pradip', 'Srimani']).
-doCat(person, smotherman, flr,  ['Mark', 'Smotherman']).
-doCat(person, martin,     flr,  ['Jim', 'Martin']).
-doCat(person, sorber,     flr,  ['Jacob', 'Sorber']).
-doCat(person, westall,    flr,  ['Mike', 'Westall']).
+doCat(person, srimani,    flr,  ['Pradip', 'Srimani',    full]).
+doCat(person, smotherman, flr,  ['Mark', 'Smotherman',   assoc]).
+doCat(person, martin,     flr,  ['Jim', 'Martin',        full]).
+doCat(person, sorber,     flr,  ['Jacob', 'Sorber',      assoc]).
+doCat(person, westall,    flr,  ['Mike', 'Westall',      ]).
 doCat(person, donar,      flr,  ['David', 'Donar']).
 doCat(person, rodeghero,  flr,  ['Paige, 'Rodeghero']).
 doCat(person, sitaraman,  flr,  ['Murali', 'Sitaraman']).
