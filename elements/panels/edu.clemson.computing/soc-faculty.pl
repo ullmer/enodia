@@ -1,48 +1,53 @@
 
-doCat(acadRank, asst, hncp,  [acadRank, 'Assistant Professor',
-        [brinkley, lc]]).
+doCat(acadRank, Rank, L) :-
+  doCat( 
+
+asst, hncp,  [acadRank, 'Assistant Professor',
+        [brinkley, chen]]).
 
 doCat(division, cs,  hncp, [soc, 'Computer Science',
-  [apon, dean, hubig, liu, luo, wang, yang, goddard, hedetniemi, srimani, smotherman,
-   martin, sorber, westall, donar, rodeghero, sitaraman, ge, cheng, razi, zhang, li]]).
+  [apon, dean, hubig, liu, luo, wang, yang, goddard, hedetniemi, srimani, 
+   smotherman, martin, sorber, westall, donar, rodeghero, sitaraman, ge, 
+   cheng, razi, zhang, li]]).
+
+doCat(division, cs,  hncp, [soc, 'Computer Science',
+  [apon, dean, hubig, liu, luo, wang, yang, goddard, hedetniemi, srimani, 
 
 
-doCat(person, apon,       flr,  ['Amy',    'Apon',       full]).
-doCat(person, dean,       fmlr, ['Brian',  'C.', 'Dean', full]).
-doCat(person, hubig,      flr,  ['Nina',   'Hubig',      asst]).
-doCat(person, liu,        flr,  ['Kai',    'Liu',        asst]).
-doCat(person, luo,        flr,  ['Feng',   'Luo',        full]).
-doCat(person, wang,       flr,  ['James',  'Wang',       full]).
-doCat(person, yang,       flr,  ['Yin',    'Yang',       assoc]).
-doCat(person, goddard,    flr,  ['Wayne',  'Goddard',    full]).
-doCat(person, hedetniemi, flr,  ['Sandra', 'Hedetniemi', full]).
-doCat(person, srimani,    flr,  ['Pradip', 'Srimani',    full]).
-doCat(person, smotherman, flr,  ['Mark',   'Smotherman', assoc]).
-doCat(person, martin,     flr,  ['Jim',    'Martin',     full]).
-doCat(person, sorber,     flr,  ['Jacob',  'Sorber',     assoc]).
-doCat(person, westall,    flr,  ['Mike',   'Westall',    resprof]).
-doCat(person, donar,      flr,  ['David',  'Donar',      adjassoc]).
-doCat(person, rodeghero,  flr,  ['Paige,   'Rodeghero',  asst]).
-doCat(person, sitaraman,  flr,  ['Murali', 'Sitaraman',  prof]).
-doCat(person, ge,         flr,  ['Rong',   'Ge',         assoc]).
-doCat(person, cheng,      flr,  ['Long',   'Cheng',      asst]).
-doCat(person, razi,       flr,  ['Abolfazi', 'Razi',     assoc]).
-doCat(person, zhang,      flr,  ['Zhenkai',  'Zhang',    asst]).
-doCat(person, li,         flr,  ['Nianyi',   'Li',       asst]).
+person(apon,       flr,  ['Amy',    'Apon',       full]).
+person(dean,       fmlr, ['Brian',  'C.', 'Dean', full]).
+person(hubig,      flr,  ['Nina',   'Hubig',      asst]).
+person(liu,        flr,  ['Kai',    'Liu',        asst]).
+person(luo,        flr,  ['Feng',   'Luo',        full]).
+person(wang,       flr,  ['James',  'Wang',       full]).
+person(yang,       flr,  ['Yin',    'Yang',       assoc]).
+person(goddard,    flr,  ['Wayne',  'Goddard',    full]).
+person(hedetniemi, flr,  ['Sandra', 'Hedetniemi', full]).
+person(srimani,    flr,  ['Pradip', 'Srimani',    full]).
+person(smotherman, flr,  ['Mark',   'Smotherman', assoc]).
+person(martin,     flr,  ['Jim',    'Martin',     full]).
+person(sorber,     flr,  ['Jacob',  'Sorber',     assoc]).
+person(westall,    flr,  ['Mike',   'Westall',    resprof]).
+person(donar,      flr,  ['David',  'Donar',      adjassoc]).
+person(rodeghero,  flr,  ['Paige,   'Rodeghero',  asst]).
+person(sitaraman,  flr,  ['Murali', 'Sitaraman',  prof]).
+person(ge,         flr,  ['Rong',   'Ge',         assoc]).
+person(cheng,      flr,  ['Long',   'Cheng',      asst]).
+person(razi,       flr,  ['Abolfazi', 'Razi',     assoc]).
+person(zhang,      flr,  ['Zhenkai',  'Zhang',    asst]).
+person(li,         flr,  ['Nianyi',   'Li',       asst]).
 
-doCat(person, caine,       flr,  ['Kelly',    'Caine',       assoc]).
-doCat(person, knijnenburg, flr,  ['Bart',     'Knijnenburg', assoc]).
-doCat(person, mcneese,     flr,  ['Nathan',   'McNeese',     asst]).
-doCat(person, babu,        flr,  ['Sabarish', 'Babu',        assoc]).
-doCat(person, robb,        flr,  ['Andrew',   'Robb ',       asst]).
+person(caine,       flr,  ['Kelly',    'Caine',       assoc]).
+person(knijnenburg, flr,  ['Bart',     'Knijnenburg', assoc]).
+person(mcneese,     flr,  ['Nathan',   'McNeese',     asst]).
+person(babu,        flr,  ['Sabarish', 'Babu',        assoc]).
+person(robb,        flr,  ['Andrew',   'Robb',        asst]).
+person(ullmer,      flr,  ['Brygg',    'Ullmer',      full]).
+person(kraemer,     flr,  ['Eileen',   'Kraemer',     full]).
+person(freeman,     flr,  ['Guo',      'Freeman',     asst]).
+person(brinkley,    flr,  ['Julian',   'Brinkley',    asst]).
+
 doCat(person, ,      flr,  ['
-doCat(person, ,      flr,  ['
-doCat(person, ,      flr,  ['
-Brygg Ullmer
-Eileen Kraemer
-Guo Freeman
-Julian Brinkley
-
   VC:  [Shuangshuang Jin, Sophie Joerg, Ioannis Karamouzas, Eric Patterson, 
         Federico Iuricich, Jerry Tessendorf, Victor Zordan, 
         Daljit Singh Dhillon, Andrew Duchowski, Insun Kwon]
