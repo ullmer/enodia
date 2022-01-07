@@ -13,15 +13,15 @@ friends(molly_mabray, [tookkone_ookami, trini_mumford, oscar_marsh]).
 
 dogs([suki]).
 
-pets(molly_mabray,   [suki, bandifer]).
-pets(tookone_ookami, [anka, luka, laika, tukoni, skippy, jax, 
+pets(molly,   [suki, bandifer]).
+pets(tooey, [anka, luka, laika, tukoni, skippy, jax, 
                       rascal, kiwi, kobi, atsoo, sasha, mouse, bandifer]).
 
-parents(layla_mabray, walter_mabray, [molly_mabray]).  married(layla_mabray, walter_mabray).
-parents(atsaq_ookami, kenji_ookami,  [tookkone_ookami, jay_ookami, john_ookami]).
-parents(joy_mumford, daniel_mumford, [trini_mumford]). married(joy_mumford, daniel_mumford).
-parents(renate_marsh, omf,           [oscar_marsh]).   
-parents(midge_marsh,  rmf,           [renate_marsh]).
+parents(layla, walter, [molly]).  married(layla, walter).
+parents(atsaq, kenji,  [tooey, jay, john]).
+parents(joy, daniel,   [trini]). married(joy, daniel).
+parents(renate, omf,   [oscar]).   
+parents(midge,  rmf,           [renate]).
 parents(mmm, mmf,                    [midge_marsh, annie_marsh]).
 parents(nkw, nehtan_kon, [layla_mabray]).
 
