@@ -1,30 +1,29 @@
 
 % domain categories 
 
-doCatDescr(hn,       [handle, name]).
-doCatDescr(hnflfl,   [handle, name, firstname, lastname, 
-                                    firstnameStr, lastnameStr]).
-doCatDescr(hncp,     [handle, name, category, people]).
-doCatDescr(hdncpsci, [handle, domain, name, category, people, sab, cab, ia3]). 
+doCatDescr(n,       [name]).
+doCatDescr(fml,     [firstname, middle, lastname]).
+doCatDescr(ncp,     [name, category, people]).
+doCatDescr(dncpsci, [domain, name, category, people, sab, cab, ia3]). 
   %sab, cab, ia3: state, city, country abbrevs
 
-doCat(research, ai,   hn,   ['ai',   'Artificial Intelligence']).     %handle, name
-doCat(research, aie,  hncp, ['aie',  ai, 'AI Education', [kc, bk]]).  %handle, name, category, people
-doCat(research, dmml, hncp, ['dmml', ai, 'Data Mining & Machine Learning', 
+doCat(research, ai,   hn,   ['Artificial Intelligence']).     %handle, name
+doCat(research, aie,  hncp, [ai, 'AI Education', [kc, bk]]).  %handle, name, category, people
+doCat(research, dmml, hncp, [ai, 'Data Mining & Machine Learning', 
                                    [bcd, ah, nh, sj, sj, ik, kl, fl, ep, jw, yy, ar, nl]]).
-doCat(research, haii, hncp, ['haii', ai, 'Human-AI Interaction', [kc, bk, nm]]).
+doCat(research, haii, hncp, [ai, 'Human-AI Interaction', [kc, bk, nm]]).
 
-doCat(division, cs,  hncp, ['cs',  soc, 'Computer Science',
+doCat(division, cs,  hncp, [soc, 'Computer Science',
   [bcd, nh, kl, fl, jw, yy, wg, sh, ps, ms, jm, js, mw, dd, pr, ms, aa, rg, lc, ar, zz, nl]]).
 
-doCat(division, hcc,  hncp, ['hcc', soc, 'Human-Centered Computing']).
+doCat(division, hcc,  hncp, [soc, 'Human-Centered Computing']).
 
-doCat(acadRank, asst, hncp,  ['asst', acadRank, 'Assistant Professor', 
-                             [jb, lc]]).
+doCat(acadRank, asst, hncp,  [acadRank, 'Assistant Professor', 
+        [jb, lc]]).
 
-doCat(person, bcd, hnflfl, ['bcd', 'Brian C. Dean', brian, dean, 'Brian', 'Dean']).
+doCat(person, bcd, fml, ['brian', 'c.', 'dean']
 
-doCat(inst, brown, hdncpsci, ['brown', 'brown.edu', 'Brown University', [jt], ri, pvd, usa]).
+doCat(inst, brown, dncpsci, ['brown.edu', 'Brown University', [jt], ri, pvd, usa]).
 
 /*
 Artificial Intelligence:
