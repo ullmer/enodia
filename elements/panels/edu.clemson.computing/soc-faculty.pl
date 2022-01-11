@@ -1,46 +1,92 @@
+% Prolog representation of Clemson University School of Computing faculty
+% Brygg Ullmer, Clemson University
+% Begun 2021-01-05
 
-doCat(acadRank, asst, hncp,  [acadRank, 'Assistant Professor',
-        [brinkley, lc]]).
+category(acadRank, Rank, P) :- acadRank(P, Rank).
 
-doCat(division, cs,  hncp, [soc, 'Computer Science',
-  [apon, dean, hubig, liu, luo, wang, yang, goddard, hedetniemi, srimani, smotherman,
-   martin, sorber, westall, donar, rodeghero, sitaraman, ge, cheng, razi, zhang, li]]).
+acadRank(P, Rank) :- person(P, flr,  L),  nth0(L, 2, Rank).
+acadRank(P, Rank) :- person(P, fmlr, L),  nth0(L, 3, Rank).
+acadRank(P, Rank) :- person(P, fmlrr, L), nth0(L, 3, Rank).
 
-doCat(inst, brown, dncpsci, ['brown.edu', 'Brown University', [tessendorf], ri, pvd, usa]).
+division(P, Division) :- person(P, flr,  L),  nth0(L, 2, Rank).
+acadRank(P, Rank) :- person(P, fmlr, L),  nth0(L, 3, Rank).
+acadRank(P, Rank) :- person(P, fmlrr, L), nth0(L, 3, Rank).
 
-doCat(person, apon,       flr,  ['Amy', 'Apon',          full]).
-doCat(person, dean,       fmlr, ['Brian', 'C.', 'Dean',  full]).
-doCat(person, hubig,      flr,  ['Nina', 'Hubig',        asst]).
-doCat(person, liu,        flr,  ['Kai', 'Liu',           asst]).
-doCat(person, luo,        flr,  ['Feng', 'Luo',          full]).
-doCat(person, wang,       flr,  ['James', 'Wang',        full]).
-doCat(person, yang,       flr,  ['Yin', 'Yang',          assoc]).
-doCat(person, goddard,    flr,  ['Wayne', 'Goddard',     full]).
-doCat(person, hedetniemi, flr,  ['Sandra', 'Hedetniemi', full]).
-doCat(person, srimani,    flr,  ['Pradip', 'Srimani',    full]).
-doCat(person, smotherman, flr,  ['Mark', 'Smotherman',   assoc]).
-doCat(person, martin,     flr,  ['Jim', 'Martin',        full]).
-doCat(person, sorber,     flr,  ['Jacob', 'Sorber',      assoc]).
-doCat(person, westall,    flr,  ['Mike', 'Westall',      ]).
-doCat(person, donar,      flr,  ['David', 'Donar']).
-doCat(person, rodeghero,  flr,  ['Paige, 'Rodeghero']).
-doCat(person, sitaraman,  flr,  ['Murali', 'Sitaraman']).
-doCat(person, ge,         flr,  ['Rong', 'Ge']).
-doCat(person, cheng,      flr,  ['Long', 'Cheng']).
-doCat(person, razi,       flr,  ['Abolfazi', 'Razi']).
-doCat(person, zhang,      flr,  ['Zhenkai', 'Zhang']).
-doCat(person, li,         flr,  ['Nianyi', 'Li',     asst]).
 
-  HCC: [Kelly Caine, Bart Knijnenburg, Nathan McNeese, Sabarish Babu, 
-        Andrew Robb, Brygg Ullmer, Eileen Kraemer, Guo Freeman, Julian Brinkley]
+%%%%%%%%%%%%%% CS %%%%%%%%%%%%%%
 
-  VC:  [Shuangshuang Jin, Sophie Joerg, Ioannis Karamouzas, Eric Patterson, 
-        Federico Iuricich, Jerry Tessendorf, Victor Zordan, 
-        Daljit Singh Dhillon, Andrew Duchowski, Insun Kwon]
+category(division, cs,  hncp, [soc, 'Computer Science',
+  [apon, dean, hubig, liu, luo, wang, yang, goddard, hedetniemi, srimani, 
+   smotherman, martin, sorber, westall, donar, rodeghero, sitaraman, ge, 
+   cheng, razi, zhang, li]]).
+
+person(apon,       flrr, ['Amy',    'Apon',       full, director]).
+person(cheng,      flr,  ['Long',   'Cheng',      asst]).
+person(dean,       fmlrr,['Brian',  'C.', 'Dean', full, chair]).
+person(hubig,      flr,  ['Nina',   'Hubig',      asst]).
+person(li,         flr,  ['Nianyi',   'Li',       asst]).
+person(liu,        flr,  ['Kai',    'Liu',        asst]).
+person(luo,        flr,  ['Feng',   'Luo',        full]).
+person(ge,         flr,  ['Rong',   'Ge',         assoc]).
+person(goddard,    flr,  ['Wayne',  'Goddard',    full]).
+person(hedetniemi, flr,  ['Sandra', 'Hedetniemi', full]).
+person(martin,     flr,  ['Jim',    'Martin',     full]).
+person(rodeghero,  flr,  ['Paige,   'Rodeghero',  asst]).
+person(sitaraman,  flr,  ['Murali', 'Sitaraman',  prof]).
+person(smotherman, flr,  ['Mark',   'Smotherman', assoc]).
+person(sorber,     flr,  ['Jacob',  'Sorber',     assoc]).
+person(srimani,    flr,  ['Pradip', 'Srimani',    full]).
+person(razi,       flr,  ['Abolfazi', 'Razi',     assoc]).
+person(wang,       flr,  ['James',  'Wang',       full]).
+person(yang,       flr,  ['Yin',    'Yang',       assoc]).
+person(zhang,      flr,  ['Zhenkai',  'Zhang',    asst]).
+person(westall,    flr,  ['Mike',   'Westall',    resprof]).
+person(donar,      flr,  ['David',  'Donar',      adjassoc]).
+
+%%%%%%%%%%%%%% HCC %%%%%%%%%%%%%%
+
+category(division, hcc,  hncp, [soc, 'Human-Centered Computing',
+  [babu, brinkley, caine, freeman, knijnenburg, kraemer, 
+   mcneese, robb, ullmer]]).
+
+person(babu,        flr,  ['Sabarish', 'Babu',        assoc]).
+person(brinkley,    flr,  ['Julian',   'Brinkley',    asst]).
+person(caine,       flr,  ['Kelly',    'Caine',       assoc]).
+person(freeman,     flr,  ['Guo',      'Freeman',     asst]).
+person(knijnenburg, flr,  ['Bart',     'Knijnenburg', assoc]).
+person(kraemer,     flr,  ['Eileen',   'Kraemer',     full]).
+person(mcneese,     flr,  ['Nathan',   'McNeese',     asst]).
+person(robb,        flr,  ['Andrew',   'Robb',        asst]).
+person(ullmer,      flr,  ['Brygg',    'Ullmer',      full]).
+
+%%%%%%%%%%%%%% VC %%%%%%%%%%%%%%
+
+category(division, vc,  hncp, [soc, 'Visual Computing',
+  [jin, joerg, karamouzas, patterson, iuricich, tessendorf, zordan, 
+   singhdhillon, duchowski, kwon]]).
+
+person(jin,        flr,  ['Shuangshuang', 'Jin',    assoc]).
+person(joerg,      flr,  ['Sophie',       'Joerg',  assoc]).
+person(karamouzas, flr,  ['Ioannis',      'Karamouzas', asst]).
+person(patterson,  flr,  ['Eric', 'Patterson', assoc]).
+person(iuricich,   flr,  ['Federico', 'Iuricich', asst]).
+person(tessendorf, flr,  ['Jerry', 'Tessendorf', full]).
+person(zordan,     flr,  ['Victor, 'Zordan', full]).
+person(,        flr,  ['
+Daljit Singh Dhillon
+person(,        flr,  ['
+Andrew Duchowski
+person(,        flr,  ['
+Insun Kwon
+person(,        flr,  ['
+
+
 
   FOI: [Svetlana Drachova, Yvon Feaster, Alexander Herzog, 
         Catherine Kittelstad, Christopher Plaue, Carrie Russell, Mitch Shue, 
         Yu-Shan Sun, Connie Taylor, Roger Van Scoy, Nicolas Widman]
+
+doCat(inst, brown, dncpsci, ['brown.edu', 'Brown University', [tessendorf], ri, pvd, usa]).
 
 rank:
   asst:      [Brinkley, Cheng, Singh Dhillon, Freeman, Hubig, Iuricich,
