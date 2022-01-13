@@ -3,17 +3,17 @@
 
 %:- use_module(family).
 
-:- discontiguous(married/2).
+:- discontiguous(married/2). %Prolog normally wishes such assertions to be colocated 
 :- discontiguous(parents/3).
 
-girls([molly_mabray, trini_mumford, vera_malakas]).
-boys([tookkone_ookami, oscar_marsh]).
+girls([molly, trini, vera]).
+boys([tooey, oscar]).
 
-friends(molly_mabray, [tookkone_ookami, trini_mumford, oscar_marsh]).
+friends(molly, [tooey, trini, oscar]).
 
 dogs([suki]).
 
-pets(molly,   [suki, bandifer]).
+pets(molly, [suki, bandifer]).
 pets(tooey, [anka, luka, laika, tukoni, skippy, jax, 
                       rascal, kiwi, kobi, atsoo, sasha, mouse, bandifer]).
 
