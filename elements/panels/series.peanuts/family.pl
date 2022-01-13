@@ -47,6 +47,15 @@ relationFF(X, F1, F2) :-                  %F1 and F2 are firstnames
   fullFirst(FL1, F1), fullFirst(FL2, F2), %FL1 and FL2 are fullnames
   relation(X, FL1, FL2).
 
+immediateFamily(X, Y) :- parent(X, Y); child(X, Y); sibling(X, Y); partners(X, Y).
+closeFamily(X, Y)     :- grandparent(X, Y); grandchild(X, Y); 
+                         aunt(X, Y); aunt(Y, X); uncle(X, Y); uncle(Y, X);
+                         nephew(X, Y); nephew(X, Y); niece(X, Y); niece(Y, X); cousin(X, Y).
+
+%relationDegree(degree, X, Y).
+relationDegree(1, X, Y)  :- immediateFamily(X, Y).
+relationDegree(2, X, Y)  :- closeFamily(X, Y); friend(X, Y).
+
 relation(father, X, Y)   :- father(X, Y).
 relation(mother, X, Y)   :- mother(X, Y).
 relation(sister, X, Y)   :- sister(X, Y).
