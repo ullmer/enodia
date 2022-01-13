@@ -13,6 +13,8 @@ friends(molly, [tooey, trini, oscar]).
 
 dogs([suki]).
 
+residents(alaska, qyah, [molly, trini, tooey, oscar]).
+
 pets(molly, [suki, bandifer]).
 pets(tooey, [anka, luka, laika, tukoni, skippy, jax, 
                       rascal, kiwi, kobi, atsoo, sasha, mouse, bandifer]).

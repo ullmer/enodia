@@ -16,6 +16,8 @@ fullNickL(Fullname,  Nicknames) :-
 
 fullNick(Fullname,  Nickname) :- fullNickL(Fullname, L), member(Nickname, L).
 
+resident(State, City, Resident)   :- residents(State, City, R), member(Resident, R).
+
 male(P)    :- parents(_, P, _).
 male(P)    :- boys(B), member(P, B).
 
