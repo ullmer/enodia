@@ -55,7 +55,9 @@ relation(nephew, X, Y)   :- nephew(X, Y).
 relation(nephew, X, Y)   :- nephew(X, Y).
 relation(married, X, Y)  :- married(X, Y); married(Y, X).
 relation(partners, X, Y) :- partners(X, Y).
-relation(parents, X, Y)  :- parents(X, Y, _); parents(Y, X, _).
+relation(parents, X, Y)  :- parents(X, Y, _); parents(Y, X, _). %X and Y are the parents
+relation(parent, P, C)   :- parent(P, C).                       %P is the parent of child C
+relation(child, C, P)    :- parent(P, C).                       %P is the parent of child C
 relation(grandfather, X, Y)  :- grandfather(X, Y).
 relation(grandmother, X, Y)  :- grandmother(X, Y).
 
