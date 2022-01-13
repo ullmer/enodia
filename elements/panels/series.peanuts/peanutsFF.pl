@@ -26,30 +26,16 @@ parents(nkw, nat, [layla_mabray]).
 personMeta(flfn, [full, last, first, nickname]). %specify level of detail to describe people
 personMeta(flf,  [full, last, first]).           %specify level of detail to describe people
 
-person(lf, molly,  [mabray, molly]).
-person(lf, layla,  [mabray, layla]).
-person(lf, walter, [mabray, walter]).
-
-person(lf, trini,  [mumford, trini]).
-person(lf, joy,    [mumford, joy]).
-person(lf, daniel, [mumford, daniel]).
-
-person(lfn, tooey, [ookami, tookkone, [tooey]]).
-person(lf,  atsaq, [ookami, atsaq]).
-person(lf,  kenji, [ookami, kenji]).
-
-person(lfn, midge, [marsh, midge,  [auntie_midge, chief_midge]]).
-person(lfn, nat,   [kon,   nehtan, [nat, grandpa_nat, lightning]]).
+boys( [cbrown, franklin, linus, shroeder, pigpen]).
+girls([eudora, frieda, lucy, marcie, patty, peggy, sally, violet]).
 
 person(lfn, cbrown, [brown, charlie, [charles, chuck]]).
-
-girls([molly, trini, vera]).
-boys([pigpen, cbrown, franklin, linus, shroeder]).
-girls([eudora, frieda, lucy, marcie, patty, peggy, sally, violet]).
+person(fn,  patty,  [patty, [peppermint]]).
+person(lf,  lucy,   [vanpelt, lucy]]).
+person(lf,  linus,  [vanpelt, linus]]).
 
 dog(snoopy).
 bird(woodstock).
-
 
 "Pig-Pen"
 Charlie Brown
