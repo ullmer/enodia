@@ -3,8 +3,6 @@
 
 %:- use_module(family).
 
-girls([molly, trini, vera]).
-boys([tooey, oscar]).
 
 friends(molly, [tooey, trini, oscar]).
 
@@ -45,6 +43,12 @@ person(lfn, nat,   [kon,   nehtan, [nat, grandpa_nat, lightning]]).
 
 person(lfn, cbrown, [brown, charlie, [charles, chuck]]).
 
+girls([molly, trini, vera]).
+boys([pigpen, cbrown, franklin, linus, shroeder]).
+girls([eudora, frieda, lucy, marcie, patty, peggy, sally, violet]).
+
+dog(snoopy).
+bird(woodstock).
 
 
 "Pig-Pen"
