@@ -39,21 +39,13 @@ class DateSprite(pg.sprite.Sprite):
 
 ###################### main ######################
 
-d1= DateSprite(Image(dateTex1, (0, 0, dateTex1.width / 5, dateTex1.height / 5)))
+d1 = DateSprite(Image(dateTex1, (0, 0, dateTex1.width / 5, dateTex1.height / 5)))
 d1.rect.x = 250; d1.rect.y = 50
 
-d1= DateSprite(Image(dateTex1, (0, 0, dateTex1.width / 5, dateTex1.height / 5)))
-d1.rect.x = 500; d1.rect.y = 50
-
-# sprite2 = DateSprite(Image(sprite.image))
-sprite2 = DateSprite(Image(dateTex1))
-sprite2.rect.x = 250
-sprite2.rect.y = 250
-sprite2.rect.w /= 2
-sprite2.rect.h /= 2
+d2 = DateSprite(Image(dateTex2, (0, 0, dateTex1.width / 5, dateTex1.height / 5)))
+d2.rect.x = 500; d2.rect.y = 50
 
 group = pg.sprite.Group()
-group.add(sprite2)
 group.add(d1)
 group.add(d2)
 
@@ -70,20 +62,20 @@ while running:
         if event.type == pg.QUIT:       running = False
         elif event.type == pg.KEYDOWN:
             if event.key == pg.K_ESCAPE:  running = False
-            elif event.key == pg.K_LEFT:  sprite.rect.x -= 5
-            elif event.key == pg.K_RIGHT: sprite.rect.x += 5
-            elif event.key == pg.K_DOWN:  sprite.rect.y += 5
-            elif event.key == pg.K_UP:    sprite.rect.y -= 5
+            elif event.key == pg.K_LEFT:  d1.rect.x -= 5
+            elif event.key == pg.K_RIGHT: d1.rect.x += 5
+            elif event.key == pg.K_DOWN:  d1.rect.y += 5
+            elif event.key == pg.K_UP:    d1.rect.y -= 5
 
     renderer.clear()
     t += 1
 
-    img = sprite.image
-    img.angle += 1
-    img.flipX = t % 50 < 25
-    img.flipY = t % 100 < 50
-    img.color[0] = int(255.0 * (0.5 + math.sin(0.5 * t + 10.0) / 2.0))
-    img.alpha = int(255.0 * (0.5 + math.sin(0.1 * t) / 2.0))
+    #img = sprite.image
+    #img.angle += 1
+    #img.flipX = t % 50 < 25
+    #img.flipY = t % 100 < 50
+    #img.color[0] = int(255.0 * (0.5 + math.sin(0.5 * t + 10.0) / 2.0))
+    #img.alpha = int(255.0 * (0.5 + math.sin(0.1 * t) / 2.0))
     # img.draw(dstrect=(x, y, 5 * img.srcrect['w'], 5 * img.srcrect['h']))
 
     group.draw(renderer)
