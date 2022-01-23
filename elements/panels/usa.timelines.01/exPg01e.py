@@ -39,10 +39,10 @@ class DateSprite(pg.sprite.Sprite):
 
 ###################### main ######################
 
-d1 = DateSprite(Image(dateTex1, (0, 0, dateTex1.width/2, dateTex1.height/2)))
+d1 = DateSprite(Image(dateTex1, (0, 0, dateTex1.width-1, dateTex1.height-1)))
 d1.rect.x = 250; d1.rect.y = 50
 
-d2 = DateSprite(Image(dateTex2, (0, 0, dateTex1.width/2, dateTex1.height/2)))
+d2 = DateSprite(Image(dateTex2, (0, 0, dateTex1.width-1, dateTex1.height-1)))
 d2.rect.x = 500; d2.rect.y = 50
 
 group = pg.sprite.Group()
