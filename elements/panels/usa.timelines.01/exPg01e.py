@@ -28,21 +28,22 @@ dateTex2 = Texture.from_surface(renderer, load_img("1880a.png"))
 ###################### Date Sprite ######################
 
 class DateSprite(pg.sprite.Sprite):
-    def __init__(self, img):
-        pg.sprite.Sprite.__init__(self)
+  def __init__(self, img):
+    pg.sprite.Sprite.__init__(self)
 
-        self.rect  = img.get_rect()
-        self.image = img
+    self.rect  = img.get_rect()
+    self.image = img
 
-        #self.rect.w *= 5; self.rect.h *= 5
-        img.origin = self.rect.w / 2, self.rect.h / 2
+    #self.rect.w *= 5; self.rect.h *= 5
+    img.origin = self.rect.w / 2, self.rect.h / 2
 
 ###################### main ######################
 
-#sprite = DateSprite(Image(dateTex1, (0, 0, dateTex1.width / 2, dateTex1.height / 2)))
-sprite = DateSprite(Image(dateTex1, (0, 0, dateTex1.width / 5, dateTex1.height / 5)))
-sprite.rect.x = 250
-sprite.rect.y = 50
+d1= DateSprite(Image(dateTex1, (0, 0, dateTex1.width / 5, dateTex1.height / 5)))
+d1.rect.x = 250; d1.rect.y = 50
+
+d1= DateSprite(Image(dateTex1, (0, 0, dateTex1.width / 5, dateTex1.height / 5)))
+d1.rect.x = 500; d1.rect.y = 50
 
 # sprite2 = DateSprite(Image(sprite.image))
 sprite2 = DateSprite(Image(dateTex1))
@@ -53,7 +54,8 @@ sprite2.rect.h /= 2
 
 group = pg.sprite.Group()
 group.add(sprite2)
-group.add(sprite)
+group.add(d1)
+group.add(d2)
 
 import math
 
