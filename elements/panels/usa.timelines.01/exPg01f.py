@@ -5,7 +5,7 @@
 # Brygg Ullmer, Clemson University
 # Begun 2022-01-23
 
-import os
+import os, math
 import pygame as pg
 
 os.environ['SDL_MOUSE_TOUCH_EVENTS'] = '1'
@@ -25,6 +25,9 @@ pg.key.set_repeat(10, 10)
 
 win = Window("win1", resizable=True)
 renderer = Renderer(win)
+
+#winW = pg.display.get_surface().get_width()
+#winH = pg.display.get_surface().get_height()
 
 dateTex1 = Texture.from_surface(renderer, load_img("1860a.png"))
 dateTex2 = Texture.from_surface(renderer, load_img("1880a.png"))
@@ -64,16 +67,14 @@ group = pg.sprite.Group()
 group.add(d1)
 group.add(d2)
 
-import math
-
 t = 0
 running = True
 clock = pg.time.Clock()
 #renderer.draw_color = (255, 0, 0, 255)
 renderer.draw_color = (1, 0, 0, 255)
 
-numTouchDevices = touch.get_num_devices()
-print("numTouchDevices:", numTouchDevices)
+#numTouchDevices = touch.get_num_devices()
+#print("numTouchDevices:", numTouchDevices)
 
 while running:
   for event in pg.event.get():
@@ -85,8 +86,14 @@ while running:
       elif event.key == pg.K_DOWN:  d1.rect.y += 5
       elif event.key == pg.K_UP:    d1.rect.y -= 5
 
+    elif event.type == pg.VIDEORESIZE:
+      winW, winH = event.size
+      print("resize noted")
+
     elif event.type == pg.FINGERDOWN:
       print("fingerdown:  ", event.finger_id, event.x, event.y)
+      targ = (event.x * winW, event.y * winH)
+      animate(d1,tween='accel_decel', pos=targ, duration=0.5)
 
     elif event.type == pg.FINGERMOTION:
       print("fingermotion:", event.finger_id, event.x, event.y)
