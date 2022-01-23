@@ -19,7 +19,7 @@ def load_img(file): return pg.image.load(os.path.join(data_dir, file))
 pg.display.init()
 pg.key.set_repeat(10, 10)
 
-win = Window("asdf", resizable=True)
+win = Window("win1", resizable=True)
 renderer = Renderer(win)
 
 dateTex1 = Texture.from_surface(renderer, load_img("1860a.png"))
@@ -39,10 +39,10 @@ class DateSprite(pg.sprite.Sprite):
 
 ###################### main ######################
 
-d1 = DateSprite(Image(dateTex1, (0, 0, dateTex1.width / 5, dateTex1.height / 5)))
+d1 = DateSprite(Image(dateTex1, (0, 0, dateTex1.width/2, dateTex1.height/2)))
 d1.rect.x = 250; d1.rect.y = 50
 
-d2 = DateSprite(Image(dateTex2, (0, 0, dateTex1.width / 5, dateTex1.height / 5)))
+d2 = DateSprite(Image(dateTex2, (0, 0, dateTex1.width/2, dateTex1.height/2)))
 d2.rect.x = 500; d2.rect.y = 50
 
 group = pg.sprite.Group()
