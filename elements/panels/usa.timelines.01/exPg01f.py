@@ -29,6 +29,16 @@ renderer = Renderer(win)
 dateTex1 = Texture.from_surface(renderer, load_img("1860a.png"))
 dateTex2 = Texture.from_surface(renderer, load_img("1880a.png"))
 
+###################### distance between rectangle and point ######################
+# Adaptation of MultiRRomero from:
+# https://stackoverflow.com/questions/5254838/calculating-distance-between-a-point-and-a-rectangular-box-nearest-point
+
+def distRectPoint(rect, x, y): 
+  rminx = rect.x; rmaxx = rminx + rect.w
+  rminy = rect.y; rmaxy = rminy + recty.h
+  dx = max(rminx - x, 0, x - rmaxx)
+  dy = max(rminy - y, 0, y - rmaxy)
+  return sqrt(dx*dx + dy*dy)
 
 ###################### Date Sprite ######################
 
