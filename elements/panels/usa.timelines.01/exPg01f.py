@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 # ACCelerate22 code building upon 
-# https://github.com/pygame/pygame/blob/main/examples/sprite_dateTex1ture.py  
+#   https://github.com/pygame/pygame/blob/main/examples/sprite_dateTex1ture.py  
+#   https://www.patreon.com/posts/finger-painting-43786073?l=fr
 # Brygg Ullmer, Clemson University
 # Begun 2022-01-23
 
 import os
 import pygame as pg
+
+os.environ['SDL_MOUSE_TOUCH_EVENTS'] = '1'
 
 if pg.get_sdl_version()[0] < 2:
     raise SystemExit("This example requires pygame 2 and SDL2.")
@@ -18,12 +21,14 @@ def load_img(file): return pg.image.load(os.path.join(data_dir, file))
 
 pg.display.init()
 pg.key.set_repeat(10, 10)
+#pg.event.set_grab(True)
 
 win = Window("win1", resizable=True)
 renderer = Renderer(win)
 
 dateTex1 = Texture.from_surface(renderer, load_img("1860a.png"))
 dateTex2 = Texture.from_surface(renderer, load_img("1880a.png"))
+
 
 ###################### Date Sprite ######################
 
@@ -69,6 +74,9 @@ while running:
       elif event.key == pg.K_RIGHT: d1.rect.x += 5
       elif event.key == pg.K_DOWN:  d1.rect.y += 5
       elif event.key == pg.K_UP:    d1.rect.y -= 5
+
+    elif event.type == pg.FINGERDOWN:
+      print("fingerdown:", event.finger_id, event.x, event.y)
 
   renderer.clear()
   t += 1
