@@ -76,7 +76,13 @@ while running:
       elif event.key == pg.K_UP:    d1.rect.y -= 5
 
     elif event.type == pg.FINGERDOWN:
-      print("fingerdown:", event.finger_id, event.x, event.y)
+      print("fingerdown:  ", event.finger_id, event.x, event.y)
+
+    elif event.type == pg.FINGERMOTION:
+      print("fingermotion:", event.finger_id, event.x, event.y)
+
+    elif event.type == pg.FINGERUP:
+      print("fingerup    :", event.finger_id, event.x, event.y)
 
   renderer.clear()
   t += 1
