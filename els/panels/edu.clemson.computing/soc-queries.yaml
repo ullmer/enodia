@@ -34,10 +34,10 @@ dbDescr: #database description
       query: "select name, rank from faculty where division='%s' order by lastName"
       results: [name, rank]
 
-    getFacultyRankExtraByDivision: #####################
+    getFacultyRankExtraLByDivision: #####################
       arguments: [division]
-      query: "select name, rank, extraRole from faculty where division='%s' order by lastName"
-      results: [name, rank, extraRole]
+      query: "select lastName, rank, extraRole from faculty where division='%s' order by lastName"
+      results: [lastName, rank, extraRole]
 
     getMajorResearchAreas:
       query: select ra.name from researchArea as ra, 
