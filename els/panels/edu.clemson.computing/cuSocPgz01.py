@@ -8,7 +8,7 @@ import traceback, sys
 
 TITLE = "Clemson Computing people"
 #WIDTH = 1920; HEIGHT = 1080
-WIDTH = 1200; HEIGHT = 800
+WIDTH = 1400; HEIGHT = 850
 
 sqliteDbFn   = 'soc.db3'
 queriesYFn   = 'soc-queries.yaml'
