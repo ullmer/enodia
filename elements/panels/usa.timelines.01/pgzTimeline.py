@@ -3,7 +3,9 @@
 #Begun 2022-01-24
 
 import yaml, traceback
-from pgzero import *
+
+from pgzero.builtins import Actor, animate, keyboard
+#https://stackoverflow.com/questions/55438239/name-actor-is-not-defined
 
 ###############################################################
 ######################### pgzTimeline #########################
