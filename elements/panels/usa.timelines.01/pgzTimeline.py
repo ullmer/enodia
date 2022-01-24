@@ -16,6 +16,7 @@ class pgzTimeline:
   yf     = None
   yd     = None
   actors = None
+  selectedActors = []
 
   ######################### constructor #########################
 
@@ -42,11 +43,28 @@ class pgzTimeline:
   ######################### on_mouse_down #########################
 
   def on_mouse_down(self, pos):
+    self.selectedActors = []
+
     for key in self.actors.keys():
       el = self.actors[key]
       if el.collidepoint(pos): 
-        x, y = el.center
-        animate(el, tween='accel_decel', pos=(x, y+100), duration=0.3)
+        #x, y = el.center
+        #animate(el, tween='accel_decel', pos=(x, y+100), duration=0.3)
+        self.selectedActors.append(el)
+  
+ ######################### on_mouse_move #########################
+
+  def on_mouse_move(self, pos, rel):
+    if self.selectedActors is None: return
+    for actor in self.selectedActors:
+      x,  y  = actor.center
+      dx, dy = rel
+      actor.center = (x+dx, y+dy)
+  
+######################### on_mouse_up #########################
+
+  def on_mouse_up(self):
+    self.selectedActors = []
   
 ######################### draw #########################
 
