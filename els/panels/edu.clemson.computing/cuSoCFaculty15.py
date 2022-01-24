@@ -39,10 +39,14 @@ def main():
   #ps = cairo.PDFSurface("cuSoCFaculty13.pdf", 500, 7000)
 
   caiSurface = cairo.ImageSurface(cairo.FORMAT_RGB24,
-                         int(normWidth * pixelScale), 325)
+                         int(normWidth * pixelScale), 122)
                          #int(normHeight * pixelScale))
   ctx = cairo.Context(caiSurface)
   ctx.scale(pixelScale, pixelScale)
+
+  ctx.rectangle(0, 0, normWidth, 122)
+  ctx.set_source_rgb(0.6, 0.3, 0)
+  ctx.fill()
 
   ctx.rectangle(0, 0, normWidth, normHeight)
   ctx.set_source_rgb(0.9, 0.9, 1)
