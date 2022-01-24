@@ -19,6 +19,9 @@ soc = socDb.socDb()
 divisions = soc.getDivisions()
 
 for division in divisions:
-  divFaculty = soc.getFacultyRankExtraByDivision(division)
+  divFaculty = soc.getFacultyRankExtraLByDivision(division)
+  for faculty in divFaculty:
+    lastName, rank, extraRole = faculty
+    print(division, lastName)
   
 ### end ###
