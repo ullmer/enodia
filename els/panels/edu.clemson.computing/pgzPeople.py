@@ -27,23 +27,24 @@ class pgzPeople:
 ######################### buildActors #########################
 
   def buildActors(self, buildList):
-    x,y = x1,y1 # start at declared origin 
+    x,y = self.x1, self.y1 # start at declared origin 
 
     try:
       for lastname in buildList:
         imgFn = self.genImgFn(lastname)
         self.actors[lastname] = Actor(imgFn, topleft=(x, y), opacity = .5)
 
-        if y < ym: y += yx
-        else:      y  = y1; x += dx
+        if y < self.ym: y += self.yx
+        else:           y  = self.y1; x += self.dx
 
     except: print(traceback.print_exc()); return None
 
 ######################### buildActors #########################
 
   def genImgFn(self, lastname):
-    lastn = lastname.replace(" ", "") #e.g., "Van Scoy" -> "VanScoy"
-    imgFn = lastn + '.png'
+    lastn1 = lastname.replace(" ", "") #e.g., "Van Scoy" -> "VanScoy"
+    lastn2 = lastn1.lower()
+    imgFn  = lastn2 + '.png'
     return imgFn
 
   ######################### on_mouse_down #########################
