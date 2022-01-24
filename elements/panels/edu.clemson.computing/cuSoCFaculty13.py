@@ -29,28 +29,28 @@ def main():
   divisionMap = {'CS':'computer science','HCC':'human-centered computing',
                  'VC':'visual computing','FOI':'faculty of instruction'}
 
-  ps = cairo.PDFSurface("exSoCFaculty12.pdf", 2700, 800)
+  ps = cairo.PDFSurface("cuSoCFaculty13.pdf", 2700, 800)
   cr = cairo.Context(ps)
   s = .38
   cr.scale(s,s)
   #cr.select_font_face("Georgia", cairo.FONT_SLANT_NORMAL,
   cr.select_font_face("Arial", cairo.FONT_SLANT_NORMAL,
                                cairo.FONT_WEIGHT_BOLD)
-  cr.set_font_size(256)
-  cr.move_to(10,200)
-  cr.set_source_rgb(.6, .4, 0)
-  cr.show_text('clemson university :: school of computing')
+  #cr.set_font_size(256)
+  #cr.move_to(10,200)
+  #cr.set_source_rgb(.6, .4, 0)
+  #cr.show_text('clemson university :: school of computing')
 
   for division in divisions:
   
     yTxtOrig = yTxt  = 400; dyTxt = 325
     yImgOrig = yImg  = 680; dyImg = 325
 
-    cr.set_font_size(80)
-    cr.move_to(xTxt-300, yTxt-80)
-    cr.set_source_rgb(.5, .3, 0)
-    divName = divisionMap[division]
-    cr.show_text(divName)       
+    #cr.set_font_size(80)
+    #cr.move_to(xTxt-300, yTxt-80)
+    #cr.set_source_rgb(.5, .3, 0)
+    #divName = divisionMap[division]
+    #cr.show_text(divName)       
   
     cr.set_font_size(40)
     divFaculty = soc.getFacultyRankExtraByDivision(division)
@@ -62,10 +62,11 @@ def main():
       if idx != 0 and idx % 5 == 0:  yTxt = yTxtOrig; xTxt += 600
 
       name, rank, extraRole = faculty
-      if idx % 1 == 0: cr.set_source_rgba(0.8, 0.6, 0, .1)
-      else:            cr.set_source_rgba(0.8, 0.6, 0, .95)
-      cr.rectangle(xTxt-295, yTxt-50, xTxt+350, yTxt-50+dyImg)
-      cr.fill()
+      cr.set_source_rgba(0.8, 0.6, 0, .1)
+      #if idx % 1 == 0: cr.set_source_rgba(0.8, 0.6, 0, .1)
+      #else:            cr.set_source_rgba(0.8, 0.6, 0, .95)
+      #cr.rectangle(xTxt-295, yTxt-50, xTxt+350, yTxt-50+dyImg)
+      #cr.fill()
 
       lastNameSpace = name.rfind(' ') #consider "Brian C. Dean"
       lastName  = name[lastNameSpace+1:]
