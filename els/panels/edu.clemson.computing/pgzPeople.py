@@ -34,7 +34,7 @@ class pgzPeople:
         imgFn = self.genImgFn(lastname)
         self.actors[lastname] = Actor(imgFn, topleft=(x, y), opacity = .5)
 
-        if y < self.ym: y += self.yx
+        if y < self.ym: y += self.dy
         else:           y  = self.y1; x += self.dx
 
     except: print(traceback.print_exc()); return None
