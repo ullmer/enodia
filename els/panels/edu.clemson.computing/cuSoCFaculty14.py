@@ -47,6 +47,8 @@ def main():
   ctx.set_source_rgb(0.9, 0.9, 1)
   ctx.fill()
 
+  ps = caiSurface
+
   cr = cairo.Context(ps)
   s = .38
   cr.scale(s,s)
