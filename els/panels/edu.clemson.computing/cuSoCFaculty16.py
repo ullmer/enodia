@@ -35,52 +35,20 @@ def main():
   divisionMap = {'CS':'computer science','HCC':'human-centered computing',
                  'VC':'visual computing','FOI':'faculty of instruction'}
 
-  #ps = cairo.PDFSurface("cuSoCFaculty13.pdf", 500, 7000)
-  #ps = cairo.PDFSurface("cuSoCFaculty13.pdf", 500, 7000)
-
   caiSurface = cairo.ImageSurface(cairo.FORMAT_RGB24,
                          int(normWidth * pixelScale), 122)
-                         #int(normHeight * pixelScale))
   ctx = cairo.Context(caiSurface)
   ctx.scale(pixelScale, pixelScale)
-
-  ctx.rectangle(0, 0, normWidth, 122)
-  ctx.set_source_rgb(0.6, 0.3, 0)
-  ctx.fill()
-
-  ctx.rectangle(0, 0, normWidth, normHeight)
-  ctx.set_source_rgb(0.9, 0.9, 1)
-  ctx.fill()
 
   ps = caiSurface
 
   cr = cairo.Context(ps)
   s = .38
   cr.scale(s,s)
-  #cr.select_font_face("Georgia", cairo.FONT_SLANT_NORMAL,
   cr.select_font_face("Arial", cairo.FONT_SLANT_NORMAL,
                                cairo.FONT_WEIGHT_BOLD)
-  #cr.set_font_size(256)
-  #cr.move_to(10,200)
-  #cr.set_source_rgb(.6, .4, 0)
-  #cr.show_text('clemson university :: school of computing')
-
-  #yTxtOrig = yTxt  = 400; dyTxt = 325
-  #yImgOrig = yImg  = 680; dyImg = 325
-
-  yTxtOrig = yTxt  = 60;   dyTxt = 325
-  yImgOrig = yImg  = 335;  dyImg = 325
 
   for division in divisions:
-  
-    #yTxtOrig = yTxt  = 400; dyTxt = 325
-    #yImgOrig = yImg  = 680; dyImg = 325
-
-    #cr.set_font_size(80)
-    #cr.move_to(xTxt-300, yTxt-80)
-    #cr.set_source_rgb(.5, .3, 0)
-    #divName = divisionMap[division]
-    #cr.show_text(divName)       
   
     cr.set_font_size(40)
     divFaculty = soc.getFacultyRankExtraByDivision(division)
@@ -89,14 +57,19 @@ def main():
   
     idx = 0; 
     for faculty in divFaculty:
-      #if idx != 0 and idx % 5 == 0:  yTxt = yTxtOrig; xTxt += 600
+      ctx.rectangle(0, 0, normWidth, 122)
+      ctx.set_source_rgb(0.6, 0.3, 0)
+      ctx.fill()
+
+      ctx.rectangle(0, 0, normWidth, normHeight)
+      ctx.set_source_rgb(0.9, 0.9, 1)
+      ctx.fill()
+
+      yTxtOrig = yTxt  = 60;   dyTxt = 325
+      yImgOrig = yImg  = 335;  dyImg = 325
 
       name, rank, extraRole = faculty
       cr.set_source_rgba(0.8, 0.6, 0, .1)
-      #if idx % 1 == 0: cr.set_source_rgba(0.8, 0.6, 0, .1)
-      #else:            cr.set_source_rgba(0.8, 0.6, 0, .95)
-      #cr.rectangle(xTxt-295, yTxt-50, xTxt+350, yTxt-50+dyImg)
-      #cr.fill()
 
       lastNameSpace = name.rfind(' ') #consider "Brian C. Dean"
       lastName  = name[lastNameSpace+1:]
@@ -121,12 +94,7 @@ def main():
         cr.show_text(extraRole)
   
       yTxt += dyTxt;    idx += 1
-      break
   
-    idx = 0
-    for faculty in divFaculty:
-      #if idx != 0 and idx % 5 == 0: yImg = yImgOrig; xImg += 600
-      name, rank, extra = faculty
       imageFn = name2image(name)
       try:
         imgSurf  = cairo.ImageSurface.create_from_png(imageFn)
@@ -137,21 +105,11 @@ def main():
       idx += 1; yImg += dyImg
 
       cr.show_page()
-      ps.write_to_png("cuSoCFaculty15.png")
-      sys.exit()
-
-    #xImg += 600; xTxt +=  600
-  
-  cr.show_page()
-  ps.write_to_png("cuSoCFaculty15.png")
+      targFn = "images/soc/tiles/" + name + ".png"
+      ps.write_to_png(targFn)
         
 if __name__ == "__main__":    
   main()
 
-
-
-
-
-
-  
 ### end ###
+
