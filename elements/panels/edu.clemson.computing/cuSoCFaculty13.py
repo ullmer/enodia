@@ -29,7 +29,7 @@ def main():
   divisionMap = {'CS':'computer science','HCC':'human-centered computing',
                  'VC':'visual computing','FOI':'faculty of instruction'}
 
-  ps = cairo.PDFSurface("cuSoCFaculty13.pdf", 2700, 800)
+  ps = cairo.PDFSurface("cuSoCFaculty13.pdf", 500, 7000)
   cr = cairo.Context(ps)
   s = .38
   cr.scale(s,s)
@@ -41,10 +41,13 @@ def main():
   #cr.set_source_rgb(.6, .4, 0)
   #cr.show_text('clemson university :: school of computing')
 
+  yTxtOrig = yTxt  = 400; dyTxt = 325
+  yImgOrig = yImg  = 680; dyImg = 325
+
   for division in divisions:
   
-    yTxtOrig = yTxt  = 400; dyTxt = 325
-    yImgOrig = yImg  = 680; dyImg = 325
+    #yTxtOrig = yTxt  = 400; dyTxt = 325
+    #yImgOrig = yImg  = 680; dyImg = 325
 
     #cr.set_font_size(80)
     #cr.move_to(xTxt-300, yTxt-80)
@@ -59,7 +62,7 @@ def main():
   
     idx = 0; 
     for faculty in divFaculty:
-      if idx != 0 and idx % 5 == 0:  yTxt = yTxtOrig; xTxt += 600
+      #if idx != 0 and idx % 5 == 0:  yTxt = yTxtOrig; xTxt += 600
 
       name, rank, extraRole = faculty
       cr.set_source_rgba(0.8, 0.6, 0, .1)
@@ -94,7 +97,7 @@ def main():
   
     idx = 0
     for faculty in divFaculty:
-      if idx != 0 and idx % 5 == 0: yImg = yImgOrig; xImg += 600
+      #if idx != 0 and idx % 5 == 0: yImg = yImgOrig; xImg += 600
       name, rank, extra = faculty
       imageFn = name2image(name)
       try:
@@ -106,7 +109,7 @@ def main():
       idx += 1; yImg += dyImg
   
 
-    xImg += 600; xTxt +=  600
+    #xImg += 600; xTxt +=  600
   
   cr.show_page()
         
