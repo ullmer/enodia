@@ -2,10 +2,11 @@
 #Brygg Ullmer, Clemson University
 #Begun 2022-01-24
 
-from pgzTimeline import *
-import traceback, enoDb, sys
+#from pgzTimeline import *
+from enoDb import *
+import traceback, sys
 
-pgzt = pgzTimeline("elements.yaml")
+#pgzt = pgzTimeline("elements.yaml")
 
 TITLE = "Timeline ex02f"
 WIDTH = 1920; HEIGHT = 1080
