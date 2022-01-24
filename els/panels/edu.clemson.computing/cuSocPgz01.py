@@ -7,7 +7,8 @@ from enoDb     import *
 import traceback, sys
 
 TITLE = "Clemson Computing people"
-WIDTH = 1920; HEIGHT = 1080
+#WIDTH = 1920; HEIGHT = 1080
+WIDTH = 1200; HEIGHT = 800
 
 sqliteDbFn   = 'soc.db3'
 queriesYFn   = 'soc-queries.yaml'
@@ -18,14 +19,18 @@ names     = []
 
 for division in divisions:
   divFaculty = soc.getFacultyRankExtraLByDivision(division)
+  #print(division, divFaculty)
+
   for faculty in divFaculty:
     lastName, rank, extraRole = faculty
     #print(division, lastName)
     names.append(lastName)
 
-print(names)
+#snames = names.sort()
+snames = names
+print(snames)
 
-pgzp = pgzPeople(names)
+pgzp = pgzPeople(snames)
 
 def on_mouse_down(pos):      global pgzp; pgzp.on_mouse_down(pos)
 def on_mouse_move(pos, rel): global pgzp; pgzp.on_mouse_move(pos, rel)

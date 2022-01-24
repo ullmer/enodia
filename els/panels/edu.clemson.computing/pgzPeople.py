@@ -13,7 +13,7 @@ from pgzero.builtins import Actor, animate, keyboard
 class pgzPeople:
   x1,y1 = 5,    5
   dx,dy = 250,  130
-  xm,ym = 1000, 1900
+  xm,ym = 1200, 800
 
   actors = None
   selectedActors = []
@@ -29,15 +29,14 @@ class pgzPeople:
   def buildActors(self, buildList):
     x,y = self.x1, self.y1 # start at declared origin 
 
-    try:
-      for lastname in buildList:
+    for lastname in buildList:
+      try:
         imgFn = self.genImgFn(lastname)
-        self.actors[lastname] = Actor(imgFn, topleft=(x, y), opacity = .5)
+        self.actors[lastname] = Actor(imgFn, topleft=(x, y))
 
         if y < self.ym: y += self.dy
         else:           y  = self.y1; x += self.dx
-
-    except: print(traceback.print_exc()); return None
+      except: print(traceback.print_exc()); return None
 
 ######################### buildActors #########################
 
