@@ -11,6 +11,9 @@ from pgzero.builtins import Actor, animate, keyboard
 ######################### pgzPeople #########################
 
 class pgzPeople:
+  x1,y1 = 5,    5
+  dx,dy = 200,  200
+  xm,ym = 1000, 1900
 
   actors = None
   selectedActors = []
@@ -24,10 +27,23 @@ class pgzPeople:
 ######################### buildActors #########################
 
   def buildActors(self, buildList):
-    for el in buildList:
-      name, imgFn = el
-      self.actors[name] = Actor(imgFn, topleft=(x, 10), opacity = .5)
+    x,y = x1,y1 # start at declared origin 
+
+    for lastname in buildList:
+      imgFn = self.genImgFn(lastname)
+      self.actors[lastname] = Actor(imgFn, topleft=(x, y), opacity = .5)
+
+      if y < ym: y += yx
+      else:      y  = y1; x += dx
+
     except: print(traceback.print_exc()); return None
+
+######################### buildActors #########################
+
+  def genImgFn(self, lastname):
+    lastn = lastname.replace(" ", "") #e.g., "Van Scoy" -> "VanScoy"
+    imgFn = lastn + '.png'
+    return imgFn
 
   ######################### on_mouse_down #########################
 

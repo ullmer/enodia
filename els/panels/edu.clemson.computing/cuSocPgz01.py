@@ -2,13 +2,11 @@
 #Brygg Ullmer, Clemson University
 #Begun 2022-01-24
 
-#from pgzTimeline import *
-from enoDb import *
+from pgzPeople import *
+from enoDb     import *
 import traceback, sys
 
-#pgzt = pgzTimeline("elements.yaml")
-
-TITLE = "Timeline ex02f"
+TITLE = "Clemson Computing people"
 WIDTH = 1920; HEIGHT = 1080
 
 def on_mouse_down(pos):      global pgzt; pgzt.on_mouse_down(pos)
@@ -27,5 +25,7 @@ for division in divisions:
   for faculty in divFaculty:
     lastName, rank, extraRole = faculty
     print(division, lastName)
+
+pgzp = pgzPeople()
   
 ### end ###
