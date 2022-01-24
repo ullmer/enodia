@@ -19,8 +19,8 @@ def name2image(name):
 
 def main():
   
-  normWidth  = 4
-  normHeight = 2
+  normWidth  = .8
+  normHeight = 22
   pixelScale = 300
 
   soc = socDb.socDb()
@@ -38,8 +38,8 @@ def main():
   #ps = cairo.PDFSurface("cuSoCFaculty13.pdf", 500, 7000)
 
   caiSurface = cairo.ImageSurface(cairo.FORMAT_RGB24,
-                         normWidth * pixelScale,
-                         normHeight * pixelScale)
+                         int(normWidth * pixelScale),
+                         int(normHeight * pixelScale))
   ctx = cairo.Context(caiSurface)
   ctx.scale(pixelScale, pixelScale)
 
