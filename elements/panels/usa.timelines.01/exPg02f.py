@@ -4,7 +4,7 @@
 
 from pgzTimeline import *
 
-pgzt = pgzTimeline()
+pgzt = pgzTimeline("elements.yaml")
 
 TITLE = "Timeline ex02f"
 WIDTH = 1920; HEIGHT = 1080

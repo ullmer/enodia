@@ -19,7 +19,8 @@ class pgzTimeline:
 
   ######################### constructor #########################
 
-  def __init__(self):
+  def __init__(self, yamlFn):
+    self.yfn = yamlFn
     self.actors = {}
     self.loadYaml()
 
