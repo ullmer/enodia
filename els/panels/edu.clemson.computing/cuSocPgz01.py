@@ -3,7 +3,7 @@
 #Begun 2022-01-24
 
 from pgzTimeline import *
-import cairo, traceback, socDb, sys
+import traceback, enoDb, sys
 
 pgzt = pgzTimeline("elements.yaml")
 
@@ -15,7 +15,10 @@ def on_mouse_move(pos, rel): global pgzt; pgzt.on_mouse_move(pos, rel)
 def on_mouse_up(pos):        global pgzt; pgzt.on_mouse_up()
 def draw():                  global pgzt; screen.clear(); pgzt.draw()
 
-soc = socDb.socDb()
+sqliteDbFn   = 'soc.db3'
+queriesYFn   = 'soc-queries.yaml'
+soc = enoDb(sqliteDbFn, queriesYFn)
+
 divisions = soc.getDivisions()
 
 for division in divisions:
