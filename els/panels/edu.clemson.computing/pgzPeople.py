@@ -29,12 +29,13 @@ class pgzPeople:
   def buildActors(self, buildList):
     x,y = x1,y1 # start at declared origin 
 
-    for lastname in buildList:
-      imgFn = self.genImgFn(lastname)
-      self.actors[lastname] = Actor(imgFn, topleft=(x, y), opacity = .5)
+    try:
+      for lastname in buildList:
+        imgFn = self.genImgFn(lastname)
+        self.actors[lastname] = Actor(imgFn, topleft=(x, y), opacity = .5)
 
-      if y < ym: y += yx
-      else:      y  = y1; x += dx
+        if y < ym: y += yx
+        else:      y  = y1; x += dx
 
     except: print(traceback.print_exc()); return None
 
