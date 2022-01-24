@@ -14,8 +14,7 @@ queriesYFn   = 'soc-queries.yaml'
 soc = enoDb(sqliteDbFn, queriesYFn)
 
 divisions = soc.getDivisions([])
-
-names = []
+names     = []
 
 for division in divisions:
   divFaculty = soc.getFacultyRankExtraLByDivision(division)
@@ -23,6 +22,8 @@ for division in divisions:
     lastName, rank, extraRole = faculty
     #print(division, lastName)
     names.append(lastName)
+
+print(names)
 
 pgzp = pgzPeople(names)
 
