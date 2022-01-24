@@ -14,16 +14,16 @@ doCat(research, dmml, hncp, [ai, 'Data Mining & Machine Learning',
 doCat(research, haii, hncp, [ai, 'Human-AI Interaction', [kc, bk, nm]]).
 
 doCat(division, cs,  hncp, [soc, 'Computer Science',
-  [bcd, nh, kl, fl, jw, yy, wg, sh, ps, ms, jm, js, mw, dd, pr, ms, aa, rg, lc, ar, zz, nl]]).
+  [apon, dean, hubig, kl, fl, jw, yy, wg, sh, ps, ms, jm, js, mw, dd, pr, ms, rg, lc, ar, zz, nl]]).
 
 doCat(division, hcc,  hncp, [soc, 'Human-Centered Computing']).
 
 doCat(acadRank, asst, hncp,  [acadRank, 'Assistant Professor', 
-        [jb, lc]]).
+        [brinkley, lc]]).
 
-doCat(person, bcd, fml, ['brian', 'c.', 'dean']
+doCat(person, dean, fml, ['Brian', 'C.', 'Dean']
 
-doCat(inst, brown, dncpsci, ['brown.edu', 'Brown University', [jt], ri, pvd, usa]).
+doCat(inst, brown, dncpsci, ['brown.edu', 'Brown University', [tessendorf], ri, pvd, usa]).
 
 /*
 Artificial Intelligence:

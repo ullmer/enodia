@@ -18,6 +18,11 @@ def name2image(name):
   return result
 
 def main():
+  
+  normWidth  = 4
+  normHeight = 2
+  pixelScale = 300
+
   soc = socDb.socDb()
   divisions = soc.getDivisions()
 
