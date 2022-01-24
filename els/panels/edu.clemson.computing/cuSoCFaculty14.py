@@ -60,8 +60,11 @@ def main():
   #cr.set_source_rgb(.6, .4, 0)
   #cr.show_text('clemson university :: school of computing')
 
-  yTxtOrig = yTxt  = 400; dyTxt = 325
-  yImgOrig = yImg  = 680; dyImg = 325
+  #yTxtOrig = yTxt  = 400; dyTxt = 325
+  #yImgOrig = yImg  = 680; dyImg = 325
+
+  yTxtOrig = yTxt  = 60;   dyTxt = 325
+  yImgOrig = yImg  = 335;  dyImg = 325
 
   for division in divisions:
   
