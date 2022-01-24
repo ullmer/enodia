@@ -20,7 +20,7 @@ sqliteDbFn   = 'soc.db3'
 queriesYFn   = 'soc-queries.yaml'
 soc = enoDb(sqliteDbFn, queriesYFn)
 
-divisions = soc.getDivisions()
+divisions = soc.getDivisions([])
 
 for division in divisions:
   divFaculty = soc.getFacultyRankExtraLByDivision(division)
