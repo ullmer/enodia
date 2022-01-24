@@ -85,7 +85,7 @@ def main():
   
       if rank in rankMap:
         cr.move_to(xTxt, yTxt+100)
-        g3 = .55; cr.set_source_rgb(g3,g3,g3)
+        g3 = .35; cr.set_source_rgb(g3,g3,g3)
         cr.show_text(rankMap[rank])
   
       if extraRole != None:
@@ -105,7 +105,7 @@ def main():
       idx += 1; yImg += dyImg
 
       cr.show_page()
-      targFn = "images/soc/tiles/" + name + ".png"
+      targFn = "images/soc/tiles/" + lastName + ".png"
       ps.write_to_png(targFn)
         
 if __name__ == "__main__":    
