@@ -20,7 +20,7 @@ class enoElClusters:
   dx,dy = 220,  130
   xm,ym = 1300, 700
   padX  = 20
-  verbose = True
+  verbose = False
 
   clustersName = 'Unnamed cluster'
 
@@ -45,21 +45,22 @@ class enoElClusters:
     for clusterName in self.clusterNames:
       els = self.clusterEls[clusterName]
       print(clusterName, ':', els)
+    print(self.elPositions)
 
   ######################### buildClusters #########################
 
   def buildClusters(self, clustersDict):
 
     if self.verbose: print("buildClusters:", clustersDict)
-    clusterNames = clustersDict.keys()
+    self.clusterNames = clustersDict.keys()
     x,y = self.x1, self.y1 # start at declared origin 
 
-    for clusterName in clusterNames:
+    for clusterName in self.clusterNames:
        els = clustersDict[clusterName]
 
        if self.verbose: print("clusterName:", clusterName); print("els:", els)
-
        self.clusterEls[clusterName] = els
+
        for el in els:
          pos = (x, y)
          self.elPositions[el] = pos
