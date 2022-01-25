@@ -10,6 +10,52 @@ from pgzhelper import *
 from pgzero.builtins import Actor, animate, keyboard
 #https://stackoverflow.com/questions/55438239/name-actor-is-not-defined
 
+#############################################################
+################# Enodia Element Clusters ###################
+
+# Cluster a series of elements into subclusters, each with distinctive associated positions
+
+class enoElClusters:
+  x1,y1 = 5,    5    # spatial stage coordinates
+  dx,dy = 220,  130
+  xm,ym = 1300, 700
+  padX  = 20
+
+  clusterNames = None
+  elPositions  = None
+  clusterEls   = None
+
+  ######################### constructor #########################
+
+  def __init__(self, clustersDict):
+    clusterNames = [] #list of cluster names
+    elPositions  = {} #hash of element positions
+    clusterEls   = {} #hash of cluster-name to element-lists
+
+    self.buildClusters(nameLists)
+        
+######################### buildClusters #########################
+
+  def buildClusters(self, clustersDict):
+
+    clusterNames = clustersDict.keys()
+    x,y = self.x1, self.y1 # start at declared origin 
+
+    for clusterName in clusterNames:
+       els = clustersDict[clusterName]
+
+       self.clusterEls[clusterName] = els
+       for el in els:
+         pos = (x, y)
+	 self.elPositions[el] = pos
+
+          if y < self.ym: y += self.dy
+          else:           y  = self.y1; x += self.dx
+       except: print(traceback.print_exc()); return None
+
+       y = self.y1
+       x += self.dx + self.padX
+
 ###############################################################
 ######################### pgzPeople #########################
 
