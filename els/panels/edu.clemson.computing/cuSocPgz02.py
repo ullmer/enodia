@@ -5,6 +5,9 @@
 from pgzPeople import *
 from enoDb     import *
 import traceback, sys
+import pgzrun
+from pgzhelper import *
+
 
 TITLE = "Clemson Computing people"
 #WIDTH = 1920; HEIGHT = 1080
@@ -31,5 +34,7 @@ def on_mouse_down(pos):      global pgzp; pgzp.on_mouse_down(pos)
 def on_mouse_move(pos, rel): global pgzp; pgzp.on_mouse_move(pos, rel)
 def on_mouse_up(pos):        global pgzp; pgzp.on_mouse_up()
 def draw():                  global pgzp; screen.clear(); pgzp.draw()
+
+#set_fullscreen() # via pgzhelper
   
 ### end ###

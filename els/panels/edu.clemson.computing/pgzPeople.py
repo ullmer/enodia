@@ -4,6 +4,9 @@
 
 import yaml, traceback
 
+import pgzrun 
+from pgzhelper import *
+
 from pgzero.builtins import Actor, animate, keyboard
 #https://stackoverflow.com/questions/55438239/name-actor-is-not-defined
 
@@ -17,11 +20,14 @@ class pgzPeople:
 
   actors = None
   selectedActors = []
+  actorLocationHistory = None
 
   ######################### constructor #########################
 
   def __init__(self, buildList):
     self.actors = {}
+    self.actorLocationHistory = {}
+
     self.buildActors(buildList)
   
 ######################### buildActors #########################
@@ -33,6 +39,7 @@ class pgzPeople:
       try:
         imgFn = self.genImgFn(lastname)
         self.actors[lastname] = Actor(imgFn, topleft=(x, y))
+        self.actorLocationHistory[lastname] = [(x,y)]
 
         if y < self.ym: y += self.dy
         else:           y  = self.y1; x += self.dx
@@ -57,6 +64,9 @@ class pgzPeople:
         #x, y = el.center
         #animate(el, tween='accel_decel', pos=(x, y+100), duration=0.3)
         self.selectedActors.append(el)
+        #el.scale = 2
+        animate(el, tween='accel_decel', width=el.width*2, duration=.7)
+  
   
  ######################### on_mouse_move #########################
 
@@ -69,7 +79,13 @@ class pgzPeople:
   
 ######################### on_mouse_up #########################
 
-  def on_mouse_up(self): self.selectedActors = []
+  def on_mouse_up(self): 
+    for lastname in selectedActors: # allows varying forms of "undo."  May eventually wish to bound #
+      actor = actors[lastname]
+      currentPos = (actor.x, actor.y)
+      self.actorLocationHistory[lastname].append(currentPos)
+
+    self.selectedActors = []
   
 ######################### draw #########################
 
