@@ -1,4 +1,4 @@
-#PyGame Zero timeline module
+#Enodia People 
 #Brygg Ullmer, Clemson University
 #Begun 2022-01-24
 
