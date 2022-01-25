@@ -107,12 +107,12 @@ class enoElements:
     for key in self.actors.keys():
       el = self.actors[key]
       if el.collidepoint(pos): 
+        self.selectedActors.append(el)
+
         #x, y = el.center
         #animate(el, tween='accel_decel', pos=(x, y+100), duration=0.3)
-        self.selectedActors.append(el)
         #el.scale = 2
-        animate(el, tween='accel_decel', width=el.width*2, duration=.7)
-  
+        #animate(el, tween='accel_decel', width=el.width*2, duration=.7)
   
  ######################### on_mouse_move #########################
 
