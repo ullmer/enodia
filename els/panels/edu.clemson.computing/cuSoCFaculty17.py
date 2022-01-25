@@ -25,6 +25,20 @@ def main():
   normHeight = .3
   pixelScale = 300
 
+  #https://www.clemson.edu/brand/guide/color.html
+  colors = {}; cmap = {}
+  colors['bowman']     = [ 84,  98,  35, 0]
+  colors['howard']     = [140, 130, 121, 0]
+  colors['bridge']     = [  0,  94, 184, 0]
+  colors['reflection'] = [  0,  94, 184, 0]
+  colors['cbrick']     = [185,  71,   0, 0]
+  colors['sflag']      = [  0,  32,  91, 0]
+  
+  cmap['CS']  = 'howard'
+  cmap['FOI'] = 'reflection'
+  cmap['HCC'] = 'bowman'
+  cmap['VC']  = 'bridge'
+
   soc = socDb.socDb()
   divisions = soc.getDivisions()
 
@@ -63,7 +77,10 @@ def main():
       ctx.fill()
 
       ctx.rectangle(0, 0, normWidth, normHeight)
-      ctx.set_source_rgb(0.9, 0.9, 1)
+      #ctx.set_source_rgb(0.9, 0.9, 1)
+      cm = cmap[division]
+      r,g,b,a = colors[cm]
+      ctx.set_source_rgb(r,g,b,a)
       ctx.fill()
 
       yTxtOrig = yTxt  = 60;   dyTxt = 325
