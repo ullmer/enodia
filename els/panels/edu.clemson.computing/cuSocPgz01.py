@@ -25,10 +25,7 @@ for division in divisions:
     lastName, rank, extraRole = faculty
     names.append(lastName)
 
-print(names)
-names2 = names.sort()
-print(names2)
-pgzp = pgzPeople(names2)
+pgzp = pgzPeople(names)
 
 def on_mouse_down(pos):      global pgzp; pgzp.on_mouse_down(pos)
 def on_mouse_move(pos, rel): global pgzp; pgzp.on_mouse_move(pos, rel)
