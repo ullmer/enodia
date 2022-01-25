@@ -83,12 +83,15 @@ class enoElements:
   actors = None
   selectedActors = []
   actorLocationHistory = None
+  clustersList = None
+  clusterIdx   = 0
 
   ######################### constructor #########################
 
   def __init__(self, buildList):
     self.actors = {}
     self.actorLocationHistory = {}
+    self.clustersList = []
 
     self.buildActors(buildList)
   
@@ -124,6 +127,21 @@ class enoElements:
     lastn2 = lastn1.lower()
     imgFn  = lastn2 + '.png'
     return imgFn
+
+  ######################### animate next cluster #########################
+
+  def addCluster(self, cluster):
+     self.clustersList.append(cluster)
+
+  ######################### animate next cluster #########################
+
+  def animNextCluster(self):
+    clLen = len(self.clustersList); self.clusterIdx += 1
+
+    if self.clusterIdx >= clLen: self.clusterIdx = 0
+    cluster = self.clustersList[self.clusterIdx]
+
+    self.animToClusters(cluster)
 
   ######################### on_mouse_down #########################
 
