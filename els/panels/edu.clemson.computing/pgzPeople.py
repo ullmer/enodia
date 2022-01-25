@@ -12,7 +12,7 @@ from pgzero.builtins import Actor, animate, keyboard
 
 class pgzPeople:
   x1,y1 = 5,    5
-  dx,dy = 250,  130
+  dx,dy = 220,  130
   xm,ym = 1300, 700
 
   actors = None

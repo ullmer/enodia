@@ -23,14 +23,12 @@ for division in divisions:
 
   for faculty in divFaculty:
     lastName, rank, extraRole = faculty
-    #print(division, lastName)
     names.append(lastName)
 
-#snames = names.sort()
-snames = names
-print(snames)
-
-pgzp = pgzPeople(snames)
+print(names)
+names2 = names.sort()
+print(names2)
+pgzp = pgzPeople(names2)
 
 def on_mouse_down(pos):      global pgzp; pgzp.on_mouse_down(pos)
 def on_mouse_move(pos, rel): global pgzp; pgzp.on_mouse_move(pos, rel)
