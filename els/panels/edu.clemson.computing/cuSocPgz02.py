@@ -50,7 +50,8 @@ def animNextCluster(): # migrate to enoElements
   people.animToClusters(cluster)
   
 people.animToClusters(clusters1)
-clock.schedule(animNextCluster, 5)
+#clock.schedule(animNextCluster, 5)
+clock.schedule_interval(animNextCluster, 2)
 
 def on_mouse_down(pos):      global people; people.on_mouse_down(pos)
 def on_mouse_move(pos, rel): global people; people.on_mouse_move(pos, rel)

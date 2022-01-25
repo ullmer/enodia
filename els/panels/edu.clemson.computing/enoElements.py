@@ -115,7 +115,7 @@ class enoElements:
       if lastname in targetPositions:
         targetPosition = targetPositions[lastname]
         actor          = self.actors[lastname]
-        animate(actor, tween='accel_decel', pos=targetPosition, duration=3)
+        animate(actor, tween='accel_decel', pos=targetPosition, duration=.7)
 
 ######################### buildActors #########################
 
