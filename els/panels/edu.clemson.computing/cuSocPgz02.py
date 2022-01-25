@@ -35,6 +35,7 @@ clusterDict['first'] = firstHalf; clusterDict['last'] = secondHalf
 
 cluster1 = enoElClusters(clusterDict)
 cluster1.printSummary()
+people.animToClusters(cluster1)
 
 def on_mouse_down(pos):      global people; people.on_mouse_down(pos)
 def on_mouse_move(pos, rel): global people; people.on_mouse_move(pos, rel)

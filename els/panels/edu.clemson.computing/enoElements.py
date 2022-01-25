@@ -109,6 +109,16 @@ class enoElements:
 
 ######################### buildActors #########################
 
+  def animToClusters(self, eeClusters):
+    targetPositions = eeClusters.elPositions
+    for lastname in self.actors.keys():
+      if lastname in targetPositions:
+        targetPosition = targetPositions[lastname]
+        actor          = self.actors[lastname]
+        animate(actor, tween='accel_decel', pos=targetPosition, duration=5)
+
+######################### buildActors #########################
+
   def genImgFn(self, lastname):
     lastn1 = lastname.replace(" ", "") #e.g., "Van Scoy" -> "VanScoy"
     lastn2 = lastn1.lower()
