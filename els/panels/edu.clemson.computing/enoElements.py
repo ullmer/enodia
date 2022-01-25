@@ -20,6 +20,8 @@ class enoElClusters:
   dx,dy = 220,  130
   xm,ym = 1300, 700
   padX  = 20
+  verbose = True
+
   clustersName = 'Unnamed cluster'
 
   clusterNames = None
@@ -29,9 +31,9 @@ class enoElClusters:
   ######################### constructor #########################
 
   def __init__(self, clustersDict):
-    clusterNames = [] #list of cluster names
-    elPositions  = {} #hash of element positions
-    clusterEls   = {} #hash of cluster-name to element-lists
+    self.clusterNames = [] #list of cluster names
+    self.elPositions  = {} #hash of element positions
+    self.clusterEls   = {} #hash of cluster-name to element-lists
 
     self.buildClusters(clustersDict)
         
@@ -48,11 +50,14 @@ class enoElClusters:
 
   def buildClusters(self, clustersDict):
 
+    if self.verbose: print("buildClusters:", clustersDict)
     clusterNames = clustersDict.keys()
     x,y = self.x1, self.y1 # start at declared origin 
 
     for clusterName in clusterNames:
        els = clustersDict[clusterName]
+
+       if self.verbose: print("clusterName:", clusterName); print("els:", els)
 
        self.clusterEls[clusterName] = els
        for el in els:
