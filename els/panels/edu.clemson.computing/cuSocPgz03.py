@@ -18,13 +18,16 @@ soc = enoDb(sqliteDbFn, queriesYFn)
 divisions = soc.getDivisions([])
 names     = []
 
+divisionNames = {}
+
 for division in divisions:
   divFaculty = soc.getFacultyRankExtraLByDivision(division)
-  #print(division, divFaculty)
+  divisionNames[division] = []
 
   for faculty in divFaculty:
     lastName, rank, extraRole = faculty
     names.append(lastName)
+    divisionNames[division].append(lastName)
 
 people = enoElements(names)
 
@@ -37,9 +40,11 @@ clusterDict2 = {}; clusterDict2['all'] = names
 
 clusters1 = enoElClusters(clusterDict1) #;cluster1.printSummary()
 clusters2 = enoElClusters(clusterDict2)
+clusters3 = enoElClusters(divisionNames)
 
 people.addCluster(clusters1)
 people.addCluster(clusters2)
+people.addCluster(clusters3)
 
 people.animToClusters(clusters1)
 clock.schedule_interval(people.animNextCluster, 2)

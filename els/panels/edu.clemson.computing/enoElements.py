@@ -170,12 +170,14 @@ class enoElements:
 ######################### on_mouse_up #########################
 
   def on_mouse_up(self): 
-    for lastname in selectedActors: # allows varying forms of "undo."  May eventually wish to bound #
-      actor = actors[lastname]
-      currentPos = (actor.x, actor.y)
-      self.actorLocationHistory[lastname].append(currentPos)
+    try:
+      for lastname in self.selectedActors: # allows varying forms of "undo."  May wish to bound #
+        actor = self.actors[lastname]
+        currentPos = (actor.x, actor.y)
+        self.actorLocationHistory[lastname].append(currentPos)
 
-    self.selectedActors = []
+      self.selectedActors = []
+    except: print("on_mouse_up error:", traceback.print_exc())
   
 ######################### draw #########################
 
