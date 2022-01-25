@@ -57,9 +57,9 @@ class enoElClusters:
        x += self.dx + self.padX
 
 ###############################################################
-######################### pgzPeople #########################
+######################### enoElements #########################
 
-class pgzPeople:
+class enoElements:
   x1,y1 = 5,    5
   dx,dy = 220,  130
   xm,ym = 1300, 700

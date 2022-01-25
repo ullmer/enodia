@@ -1,13 +1,11 @@
-#PyGame Zero warmup on timelines
+#Clemson University School of Computing faculty interaction
 #Brygg Ullmer, Clemson University
 #Begun 2022-01-24
 
-from pgzPeople import *
-from enoDb     import *
+from enoElements import *
+from enoDb       import *
 import traceback, sys
-import pgzrun
-from pgzhelper import *
-
+#import pgzrun
 
 TITLE = "Clemson Computing people"
 #WIDTH = 1920; HEIGHT = 1080
@@ -28,13 +26,11 @@ for division in divisions:
     lastName, rank, extraRole = faculty
     names.append(lastName)
 
-pgzp = pgzPeople(names)
+people = enoElements(names)
 
-def on_mouse_down(pos):      global pgzp; pgzp.on_mouse_down(pos)
-def on_mouse_move(pos, rel): global pgzp; pgzp.on_mouse_move(pos, rel)
-def on_mouse_up(pos):        global pgzp; pgzp.on_mouse_up()
-def draw():                  global pgzp; screen.clear(); pgzp.draw()
+def on_mouse_down(pos):      global people; people.on_mouse_down(pos)
+def on_mouse_move(pos, rel): global people; people.on_mouse_move(pos, rel)
+def on_mouse_up(pos):        global people; people.on_mouse_up()
+def draw():                  global people; screen.clear(); people.draw()
 
-#set_fullscreen() # via pgzhelper
-  
 ### end ###
