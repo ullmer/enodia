@@ -30,12 +30,16 @@ people = enoElements(names)
 
 numNames  = len(names); halfNames = int(numNames / 2)
 firstHalf = names[0:halfNames]; secondHalf = names[halfNames:]
-clusterDict = {}
-clusterDict['first'] = firstHalf; clusterDict['last'] = secondHalf
+clusterDict1 = {}
+clusterDict1['first'] = firstHalf; clusterDict1['last'] = secondHalf
 
-cluster1 = enoElClusters(clusterDict)
-cluster1.printSummary()
+clusterDict2 = {}; clusterDict2['all'] = names
+
+cluster1 = enoElClusters(clusterDict1) #;cluster1.printSummary()
+cluster2 = enoElClusters(clusterDict2)
+
 people.animToClusters(cluster1)
+people.animToClusters(cluster2)
 
 def on_mouse_down(pos):      global people; people.on_mouse_down(pos)
 def on_mouse_move(pos, rel): global people; people.on_mouse_move(pos, rel)
