@@ -38,8 +38,17 @@ clusterDict2 = {}; clusterDict2['all'] = names
 cluster1 = enoElClusters(clusterDict1) #;cluster1.printSummary()
 cluster2 = enoElClusters(clusterDict2)
 
+clustersList = [clusters1, clusters2]; clusterIdx = 0
+
+def animNextCluster(): # migrate to enoElements
+  global clustersList, clusterIdx, people
+  clLen = len(clustersList)
+  clusterIdx += 1; if clusterIdx >= clLen: clusterIdx = 0
+  cluster = clustersList[clusterIdx]
+  people.animToClusters(cluster)
+  
 people.animToClusters(cluster1)
-people.animToClusters(cluster2)
+clock.schedule(animNextCluster, 5)
 
 def on_mouse_down(pos):      global people; people.on_mouse_down(pos)
 def on_mouse_move(pos, rel): global people; people.on_mouse_move(pos, rel)
