@@ -28,12 +28,13 @@ for division in divisions:
 
 people = enoElements(names)
 
-numNames  = len(names); halfNames = numNames / 2
+numNames  = len(names); halfNames = int(numNames / 2)
 firstHalf = names[0:halfNames]; secondHalf = names[halfNames:]
 clusterDict = {}
 clusterDict['first'] = firstHalf; clusterDict['last'] = secondHalf
 
 cluster1 = enoElClusters(clusterDict)
+cluster1.printSummary()
 
 def on_mouse_down(pos):      global people; people.on_mouse_down(pos)
 def on_mouse_move(pos, rel): global people; people.on_mouse_move(pos, rel)

@@ -20,6 +20,7 @@ class enoElClusters:
   dx,dy = 220,  130
   xm,ym = 1300, 700
   padX  = 20
+  clustersName = 'Unnamed cluster'
 
   clusterNames = None
   elPositions  = None
@@ -32,9 +33,18 @@ class enoElClusters:
     elPositions  = {} #hash of element positions
     clusterEls   = {} #hash of cluster-name to element-lists
 
-    self.buildClusters(nameLists)
+    self.buildClusters(clustersDict)
         
-######################### buildClusters #########################
+  ######################### printSummary #########################
+
+  def printSummary(self):
+    hash = '#' * 10; header = hash + self.clustersName + hash
+    print(header)
+    for clusterName in self.clusterNames:
+      els = self.clusterEls[clusterName]
+      print(clusterName, ':', els)
+
+  ######################### buildClusters #########################
 
   def buildClusters(self, clustersDict):
 
@@ -47,11 +57,11 @@ class enoElClusters:
        self.clusterEls[clusterName] = els
        for el in els:
          pos = (x, y)
-	 self.elPositions[el] = pos
+         self.elPositions[el] = pos
 
-          if y < self.ym: y += self.dy
-          else:           y  = self.y1; x += self.dx
-       except: print(traceback.print_exc()); return None
+         if y < self.ym: y += self.dy
+         else:           y  = self.y1; x += self.dx
+       #except: print(traceback.print_exc()); return None
 
        y = self.y1
        x += self.dx + self.padX
