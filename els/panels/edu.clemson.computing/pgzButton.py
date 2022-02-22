@@ -15,7 +15,8 @@ class pgzButton:
   #offsetPos  = (190, 30)
   buttonRect = None
   buttonText = ""
-  bgcolor    = (0, 0, 130)
+  bgcolor1   = (0, 0, 130)
+  bgcolor2   = (0, 0, 200)
   fgcolor    = "#bbbbbb"
   alpha      = .8
   fontSize   = 48
@@ -27,8 +28,11 @@ class pgzButton:
     self.buttonText = buttonText
     self.buttonRect = Rect(self.basePos, self.offsetPos)
 
-  def draw(self, screen): 
-    screen.draw.filled_rect(self.buttonRect, self.bgcolor)
+  def draw(self, screen):
+    if self.toggleMode and self.toggleState: bgcolor = self.bgcolor2
+    else:                                    bgcolor = self.bgcolor1
+
+    screen.draw.filled_rect(self.buttonRect, bgcolor)
     screen.draw.text(self.buttonText, self.basePos, 
                      fontsize=self.fontSize, color=self.fgcolor, alpha=self.alpha)
 
@@ -45,7 +49,10 @@ class pgzButton:
   ######################### on_mouse_down #########################
 
   def on_mouse_down(self, pos):
-    if self.buttonRect.collidepoint(pos): print(self.buttonText, " pressed")
+    if self.buttonRect.collidepoint(pos): 
+      print(self.buttonText, " pressed")
+      if self.toggleState: self.toggleState = False
+      else:                self.toggleState = True
 
 ##################### pygamezero button #####################
 
