@@ -7,6 +7,8 @@
 
 from pygame import Rect
 
+##################### pygamezero button #####################
+
 class pgzButton:
   basePos    = (0,0)
   offsetPos  = (190, 30)
@@ -31,5 +33,28 @@ class pgzButton:
     self.basePos = (bpx, bpy+dy)
     self.buttonRect = Rect(self.basePos, self.offsetPos)
 
+  def nudgeXY(self, dx, dy): 
+    bpx, bpy = self.basePos
+    self.basePos = (bpx+dx, bpy+dy)
+    self.buttonRect = Rect(self.basePos, self.offsetPos)
+
+##################### pygamezero button #####################
+
+class pgzButtonArray:
+  basePos = (0,0)
+  #dx, dy  = 190, 40
+  dx, dy  = 190, 0
+
+  textArray   = None
+  buttonArray = []
+
+  def __init__(self, buttonTextList): 
+    self.textArray  = buttonTextList
+    self.buttonArray = []
+
+    idx = 0
+    for text in self.textArray:
+      but = pgzButton(text); but.nudgeXY(idx*dx, dy)
+      self.buttonArray.append(but); idx += 1
 
 ### end ###
