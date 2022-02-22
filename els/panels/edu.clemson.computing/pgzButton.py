@@ -16,7 +16,7 @@ class pgzButton:
   buttonRect = None
   buttonText = ""
   bgcolor1   = (0, 0, 130)
-  bgcolor2   = (0, 0, 200)
+  bgcolor2   = (0, 0, 250)
   fgcolor    = "#bbbbbb"
   alpha      = .8
   fontSize   = 48
@@ -48,11 +48,19 @@ class pgzButton:
 
   ######################### on_mouse_down #########################
 
+  def toggle(self):
+    if self.toggleState: self.toggleState = False
+    else:                self.toggleState = True
+
+  ######################### on_mouse_down #########################
+
   def on_mouse_down(self, pos):
     if self.buttonRect.collidepoint(pos): 
-      print(self.buttonText, " pressed")
-      if self.toggleState: self.toggleState = False
-      else:                self.toggleState = True
+      print(self.buttonText, "pressed")
+      self.toggle()
+      return True
+
+    return False
 
 ##################### pygamezero button #####################
 
@@ -61,8 +69,9 @@ class pgzButtonArray:
   #dx, dy  = 190, 40
   dx, dy  = 190, 0
 
-  textArray   = None
-  buttonArray = []
+  textArray    = None
+  buttonArray  = []
+  lastSelected = None
 
   def __init__(self, buttonTextList): 
     self.textArray  = buttonTextList
@@ -80,6 +89,8 @@ class pgzButtonArray:
 
   def on_mouse_down(self, pos):
     for but in self.buttonArray:
-      but.on_mouse_down(pos)
+      if but.on_mouse_down(pos):
+        if self.lastSelected is not None: self.lastSelected.toggle()
+        self.lastSelected = but
 
 ### end ###
