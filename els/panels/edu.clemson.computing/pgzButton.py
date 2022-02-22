@@ -11,7 +11,8 @@ from pygame import Rect
 
 class pgzButton:
   basePos    = (0,0)
-  offsetPos  = (190, 30)
+  offsetPos  = (100, 30)
+  #offsetPos  = (190, 30)
   buttonRect = None
   buttonText = ""
   bgcolor    = (0, 0, 130)
@@ -54,7 +55,10 @@ class pgzButtonArray:
 
     idx = 0
     for text in self.textArray:
-      but = pgzButton(text); but.nudgeXY(idx*dx, dy)
+      but = pgzButton(text); but.nudgeXY(idx*self.dx, idx*self.dy)
       self.buttonArray.append(but); idx += 1
+
+  def draw(self, screen): 
+    for but in self.buttonArray: but.draw(screen)
 
 ### end ###

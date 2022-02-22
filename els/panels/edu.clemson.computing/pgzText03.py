@@ -6,13 +6,12 @@ from pgzButton import *
 WIDTH=600
 HEIGHT=600
 
-global but1
-but1 = pgzButton("hello, world")
-but2 = pgzButton("line2"); but2.nudgeY(35)
+global ba1 
+baText = ['a', 'b', 'c']
+ba1 = pgzButtonArray(baText)
 
 def draw(): 
-  global but1
-  but1.draw(screen)
-  but2.draw(screen)
+  global ba1 
+  ba1.draw(screen)
 
 ### end ###
