@@ -5,6 +5,7 @@
 # https://pygame-zero.readthedocs.io/en/stable/ptext.html
 # https://pythonprogramming.altervista.org/pygame-4-fonts/
 
+from pygame import Rect
 
 class pgzButton:
   basePos    = (0,0)
@@ -20,7 +21,7 @@ class pgzButton:
     self.buttonText = buttonText
     self.buttonRect = Rect(self.basePos, self.offsetPos)
 
-  def draw(): 
+  def draw(self, screen): 
     screen.draw.filled_rect(self.buttonRect, self.bgcolor)
     screen.draw.text(self.buttonText, self.basePos, 
                      fontsize=self.fontSize, color=self.fgcolor, alpha=self.alpha)
