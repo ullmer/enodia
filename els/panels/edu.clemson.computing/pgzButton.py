@@ -16,7 +16,7 @@ class pgzButton:
   buttonRect = None
   buttonText = ""
   bgcolor1   = (0, 0, 130)
-  bgcolor2   = (0, 0, 250)
+  bgcolor2   = (50, 50, 250)
   fgcolor    = "#bbbbbb"
   alpha      = .8
   fontSize   = 48
