@@ -14,4 +14,8 @@ def draw():
   global ba1 
   ba1.draw(screen)
 
+def on_mouse_down(pos):
+  global ba1
+  ba1.on_mouse_down(pos)
+
 ### end ###

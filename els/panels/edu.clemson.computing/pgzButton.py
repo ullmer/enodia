@@ -20,6 +20,9 @@ class pgzButton:
   alpha      = .8
   fontSize   = 48
 
+  toggleMode  = True
+  toggleState = False
+
   def __init__(self, buttonText): 
     self.buttonText = buttonText
     self.buttonRect = Rect(self.basePos, self.offsetPos)
@@ -38,6 +41,11 @@ class pgzButton:
     bpx, bpy = self.basePos
     self.basePos = (bpx+dx, bpy+dy)
     self.buttonRect = Rect(self.basePos, self.offsetPos)
+
+  ######################### on_mouse_down #########################
+
+  def on_mouse_down(self, pos):
+    if self.buttonRect.collidepoint(pos): print(self.buttonText, " pressed")
 
 ##################### pygamezero button #####################
 
@@ -60,5 +68,11 @@ class pgzButtonArray:
 
   def draw(self, screen): 
     for but in self.buttonArray: but.draw(screen)
+
+  ######################### on_mouse_down #########################
+
+  def on_mouse_down(self, pos):
+    for but in self.buttonArray:
+      but.on_mouse_down(pos)
 
 ### end ###
