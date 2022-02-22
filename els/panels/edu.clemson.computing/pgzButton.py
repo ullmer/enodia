@@ -9,7 +9,7 @@ from pygame import Rect
 
 class pgzButton:
   basePos    = (0,0)
-  offsetPos  = (180, 30)
+  offsetPos  = (190, 30)
   buttonRect = None
   buttonText = ""
   bgcolor    = (0, 0, 130)
@@ -25,5 +25,11 @@ class pgzButton:
     screen.draw.filled_rect(self.buttonRect, self.bgcolor)
     screen.draw.text(self.buttonText, self.basePos, 
                      fontsize=self.fontSize, color=self.fgcolor, alpha=self.alpha)
+
+  def nudgeY(self, dy): 
+    bpx, bpy = self.basePos
+    self.basePos = (bpx, bpy+dy)
+    self.buttonRect = Rect(self.basePos, self.offsetPos)
+
 
 ### end ###

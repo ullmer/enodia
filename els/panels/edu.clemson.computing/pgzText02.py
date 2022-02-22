@@ -8,9 +8,11 @@ HEIGHT=600
 
 global but1
 but1 = pgzButton("hello, world")
+but2 = pgzButton("line2"); but2.nudgeY(35)
 
 def draw(): 
   global but1
   but1.draw(screen)
+  but2.draw(screen)
 
 ### end ###
