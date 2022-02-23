@@ -5,7 +5,7 @@
 import yaml, traceback
 
 import pgzrun 
-from pgzhelper import *
+#from pgzhelper import *
 
 from pgzero.builtins import Actor, animate, keyboard
 #https://stackoverflow.com/questions/55438239/name-actor-is-not-defined
@@ -141,6 +141,14 @@ class enoElements:
     if self.clusterIdx >= clLen: self.clusterIdx = 0
     cluster = self.clustersList[self.clusterIdx]
 
+    self.animToClusters(cluster)
+  
+  ######################### animate cluster N#########################
+
+  def animClusterN(self, clusterN):
+    clLen = len(self.clustersList)
+    if clusterN > clLen: return None
+    cluster = self.clustersList[clusterN]
     self.animToClusters(cluster)
 
   ######################### on_mouse_down #########################
