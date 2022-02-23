@@ -1,4 +1,5 @@
-# Button-like elements for Pygame Zero
+# Enodia Button-like elements -- sometimes backed by Pygame Zero, 
+#  sometimes by physical buttons, sometimes by other variants.
 # Brygg Ullmer, Clemson University
 # Begun 2022-02-22
 
@@ -24,9 +25,17 @@ class enoButton:
   toggleMode  = True
   toggleState = False
 
-  def __init__(self, buttonText): 
+  ############# constructor #############
+
+  def __init__(self, buttonText, **kwargs): 
+
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+    #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
+
     self.buttonText = buttonText
     self.buttonRect = Rect(self.basePos, self.offsetPos)
+
+  ############# pgzero draw #############
 
   def draw(self, screen):
     if self.toggleMode and self.toggleState: bgcolor = self.bgcolor2
@@ -35,6 +44,8 @@ class enoButton:
     screen.draw.filled_rect(self.buttonRect, bgcolor)
     screen.draw.text(self.buttonText, self.basePos, 
                      fontsize=self.fontSize, color=self.fgcolor, alpha=self.alpha)
+
+  ############# nudge #############
 
   def nudgeY(self, dy): 
     bpx, bpy = self.basePos
@@ -73,14 +84,20 @@ class enoButtonArray:
   buttonArray  = []
   lastSelected = None
 
+  ############# constructor #############
+
   def __init__(self, buttonTextList): 
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     self.textArray  = buttonTextList
     self.buttonArray = []
 
     idx = 0
     for text in self.textArray:
-      but = enoButton(text); but.nudgeXY(idx*self.dx, idx*self.dy)
+      #but = enoButton(text); but.nudgeXY(idx*self.dx, idx*self.dy)
+      but = enoButton(text, basePos = (idx*self.dx, idx*self.dy))
       self.buttonArray.append(but); idx += 1
+
+  ############# pgzero draw #############
 
   def draw(self, screen): 
     for but in self.buttonArray: but.draw(screen)
