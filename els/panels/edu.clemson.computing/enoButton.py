@@ -42,9 +42,8 @@ class enoButton:
 
     screen.draw.filled_rect(self.buttonRect, bgcolor)
     #screen.draw.text(self.buttonText, self.basePos, align="center",
-    x0, y0 = self.basePos; dx, dy = self.buttonDim; br = x0+dx, y0+dy
-    screen.draw.text(self.buttonText, topleft=self.basePos, 
-                     bottomright=br, align="center",
+    x0, y0 = self.basePos; dx, dy = self.buttonDim; cx=x0+dx/2; cy = y0+dy/2
+    screen.draw.text(self.buttonText, centerx=cx, centery=cy, align="center",
                      fontsize=self.fontSize, 
                      color=self.fgcolor, alpha=self.alpha)
 
