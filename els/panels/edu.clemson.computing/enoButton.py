@@ -9,7 +9,7 @@ from pygame import Rect
 
 ##################### pygamezero button #####################
 
-class pgzButton:
+class enoButton:
   basePos    = (0,0)
   offsetPos  = (100, 30)
   #offsetPos  = (190, 30)
@@ -64,7 +64,7 @@ class pgzButton:
 
 ##################### pygamezero button #####################
 
-class pgzButtonArray:
+class enoButtonArray:
   basePos = (0,0)
   #dx, dy  = 190, 40
   dx, dy  = 190, 0
@@ -79,7 +79,7 @@ class pgzButtonArray:
 
     idx = 0
     for text in self.textArray:
-      but = pgzButton(text); but.nudgeXY(idx*self.dx, idx*self.dy)
+      but = enoButton(text); but.nudgeXY(idx*self.dx, idx*self.dy)
       self.buttonArray.append(but); idx += 1
 
   def draw(self, screen): 
