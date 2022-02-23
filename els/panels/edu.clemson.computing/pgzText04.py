@@ -8,7 +8,7 @@ HEIGHT=600
 
 global ba1 
 baText = ['CECAS', 'AAH', 'SCIENCE']
-ba1 = enoButtonArray(baText)
+ba1 = enoButtonArray(baText, buttonDim=(150, 30), dx=160)
 
 def draw(): 
   global ba1 

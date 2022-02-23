@@ -12,8 +12,7 @@ from pygame import Rect
 
 class enoButton:
   basePos    = (0,0)
-  offsetPos  = (100, 30)
-  #offsetPos  = (190, 30)
+  buttonDim  = (100, 30)
   buttonRect = None
   buttonText = ""
   bgcolor1   = (0, 0, 130)
@@ -33,7 +32,7 @@ class enoButton:
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
     self.buttonText = buttonText
-    self.buttonRect = Rect(self.basePos, self.offsetPos)
+    self.buttonRect = Rect(self.basePos, self.buttonDim)
 
   ############# pgzero draw #############
 
@@ -50,12 +49,12 @@ class enoButton:
   def nudgeY(self, dy): 
     bpx, bpy = self.basePos
     self.basePos = (bpx, bpy+dy)
-    self.buttonRect = Rect(self.basePos, self.offsetPos)
+    self.buttonRect = Rect(self.basePos, self.buttonDim)
 
   def nudgeXY(self, dx, dy): 
     bpx, bpy = self.basePos
     self.basePos = (bpx+dx, bpy+dy)
-    self.buttonRect = Rect(self.basePos, self.offsetPos)
+    self.buttonRect = Rect(self.basePos, self.buttonDim)
 
   ######################### on_mouse_down #########################
 
@@ -76,9 +75,9 @@ class enoButton:
 ##################### pygamezero button #####################
 
 class enoButtonArray:
-  basePos = (0,0)
-  #dx, dy  = 190, 40
-  dx, dy  = 190, 0
+  basePos    = (0,0)
+  buttonDim  = (100, 30)
+  dx, dy     = 190, 0
 
   textArray    = None
   buttonArray  = []
@@ -86,15 +85,15 @@ class enoButtonArray:
 
   ############# constructor #############
 
-  def __init__(self, buttonTextList): 
+  def __init__(self, buttonTextList, **kwargs): 
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     self.textArray  = buttonTextList
     self.buttonArray = []
 
     idx = 0
     for text in self.textArray:
-      #but = enoButton(text); but.nudgeXY(idx*self.dx, idx*self.dy)
-      but = enoButton(text, basePos = (idx*self.dx, idx*self.dy))
+      but = enoButton(text, basePos = (idx*self.dx, idx*self.dy),
+                      buttonDim = self.buttonDim)
       self.buttonArray.append(but); idx += 1
 
   ############# pgzero draw #############
