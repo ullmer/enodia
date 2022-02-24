@@ -7,21 +7,25 @@ import yaml
 WIDTH=600
 HEIGHT=600
 
-global ba1 
-
 panel1Fn = 'panel1.yaml'
 panel1F  = open(panel1Fn, 'r+t')
 panel1Y  = yaml.safe_load(panel1F)
 
-#baText = ['CECAS', 'AAH', 'SCIENCE']
-ba1 = enoButtonArray(baText, buttonDim=(150, 30), dx=160)
+print(panel1Y)
+
+global panel
+panel = []
+
+for row in panel1Y: #rows
+  ba = enoButtonArray(row, buttonDim=(150, 30), dx=160)
+  panel.append(ba)
 
 def draw(): 
-  global ba1 
-  ba1.draw(screen)
+  global panel
+  for ba in panel: ba.draw(screen)
 
 def on_mouse_down(pos):
-  global ba1
-  ba1.on_mouse_down(pos)
+  global panel
+  for ba in panel: ba.on_mouse_down(pos)
 
 ### end ###
