@@ -94,8 +94,10 @@ class enoButtonArray:
     self.buttonArray = []
 
     idx = 0
+
+    bpx, bpy = self.basePos
     for text in self.textArray:
-      but = enoButton(text, basePos = (idx*self.dx, idx*self.dy),
+      but = enoButton(text, basePos = (bpx+idx*self.dx, bpy+idx*self.dy),
                       buttonDim = self.buttonDim)
       self.buttonArray.append(but); idx += 1
 
