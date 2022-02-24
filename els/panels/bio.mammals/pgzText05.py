@@ -19,7 +19,7 @@ panel = []
 dy = 50; idx = 0
 
 for row in panel1Y: #rows
-  ba = enoButtonArray(row, buttonDim=(150, 30), dx=160, basePos=(dy*idx, 0)
+  ba = enoButtonArray(row, buttonDim=(150, 30), dx=160, basePos=(dy*idx, 0))
   panel.append(ba); idx += 1
 
 def draw(): 
