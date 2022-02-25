@@ -19,7 +19,7 @@ class enoButton:
   bgcolor2   = (50, 50, 250)
   fgcolor    = "#bbbbbb"
   alpha      = .8
-  fontSize   = 48
+  fontSize   = 36
 
   toggleMode  = True
   toggleState = False
