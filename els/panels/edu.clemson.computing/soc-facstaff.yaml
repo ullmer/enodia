@@ -1,5 +1,5 @@
 divisions:
-  CS:
+  Computer Science (CS):
     - Amy Apon
     - Long Cheng
     - Brian C. Dean
@@ -20,7 +20,7 @@ divisions:
     - James Wang
     - Yin Yang
 
-  HCC: 
+  Human-Centered Computing (HCC): 
     - Sabarish Babu
     - Julian Brinkley
     - Kelly Caine
@@ -31,7 +31,7 @@ divisions:
     - Andrew Robb
     - Brygg Ullmer
 
-  VC:  
+  Visual Computing (VC):
     - Daljit Singh Dhillon
     - Andrew Duchowski
     - Federico Iuricich
@@ -42,7 +42,7 @@ divisions:
     - Jerry Tessendorf
     - Victor Zordan
 
-  FOI:
+  Faculty of Instruction (FOI):
     - Svetlana Drachova
     - Yvon Feaster
     - Alexander Herzog
