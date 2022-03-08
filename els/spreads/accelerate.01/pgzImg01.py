@@ -23,18 +23,38 @@ for row in panel1Y: #rows
                            basePos=(0, dy*idx))
   panel.append(ba); idx += 1
 
-global actor1, bgcolor
-actor1   = Actor('bb05')
+global actor1, targetpos, nextstate 
+targetpos1 = (50, 50)
+targetpos2 = (300, 300)
+nextstate  = 0
 
-animate(actor1, topleft=(0, 300))
+################# next #################
+
+def next():
+  global nextstate, actor1
+  if nextstate == 0:
+    nextstate = 1; animate(actor1, topleft=targetpos1, tween='accel_decel', on_finished=next)
+  else:
+    nextstate = 0; animate(actor1, topleft=targetpos2, tween='accel_decel', on_finished=next)
+
+################# draw #################
 
 def draw(): 
   global panel, actor1
+
+  screen.clear()
   actor1.draw()
   for ba in panel: ba.draw(screen)
+
+################# mouse down #################
 
 def on_mouse_down(pos):
   global panel
   for ba in panel: ba.on_mouse_down(pos)
+
+################# main #################
+
+actor1   = Actor('bb05', topleft=targetpos1)
+animate(actor1, topleft=targetpos2, tween='accel_decel', on_finished=next)
 
 ### end ###
