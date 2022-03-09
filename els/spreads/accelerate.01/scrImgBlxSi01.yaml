@@ -3,14 +3,40 @@ pbands:
   pband/simap16e-ub.png
 
 scrImgBlx:
-  titlesFn: aahc1.png
-  titlesFn: ah1.png
-  titlesFn: ai1.png
-  titlesFn: ami1.png
-  titlesFn: as1.png
-  titlesFn: fr1.png
-  titlesFn: hi1.png
-  titlesFn: nh1.png
-  titlesFn: sa1.png
+  aah:
+    name: 
+    titlesFn: aahc1.png
+
+  ah:
+    name:
+    titlesFn: ah1.png
+
+  ai:
+    name: Arts & Industries
+    titlesFn: ai1.png
+
+  ami:
+    name: American Indian
+    titlesFn: ami1.png
+
+  as:
+    name: Air & Space
+    titlesFn: as1.png
+
+  fr:
+    name: Freer
+    titlesFn: fr1.png
+
+  hi:
+    name:
+    titlesFn: hi1.png
+
+  nh:
+    name: Natural History
+    titlesFn: nh1.png
+
+  sa:
+    name: Sackler
+    titlesFn: sa1.png
 
 ### end ###
