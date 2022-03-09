@@ -4,8 +4,8 @@
 from enoButton import *
 import yaml
 
-WIDTH=900
-HEIGHT=600
+WIDTH=1920
+HEIGHT=214*2+1080/6
 
 panel1Fn = 'panel1.yaml'
 panel1F  = open(panel1Fn, 'r+t')
@@ -55,11 +55,12 @@ def on_mouse_down(pos):
 ################# main #################
 
 global actors
-actor1 = Actor('bb05', topleft=targetpos1)
-pb1    = Actor('d6/pband/siMap16e-ub', topleft=(0,0))    #upper paper band
-pb2    = Actor('d6/pband/siMap16e-lb', topleft=(0,360))
+#actor1 = Actor('bb05', topleft=targetpos1)
+pb1    = Actor('d6/pband/simap16e-ub', topleft=(0,0))    #upper paper band
+pb2    = Actor('d6/pband/simap16e-lb', topleft=(0,214+1080/6))
 
-actors = [actor1, pb1, pb2]
-animate(actor1, topleft=targetpos2, tween='accel_decel', on_finished=next)
+actors = [pb1, pb2]
+#actors = [actor1, pb1, pb2]
+#animate(actor1, topleft=targetpos2, tween='accel_decel', on_finished=next)
 
 ### end ###
