@@ -6,11 +6,12 @@
 # https://pygame-zero.readthedocs.io/en/stable/ptext.html
 # https://pythonprogramming.altervista.org/pygame-4-fonts/
 
+import yaml
 from pygame import Rect
 
 ##################### pygamezero button #####################
 
-class enoButton:
+class enoScrImgBlx:
   basePos    = (0,0)
   buttonDim  = (100, 30)
   buttonRect = None
@@ -21,12 +22,16 @@ class enoButton:
   alpha      = .8
   fontSize   = 36
 
+  yamlFn     = none
+  yamlF      = none
+  yamlD      = none
+
   toggleMode  = True
   toggleState = False
 
   ############# constructor #############
 
-  def __init__(self, buttonText, **kwargs): 
+  def __init__(self, yamlD, **kwargs): 
 
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
@@ -77,7 +82,7 @@ class enoButton:
 
 ##################### pygamezero button #####################
 
-class enoButtonArray:
+class enoScrImgBlxArray:
   basePos    = (0,0)
   buttonDim  = (100, 30)
   dx, dy     = 190, 0
@@ -86,10 +91,20 @@ class enoButtonArray:
   buttonArray  = []
   lastSelected = None
 
+  yamlFn     = none
+  yamlF      = none
+  yamlD      = none
+
   ############# constructor #############
 
-  def __init__(self, buttonTextList, **kwargs): 
+  def __init__(self, yamlFn, **kwargs): 
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+
+    self.yamlFn = yamlFn
+    self.yamlF  = open(yamlFn, 'r+t')
+    self.yamlD  = yaml.safe_load(self.yamlF)
+
+
     self.textArray  = buttonTextList
     self.buttonArray = []
 
@@ -97,7 +112,7 @@ class enoButtonArray:
 
     bpx, bpy = self.basePos
     for text in self.textArray:
-      but = enoButton(text, basePos = (bpx+idx*self.dx, bpy+idx*self.dy),
+      but = enoScrImgBlx(text, basePos = (bpx+idx*self.dx, bpy+idx*self.dy),
                       buttonDim = self.buttonDim)
       self.buttonArray.append(but); idx += 1
 
