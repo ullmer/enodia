@@ -3,12 +3,16 @@ pbands:
   pband/simap16e-ub.png
 
 scrImgBlx:
-  aah:
-    name: 
+  aa:
+    name: African Art
+    titlesFn: aa1.png
+
+  aahc:
+    name: African-American History & Culture
     titlesFn: aahc1.png
 
   ah:
-    name:
+    name: American History
     titlesFn: ah1.png
 
   ai:
@@ -28,7 +32,7 @@ scrImgBlx:
     titlesFn: fr1.png
 
   hi:
-    name:
+    name: Hirschorn
     titlesFn: hi1.png
 
   nh:
