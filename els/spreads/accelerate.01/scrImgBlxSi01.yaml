@@ -19,18 +19,19 @@ scrImgBlx:
     name: African-American History & Culture
     titlesFn: aahc1.png
     imgs: [40, 41, 39]
-    cdc:  []
+    cdc:  [8.012, 4.25, -29.882, 7.243]
 
   amhi:
     name: American History
     titlesFn: ah1.png
     imgs: [50, 27]
-    cdc:  []
+    cdc:  [14.838, 4.25, -18.169, 7.241]
 
   arin:
     name: Arts & Industries
     titlesFn: arin1.png
-    cdc: []
+    imgs: [61]
+    cdc:  [4.294, 4.801, 4.087, -.289]
 
   amin:
     name: American Indian
@@ -57,12 +58,12 @@ scrImgBlx:
     name: Natural History
     titlesFn: nh1.png
     imgs: [29, 30]
-    cdc: []
+    cdc:  [15.697, 4.25, -0.098, 7.124]
 
   sa:
     name: Sackler
     titlesFn: sa1.png
-    cdc: []
     imgs: [62]
+    cdc:  [7.5, 3.681, -19.894, -.28]
 
 ### end ###
