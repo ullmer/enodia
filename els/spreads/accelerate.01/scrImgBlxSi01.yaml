@@ -4,11 +4,11 @@ pbands:
 
 scrImgBlx:
   meta: 
-    refSrc:    siMap.05/siMap16e.cdr
-    spreadDim: [108, 36]
-    tileDim:   [ 18, 12]
-    registration:
-      br: [64.937, -8.69]
+    refSrc:    siMap.05/siMap16e.cdr #CorelDraw reference source
+    spreadDim: [108, 36] #spread dimensions in inches (including screens)
+    tileDim:   [ 18, 12] #individual paper tile dimensions
+    registration:        
+      br: [64.937, -8.69] #Corel coordinates of bottom-right tile (given pagesize bug on present system)
   aa:
     name: African Art
     titlesFn: aa1.png
