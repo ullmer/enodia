@@ -3,6 +3,12 @@ pbands:
   pband/simap16e-ub.png
 
 scrImgBlx:
+  meta: 
+    refSrc:    siMap.05/siMap16e.cdr
+    spreadDim: [108, 36]
+    tileDim:   [ 18, 12]
+    registration:
+      br: [64.937, -8.69]
   aa:
     name: African Art
     titlesFn: aa1.png
@@ -30,6 +36,7 @@ scrImgBlx:
   fr:
     name: Freer
     titlesFn: fr1.png
+    cdc: [-27.534
 
   hi:
     name: Hirschorn
