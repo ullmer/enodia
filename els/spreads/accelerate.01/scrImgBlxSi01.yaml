@@ -1,18 +1,16 @@
+pbands:
+  pband/simap16e-lb.png
+  pband/simap16e-ub.png
 
-pband
-pband/simap16e-lb.png
-pband/simap16e-ub.png
-
-titles
-titles/aahc1.png
-titles/ah1.png
-titles/ai1.png
-titles/ami1.png
-titles/as1.png
-titles/d6.sh
-titles/fr1.png
-titles/hi1.png
-titles/nh1.png
-titles/sa1.png
+scrImgBlx:
+  titlesFn: aahc1.png
+  titlesFn: ah1.png
+  titlesFn: ai1.png
+  titlesFn: ami1.png
+  titlesFn: as1.png
+  titlesFn: fr1.png
+  titlesFn: hi1.png
+  titlesFn: nh1.png
+  titlesFn: sa1.png
 
 ### end ###
