@@ -10,32 +10,34 @@ scrImgBlx:
     registration:        
       br: [64.937, -8.69] #Corel coordinates of bottom-right tile (given pagesize bug on present system)
 
-  aa:
+  afar:
     name: African Art
     titlesFn: aa1.png
-    cdc: []
+    cdc:  []
 
   aahc:
     name: African-American History & Culture
     titlesFn: aahc1.png
-    cdc: []
+    imgs: [40, 41, 39]
+    cdc:  []
 
-  ah:
+  amhi:
     name: American History
     titlesFn: ah1.png
-    cdc: []
+    imgs: [50, 27]
+    cdc:  []
 
-  ai:
+  arin:
     name: Arts & Industries
-    titlesFn: ai1.png
+    titlesFn: arin1.png
     cdc: []
 
-  ami:
+  amin:
     name: American Indian
-    titlesFn: ami1.png
+    titlesFn: amin1.png
     cdc: []
 
-  as:
+  aisa:
     name: Air & Space
     titlesFn: as1.png
     cdc: []
@@ -43,22 +45,24 @@ scrImgBlx:
   fr:
     name: Freer
     titlesFn: fr1.png
-    cdc: [7.5, 4.25, -27.534, -.565]
-    cdc: []
+    cdc:  [7.5, 4.25, -27.534, -.565]
+    imgs: [55]
 
   hi:
     name: Hirschorn
     titlesFn: hi1.png
     cdc: []
 
-  nh:
+  nahi:
     name: Natural History
     titlesFn: nh1.png
+    imgs: [29, 30]
     cdc: []
 
   sa:
     name: Sackler
     titlesFn: sa1.png
     cdc: []
+    imgs: [62]
 
 ### end ###
