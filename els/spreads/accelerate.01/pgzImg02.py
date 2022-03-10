@@ -5,9 +5,9 @@ from enoButton import *
 import yaml
 
 WIDTH=1920
-HEIGHT=214*2+1080/6
+HEIGHT=int(214*2+1080/6)
 
-panel1Fn = 'panel1.yaml'
+panel1Fn = 'panel2.yaml'
 panel1F  = open(panel1Fn, 'r+t')
 panel1Y  = yaml.safe_load(panel1F)
 
@@ -19,8 +19,8 @@ panel = []
 dy = 50; idx = 0
 
 for row in panel1Y: #rows
-  ba = enoButtonArray(row, buttonDim=(150, 30), dx=160, 
-                           basePos=(0, dy*idx))
+  ba = enoButtonArray(row, buttonDim=(250, 30), dx=0, dy=40, 
+                           basePos=(1650, 225))
   panel.append(ba); idx += 1
 
 global actor1, targetpos, nextstate 
