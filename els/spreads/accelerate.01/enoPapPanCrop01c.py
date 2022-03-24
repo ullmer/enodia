@@ -9,15 +9,23 @@ from PyPDF2 import PdfFileWriter,PdfFileReader,PdfFileMerger
 import yaml
 import sys
 
-srcFn  = "siMap18a.pdf"
-targFn = "siMap18aCr.pdf"
+srcYamlFn = "siMap18a.yaml"
+srcYamlF  = open(yamlFn, "rt")
+srcYaml   = yaml.safe_load(srcYamlF)
 
-divsHoriz = 6
-divsVert  = 3
+try:    es = srcYaml["enoSpread"]
+except: print("YAML spread error; aborting"); sys.exit(-1)
 
-#trimsTBLR = [200, 200, 200, 200]
-#trimsTBLR = [250, 1910, 200, 200] #upper band
-trimsTBLR = [1980, 180, 200, 200] #lower band
+try:    srcFn = es["srcFn"]; targFn = es["targFn"]
+except: print("YAML FN error; aborting"); sys.exit(-1)
+
+try:    divsHoriz = es["divsHoriz"]; divsVert=es["divsVert"]
+except: print("YAML divs error; aborting"); sys.exit(-1)
+
+try:
+  trimsUpperBand = es["trimsUpperBand"]
+  trimsLowerBand = es["trimsLowerBand"]
+except: print("YAML band error; aborting"); sys.exit(-1)
 
 srcPdf  = PdfFileReader(open(srcFn, "rb"))
 srcPage = srcPdf.getPage(0)
