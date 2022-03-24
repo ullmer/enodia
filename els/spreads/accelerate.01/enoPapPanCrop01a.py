@@ -8,12 +8,14 @@
 from PyPDF2 import PdfFileWriter,PdfFileReader,PdfFileMerger
 import sys
 
-srcFn = "siMap18a.pdf"
+srcFn  = "siMap18a.pdf"
+targFn = "siMap18aCr.pdf"
 
 divsHoriz = 6
 divsVert  = 3
 
-trimsTBLR = [100, 0, 0, 0]
+#trimsTBLR = [200, 200, 0, 0]
+trimsTBLR = [600, 200, 200, 0]
 
 srcPdf  = PdfFileReader(open(srcFn, "rb"))
 srcPage = srcPdf.getPage(0)
@@ -39,6 +41,12 @@ srcPage.mediaBox.lowerRight = nlr
 srcPage.mediaBox.lowerLeft  = nll
 srcPage.mediaBox.upperRight = nur
 srcPage.mediaBox.upperLeft  = nul
+
+targPdf.addPage(srcPage)
+targF = open(targFn, 'wb')
+
+targPdf.write(targF)
+targF.close()
 
 #for example :- my custom coordinates 
 #srcPage.mediaBox.lowerRight = (611, 500)
