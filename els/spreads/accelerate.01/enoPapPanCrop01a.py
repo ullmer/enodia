@@ -15,7 +15,7 @@ srcFn = "siMap18a.pdf"
 divsHoriz = 6
 divsVert  = 3
 
-trimsTBLR = [0, 0, 0, 0]
+trimsTBLR = [100, 0, 0, 0]
 
 pdf_file = PdfFileReader(open(srcFn, "rb"))
 page = pdf_file.getPage(0)
@@ -31,12 +31,18 @@ print(ll, lr, ul, ur)
 
 #https://stackoverflow.com/questions/1663807/how-to-iterate-through-two-lists-in-parallel
 
-newCoords  = {}
-origCoords = [ll, lr, ul, ur]; newCoordIdxs = ["ll", "lr", "ul", "ur"]
-for origCoord, newCoordIdx in zip(origCoords, newCoordIdxs):
-  newCoords[newCoordIdx] = origCoord
+#newCoords  = {}
+#origCoords = [ll, lr, ul, ur]; newCoordIdxs = ["ll", "lr", "ul", "ur"]
+#for origCoord, newCoordIdx in zip(origCoords, newCoordIdxs):
+#  newCoords[newCoordIdx] = origCoord
 
-print(newCoords)
+nul = (int(ul[0]+trimsTBLR[2]), int(ul[1]+trimsTBLR[0]))
+nur = (int(ur[0]-trimsTBLR[3]), int(ur[1]+trimsTBLR[0]))
+
+#ul2 = newCoords["ul"]
+#newCoords["ul"][1] += trimsTBLR[0]; 
+
+print(nul, nur)
 sys.exit(-1)
 
 ll_nx_coord = ll[0]; ll_ny_coord = ll[1]
