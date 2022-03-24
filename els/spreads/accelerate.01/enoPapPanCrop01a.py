@@ -29,6 +29,12 @@ print(ll, lr, ul, ur)
 
 #  (lower_right_new_x_coordinate, lower_right_new_y_coordinate)
 
+#https://stackoverflow.com/questions/1663807/how-to-iterate-through-two-lists-in-parallel
+
+origCoords = [ll, lr, ul, ur]; newCoords = ["ll", "lr", "ul", "ur"]
+for origCoord, newCoordIdx in zip(origCoords, newCoords):
+  pass
+
 ll_nx_coord = ll[0]; ll_ny_coord = ll[1]
 ll_
 
