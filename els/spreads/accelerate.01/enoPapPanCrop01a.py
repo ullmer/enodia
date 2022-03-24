@@ -27,12 +27,15 @@ ur = page.cropBox.getUpperRight()
 
 print(ll, lr, ul, ur)
 
-sys.exit(-1)
+#  (lower_right_new_x_coordinate, lower_right_new_y_coordinate)
 
-page.mediaBox.lowerRight = (lower_right_new_x_coordinate, lower_right_new_y_coordinate)
-page.mediaBox.lowerLeft = (lower_left_new_x_coordinate, lower_left_new_y_coordinate)
-page.mediaBox.upperRight = (upper_right_new_x_coordinate, upper_right_new_y_coordinate)
-page.mediaBox.upperLeft = (upper_left_new_x_coordinate, upper_left_new_y_coordinate)
+ll_nx_coord = ll[0]; ll_ny_coord = ll[1]
+ll_
+
+page.mediaBox.lowerRight = (lr_nx_coord, lr_ny_coord)
+page.mediaBox.lowerLeft  = (ll_nx_coord, ll_ny_coord)
+page.mediaBox.upperRight = (ur_nx_coord, ur_ny_coord)
+page.mediaBox.upperLeft  = (ul_nx_coord, ul_ny_coord)
 
 #for example :- my custom coordinates 
 #page.mediaBox.lowerRight = (611, 500)
