@@ -26,7 +26,6 @@ ll = srcPage.cropBox.getLowerLeft()
 lr = srcPage.cropBox.getLowerRight()
 ul = srcPage.cropBox.getUpperLeft()
 ur = srcPage.cropBox.getUpperRight()
-
 print(ll, lr, ul, ur)
 
 nul = (int(ul[0]+trimsTBLR[2]), int(ul[1]+trimsTBLR[0]))
@@ -34,7 +33,6 @@ nur = (int(ur[0]-trimsTBLR[3]), int(ur[1]+trimsTBLR[0]))
 
 nll = (int(ll[0]+trimsTBLR[2]), int(ll[1]+trimsTBLR[1]))
 nlr = (int(lr[0]-trimsTBLR[3]), int(lr[1]+trimsTBLR[1]))
-
 print(nul, nur, nll, nlr)
 
 srcPage.mediaBox.lowerRight = nlr
@@ -47,11 +45,5 @@ targF = open(targFn, 'wb')
 
 targPdf.write(targF)
 targF.close()
-
-#for example :- my custom coordinates 
-#srcPage.mediaBox.lowerRight = (611, 500)
-#srcPage.mediaBox.lowerLeft = (0, 500)
-#srcPage.mediaBox.upperRight = (611, 700)
-#srcPage.mediaBox.upperLeft = (0, 700)
 
 ### end ###
