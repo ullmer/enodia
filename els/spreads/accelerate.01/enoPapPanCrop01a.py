@@ -8,13 +8,23 @@
 #present code below is verbatim; about to evolve
 
 from PyPDF2 import PdfFileWriter,PdfFileReader,PdfFileMerger
+import sys
 
-pdf_file = PdfFileReader(open("/Users/user.name/Downloads/sample.pdf","rb"))
+srcFn = "siMap18a.pdf"
+
+divsHoriz = 6
+divsVert  = 3
+
+trimsTBLR = [0, 0, 0, 0]
+
+pdf_file = PdfFileReader(open(srcFn, "rb"))
 page = pdf_file.getPage(0)
 print(page.cropBox.getLowerLeft())
 print(page.cropBox.getLowerRight())
 print(page.cropBox.getUpperLeft())
 print(page.cropBox.getUpperRight())
+
+sys.exit(-1)
 
 page.mediaBox.lowerRight = (lower_right_new_x_coordinate, lower_right_new_y_coordinate)
 page.mediaBox.lowerLeft = (lower_left_new_x_coordinate, lower_left_new_y_coordinate)
