@@ -8,57 +8,66 @@ scrImgBlx:
     spreadDim: [108, 36] #spread dimensions in inches (including screens)
     tileDim:   [ 18, 12] #individual paper tile dimensions
     registration:        
-      br: [64.937, -8.69] #Corel coordinates of bottom-right tile (given pagesize bug on present system)
+      tl: [-34.063, 21.25]
+      br: [73.887, -14.64]
 
-  aa:
+  afar:
     name: African Art
     titlesFn: aa1.png
-    cdc: []
+    cdc:  [56, 57]
 
   aahc:
     name: African-American History & Culture
     titlesFn: aahc1.png
-    cdc: []
+    imgs: [40, 41, 39]
+    cdc:  [8.012, 4.25, -29.882, 7.243]
 
-  ah:
+  amhi:
     name: American History
     titlesFn: ah1.png
-    cdc: []
+    imgs: [50, 27]
+    cdc:  [14.838, 4.25, -18.169, 7.241]
 
-  ai:
+  arin:
     name: Arts & Industries
-    titlesFn: ai1.png
-    cdc: []
+    titlesFn: arin1.png
+    imgs: [61]
+    cdc:  [4.294, 4.801, 4.087, -.289]
 
-  ami:
+  amin:
     name: American Indian
-    titlesFn: ami1.png
-    cdc: []
+    titlesFn: amin1.png
+    imgs: [32, 31]
+    cdc:  [9.093, 4.25, 33.391, -.594]
 
-  as:
+  aisa:
     name: Air & Space
     titlesFn: as1.png
-    cdc: []
+    imgs: [34, 33]
+    cdc:  [8.451, 4.25, 24.153, 4.25
 
   fr:
     name: Freer
     titlesFn: fr1.png
-    cdc: [7.5, 4.25, -27.534, -.565]
-    cdc: []
+    cdc:  [7.5, 4.25, -27.534, -.565]
+    imgs: [55]
 
   hi:
     name: Hirschorn
     titlesFn: hi1.png
-    cdc: []
+    imgs: [35, 36, 37]
+    cdc:  [8.897, 4.83, 12.186, -.304]
 
-  nh:
+  nahi:
     name: Natural History
     titlesFn: nh1.png
-    cdc: []
+    imgs: [29, 30]
+    cdc:  [15.697, 4.25, -0.098, 7.124]
 
   sa:
     name: Sackler
     titlesFn: sa1.png
-    cdc: []
+    imgs: [62]
+    cdc:  [7.5, 3.681, -19.894, -.28]
 
 ### end ###
