@@ -39,19 +39,18 @@ print(ll, lr, ul, ur)
 nul = (int(ul[0]+trimsTBLR[2]), int(ul[1]+trimsTBLR[0]))
 nur = (int(ur[0]-trimsTBLR[3]), int(ur[1]+trimsTBLR[0]))
 
+nll = (int(ll[0]+trimsTBLR[2]), int(ll[1]+trimsTBLR[1]))
+nlr = (int(lr[0]-trimsTBLR[3]), int(lr[1]+trimsTBLR[1]))
+
 #ul2 = newCoords["ul"]
 #newCoords["ul"][1] += trimsTBLR[0]; 
 
-print(nul, nur)
-sys.exit(-1)
+print(nul, nur, nll, nlr)
 
-ll_nx_coord = ll[0]; ll_ny_coord = ll[1]
-ll_
-
-page.mediaBox.lowerRight = (lr_nx_coord, lr_ny_coord)
-page.mediaBox.lowerLeft  = (ll_nx_coord, ll_ny_coord)
-page.mediaBox.upperRight = (ur_nx_coord, ur_ny_coord)
-page.mediaBox.upperLeft  = (ul_nx_coord, ul_ny_coord)
+page.mediaBox.lowerRight = nlr
+page.mediaBox.lowerLeft  = nll
+page.mediaBox.upperRight = nur
+page.mediaBox.upperLeft  = nul
 
 #for example :- my custom coordinates 
 #page.mediaBox.lowerRight = (611, 500)
