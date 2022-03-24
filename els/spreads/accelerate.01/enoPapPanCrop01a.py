@@ -35,10 +35,12 @@ paneWidth  = int(spreadWidth  / divsHoriz)
 paneHeight = int(spreadHeight / divsVert)
 
 nul = (int(ul[0]+trimsTBLR[2]), int(ul[1]+trimsTBLR[0]))
-nur = (int(ur[0]-trimsTBLR[3]), int(ur[1]+trimsTBLR[0]))
-
 nll = (int(ll[0]+trimsTBLR[2]), int(ll[1]+trimsTBLR[1]))
-nlr = (int(lr[0]-trimsTBLR[3]), int(lr[1]+trimsTBLR[1]))
+
+#nur = (int(ur[0]-trimsTBLR[3]), int(ur[1]+trimsTBLR[0]))
+#nlr = (int(lr[0]-trimsTBLR[3]), int(lr[1]+trimsTBLR[1]))
+nur = (int(nll[0]+paneWidth), int(ur[1]+trimsTBLR[0]))
+nlr = (int(nll[0]+paneWidth), int(lr[1]+trimsTBLR[1]))
 print(nul, nur, nll, nlr)
 
 srcPage.mediaBox.lowerRight = nlr
