@@ -10,7 +10,7 @@ import yaml
 import sys
 
 srcYamlFn = "siMap18a.yaml"
-srcYamlF  = open(yamlFn, "rt")
+srcYamlF  = open(srcYamlFn, "rt")
 srcYaml   = yaml.safe_load(srcYamlF)
 
 try:    es = srcYaml["enoSpread"]
@@ -48,7 +48,7 @@ paneHeight = int(spreadHeight / divsVert)
 
 ########### process band ########### 
 
-procBand(targFn, trimsTBLR, srcPage, srcBounds):
+def procBand(targFn, trimsTBLR, srcPage, srcBounds):
 
   ll, lr, ul, ur = srcBounds
 
