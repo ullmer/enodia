@@ -27,23 +27,11 @@ ur = page.cropBox.getUpperRight()
 
 print(ll, lr, ul, ur)
 
-#  (lower_right_new_x_coordinate, lower_right_new_y_coordinate)
-
-#https://stackoverflow.com/questions/1663807/how-to-iterate-through-two-lists-in-parallel
-
-#newCoords  = {}
-#origCoords = [ll, lr, ul, ur]; newCoordIdxs = ["ll", "lr", "ul", "ur"]
-#for origCoord, newCoordIdx in zip(origCoords, newCoordIdxs):
-#  newCoords[newCoordIdx] = origCoord
-
 nul = (int(ul[0]+trimsTBLR[2]), int(ul[1]+trimsTBLR[0]))
 nur = (int(ur[0]-trimsTBLR[3]), int(ur[1]+trimsTBLR[0]))
 
 nll = (int(ll[0]+trimsTBLR[2]), int(ll[1]+trimsTBLR[1]))
 nlr = (int(lr[0]-trimsTBLR[3]), int(lr[1]+trimsTBLR[1]))
-
-#ul2 = newCoords["ul"]
-#newCoords["ul"][1] += trimsTBLR[0]; 
 
 print(nul, nur, nll, nlr)
 
