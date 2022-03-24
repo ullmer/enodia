@@ -19,10 +19,13 @@ trimsTBLR = [0, 0, 0, 0]
 
 pdf_file = PdfFileReader(open(srcFn, "rb"))
 page = pdf_file.getPage(0)
-print(page.cropBox.getLowerLeft())
-print(page.cropBox.getLowerRight())
-print(page.cropBox.getUpperLeft())
-print(page.cropBox.getUpperRight())
+
+ll = page.cropBox.getLowerLeft()
+lr = page.cropBox.getLowerRight()
+ul = page.cropBox.getUpperLeft()
+ur = page.cropBox.getUpperRight()
+
+print(ll, lr, ul, ur)
 
 sys.exit(-1)
 
