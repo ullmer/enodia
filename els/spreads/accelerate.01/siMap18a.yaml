@@ -6,8 +6,8 @@ enoSpread:
   srcFn:  siMap18a.pdf
   targFn: siMap18aCr.pdf
 
-  divsHoriz = 6
-  divsVert  = 3
+  divsHoriz: 6
+  divsVert:  3
 
   trimsUpperBand: [250, 1910, 200, 200] 
   trimsLowerBand: [1980, 180, 200, 200] 
