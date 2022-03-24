@@ -14,8 +14,8 @@ targFn = "siMap18aCr.pdf"
 divsHoriz = 6
 divsVert  = 3
 
-#trimsTBLR = [200, 200, 0, 0]
-trimsTBLR = [600, 200, 200, 0]
+#trimsTBLR = [200, 200, 200, 200]
+trimsTBLR = [200, 1910, 200, 200] #upper band
 
 srcPdf  = PdfFileReader(open(srcFn, "rb"))
 srcPage = srcPdf.getPage(0)
