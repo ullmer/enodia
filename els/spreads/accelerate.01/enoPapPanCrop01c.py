@@ -6,6 +6,7 @@
 #https://stackoverflow.com/questions/457207/cropping-srcPages-of-a-pdf-file
 
 from PyPDF2 import PdfFileWriter,PdfFileReader,PdfFileMerger
+import yaml
 import sys
 
 srcFn  = "siMap18a.pdf"
