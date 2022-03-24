@@ -28,6 +28,12 @@ ul = srcPage.cropBox.getUpperLeft()
 ur = srcPage.cropBox.getUpperRight()
 print(ll, lr, ul, ur)
 
+spreadWidth  = lr[0]-ul[0]
+spreadHeight = ur[1]-lr[1]
+
+paneWidth  = int(spreadWidth  / divsHoriz)
+paneHeight = int(spreadHeight / divsVert)
+
 nul = (int(ul[0]+trimsTBLR[2]), int(ul[1]+trimsTBLR[0]))
 nur = (int(ur[0]-trimsTBLR[3]), int(ur[1]+trimsTBLR[0]))
 
