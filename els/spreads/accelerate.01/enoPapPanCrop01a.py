@@ -5,8 +5,6 @@
 #Draws heavily from code by Sonu Kumar Prashant:
 #https://stackoverflow.com/questions/457207/cropping-pages-of-a-pdf-file
 
-#present code below is verbatim; about to evolve
-
 from PyPDF2 import PdfFileWriter,PdfFileReader,PdfFileMerger
 import sys
 
