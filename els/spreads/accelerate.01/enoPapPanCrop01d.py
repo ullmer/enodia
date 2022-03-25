@@ -48,18 +48,18 @@ paneHeight = int(spreadHeight / divsVert)
 
 ########### process band ########### 
 
-def procBand(targFn, trimsTBLR, srcPage, srcBounds):
+def procTile(targFn, trimsTBLR, srcPage, srcBounds, tileIdx):
 
   ll, lr, ul, ur = srcBounds
 
-  nul = (int(ul[0]+trimsTBLR[2]), int(ul[1]-trimsTBLR[0]))
-  nll = (int(ll[0]+trimsTBLR[2]), int(ll[1]+trimsTBLR[1]))
+  pwti0 = paneWidth*(tileIdx-1)
+  pwti1 = paneWidth*tileIdx
 
-  nur = (int(ur[0]-trimsTBLR[3]), int(ur[1]-trimsTBLR[0]))
-  nlr = (int(lr[0]-trimsTBLR[3]), int(lr[1]+trimsTBLR[1]))
+  nul = (int(ul[0]+trimsTBLR[2]+pwti0), int(ul[1]-trimsTBLR[0]))
+  nll = (int(ll[0]+trimsTBLR[2]+pwti0), int(ll[1]+trimsTBLR[1]))
 
-  #nur = (int(nll[0]+paneWidth), int(ur[1]-trimsTBLR[0]))
-  #nlr = (int(nll[0]+paneWidth), int(lr[1]+trimsTBLR[1]))
+  nur = (int(nll[0]+pwti), int(ur[1]-trimsTBLR[0]))
+  nlr = (int(nll[0]+pwti), int(lr[1]+trimsTBLR[1]))
 
   print(nul, nur, nll, nlr)
 
@@ -69,14 +69,16 @@ def procBand(targFn, trimsTBLR, srcPage, srcBounds):
   targPdf = PdfFileWriter()
   targPdf.addPage(srcPage)
 
-  targF = open(targFn, 'wb')
+  fn = targFn % tileIdx
+  targF = open(fn, 'wb')
 
   targPdf.write(targF)
   targF.close()
 
 ########### main ########### 
 
-procBand(targUbFn, trimsUpperBand, srcPage, srcBounds)
-procBand(targLbFn, trimsLowerBand, srcPage, srcBounds)
+for i in range(divsHoriz):
+  procTile(targUbFn, trimsUpperBand, srcPage, srcBounds, i)
+  procTile(targLbFn, trimsLowerBand, srcPage, srcBounds, i)
 
 ### end ###
