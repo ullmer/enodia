@@ -49,14 +49,15 @@ paneHeight = int(spreadHeight / divsVert)
 ########### process band ########### 
 
 def procTile(targFn, trimsTBLR, srcPage, srcBounds, tileIdx):
+  global paneWidth
 
   ll, lr, ul, ur = srcBounds
 
   pwti0 = paneWidth*(tileIdx-1)
   pwti1 = paneWidth*tileIdx
 
-  nul = (int(ul[0]+trimsTBLR[2]+pwti0), int(ul[1]-trimsTBLR[0]))
-  nll = (int(ll[0]+trimsTBLR[2]+pwti0), int(ll[1]+trimsTBLR[1]))
+  nul = (int(ul[0]+trimsTBLR[2]+pwti1), int(ul[1]-trimsTBLR[0]))
+  nll = (int(ll[0]+trimsTBLR[2]+pwti1), int(ll[1]+trimsTBLR[1]))
 
   nur = (int(nll[0]+pwti1), int(ur[1]-trimsTBLR[0]))
   nlr = (int(nll[0]+pwti1), int(lr[1]+trimsTBLR[1]))
@@ -67,7 +68,9 @@ def procTile(targFn, trimsTBLR, srcPage, srcBounds, tileIdx):
   srcPage.mediaBox.lowerLeft  = nll; srcPage.mediaBox.upperRight = nur
 
   targPdf = PdfFileWriter()
+  #srcPage.compressContentStreams()
   targPdf.addPage(srcPage)
+  targPdf.compressContentStreams()
 
   fn = targFn % tileIdx
   targF = open(fn, 'wb')
