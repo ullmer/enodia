@@ -70,7 +70,6 @@ def procTile(targFn, trimsTBLR, srcPage, srcBounds, tileIdx):
   targPdf = PdfFileWriter()
   #srcPage.compressContentStreams()
   targPdf.addPage(srcPage)
-  targPdf.compressContentStreams()
 
   fn = targFn % tileIdx
   targF = open(fn, 'wb')
