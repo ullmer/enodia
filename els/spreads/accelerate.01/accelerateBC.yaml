@@ -1,0 +1,17 @@
+enoSpread:
+  name:    accelerateBC
+  creator: Virginia Tech, Smithsonian Institution, and Brygg Ullmer
+  date:    2022-03-25
+
+  srcFn:    enodiaAbout24e.pdf
+  targUbFn: accelerateBCUb%i.pdf
+  targLbFn: accelerateBCLb%i.pdf
+
+  divsHoriz: 6
+  divsVert:  3
+  order:     1
+
+  trimsUpperBand: [250, 1910, 200, 200] 
+  trimsLowerBand: [1980, 180, 200, 200] 
+
+### end ###
