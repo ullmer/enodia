@@ -11,7 +11,7 @@ enoSpread:
   divsVert:  3
   order:     1
 
-  trimsUpperBand: [250, 1910, 200, 200] 
-  trimsLowerBand: [1980, 180, 200, 200] 
+  trimsUpperBand: [ 80, 2115, 50, 170]
+  trimsLowerBand: [930, 1250, 50, 170] 
 
 ### end ###
