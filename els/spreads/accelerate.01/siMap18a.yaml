@@ -4,11 +4,12 @@ enoSpread:
   date:    2022-03-24
 
   srcFn:    siMap18a.pdf
-  targUbFn: siMap18aUb.pdf
-  targLbFn: siMap18aLb.pdf
+  targUbFn: siMap18aUb%i.pdf
+  targLbFn: siMap18aLb%i.pdf
 
   divsHoriz: 6
   divsVert:  3
+  order:     1
 
   trimsUpperBand: [250, 1910, 200, 200] 
   trimsLowerBand: [1980, 180, 200, 200] 
