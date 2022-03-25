@@ -53,16 +53,14 @@ def procTile(targFn, trimsTBLR, srcPage, srcBounds, tileIdx):
 
   ll, lr, ul, ur = srcBounds
 
-  pwti0 = paneWidth*(tileIdx-1)
-  pwti1 = paneWidth*tileIdx
+  pwti0 = paneWidth*tileIdx
+  pwti1 = paneWidth*(tileIdx+1)
 
-  nul = (int(ul[0]+trimsTBLR[2]+pwti1), int(ul[1]-trimsTBLR[0]))
-  nll = (int(ll[0]+trimsTBLR[2]+pwti1), int(ll[1]+trimsTBLR[1]))
+  nul = (int(ul[0]+trimsTBLR[2]+pwti0), int(ul[1]-trimsTBLR[0]))
+  nll = (int(ll[0]+trimsTBLR[2]+pwti0), int(ll[1]+trimsTBLR[1]))
 
   nur = (int(nll[0]+pwti1), int(ur[1]-trimsTBLR[0]))
   nlr = (int(nll[0]+pwti1), int(lr[1]+trimsTBLR[1]))
-
-  print(nul, nur, nll, nlr)
 
   srcPage.mediaBox.upperLeft  = nul; srcPage.mediaBox.lowerRight = nlr
   srcPage.mediaBox.lowerLeft  = nll; srcPage.mediaBox.upperRight = nur
@@ -71,8 +69,9 @@ def procTile(targFn, trimsTBLR, srcPage, srcBounds, tileIdx):
   #srcPage.compressContentStreams()
   targPdf.addPage(srcPage)
 
-  fn = targFn % tileIdx
+  fn    = targFn % tileIdx
   targF = open(fn, 'wb')
+  print(fn, nul, nur, nll, nlr)
 
   targPdf.write(targF)
   targF.close()
