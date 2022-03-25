@@ -57,15 +57,14 @@ def procBand(targFn, trimsTBLR, srcPage, srcBounds):
 
   nur = (int(ur[0]-trimsTBLR[3]), int(ur[1]-trimsTBLR[0]))
   nlr = (int(lr[0]-trimsTBLR[3]), int(lr[1]+trimsTBLR[1]))
+
   #nur = (int(nll[0]+paneWidth), int(ur[1]-trimsTBLR[0]))
   #nlr = (int(nll[0]+paneWidth), int(lr[1]+trimsTBLR[1]))
 
   print(nul, nur, nll, nlr)
 
-  srcPage.mediaBox.upperLeft  = nul
-  srcPage.mediaBox.lowerLeft  = nll
-  srcPage.mediaBox.lowerRight = nlr
-  srcPage.mediaBox.upperRight = nur
+  srcPage.mediaBox.upperLeft  = nul; srcPage.mediaBox.lowerRight = nlr
+  srcPage.mediaBox.lowerLeft  = nll; srcPage.mediaBox.upperRight = nur
 
   targPdf = PdfFileWriter()
   targPdf.addPage(srcPage)
