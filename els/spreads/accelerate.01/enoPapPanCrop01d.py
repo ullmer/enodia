@@ -53,14 +53,13 @@ def procTile(targFn, trimsTBLR, srcPage, srcBounds, tileIdx):
 
   ll, lr, ul, ur = srcBounds
 
-  pwti0 = paneWidth*tileIdx
-  pwti1 = paneWidth*(tileIdx+1)
+  pwti = paneWidth
 
-  nul = (int(ul[0]+trimsTBLR[2]+pwti0), int(ul[1]-trimsTBLR[0]))
-  nll = (int(ll[0]+trimsTBLR[2]+pwti0), int(ll[1]+trimsTBLR[1]))
+  nul = (int(ul[0]+trimsTBLR[2]+pwti), int(ul[1]-trimsTBLR[0]))
+  nll = (int(ll[0]+trimsTBLR[2]+pwti), int(ll[1]+trimsTBLR[1]))
 
-  nur = (int(nll[0]+pwti1), int(ur[1]-trimsTBLR[0]))
-  nlr = (int(nll[0]+pwti1), int(lr[1]+trimsTBLR[1]))
+  nur = (int(nul[0]+paneWidth), int(ur[1]-trimsTBLR[0]))
+  nlr = (int(nll[0]+paneWidth), int(lr[1]+trimsTBLR[1]))
 
   srcPage.mediaBox.upperLeft  = nul; srcPage.mediaBox.lowerRight = nlr
   srcPage.mediaBox.lowerLeft  = nll; srcPage.mediaBox.upperRight = nur
