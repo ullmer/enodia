@@ -9,7 +9,7 @@ from PyPDF2 import PdfFileWriter,PdfFileReader,PdfFileMerger
 import yaml
 import sys
 
-srcYamlFn = "siMap18a.yaml"
+srcYamlFn = "siMap.yaml"
 srcYamlF  = open(srcYamlFn, "rt")
 srcYaml   = yaml.safe_load(srcYamlF)
 
