@@ -6,4 +6,6 @@ spread:
   - accelerateBC.yaml
   - siMap.yaml
 
+spreadTargFn: "images/spread01.pdf"
+
 ### end ###
