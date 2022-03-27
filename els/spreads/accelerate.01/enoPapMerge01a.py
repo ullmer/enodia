@@ -79,11 +79,15 @@ def pdfCombine(srcPdfs, targPdf):
     if h > maxHeight: maxHeight = h
 
   mergedPage = PageObject.createBlankPage(None, widthSum, maxHeight)
-  firstPage = True; dx = 0
+  firstPage = True; dx=0
 
   for page in pages:
-    if firstPage: mergedPage.mergePage(page); firstPage = False; dx += page.mediaBox.getWidth()
-    else:         mergedPage.mergeScaledTranslatedPage(page, 1, 0, dx)
+    if firstPage: 
+      mergedPage.mergePage(page); 
+      dx += page.mediaBox.getWidth(); firstPage = False
+    else: 
+      mergedPage.mergeTranslatedPage(page, dx, 0)
+      dx += page.mediaBox.getWidth()
 
   writer = PdfFileWriter()
   writer.addPage(mergedPage)
