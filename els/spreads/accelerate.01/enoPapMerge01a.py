@@ -85,7 +85,12 @@ def pdfCombine(srcPdfs, targPdf):
     if firstPage: mergedPage.mergePage(page); firstPage = False; dx += page.mediaBox.getWidth()
     else:         mergedPage.mergeScaledTranslatedPage(page, 1, 0, dx)
 
-  mergedPage.write(targPdf)
+  writer = PdfFileWriter()
+  writer.addPage(mergedPage)
+
+  f = open(targPdf, "wb")
+  writer.write(f)
+  f.close()
 
   for f in srcFList: f.close() # seeks present both in bbox query & merge
 
@@ -102,7 +107,7 @@ for panelPdfFnRaw in panelPdfs:
   panelPdfFn = os.path.basename(panelPdfFnRaw)
   
   srcPdfs = []
-  for srcPdf in spreadHashKeys: srcPdfs.append(fnPrefix + srcPdf + panelPdfFn)
+  for srcPdf in spreadHashKeys: srcPdfs.append(fnPrefix + srcPdf + "/" + panelPdfFn)
 
   pdfbn = os.path.basename(panelPdfFn)
   targPdf = spreadTargDir + pdfbn
