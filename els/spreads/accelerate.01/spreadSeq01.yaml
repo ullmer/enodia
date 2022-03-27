@@ -1,0 +1,9 @@
+# ACCelerate22 spread
+# Brygg Ullmer, Clemson University
+# Begun 2022-03-26
+
+spread:
+  - accelerateBC.yaml
+  - siMap.yaml
+
+### end ###
