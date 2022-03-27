@@ -22,20 +22,24 @@ srcYaml   = yaml.safe_load(srcYamlF)
 try:    es = srcYaml["spread"]
 except: print("YAML spread error; aborting"); sys.exit(-1)
 
-try:    spreadTargFn = fnPrefix + srcYaml["spreadTargFn"]
+try:    spreadTargDir = fnPrefix + srcYaml["spreadTargDir"]
 except: print("YAML error: no spreadTargFn; aborting"); sys.exit(-1)
+
+try:    os.mkdir(spreadTargDir)
+except: pass
 
 ########### process YAML spread file ########### 
 
 def procSpreadYaml(spreadYamlFn):
   global fnPrefix, spreadHash
 
-  try:    y = yaml.safe_load(spreadYamlFn)
+  yf = open(spreadYamlFn, "rt")
+  try:    y = yaml.safe_load(yf)
   except: print("procSpreadYaml error on filename", spreadYamlFn); sys.exit(-1)
 
   if "enoSpread" in y: spread  = y["enoSpread"]
   else:                
-    print("procSpreadYaml error: no enoSpread in filename", spreadYamlFn); sys.exit(-1)
+    print("procSpreadYaml error: no enoSpread in filename", spreadYamlFn); print(y); sys.exit(-1)
 
   if "targDir" in spread: targDir = spread["targDir"]
   else:                  
@@ -53,16 +57,30 @@ spreadHash = {}
 for spreadYamlFn in es:
   procSpreadYaml(spreadYamlFn)
 
-#Below from here: https://gist.github.com/Geekfish/a4fe4efd59e158f55ca5c76479831c8d
+########### pdf combine ########### 
 
-def pdf_combine(pdf_list):
+def pdfCombine(srcPdfs, targPdf):
   global spreadTargFn
 
   merger = PyPDF2.PdfFileMerger()
-  for pdf in pdf_list:
+  for pdf in srcPdfs:
     merger.append(pdf)
-  merger.write(spreadTargFn)
+  merger.write(targPdf)
 
-pdf_combine(inputs)
+########### main ########### 
+
+keys = spreadHash.keys()
+firstKey = list(keys)[0]
+print("first key:", firstKey)
+
+firstKeyPdfs = spreadHash[firstKey]
+
+for pdf in firstKeyPdfs:
+  srcPdfs = []
+  for key in keys: srcPdfs.append(key + "/" + pdf)
+  targPdf = spreadTargDir + pdf
+
+print(spreadHash)
+#pdf_combine(inputs)
 
 ### end ###
