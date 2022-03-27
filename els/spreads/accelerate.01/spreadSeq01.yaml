@@ -5,6 +5,7 @@
 spread:
   - accelerateBC.yaml
   - siMap.yaml
+  - interactPostAccelerate.yaml
 
 spreadTargDir: "images/spread01/"
 

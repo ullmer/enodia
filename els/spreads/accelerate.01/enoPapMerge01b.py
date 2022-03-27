@@ -46,7 +46,7 @@ def procSpreadYaml(spreadYamlFn):
   else:                  
     print("procSpreadYaml error: no targDir enoSpread in file enoSpread:", spreadYamlFn); sys.exit(-1)
 
-  targpat = fnPrefix + targDir + "/*"
+  targpat = fnPrefix + targDir + "/*.pdf"
   files = glob.glob(targpat)
   spreadHash[targDir] = files
   return targDir
@@ -82,12 +82,8 @@ def pdfCombine(srcPdfs, targPdf):
   firstPage = True; dx=0
 
   for page in pages:
-    if firstPage: 
-      mergedPage.mergePage(page); 
-      dx += page.mediaBox.getWidth(); firstPage = False
-    else: 
-      mergedPage.mergeTranslatedPage(page, dx, 0)
-      dx += page.mediaBox.getWidth()
+    mergedPage.mergeTranslatedPage(page, dx, 0)
+    dx += page.mediaBox.getWidth()
 
   writer = PdfFileWriter()
   writer.addPage(mergedPage)
