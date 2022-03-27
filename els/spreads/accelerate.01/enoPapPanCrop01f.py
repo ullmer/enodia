@@ -7,7 +7,9 @@
 
 from PyPDF2 import PdfFileWriter,PdfFileReader,PdfFileMerger
 import yaml
-import sys
+import sys, os
+
+fnPrefix = "images/"
 
 if len(sys.argv) != 2:
   print("Please provide .yaml filename as argument"); sys.exit(-1)
@@ -23,6 +25,7 @@ except: print("YAML spread error; aborting"); sys.exit(-1)
 
 try:    
   srcFn    = es["srcFn"]
+  targDir  = es["targDir"]
   targUbFn = es["targUbFn"] #upper band
   targLbFn = es["targLbFn"] #lower band
 except: print("YAML FN error; aborting"); sys.exit(-1)
@@ -51,10 +54,14 @@ spreadHeight = ur[1]-lr[1]
 paneWidth  = int(spreadWidth  / divsHoriz)
 paneHeight = int(spreadHeight / divsVert)
 
+try:    os.mkdir(fnPrefix + targDir)
+except: pass
+#except: print("Error attempting creation of directory", (fnPrefix+targDir)); sys.exit(-1)
+
 ########### process band ########### 
 
 def procTile(targFn, trimsTBLR, srcPage, srcBounds, tileIdx):
-  global paneWidth
+  global paneWidth, fnPrefix, targDir
 
   ll, lr, ul, ur = srcBounds
 
@@ -73,7 +80,7 @@ def procTile(targFn, trimsTBLR, srcPage, srcBounds, tileIdx):
   #srcPage.compressContentStreams()
   targPdf.addPage(srcPage)
 
-  fn    = targFn % tileIdx
+  fn    = fnPrefix + targDir + "/" + (targFn % tileIdx)
   targF = open(fn, 'wb')
   print(fn, nul, nur, nll, nlr)
 
@@ -83,6 +90,7 @@ def procTile(targFn, trimsTBLR, srcPage, srcBounds, tileIdx):
 ########### process band ########### 
 
 def procBand(targFn, trimsTBLR, srcPage, srcBounds):
+  global fnPrefix
 
   ll, lr, ul, ur = srcBounds
 
@@ -99,8 +107,7 @@ def procBand(targFn, trimsTBLR, srcPage, srcBounds):
 
   targPdf = PdfFileWriter()
   targPdf.addPage(srcPage)
-  fn = targFn % 0
-
+  fn    = fnPrefix + (targFn % 0)
   targF = open(fn, 'wb')
 
   targPdf.write(targF)

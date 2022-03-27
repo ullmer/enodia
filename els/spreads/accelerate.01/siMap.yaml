@@ -4,8 +4,9 @@ enoSpread:
   date:    2022-03-24
 
   srcFn:    siMap18e.pdf
-  targUbFn: siMapUb%i.pdf
-  targLbFn: siMapLb%i.pdf
+  targDir:  siMap  
+  targUbFn: Ub%i.pdf
+  targLbFn: Lb%i.pdf
 
   divsHoriz: 6
   divsVert:  3

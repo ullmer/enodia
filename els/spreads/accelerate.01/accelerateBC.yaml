@@ -4,8 +4,8 @@ enoSpread:
   date:    2022-03-25
 
   srcFn:    enodiaAbout28c.pdf
-  targUbFn: accelerateBCUb%i.pdf
-  targLbFn: accelerateBCLb%i.pdf
+  targUbFn: accelerateBC/Ub%i.pdf
+  targLbFn: accelerateBC/Lb%i.pdf
 
   divsHoriz: 6
   divsVert:  3
