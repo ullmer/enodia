@@ -91,18 +91,20 @@ def pdfCombine(srcPdfs, targPdf):
 
 ########### main ########### 
 
-keys = spreadHash.keys()
-firstKey = list(keys)[0]
+spreadHashKeys = spreadHash.keys()
+firstKey = list(spreadHashKeys)[0]
 print("first key:", firstKey)
 
-firstKeyPdfs = spreadHash[firstKey]
-print(spreadHash)
+panelPdfs = spreadHash[firstKey]
+#print(spreadHash)
 
-for pdf in firstKeyPdfs:
+for panelPdfFnRaw in panelPdfs:
+  panelPdfFn = os.path.basename(panelPdfFnRaw)
+  
   srcPdfs = []
-  for key in keys: srcPdfs.append(pdf)
+  for srcPdf in spreadHashKeys: srcPdfs.append(fnPrefix + srcPdf + panelPdfFn)
 
-  pdfbn = os.path.basename(pdf)
+  pdfbn = os.path.basename(panelPdfFn)
   targPdf = spreadTargDir + pdfbn
   pdfCombine(srcPdfs, targPdf)
 
