@@ -2,12 +2,13 @@
 #Brygg Ullmer, Clemson University
 #Begun 2022-03-24
 
-#Draws from code by winosli:
+#Draws from code by geekfish:
 #https://gist.github.com/Geekfish/a4fe4efd59e158f55ca5c76479831c8d
 
 from PyPDF2 import PdfFileWriter,PdfFileReader,PdfFileMerger
-import yaml
-import sys, os, glob
+from PyPDF2.pdf import PageObject
+
+import yaml, sys, os, glob
 
 fnPrefix = "images/"
 
@@ -62,10 +63,22 @@ for spreadYamlFn in es:
 def pdfCombine(srcPdfs, targPdf):
   print("pdfCombine src:", srcPdfs, "; targPdf:", targPdf)
 
-  merger = PdfFileMerger()
-  for pdf in srcPdfs:
-    merger.append(pdf)
-  merger.write(targPdf)
+  pages = []
+
+  for pdfFn in srcPdfs:
+    f = open(pdfFn, 'rb')
+    reader = PdfFileReader(f)
+    pages.append(reader.getPage(0))
+    f.close()
+
+  widthSum = 0; maxHeight = 0
+  for page in pages: 
+    widthSum += page.mediaBox.getWidth() 
+    h         = page.mediaBox.getHeight()
+    if h > maxHeight: maxHeight = h
+
+  mergedPage = PageObject.createBlankPage(None, widthSum, maxHeight)
+  #merger.write(targPdf)
 
 ########### main ########### 
 
