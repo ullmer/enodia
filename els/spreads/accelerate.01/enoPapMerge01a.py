@@ -85,7 +85,7 @@ def pdfCombine(srcPdfs, targPdf):
     if firstPage: mergedPage.mergePage(page); firstPage = False; dx += page.mediaBox.getWidth()
     else:         mergedPage.mergeScaledTranslatedPage(page, 1, 0, dx)
 
-  merger.write(targPdf)
+  mergedPage.write(targPdf)
 
   for f in srcFList: f.close() # seeks present both in bbox query & merge
 
