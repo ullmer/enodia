@@ -45,7 +45,7 @@ def procSpreadYaml(spreadYamlFn):
   else:                  
     print("procSpreadYaml error: no targDir enoSpread in file enoSpread:", spreadYamlFn); sys.exit(-1)
 
-  targpat = targDir + "/*"
+  targpat = fnPrefix + targDir + "/*"
   files = glob.glob(targpat)
   spreadHash[targDir] = files
   return targDir
@@ -60,7 +60,7 @@ for spreadYamlFn in es:
 ########### pdf combine ########### 
 
 def pdfCombine(srcPdfs, targPdf):
-  global spreadTargFn
+  print("pdfCombine src:", srcPdfs, "; targPdf:", targPdf)
 
   merger = PdfFileMerger()
   for pdf in srcPdfs:
@@ -78,9 +78,10 @@ print(spreadHash)
 
 for pdf in firstKeyPdfs:
   srcPdfs = []
-  #for key in keys: srcPdfs.append(key + "/" + pdf)
   for key in keys: srcPdfs.append(pdf)
-  targPdf = spreadTargDir + pdf
+
+  pdfbn = os.path.basename(pdf)
+  targPdf = spreadTargDir + pdfbn
   pdfCombine(srcPdfs, targPdf)
 
 ### end ###
