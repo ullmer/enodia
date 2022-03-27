@@ -1,6 +1,6 @@
-#Cropping PDF panels
+#Merging PDF panels
 #Brygg Ullmer, Clemson University
-#Begun 2022-03-24
+#Begun 2022-03-26
 
 #Draws from code by geekfish:
 #https://gist.github.com/Geekfish/a4fe4efd59e158f55ca5c76479831c8d
@@ -63,13 +63,14 @@ for spreadYamlFn in es:
 def pdfCombine(srcPdfs, targPdf):
   print("pdfCombine src:", srcPdfs, "; targPdf:", targPdf)
 
-  pages = []
+  pages    = []
+  srcFList = []
 
   for pdfFn in srcPdfs:
     f = open(pdfFn, 'rb')
     reader = PdfFileReader(f)
     pages.append(reader.getPage(0))
-    f.close()
+    srcFList.append(f)
 
   widthSum = 0; maxHeight = 0
   for page in pages: 
@@ -85,6 +86,8 @@ def pdfCombine(srcPdfs, targPdf):
     else:         mergedPage.mergeScaledTranslatedPage(page, 1, 0, dx)
 
   merger.write(targPdf)
+
+  for f in srcFList: f.close() # seeks present both in bbox query & merge
 
 ########### main ########### 
 
