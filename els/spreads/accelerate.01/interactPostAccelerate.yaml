@@ -13,7 +13,6 @@ enoSpread:
   order:     1
 
   trimsUpperBand: [0, 1725, 200, 200] 
-  #trimsUpperBand: [250, 1910, 200, 200] 
-  trimsLowerBand: [1980, 180, 200, 200] 
+  trimsLowerBand: [1725, 0, 200, 200] 
 
 ### end ###
