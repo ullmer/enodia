@@ -52,13 +52,17 @@ class enoSpreads:
     except: print("enoSpreads parseYaml: problems parsing YAML"); traceback.print_exc()
 
 #############################################################
-####################### Enodia Spread ####################### 
+####################### Enodia Spread Panel ####################### 
 
+#class enoSpreadPanel:
 class enoSpread:
   spreadName = None
   spreadYFn  = None
   spreadYF   = None
   spreadY    = None
+  SpreadEls  = None
+
+  spreadTouchEls = None
 
   ####################### constructor ####################### 
 
@@ -69,7 +73,7 @@ class enoSpread:
 
     self.loadYaml(spreadName)
 
-  ####################### constructor ####################### 
+  ####################### load YAML ####################### 
 
   def loadYaml(self, spreadName):
     self.spreadName = spreadName
@@ -80,6 +84,16 @@ class enoSpread:
     except: print("enoSpread loadYaml: caught error"); traceback.print_exc()
 
     print(self.spreadY)
+
+  #################### parse touch elements from yaml ###################
+
+  def parseTouchElsY(self):
+    try:
+      self.spreadEls = self.spreadY["panel"]["els"] # later, should handle plurality of panels
+      for el in self.spreadEls: 
+        abbrev = el["abbrev"]; name = el["name"]
+        self.constructTouchEl
+    except: print("enoSpread loadYaml: caught error"); traceback.print_exc()
   
 ####################### main ####################### 
 
