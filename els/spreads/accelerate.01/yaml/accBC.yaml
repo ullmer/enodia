@@ -1,3 +1,7 @@
+# ACCelerate 2022 Participants panel
+# Brygg Ullmer, Clemson University
+# Begun 2022-04-01
+
 panel:
   handle: accBC #bc: baseball cards
   name:   ACCelerate 2022 Participants 
@@ -8,6 +12,13 @@ panel:
 
   imgPrefix: ABC32c-
   imgExt:    .png
+  imgPostfixTouch: -to
+  imgPostfixFull:  -fu
+
+  els:
+    - {abbrev: fg,  name: fargate}
+    - {abbrev: bau, name: ullmer}
+    - {abbrev: bf,  name: filipiak}
 
 ABC32c-fg.png
 ABC32c-bau.png
