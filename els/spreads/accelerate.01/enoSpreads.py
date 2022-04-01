@@ -15,6 +15,7 @@ class enoSpreads:
   spreadsL   = None
 
   ####################### constructor ####################### 
+
   def __init__(self, **kwargs):
 
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
@@ -54,7 +55,17 @@ class enoSpreads:
 ####################### Enodia Spread ####################### 
 
 class enoSpread:
-  pass
+  spreadName = None
+
+  ####################### constructor ####################### 
+
+  def __init__(self, spreadName, **kwargs):
+
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+    #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
+
+    self.spreadName = spreadName
+
 
 ####################### main ####################### 
 
