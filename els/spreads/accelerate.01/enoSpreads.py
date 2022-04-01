@@ -92,7 +92,15 @@ class enoSpread:
 
   def parseTouchElsY(self):
     try:
-      self.spreadEls = self.spreadY["panel"]["els"] 
+      panel          = self.spreadY["panel"]
+      self.imgDir1   = panel["imgDir"]["d1"]
+      self.imgDir6   = panel["imgDir"]["d6"]
+      self.imgPrefix = panel["imgPrefix"]
+      self.imgExt    = panel["imgExt"]
+      self.imgPostfixTouch = panel["imgimgPostfixTouch"]
+      self.imgPostfixFull  = panel["imgimgPostfixFull"]
+
+      self.spreadEls = panel["els"] 
       # later, should handle plurality of panels
       for el in self.spreadEls: 
         abbrev = el["abbrev"]; name = el["name"]
