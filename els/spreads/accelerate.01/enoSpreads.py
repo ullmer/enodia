@@ -60,7 +60,9 @@ class enoSpread:
   spreadYFn  = None
   spreadYF   = None
   spreadY    = None
-  SpreadEls  = None
+  spreadEls  = None
+  imgDir1, imgDir6 = None, None
+  imgPrefix, imgExt, imgPostfixTouch, imgPostfixFull = [None] * 4
 
   spreadTouchEls = None
 
@@ -72,6 +74,7 @@ class enoSpread:
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
     self.loadYaml(spreadName)
+    self.parseTouchElsY()
 
   ####################### load YAML ####################### 
 
@@ -89,12 +92,18 @@ class enoSpread:
 
   def parseTouchElsY(self):
     try:
-      self.spreadEls = self.spreadY["panel"]["els"] # later, should handle plurality of panels
+      self.spreadEls = self.spreadY["panel"]["els"] 
+      # later, should handle plurality of panels
       for el in self.spreadEls: 
         abbrev = el["abbrev"]; name = el["name"]
-        self.constructTouchEl
+        self.constructTouchEl(abbrev, name)
     except: print("enoSpread loadYaml: caught error"); traceback.print_exc()
   
+  #################### constructTouchEl ###################
+
+  def constructTouchEl(self, abbrev, name):
+    print("enoSpread constructTouchEl:", abbrev, name)
+
 ####################### main ####################### 
 
 if __name__ == '__main__': 
