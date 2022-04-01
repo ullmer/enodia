@@ -2,7 +2,7 @@
 # Brygg Ullmer, Clemson University
 # Begun 2022-04-01
 
-import yaml
+import yaml, sys, traceback
 
 ##############################################################
 ####################### Enodia Spreads ####################### 
@@ -49,13 +49,16 @@ class enoSpreads:
         newSpread = enoSpread(spreadName)
         self.spreadsL.append(newSpread)
 
-    except: print("enoSpreads parseYaml: problems parsing YAML"); return -1
+    except: print("enoSpreads parseYaml: problems parsing YAML"); traceback.print_exc()
 
 #############################################################
 ####################### Enodia Spread ####################### 
 
 class enoSpread:
   spreadName = None
+  spreadYFn  = None
+  spreadYF   = None
+  spreadY    = None
 
   ####################### constructor ####################### 
 
@@ -64,9 +67,20 @@ class enoSpread:
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
+    self.loadYaml(spreadName)
+
+  ####################### constructor ####################### 
+
+  def loadYaml(self, spreadName):
     self.spreadName = spreadName
+    self.spreadYFn = "yaml/" + self.spreadName + ".yaml"
+    try:
+      self.spreadYF = open(self.spreadYFn, "r+t")
+      self.spreadY = yaml.safe_load(self.spreadYF)
+    except: print("enoSpread loadYaml: caught error"); traceback.print_exc()
 
-
+    print(self.spreadY)
+  
 ####################### main ####################### 
 
 if __name__ == '__main__': 
