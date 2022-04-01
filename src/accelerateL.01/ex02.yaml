@@ -1,0 +1,10 @@
+setup:
+  - [leds allOn]
+
+loop:
+  - [delay 500] #ms
+  - [leds allToggle]
+
+events:
+  touch: 
+
