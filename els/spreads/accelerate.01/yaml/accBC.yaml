@@ -1,12 +1,18 @@
 panel:
-  handle: accBC
+  handle: accBC #bc: baseball cards
+  name:   ACCelerate 2022 Participants 
 
-images/accBC/d1/images:
-ABC32b-fg.png
+  imgDir: 
+    d1: images/accBC/d1
+    d6: images/accBC/d1
+
+  imgPrefix: ABC32c-
+  imgExt:    .png
+
+ABC32c-fg.png
 ABC32c-bau.png
 ABC32c-bf.png
 ABC32c-dr.png
-ABC32c-fg.png
 ABC32c-jdg.png
 ABC32c-jg.png
 ABC32c-kk.png
