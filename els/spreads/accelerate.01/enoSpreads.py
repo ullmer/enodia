@@ -97,20 +97,23 @@ class enoSpread:
       self.imgDir6   = panel["imgDir"]["d6"]
       self.imgPrefix = panel["imgPrefix"]
       self.imgExt    = panel["imgExt"]
-      self.imgPostfixTouch = panel["imgimgPostfixTouch"]
-      self.imgPostfixFull  = panel["imgimgPostfixFull"]
+      self.imgPostfixTouch = panel["imgPostfixTouch"]
+      self.imgPostfixFull  = panel["imgPostfixFull"]
 
       self.spreadEls = panel["els"] 
       # later, should handle plurality of panels
       for el in self.spreadEls: 
         abbrev = el["abbrev"]; name = el["name"]
-        self.constructTouchEl(abbrev, name)
+        ifn = self.imgDir1 + self.imgPrefix + \
+              abbrev + self.imgPostfixTouch + self.imgExt
+        self.constructTouchEl(abbrev, name, ifn)
+
     except: print("enoSpread loadYaml: caught error"); traceback.print_exc()
   
   #################### constructTouchEl ###################
 
-  def constructTouchEl(self, abbrev, name):
-    print("enoSpread constructTouchEl:", abbrev, name)
+  def constructTouchEl(self, abbrev, name, ifn):
+    print("enoSpread constructTouchEl:", abbrev, name, ifn)
 
 ####################### main ####################### 
 
