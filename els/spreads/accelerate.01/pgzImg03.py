@@ -1,7 +1,8 @@
 # https://pygame-zero.readthedocs.io/en/stable/ptext.html
 # https://pythonprogramming.altervista.org/pygame-4-fonts/
 
-import yaml, sys, os, pygame, platform
+import yaml, sys, os, platform
+import pygame
 from enoButton import *
 
 WIDTH=1920
@@ -10,6 +11,8 @@ HEIGHT=int(214*2+1080/6)
 #https://stackoverflow.com/questions/57674156/how-to-move-a-no-frame-pygame-windows-when-user-click-on-it/57681853#57681853
   
 winPos = (-2050, 0)
+
+#screen = pygame.display.set_mode((WIDTH,HEIGHT), pygame.NOFRAME)
 
 if platform.system() is "Windows": 
   from ctypes import windll 
@@ -54,8 +57,15 @@ def next():
 
 ################# draw #################
 
+firstDrawIter = True
+
 def draw(): 
-  global panel, actors
+  global panel, actors, firstDrawIter, WIDTH, HEIGHT
+
+  if firstDrawIter:
+    #scr = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
+    scr = pygame.display.set_mode((WIDTH, HEIGHT), pygame.NOFRAME)
+    firstDrawIter = False
 
   screen.clear()
   for actor in actors: actor.draw()
