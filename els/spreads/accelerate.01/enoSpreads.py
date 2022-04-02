@@ -139,6 +139,12 @@ class enoSpread:
 
       tierPos = self.tierPosOff[whichTier]["pos"]
       tierOff = self.tierPosOff[whichTier]["dxy"]
+      tpx, tpy = tierPos[0], tierPos[1]
+      tdx, tdy = tierOff[0], tierOff[1]
+
+      x = tpx + tdx * elIdx
+      y = tpy + tdy * elIdx
+      elPos = (x, y)
 
     except: 
       print("enoSpread calcTouchElPos: caught error"); traceback.print_exc()
