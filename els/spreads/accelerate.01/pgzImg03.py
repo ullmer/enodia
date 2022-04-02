@@ -1,19 +1,32 @@
 # https://pygame-zero.readthedocs.io/en/stable/ptext.html
 # https://pythonprogramming.altervista.org/pygame-4-fonts/
 
+import yaml, sys, os, pygame, platform
 from enoButton import *
-import yaml, sys
 
 WIDTH=1920
 HEIGHT=int(214*2+1080/6)
+
+#https://stackoverflow.com/questions/57674156/how-to-move-a-no-frame-pygame-windows-when-user-click-on-it/57681853#57681853
+  
+winPos = (-2050, 0)
+
+if platform.system() is "Windows": 
+  from ctypes import windll 
+  hwnd = pygame.display.get_wm_info()['window']
+  windll.user32.MoveWindow(hwnd, winPos[0], winPos[1], WIDTH, HEIGHT, False)
+
+#w, h = pygame.display.get_surface().get_size()
+#os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % winPos
+#os.environ['SDL_VIDEO_CENTERED'] = '1'
 
 panel1Fn = 'panel03.yaml'
 panel1F  = open(panel1Fn, 'r+t')
 panel1Y  = yaml.safe_load(panel1F)
 #panel1Y  = yaml.load(panel1F)
 
-print(panel1Y)
-sys.exit(-1)
+#print(panel1Y)
+#sys.exit(-1)
 
 global panel
 panel = []
@@ -65,4 +78,6 @@ actors = [pb1, pb2]
 #actors = [actor1, pb1, pb2]
 #animate(actor1, topleft=targetpos2, tween='accel_decel', on_finished=next)
 
+#import pgzrun
+#pgzrun.go()
 ### end ###
