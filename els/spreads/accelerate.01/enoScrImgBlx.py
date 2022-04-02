@@ -8,6 +8,7 @@
 
 import yaml
 from pygame import Rect
+from pgzero import Actor
 
 ##################### pygamezero button #####################
 
@@ -21,23 +22,23 @@ class enoScrImgBlx:
   fgcolor    = "#bbbbbb"
   alpha      = .8
   fontSize   = 36
-
-  yamlFn     = none
-  yamlF      = none
-  yamlD      = none
+  imgFn      = None
+  actor      = None # for image/sprite
 
   toggleMode  = True
   toggleState = False
 
   ############# constructor #############
 
-  def __init__(self, yamlD, **kwargs): 
+  def __init__(self, imgFn, **kwargs): 
 
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
     self.buttonText = buttonText
-    self.buttonRect = Rect(self.basePos, self.buttonDim)
+    #self.buttonRect = Rect(self.basePos, self.buttonDim)
+    self.actor = Actor(imgFn)
+    self.actor.pos = basePos
 
   ############# pgzero draw #############
 
@@ -104,7 +105,6 @@ class enoScrImgBlxArray:
     self.yamlF  = open(yamlFn, 'r+t')
     self.yamlD  = yaml.safe_load(self.yamlF)
 
-
     self.textArray  = buttonTextList
     self.buttonArray = []
 
@@ -128,5 +128,6 @@ class enoScrImgBlxArray:
       if but.on_mouse_down(pos):
         if self.lastSelected is not None: self.lastSelected.toggle()
         self.lastSelected = but
+
 
 ### end ###
