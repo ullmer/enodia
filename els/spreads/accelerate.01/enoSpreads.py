@@ -64,6 +64,7 @@ class enoSpread:
   imgDir1, imgDir6 = None, None
   imgPrefix, imgExt, imgPostfixTouch, imgPostfixFull = [None] * 4
   tiers, tierPosOff, dim, pos                        = [None] * 4
+  elPosCache = None
 
   spreadTouchEls = None
 
@@ -73,6 +74,7 @@ class enoSpread:
 
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
+    self.elPosCache = {}
 
     self.loadYaml(spreadName)
     self.parseTouchElsY()
@@ -121,6 +123,8 @@ class enoSpread:
   #################### calcTouchElPos ###################
 
   def calcTouchElPos(self, elName):
+    if elName in self.elPosCache: return self.elPosCache[elName]
+
     whichTier = None
 
     try:
@@ -138,6 +142,10 @@ class enoSpread:
 
     except: 
       print("enoSpread calcTouchElPos: caught error"); traceback.print_exc()
+
+    self.elPosCache[elName] = elPos 
+      #so that we don't have to recalculate, in base case of non-movings els
+    return elPos
   
   #################### constructTouchEl ###################
 
