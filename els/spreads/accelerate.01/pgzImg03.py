@@ -5,14 +5,11 @@ import yaml, sys, os, platform
 import pygame
 from enoButton import *
 
-WIDTH=1920
-HEIGHT=int(214*2+1080/6)
-
-#https://stackoverflow.com/questions/57674156/how-to-move-a-no-frame-pygame-windows-when-user-click-on-it/57681853#57681853
-  
+WIDTH  = 1920
+HEIGHT = int(214*2+1080/6)
 winPos = (-2050, 0)
 
-#screen = pygame.display.set_mode((WIDTH,HEIGHT), pygame.NOFRAME)
+#https://stackoverflow.com/questions/57674156/how-to-move-a-no-frame-pygame-windows-when-user-click-on-it/57681853#57681853
 
 if platform.system() is "Windows": 
   from ctypes import windll 
@@ -36,7 +33,7 @@ panel = []
 
 dy = 50; idx = 0
 
-for row in panel1Y: #rows
+for row in panel1Y["spreads"]: #rows
   ba = enoButtonArray(row, buttonDim=(250, 30), dx=0, dy=40, 
                            basePos=(1650, 225))
   panel.append(ba); idx += 1
@@ -51,9 +48,11 @@ nextstate  = 0
 def next():
   global nextstate, actor1
   if nextstate == 0:
-    nextstate = 1; animate(actor1, topleft=targetpos1, tween='accel_decel', on_finished=next)
+    nextstate = 1; 
+    animate(actor1, topleft=targetpos1, tween='accel_decel', on_finished=next)
   else:
-    nextstate = 0; animate(actor1, topleft=targetpos2, tween='accel_decel', on_finished=next)
+    nextstate = 0; 
+    animate(actor1, topleft=targetpos2, tween='accel_decel', on_finished=next)
 
 ################# draw #################
 
