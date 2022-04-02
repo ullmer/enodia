@@ -10,10 +10,13 @@ panel:
     d1: images/accBC/d1
     d6: images/accBC/d1
 
-  imgPrefix: ABC32c-
-  imgExt:    .png
-  imgPostfixTouch: -to
-  imgPostfixFull:  -fu
+  imgPrefix:       "ABC32c-"
+  imgExt:          ".png"
+  imgPostfixTouch: "-to"
+  imgPostfixFull:  "-fu"
+
+  dim: (1920, 1080)
+  pos: (1920, 1080)
 
   tiers:
     2: [fg, bau, wen, mkk, jdg, rhj, sd, ss, ty]
