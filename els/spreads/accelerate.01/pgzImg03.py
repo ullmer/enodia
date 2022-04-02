@@ -3,7 +3,8 @@
 
 import yaml, sys, os, platform
 import pygame
-from enoButton import *
+from enoButton    import *
+from enoScrImgBlx import *
 
 WIDTH  = 1920
 HEIGHT = int(214*2+1080/6)
@@ -59,7 +60,7 @@ def next():
 firstDrawIter = True
 
 def draw(): 
-  global panel, actors, firstDrawIter, WIDTH, HEIGHT
+  global panel, actors, eactors, firstDrawIter, WIDTH, HEIGHT
 
   if firstDrawIter:
     #scr = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
@@ -67,14 +68,16 @@ def draw():
     firstDrawIter = False
 
   screen.clear()
-  for actor in actors: actor.draw()
+  for actor  in actors:  actor.draw()
+  for eactor in eactors: eactor.draw() #integrates enodia interactivity
   for ba in panel: ba.draw(screen)
 
 ################# mouse down #################
 
 def on_mouse_down(pos):
-  global panel
-  for ba in panel: ba.on_mouse_down(pos)
+  global panel, eactors
+  for ba in panel:   ba.on_mouse_down(pos)
+  for ea in eactors: ea.on_mouse_down(pos)
 
 ################# main #################
 
@@ -82,6 +85,8 @@ global actors
 #actor1 = Actor('bb05', topleft=targetpos1)
 pb1    = Actor('d6/pband/simap16e-ub', topleft=(0,0))    #upper paper band
 pb2    = Actor('d6/pband/simap16e-lb', topleft=(0,214+1080/6))
+
+ea1    = enoActor(fn)
 
 actors = [pb1, pb2]
 #actors = [actor1, pb1, pb2]
