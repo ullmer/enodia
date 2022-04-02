@@ -15,22 +15,32 @@ panel:
   imgPostfixTouch: -to
   imgPostfixFull:  -fu
 
+  tiers:
+    2: [fg, bau, wen, mkk, jdg, rhj, sd, ss, ty]
+    1: [dr, mb, aw, jg, kk, ls, bf, mm]
+
+  tierPosOff:
+    2: {pos: (100, 50), dxy: (30, 0)}
+    1: {pos: (125,  0), dxy: (30, 0)}
+
   els:
     - {abbrev: fg,  name: fargate}
     - {abbrev: bau, name: ullmer}
-    - {abbrev: bf,  name: filipiak}
-    - {abbrev: dr,  name: roberts}
-    - {abbrev: jdg, name: griffin}
-    - {abbrev: jg,  name: graham}
-    - {abbrev: kk,  name: kane}
-    - {abbrev: ls,  name: shafiee}
-    - {abbrev: mb,  name: bhosekar}
+    - {abbrev: wen, name: newman}
     - {abbrev: mkk, name: konkel}
-    - {abbrev: mm,  name: mclendon}
+    - {abbrev: jdg, name: griffin}
     - {abbrev: rhj, name: jones}
     - {abbrev: sd,  name: dai}
     - {abbrev: ss,  name: sutherland}
+
+    - {abbrev: dr,  name: roberts}
+    - {abbrev: mb,  name: bhosekar}
+    - {abbrev: aw,  name: washington}
+    - {abbrev: jg,  name: graham}
+    - {abbrev: kk,  name: kane}
+    - {abbrev: ls,  name: shafiee}
+    - {abbrev: bf,  name: filipiak}
+    - {abbrev: mm,  name: mclendon}
     - {abbrev: ty,  name: thanks}
-    - {abbrev: wen, name: newman}
 
 ### end ###
