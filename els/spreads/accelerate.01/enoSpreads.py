@@ -135,7 +135,7 @@ class enoSpread:
         print("enoSpread calcTouchElPos: whichTier none"); return -1
 
       tierEls = self.tiers[whichTier]
-      elIdx   = tierEls.search(elAbbrev)
+      elIdx   = tierEls.index(elAbbrev)
 
       tierPos = self.tierPosOff[whichTier]["pos"]
       tierOff = self.tierPosOff[whichTier]["dxy"]
@@ -145,19 +145,20 @@ class enoSpread:
       x = tpx + tdx * elIdx
       y = tpy + tdy * elIdx
       elPos = (x, y)
+      self.elPosCache[elAbbrev] = elPos 
 
     except: 
       print("enoSpread calcTouchElPos: caught error"); traceback.print_exc()
+      print("elAbbrev:", elAbbrev)
 
-    self.elPosCache[elAbbrev] = elPos 
       #so that we don't have to recalculate, in base case of non-movings els
     return elPos
   
   #################### constructTouchEl ###################
 
   def constructTouchEl(self, abbrev, name, ifn):
-    print("enoSpread constructTouchEl:", abbrev, name, ifn)
     elPos = self.getTouchElPos(abbrev)
+    print("enoSpread constructTouchEl:", abbrev, name, ifn, elPos)
 
 ####################### main ####################### 
 
