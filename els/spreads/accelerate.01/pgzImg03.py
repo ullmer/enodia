@@ -8,7 +8,8 @@ from enoScrImgBlx import *
 
 WIDTH  = 1920
 HEIGHT = int(214*2+1080/6)
-winPos = (-2050, 0)
+winPos = (-2050, 0) #note this is for a multi-screen setup, and might make
+                    #invisible on a single-screen box
 
 #https://stackoverflow.com/questions/57674156/how-to-move-a-no-frame-pygame-windows-when-user-click-on-it/57681853#57681853
 
