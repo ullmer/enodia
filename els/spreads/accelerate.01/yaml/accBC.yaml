@@ -15,16 +15,16 @@ panel:
   imgPostfixTouch: "-to"
   imgPostfixFull:  "-fu"
 
-  dim: (1920, 1080)
-  pos: (1920, 1080)
+  dim: [1920, 1080]
+  pos: [1920, 1080]
 
   tiers:
     2: [fg, bau, wen, mkk, jdg, rhj, sd, ss, ty]
     1: [dr, mb, aw, jg, kk, ls, bf, mm]
 
   tierPosOff:
-    2: {pos: (100, 50), dxy: (30, 0)}
-    1: {pos: (125,  0), dxy: (30, 0)}
+    2: {pos: [100, 50], dxy: [30, 0]}
+    1: {pos: [125,  0], dxy: [30, 0]}
 
   els:
     - {abbrev: fg,  name: fargate}
