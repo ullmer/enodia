@@ -8,7 +8,8 @@
 
 import yaml
 from pygame import Rect
-from pgzero import Actor
+from pgzero.builtins import Actor, animate, keyboard
+#https://stackoverflow.com/questions/55438239/name-actor-is-not-defined
 
 ##################### pygamezero button #####################
 
@@ -16,7 +17,7 @@ class enoActor:
   basePos    = (0,0)
   buttonDim  = (100, 30)
   buttonRect = None
-  buttonText = ""
+  buttonText = "actor"
   bgcolor1   = (0, 0, 130)
   bgcolor2   = (50, 50, 250)
   fgcolor    = "#bbbbbb"
@@ -35,14 +36,17 @@ class enoActor:
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
-    self.buttonText = buttonText
+    #self.buttonText = buttonText
     #self.buttonRect = Rect(self.basePos, self.buttonDim)
     self.actor = Actor(imgFn)
-    self.actor.pos = basePos
+    self.actor.pos = self.basePos
 
   ############# pgzero draw #############
 
-  def draw(self, screen):
+  #def draw(self, screen):
+  def draw(self):
+    return self.actor.draw()
+
     if self.toggleMode and self.toggleState: bgcolor = self.bgcolor2
     else:                                    bgcolor = self.bgcolor1
 
@@ -74,7 +78,7 @@ class enoActor:
   ######################### on_mouse_down #########################
 
   def on_mouse_down(self, pos):
-    if self.buttonRect.collidepoint(pos): 
+    if self.actor.collidepoint(pos): 
       print(self.buttonText, "pressed")
       self.toggle()
       return True
@@ -92,9 +96,7 @@ class enoActorArray:
   buttonArray  = []
   lastSelected = None
 
-  yamlFn     = none
-  yamlF      = none
-  yamlD      = none
+  yamlFn, yamlF, yamlD = [None] * 3
 
   ############# constructor #############
 

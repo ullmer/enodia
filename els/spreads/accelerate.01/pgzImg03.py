@@ -3,8 +3,8 @@
 
 import yaml, sys, os, platform
 import pygame
-from enoButton    import *
-from enoScrImgBlx import *
+from enoButton import *
+from enoActor  import *
 
 WIDTH  = 1920
 HEIGHT = int(214*2+1080/6)
@@ -82,15 +82,16 @@ def on_mouse_down(pos):
 
 ################# main #################
 
-global actors
+global actors, eactors
 #actor1 = Actor('bb05', topleft=targetpos1)
 pb1    = Actor('d6/pband/simap16e-ub', topleft=(0,0))    #upper paper band
 pb2    = Actor('d6/pband/simap16e-lb', topleft=(0,214+1080/6))
 
-ea1    = enoActor(fn)
+ea1    = enoActor("acc_bc/d1/abc32c-bau")
+ea2    = enoActor("acc_bc/d1/abc32c-mkk")
 
-actors = [pb1, pb2]
-#actors = [actor1, pb1, pb2]
+actors  = [pb1, pb2]
+eactors = [ea1, ea2]
 #animate(actor1, topleft=targetpos2, tween='accel_decel', on_finished=next)
 
 #import pgzrun
