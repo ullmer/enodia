@@ -63,6 +63,7 @@ class enoSpread:
   spreadEls  = None
   imgDir1, imgDir6 = None, None
   imgPrefix, imgExt, imgPostfixTouch, imgPostfixFull = [None] * 4
+  tiers, tierPosOff, dim, pos                        = [None] * 4
 
   spreadTouchEls = None
 
@@ -97,11 +98,18 @@ class enoSpread:
       self.imgDir6   = panel["imgDir"]["d6"]
       self.imgPrefix = panel["imgPrefix"]
       self.imgExt    = panel["imgExt"]
+
       self.imgPostfixTouch = panel["imgPostfixTouch"]
       self.imgPostfixFull  = panel["imgPostfixFull"]
 
-      self.spreadEls = panel["els"] 
+      self.dim             = panel["dim"]
+      self.pos             = panel["pos"]
+
+      self.tiers           = panel["tiers"]
+      self.tierPosOff      = panel["tierPosOff"]
+      self.spreadEls       = panel["els"] 
       # later, should handle plurality of panels
+
       for el in self.spreadEls: 
         abbrev = el["abbrev"]; name = el["name"]
         ifn = self.imgDir1 + self.imgPrefix + \
