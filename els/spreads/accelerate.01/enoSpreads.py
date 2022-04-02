@@ -65,6 +65,7 @@ class enoSpread:
   imgPrefix, imgExt, imgPostfixTouch, imgPostfixFull = [None] * 4
   tiers, tierPosOff, dim, pos                        = [None] * 4
   elPosCache = None
+  verbose    = False
 
   spreadTouchEls = None
 
@@ -139,20 +140,23 @@ class enoSpread:
 
       tierPos = self.tierPosOff[whichTier]["pos"]
       tierOff = self.tierPosOff[whichTier]["dxy"]
+
+      if self.verbose: print("tp, to:", tierPos, tierOff)
+
       tpx, tpy = tierPos[0], tierPos[1]
       tdx, tdy = tierOff[0], tierOff[1]
 
       x = tpx + tdx * elIdx
       y = tpy + tdy * elIdx
+
       elPos = (x, y)
       self.elPosCache[elAbbrev] = elPos 
+      return elPos
+      #so that we don't have to recalculate, in base case of non-movings els
 
     except: 
       print("enoSpread calcTouchElPos: caught error"); traceback.print_exc()
       print("elAbbrev:", elAbbrev)
-
-      #so that we don't have to recalculate, in base case of non-movings els
-    return elPos
   
   #################### constructTouchEl ###################
 
