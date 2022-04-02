@@ -117,6 +117,24 @@ class enoSpread:
         self.constructTouchEl(abbrev, name, ifn)
 
     except: print("enoSpread loadYaml: caught error"); traceback.print_exc()
+
+  #################### calcTouchElPos ###################
+
+  def calcTouchElPos(self, elName):
+    whichTier = None
+
+    try:
+      for tier in self.tiers.keys():
+        if elName in self.tiers[tier]: whichTier = tier
+
+      if whichTier is None: 
+        print("enoSpread calcTouchElPos: whichTier none"); return -1
+
+      tierEls = self.tiers[whichTier]
+      elIdx   = tierEls.search(elName)
+
+    except: 
+      print("enoSpread calcTouchElPos: caught error"); traceback.print_exc()
   
   #################### constructTouchEl ###################
 
