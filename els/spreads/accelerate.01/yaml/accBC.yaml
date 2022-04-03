@@ -7,9 +7,9 @@ panel:
   name:   ACCelerate 2022 Participants 
 
   imgDir: 
-    x1: images/acc_bc/x1/ #100dpi
-    x6: images/acc_bc/x6/ #600dpi
-    d6: images/acc_bc/d6/ #100/6 dpi
+    x1: acc_bc/x1/ #100dpi
+    x6: acc_bc/x6/ #600dpi
+    d6: acc_bc/d6/ #100/6 dpi
 
   imgPrefix:       "abc32c-"
   imgExt:          ".png"
