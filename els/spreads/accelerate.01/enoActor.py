@@ -44,6 +44,11 @@ class enoActor:
 
   ############# pgzero draw #############
 
+  def getAbbrev(self):
+    return self.abbrev
+
+  ############# pgzero draw #############
+
   #def draw(self, screen):
   def draw(self):
     return self.actor.draw()

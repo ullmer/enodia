@@ -63,8 +63,9 @@ class enoSpread:
   imgPrefix, imgExt, imgPostfixTouch, imgPostfixFull  = [None] * 4
   tiers, tierPosOff, dim, pos, elPosCache             = [None] * 5
   enoActorL, spreadTouchEls                           = [None] * 2
+  touchEl2Tier, enoActorLTiered, abbrevL              = [None] * 3
+  selectedTouchEl, abbrev2enoActor                    = [None] * 2
   #touchElBasePos, touchElDxDy                         = [None] * 2
-  touchEl2Tier                                        = None
 
   verbose    = False
 
@@ -79,6 +80,11 @@ class enoSpread:
     self.elPosCache   = {}
     self.touchEl2Tier = {}
     self.enoActorL    = []
+    self.abbrevL      = []
+    self.enoActorLTiered = {}
+    self.abbrev2enoActor = {}
+
+    for t in [1,2]: self.enoActorLTiered[t] = []
 
     self.loadYaml(spreadName)
     self.parseTouchElsY()
@@ -135,8 +141,19 @@ class enoSpread:
         ifn = self.imgDirX1 + self.imgPrefix + \
               abbrev + self.imgPostfixTouch 
         self.constructTouchEl(abbrev, name, ifn)
+        self.abbrevL.append(abbrev)
+
+      self.setupTouchElTiers() # divide touch elements into tiers 
 
     except: self.warn("loadYaml: caught error"); traceback.print_exc()
+
+  #################### setup touch element tiers ###################
+
+  def setupTouchElTiers(self):
+    for abbrev in self.abbrevL:
+      foo  = self.getTouchElPos(abbrev) # hack to ensure touchEl2Tier populated
+      tier = self.touchEl2Tier[abbrev] 
+      self.enoActorLTiered[tier].append(abbrev)
 
   #################### calcTouchElPos ###################
 
@@ -179,12 +196,25 @@ class enoSpread:
   
   #################### draw ###################
 
-  def draw(self):
+  def draw(self, transpOverlayFunc):
     if self.enoActorL is None:
       self.warn("draw: enoActorL is empty"); return
 
-    for ete in self.enoActorL:
-      ete.draw()  #MORE NUANCED ORDERING NEEDED HERE
+    idx = 0; thresh = 5
+
+    selectedEte = None
+
+    tier1ActorAbbrevs = self.enoActorLTiered[1]
+    tier2ActorAbbrevs = self.enoActorLTiered[2]
+
+    for tieredActorL in [tier1ActorAbbrevs, tier2ActorAbbrevs]:
+      for abbrev in tieredActorL:
+        ete = self.abbrev2enoActor[abbrev]
+        if ete.getAbbrev() is not self.selectedTouchEl: ete.draw()
+        else: selectedEte = ete
+
+    transpOverlayFunc()
+    if selectedEte is not None: selectedEte.draw()
 
   ################# mouse down #################
 
@@ -192,8 +222,16 @@ class enoSpread:
     if self.enoActorL is None:
       self.warn("on_mouse_down: enoActorL is empty"); return
 
-    for ete in self.enoActorL:
-      ete.on_mouse_down(pos)
+    tier1ActorAbbrevs = self.enoActorLTiered[1]
+    tier2ActorAbbrevs = self.enoActorLTiered[2]
+
+    for tieredActorL in [tier1ActorAbbrevs, tier2ActorAbbrevs]:
+      for abbrev in tieredActorL:
+        ete = self.abbrev2enoActor[abbrev]
+        selected = ete.on_mouse_down(pos)
+        if selected:
+          self.selectedTouchEl = ete.getAbbrev()
+          return  #allow for only one selected element
 
   #################### constructTouchEl ###################
 
@@ -204,6 +242,7 @@ class enoSpread:
 
     ete = enoActor(imgFn, abbrev=abbrev, basePos=elPos) #ete: enodia touch element
     self.enoActorL.append(ete)
+    self.abbrev2enoActor[abbrev] = ete
 
 ####################### main ####################### 
 
