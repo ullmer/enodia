@@ -4,8 +4,10 @@
 
 import yaml, sys, os, traceback
 import pygame
-from enoButton import *
-from enoActor  import *
+
+from enoButton  import *
+from enoActor   import *
+from enoSpreads import *
 
 ####################################################################
 ############ Enodia/ACCelerate visualization controller ############
@@ -19,6 +21,7 @@ class enoAcclVizController:
 
   firstDrawIter = True
   dy = 50
+  verbose = False
 
   ####################### constructor #######################
 
@@ -42,18 +45,18 @@ class enoAcclVizController:
   def loadYaml(self):
 
     try:
-      self.panel1F  = open(panel1Fn, 'r+t')
+      self.panel1F  = open(self.panel1Fn, 'r+t')
       self.panel1Y  = yaml.safe_load(self.panel1F)
-    except: warn("loadYaml caught error")
+    except: self.warn("loadYaml caught error"); traceback.print_exc()
 
-    print(self.spreadsY)
+    if self.verbose: print(self.self.panel1Y)
 
   ####################### parse YAML #######################
 
   def parseYaml(self):
 
     if self.panel1Y is None:
-      warn("parseYaml: no YAML struct found); return -1
+      self.warn("parseYaml: no YAML struct found"); return -1
 
     try:
       self.spreadsYL = self.panel1Y["spreads"]  #list of spreads
@@ -68,7 +71,8 @@ class enoAcclVizController:
                             basePos=(1650, 225))
         self.spreadSelectorPanel.append(self.ba)
 
-    except: warn("parseYaml: problems parsing YAML"); traceback.print_exc()
+    except: 
+      self.warn("parseYaml: problems parsing YAML"); traceback.print_exc()
 
   ####################### initialize visuals #######################
 
