@@ -29,6 +29,9 @@ eavc = enoAcclVizController(scrWidth=WIDTH, scrHeight=HEIGHT)
 
 # Route draw, on_mouse_down pgzero event hooks to eavc
 
+#eaa = enoActorArray(
+#  basePos=(30, 327)
+
 def draw():
   global eavc; global screen
   eavc.draw(screen)
