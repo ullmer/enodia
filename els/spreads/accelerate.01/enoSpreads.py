@@ -173,7 +173,7 @@ class enoSpread:
 
   def draw(self):
     if self.enoActorL is none:
-      self.warn("draw: enoActorL is empty); return
+      self.warn("draw: enoActorL is empty"); return
 
     for ete in self.enoActorL:
       ete.draw()  #MORE NUANCED ORDERING NEEDED HERE
@@ -182,7 +182,7 @@ class enoSpread:
 
   def on_mouse_down(self, pos):
     if self.enoActorL is none:
-      self.warn("on_mouse_down: enoActorL is empty); return
+      self.warn("on_mouse_down: enoActorL is empty"); return
 
     for ete in self.enoActorL:
       ete.on_mouse_down(pos)
