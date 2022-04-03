@@ -93,6 +93,7 @@ class enoSpread:
     self.spreadName = spreadName
     self.spreadYFn = "yaml/" + self.spreadName + ".yaml"
     try:
+      warn("loadYaml calling open + safe_load on", self.spreadYFn)
       self.spreadYF = open(self.spreadYFn, "r+t")
       self.spreadY = yaml.safe_load(self.spreadYF)
     except: self.warn("loadYaml: caught error"); traceback.print_exc()
