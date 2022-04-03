@@ -27,8 +27,8 @@ panel:
     1: [dr, mb, aw, jg, kk, ls, bf, mm]
 
   tierPosOff:
-    2: {pos: [30, 327], dxy: [50, 0]}
-    1: {pos: [30, 327], dxy: [50, 0]}
+    2: {pos: [ 30, 327], dxy: [59, 0]}
+    1: {pos: [118, 362], dxy: [59, 0]}
 
   els:
     - {abbrev: fg,  name: fargate}
