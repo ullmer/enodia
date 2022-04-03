@@ -178,6 +178,15 @@ class enoSpread:
     for ete in self.enoActorL:
       ete.draw()  #MORE NUANCED ORDERING NEEDED HERE
 
+  ################# mouse down #################
+
+  def on_mouse_down(self, pos):
+    if self.enoActorL is none:
+      self.warn("on_mouse_down: enoActorL is empty); return
+
+    for ete in self.enoActorL:
+      ete.on_mouse_down(pos)
+
   #################### constructTouchEl ###################
 
   def constructTouchEl(self, abbrev, name, imgFn):
