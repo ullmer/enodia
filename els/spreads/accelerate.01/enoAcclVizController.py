@@ -100,8 +100,9 @@ class enoAcclVizController:
 
     if self.firstDrawIter:
       swh = (self.scrWidth, self.scrHeight)
-      #scr = pygame.display.set_mode(swh, pygame.FULLSCREEN)
-      scr = pygame.display.set_mode(swh, pygame.NOFRAME)
+      #scr = pygame.display.set_mode(swh, pygame.FULLSCREEN|pygame.HWSURFACE)
+      scr = pygame.display.set_mode(swh, pygame.NOFRAME|pygame.HWSURFACE)
+      #scr = pygame.display.set_mode(swh, pygame.NOFRAME)
       self.firstDrawIter = False
 
     screen.clear()

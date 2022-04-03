@@ -63,7 +63,7 @@ class enoSpread:
   imgPrefix, imgExt, imgPostfixTouch, imgPostfixFull  = [None] * 4
   tiers, tierPosOff, dim, pos, elPosCache             = [None] * 5
   enoActorL, spreadTouchEls                           = [None] * 2
-  touchElBasePos, touchElDxDy                         = [None] * 2
+  #touchElBasePos, touchElDxDy                         = [None] * 2
   touchEl2Tier                                        = None
 
   verbose    = False
@@ -116,8 +116,8 @@ class enoSpread:
       self.imgPostfixTouch = panel["imgPostfixTouch"]
       self.imgPostfixFull  = panel["imgPostfixFull"]
 
-      self.touchElBasePos  = panel["touchElBasePos"]
-      self.touchElDxDy     = panel["touchElDxDy"]
+      #self.touchElBasePos  = panel["touchElBasePos"]
+      #self.touchElDxDy     = panel["touchElDxDy"]
 
       self.dim             = panel["dim"]
       self.pos             = panel["pos"]
@@ -200,7 +200,7 @@ class enoSpread:
   def constructTouchEl(self, abbrev, name, imgFn):
     elPos = self.getTouchElPos(abbrev)
 
-    self.warn("enoSpread constructTouchEl:", abbrev, name, imgFn, elPos)
+    print("enoSpread constructTouchEl:", abbrev, name, imgFn, elPos)
 
     ete = enoActor(imgFn, abbrev=abbrev, basePos=elPos) #ete: enodia touch element
     self.enoActorL.append(ete)
