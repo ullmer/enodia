@@ -105,15 +105,17 @@ class enoAcclVizController:
 
     screen.clear()
     for pba in self.paperBandActors: pba.draw()
-    for tea in self.touchElActors:   tea.draw() #integrates enodia interactivity
+    for tea in self.touchElActors:       tea.draw() 
     for ssp in self.spreadSelectorPanel: ssp.draw(screen)
+    for es  in self.espreadsL:           es.draw()
 
   ################# mouse down #################
 
   def on_mouse_down(self, pos):
 
     #for pba in self.paperBandActors: pba.on_mouse_down(pos)
-    for tea in self.touchElActors:   tea.on_mouse_down(pos)
+    for tea in self.touchElActors:       tea.on_mouse_down(pos)
     for ssp in self.spreadSelectorPanel: ssp.on_mouse_down(pos)
+    for es  in self.espreadsL:           es.on_mouse_down(pos)
 
 ### end ###

@@ -172,7 +172,7 @@ class enoSpread:
   #################### draw ###################
 
   def draw(self):
-    if self.enoActorL is none:
+    if self.enoActorL is None:
       self.warn("draw: enoActorL is empty"); return
 
     for ete in self.enoActorL:
