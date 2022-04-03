@@ -17,12 +17,13 @@ class enoAcclVizController:
   panel1Y  = None
   panel1YL = None
 
-  panel = []
   firstDrawIter = True
 
-  dy = 50; idx = 0
+  dy = 50
+
   paperBandActors = None
   touchElActors   = None
+  spreadSelectorPanel = None
 
   ####################### constructor #######################
 
@@ -65,10 +66,12 @@ class enoAcclVizController:
         newSpread = enoSpread(spreadName)
         self.spreadsL.append(newSpread)
 
+      self.spreadSelectorPanel = []
+
       for row in self.spreadsYL:
         ba = enoButtonArray(row, buttonDim=(250, 30), dx=0, dy=40, 
                             basePos=(1650, 225))
-        self.panel.append(self.ba); idx += 1
+        self.spreadSelectorPanel.append(self.ba)
 
     except: warn("parseYaml: problems parsing YAML"); traceback.print_exc()
 
@@ -80,6 +83,7 @@ class enoAcclVizController:
 
     ea1    = enoActor("acc_bc/d1/abc32c-bau", basePos = (30, 327))
     ea2    = enoActor("acc_bc/d1/abc32c-mkk", basePos = (85, 327))
+
     self.paperBandActors = [pb1, pb2]
     self.touchElActors   = [ea1, ea2]
 
@@ -93,18 +97,16 @@ class enoAcclVizController:
       self.firstDrawIter = False
 
     screen.clear()
-    for actor  in actors:  actor.draw()
-    for eactor in eactors: eactor.draw() #integrates enodia interactivity
-    for ba in panel: ba.draw(screen)
+    for pba in self.paperBandActors: pba.draw()
+    for tea in self.touchElActors:   tea.draw() #integrates enodia interactivity
+    for ssp in self.spreadSelectorPanel: ssp.draw(screen)
 
   ################# mouse down #################
 
   def on_mouse_down(pos):
-    global panel, eactors
-    for ba in self.panel:   ba.on_mouse_down(pos)
-    for ea in self.eactors: ea.on_mouse_down(pos)
 
-  ################# main #################
-
+    for pba in self.paperBandActors: pba.on_mouse_down(pos)
+    for tea in self.touchElActors:   tea.on_mouse_down(pos)
+    for ssp in self.spreadSelectorPanel: ssp.on_mouse_down(pos)
 
 ### end ###
