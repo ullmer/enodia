@@ -21,6 +21,8 @@ class enoAcclVizController:
   firstDrawIter = True
 
   dy = 50; idx = 0
+  paperBandActors = None
+  touchElActors   = None
 
   ####################### constructor #######################
 
@@ -31,6 +33,7 @@ class enoAcclVizController:
 
     self.loadYaml()
     self.parseYaml()
+    self.initViz()
 
   ####################### constructor #######################
 
@@ -69,14 +72,25 @@ class enoAcclVizController:
 
     except: warn("parseYaml: problems parsing YAML"); traceback.print_exc()
 
+  ####################### initialize visuals #######################
+
+  def initViz(self):
+    pb1    = Actor('d6/pband/simap16e-ub', topleft=(0,0))    #upper paper band
+    pb2    = Actor('d6/pband/simap16e-lb', topleft=(0,214+1080/6))
+
+    ea1    = enoActor("acc_bc/d1/abc32c-bau", basePos = (30, 327))
+    ea2    = enoActor("acc_bc/d1/abc32c-mkk", basePos = (85, 327))
+    self.paperBandActors = [pb1, pb2]
+    self.touchElActors   = [ea1, ea2]
+
   ################# draw #################
 
   def draw(): 
 
-    if firstDrawIter:
+    if self.firstDrawIter:
       #scr = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
       scr = pygame.display.set_mode((WIDTH, HEIGHT), pygame.NOFRAME)
-      firstDrawIter = False
+      self.firstDrawIter = False
 
     screen.clear()
     for actor  in actors:  actor.draw()
@@ -92,16 +106,5 @@ class enoAcclVizController:
 
   ################# main #################
 
-global actors, eactors
-#actor1 = Actor('bb05', topleft=targetpos1)
-pb1    = Actor('d6/pband/simap16e-ub', topleft=(0,0))    #upper paper band
-pb2    = Actor('d6/pband/simap16e-lb', topleft=(0,214+1080/6))
-
-ea1    = enoActor("acc_bc/d1/abc32c-bau", basePos = (30, 327))
-ea2    = enoActor("acc_bc/d1/abc32c-mkk", basePos = (85, 327))
-
-actors  = [pb1, pb2]
-eactors = [ea1, ea2]
-#animate(actor1, topleft=targetpos2, tween='accel_decel', on_finished=next)
 
 ### end ###
