@@ -30,21 +30,20 @@ class enoAcclVizController:
     self.loadYaml()
     self.parseYaml()
 
+  ####################### constructor #######################
+
+  def warn(self, msg):
+    try: print("enoAcclVizController warning:", msg)
+    except: pass
+
   ####################### load YAML #######################
 
   def loadYaml(self):
 
     try:
       self.panel1F  = open(panel1Fn, 'r+t')
-panel1Y  = yaml.safe_load(panel1F)
-#panel1Y  = yaml.load(panel1F)
-  panel1F  = None open(panel1Fn, 'r+t')
-  panel1Y  = None yaml.safe_load(panel1F)
-
-
-      self.spreadsYF = open(self.spreadsYFn, "r+t")
-      self.spreadsY = yaml.safe_load(self.spreadsYF)
-    except: print("enoSpreads loadYaml: caught error")
+      self.panel1Y  = yaml.safe_load(self.panel1F)
+    except: warn("loadYaml caught error")
 
     print(self.spreadsY)
 
@@ -52,8 +51,8 @@ panel1Y  = yaml.safe_load(panel1F)
 
   def parseYaml(self):
 
-    if self.spreadsY == None:
-      print("enoSpreads parseYaml: no YAML struct found"); return -1
+    if self.panel1Y is None:
+      warn("parseYaml: no YAML struct found); return -1
 
     self.spreadsL = []
     try:
