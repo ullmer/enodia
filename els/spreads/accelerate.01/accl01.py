@@ -27,4 +27,14 @@ if platform.system() == "Windows":
 
 eavc = enoAcclVizController(scrWidth=WIDTH, scrHeight=HEIGHT)
 
+# Route draw, on_mouse_down pgzero event hooks to eavc
+
+def draw():
+  global eavc
+  eavc.draw()
+
+def on_mouse_down(pos):
+  global eavc
+  eavc.on_mouse_down(pos)
+
 ### end ###
