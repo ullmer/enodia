@@ -19,11 +19,13 @@ class enoAcclVizController:
   panel1F, panel1Y, panel1YL  = [None]*3
   scrWidth, scrHeight         = [None]*2
   paperBandActors, touchElActors, spreadSelectorPanel = [None]*3
-  espreadsL = None
+  espreadsL     = None
+  windowSurface = None
 
   firstDrawIter = True
   dy = 50
   verbose = False
+  alphaCover = False
 
   ####################### constructor #######################
 
@@ -101,7 +103,7 @@ class enoAcclVizController:
     if self.firstDrawIter:
       swh = (self.scrWidth, self.scrHeight)
       #scr = pygame.display.set_mode(swh, pygame.FULLSCREEN|pygame.HWSURFACE)
-      scr = pygame.display.set_mode(swh, pygame.NOFRAME|pygame.HWSURFACE)
+      self.windowSurface = pygame.display.set_mode(swh, pygame.NOFRAME|pygame.HWSURFACE)
       #scr = pygame.display.set_mode(swh, pygame.NOFRAME)
       self.firstDrawIter = False
 
@@ -110,11 +112,16 @@ class enoAcclVizController:
     for tea in self.touchElActors:       tea.draw() 
     for ssp in self.spreadSelectorPanel: ssp.draw(screen)
     for es  in self.espreadsL:           es.draw()
+    if self.alphaCover:
+      s = pygame.Surface((1000,750))  # the size of your rect
+      s.set_alpha(180)                # alpha level
+      s.fill((0,0,0))           # this fills the entire surface
+      self.windowSurface.blit(s, (0,0))
 
   ################# mouse down #################
 
   def on_mouse_down(self, pos):
-
+    self.alphaCover = True
     #for pba in self.paperBandActors: pba.on_mouse_down(pos)
     for tea in self.touchElActors:       tea.on_mouse_down(pos)
     for ssp in self.spreadSelectorPanel: ssp.on_mouse_down(pos)
