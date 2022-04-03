@@ -57,15 +57,12 @@ class enoSpreads:
 
 #class enoSpreadPanel:
 class enoSpread:
-  spreadName = None
-  spreadYFn  = None
-  spreadYF   = None
-  spreadY    = None
-  spreadEls  = None
-  imgDir1, imgDir6 = None, None
-  imgPrefix, imgExt, imgPostfixTouch, imgPostfixFull = [None] * 4
-  tiers, tierPosOff, dim, pos                        = [None] * 4
-  elPosCache = None
+
+  spreadName, spreadYFn, spreadYF, spreadY, spreadEls = [None] * 5
+  imgDirX1, imgDirX6, imgDirD6                        = [None] * 3
+  imgPrefix, imgExt, imgPostfixTouch, imgPostfixFull  = [None] * 4
+  tiers, tierPosOff, dim, pos, elPosCache             = [None] * 5
+
   verbose    = False
 
   spreadTouchEls = None
@@ -98,8 +95,9 @@ class enoSpread:
   def parseTouchElsY(self):
     try:
       panel          = self.spreadY["panel"]
-      self.imgDir1   = panel["imgDir"]["d1"]
-      self.imgDir6   = panel["imgDir"]["d6"]
+      self.imgDirX1  = panel["imgDir"]["x1"]
+      self.imgDirX6  = panel["imgDir"]["x6"]
+      self.imgDirD6  = panel["imgDir"]["d6"]
       self.imgPrefix = panel["imgPrefix"]
       self.imgExt    = panel["imgExt"]
 
