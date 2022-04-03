@@ -66,6 +66,9 @@ class enoAcclVizController:
       #  newSpread = enoSpread(spreadName)
       #  self.spreadsL.append(newSpread)
 
+      newSpread = enoSpread("yaml/accBC.yaml")
+      self.spreadsL.append(newSpread)
+
       self.spreadSelectorPanel = []
 
       #for row in self.spreadsYL:

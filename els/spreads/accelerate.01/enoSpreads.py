@@ -165,7 +165,7 @@ class enoSpread:
     elPos = self.getTouchElPos(abbrev)
     print("enoSpread constructTouchEl:", abbrev, name, imgFn, elPos)
 
-    #esb = enoScrImgBlx(
+    ete = enoActor(imgFn, abbrev=abbrev)
 
 ####################### main ####################### 
 
