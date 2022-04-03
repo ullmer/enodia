@@ -19,6 +19,9 @@ panel:
   dim: [1920, 1080]
   pos: [1920, 1080]
 
+  touchElBasePos = (30, 327)
+  touchElDxDy    = (55, 0)
+
   tiers:
     2: [fg, bau, wen, mkk, jdg, rhj, sd, ss, ty]
     1: [dr, mb, aw, jg, kk, ls, bf, mm]
