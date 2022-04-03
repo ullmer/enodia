@@ -62,6 +62,7 @@ class enoSpread:
   imgDirX1, imgDirX6, imgDirD6                        = [None] * 3
   imgPrefix, imgExt, imgPostfixTouch, imgPostfixFull  = [None] * 4
   tiers, tierPosOff, dim, pos, elPosCache             = [None] * 5
+  enoActorL = None
 
   verbose    = False
 
@@ -75,8 +76,16 @@ class enoSpread:
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
     self.elPosCache = {}
 
+    self.enoActorL       = []
+
     self.loadYaml(spreadName)
     self.parseTouchElsY()
+
+  ####################### warn #######################
+
+  def warn(self, msg):
+    try: print("enoSpread warning:", msg)
+    except: pass
 
   ####################### load YAML ####################### 
 
@@ -86,7 +95,7 @@ class enoSpread:
     try:
       self.spreadYF = open(self.spreadYFn, "r+t")
       self.spreadY = yaml.safe_load(self.spreadYF)
-    except: print("enoSpread loadYaml: caught error"); traceback.print_exc()
+    except: self.warn("loadYaml: caught error"); traceback.print_exc()
 
     if self.verbose: print(self.spreadY)
 
@@ -109,8 +118,7 @@ class enoSpread:
 
       self.tiers           = panel["tiers"]
       self.tierPosOff      = panel["tierPosOff"]
-      self.spreadEls       = panel["els"] 
-      # later, should handle plurality of panels
+      self.spreadEls       = panel["els"] # later, should handle plurality of panels
 
       for el in self.spreadEls: 
         abbrev = el["abbrev"]; name = el["name"]
@@ -122,7 +130,7 @@ class enoSpread:
               abbrev + self.imgPostfixTouch 
         self.constructTouchEl(abbrev, name, ifn)
 
-    except: print("enoSpread loadYaml: caught error"); traceback.print_exc()
+    except: self.warn("loadYaml: caught error"); traceback.print_exc()
 
   #################### calcTouchElPos ###################
 
@@ -161,6 +169,15 @@ class enoSpread:
       print("enoSpread calcTouchElPos: caught error"); traceback.print_exc()
       print("elAbbrev:", elAbbrev)
   
+  #################### draw ###################
+
+  def draw(self):
+    if self.enoActorL is none:
+      self.warn("draw: enoActorL is empty); return
+
+    for ete in self.enoActorL:
+      ete.draw()  #MORE NUANCED ORDERING NEEDED HERE
+
   #################### constructTouchEl ###################
 
   def constructTouchEl(self, abbrev, name, imgFn):
@@ -168,7 +185,8 @@ class enoSpread:
 
     print("enoSpread constructTouchEl:", abbrev, name, imgFn, elPos)
 
-    ete = enoActor(imgFn, abbrev=abbrev, basePos=elPos)
+    ete = enoActor(imgFn, abbrev=abbrev, basePos=elPos) #ete: enodia touch element
+    self.enoActorL.append(ete)
 
 ####################### main ####################### 
 
