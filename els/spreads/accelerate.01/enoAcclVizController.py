@@ -107,7 +107,7 @@ class enoAcclVizController:
 
   def on_mouse_down(self, pos):
 
-    for pba in self.paperBandActors: pba.on_mouse_down(pos)
+    #for pba in self.paperBandActors: pba.on_mouse_down(pos)
     for tea in self.touchElActors:   tea.on_mouse_down(pos)
     for ssp in self.spreadSelectorPanel: ssp.on_mouse_down(pos)
 
