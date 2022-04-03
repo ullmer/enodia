@@ -90,9 +90,10 @@ class enoActor:
 ##################### pygamezero button #####################
 
 class enoActorArray:
-  basePos    = (0,0)
+  basePos    = (0,0) #30, 327
   buttonDim  = (100, 30)
-  dx, dy     = 190, 0
+  #dx, dy     = 190, 0
+  dx, dy     = 55, 0
 
   textArray    = None
   buttonArray  = []

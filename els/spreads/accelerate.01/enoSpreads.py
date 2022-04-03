@@ -88,7 +88,7 @@ class enoSpread:
       self.spreadY = yaml.safe_load(self.spreadYF)
     except: print("enoSpread loadYaml: caught error"); traceback.print_exc()
 
-    print(self.spreadY)
+    if self.verbose: print(self.spreadY)
 
   #################### parse touch elements from yaml ###################
 
