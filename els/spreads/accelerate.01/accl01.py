@@ -30,8 +30,8 @@ eavc = enoAcclVizController(scrWidth=WIDTH, scrHeight=HEIGHT)
 # Route draw, on_mouse_down pgzero event hooks to eavc
 
 def draw():
-  global eavc
-  eavc.draw()
+  global eavc; global screen
+  eavc.draw(screen)
 
 def on_mouse_down(pos):
   global eavc

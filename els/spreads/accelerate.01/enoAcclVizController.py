@@ -4,6 +4,7 @@
 
 import yaml, sys, os, traceback
 import pygame
+from pgzero.builtins import Actor, animate, keyboard
 
 from enoButton  import *
 from enoActor   import *
@@ -89,11 +90,12 @@ class enoAcclVizController:
 
   ################# draw #################
 
-  def draw(): 
+  def draw(self, screen): 
 
     if self.firstDrawIter:
-      #scr = pygame.display.set_mode((scrWidth, scrHeight), pygame.FULLSCREEN)
-      scr = pygame.display.set_mode((scrWidth, scrHeight), pygame.NOFRAME)
+      swh = (self.scrWidth, self.scrHeight)
+      #scr = pygame.display.set_mode(swh, pygame.FULLSCREEN)
+      scr = pygame.display.set_mode(swh, pygame.NOFRAME)
       self.firstDrawIter = False
 
     screen.clear()
@@ -103,7 +105,7 @@ class enoAcclVizController:
 
   ################# mouse down #################
 
-  def on_mouse_down(pos):
+  def on_mouse_down(self, pos):
 
     for pba in self.paperBandActors: pba.on_mouse_down(pos)
     for tea in self.touchElActors:   tea.on_mouse_down(pos)
