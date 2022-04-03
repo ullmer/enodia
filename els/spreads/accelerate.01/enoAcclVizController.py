@@ -13,17 +13,12 @@ from enoActor  import *
 class enoAcclVizController:
 
   panel1Fn = 'panel03.yaml'
-  panel1F  = None
-  panel1Y  = None
-  panel1YL = None
+  panel1F, panel1Y, panel1YL  = [None]*3
+  scrWidth, scrHeight         = [None]*2
+  paperBandActors, touchElActors, spreadSelectorPanel = [None]*3
 
   firstDrawIter = True
-
   dy = 50
-
-  paperBandActors = None
-  touchElActors   = None
-  spreadSelectorPanel = None
 
   ####################### constructor #######################
 
@@ -92,8 +87,8 @@ class enoAcclVizController:
   def draw(): 
 
     if self.firstDrawIter:
-      #scr = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
-      scr = pygame.display.set_mode((WIDTH, HEIGHT), pygame.NOFRAME)
+      #scr = pygame.display.set_mode((scrWidth, scrHeight), pygame.FULLSCREEN)
+      scr = pygame.display.set_mode((scrWidth, scrHeight), pygame.NOFRAME)
       self.firstDrawIter = False
 
     screen.clear()
