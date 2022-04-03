@@ -25,6 +25,7 @@ class enoActor:
   fontSize   = 36
   imgFn      = None
   actor      = None # for image/sprite
+  abbrev     = None # name/identity/handle
 
   toggleMode  = True
   toggleState = False
@@ -79,7 +80,8 @@ class enoActor:
 
   def on_mouse_down(self, pos):
     if self.actor.collidepoint(pos): 
-      print(self.buttonText, "pressed")
+      if selfabbrev is not None: print(self.abbrev, "pressed")
+      else:                      print(self.buttonText, "pressed")
       self.toggle()
       return True
 
