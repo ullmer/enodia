@@ -1,0 +1,18 @@
+enoSpread:
+  name:    interactPostAccelerate
+  creator: Brygg Ullmer
+  date:    2022-03-24
+
+  srcFn:    interactPostAccelerate13d.pdf 
+  targDir:  interactPostAccelerate
+  targUbFn: Ub%i.pdf
+  targLbFn: Lb%i.pdf
+
+  divsHoriz: 6
+  divsVert:  3
+  order:     1
+
+  trimsUpperBand: [0, 1725, 200, 200] 
+  trimsLowerBand: [1725, 0, 200, 200] 
+
+### end ###
