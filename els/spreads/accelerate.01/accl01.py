@@ -1,5 +1,6 @@
-# https://pygame-zero.readthedocs.io/en/stable/ptext.html
-# https://pythonprogramming.altervista.org/pygame-4-fonts/
+# Enodia + ACCelerate interactive visuals
+# Brygg Ullmer, Clemson University
+# Begun in-class as pgzImg03.py on 2022-03-29; forked 2022-04-03
 
 import yaml, sys, os, platform
 import pygame
@@ -22,13 +23,14 @@ if platform.system() is "Windows":
 #os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % winPos
 #os.environ['SDL_VIDEO_CENTERED'] = '1'
 
+####################################################################
+############### Enodia/ACCelerate interactive visuals ##############
+
+class enoAccelerate
+
 panel1Fn = 'panel03.yaml'
 panel1F  = open(panel1Fn, 'r+t')
 panel1Y  = yaml.safe_load(panel1F)
-#panel1Y  = yaml.load(panel1F)
-
-#print(panel1Y)
-#sys.exit(-1)
 
 global panel
 panel = []
