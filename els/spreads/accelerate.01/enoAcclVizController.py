@@ -1,4 +1,4 @@
-# Enodia + ACCelerate interactive visuals
+# Enodia + ACCelerate visualization controllers class 
 # Brygg Ullmer, Clemson University
 # Begun in-class as pgzImg03.py on 2022-03-29; forked 2022-04-03
 
@@ -7,35 +7,64 @@ import pygame
 from enoButton import *
 from enoActor  import *
 
-WIDTH  = 1920
-HEIGHT = int(214*2+1080/6)
-winPos = (-2050, 0) #note this is for a multi-screen setup, and might make
-                    #invisible on a single-screen box
-
-#https://stackoverflow.com/questions/57674156/how-to-move-a-no-frame-pygame-windows-when-user-click-on-it/57681853#57681853
-
-if platform.system() is "Windows": 
-  from ctypes import windll 
-  hwnd = pygame.display.get_wm_info()['window']
-  windll.user32.MoveWindow(hwnd, winPos[0], winPos[1], WIDTH, HEIGHT, False)
-
-#w, h = pygame.display.get_surface().get_size()
-#os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % winPos
-#os.environ['SDL_VIDEO_CENTERED'] = '1'
-
 ####################################################################
-############### Enodia/ACCelerate interactive visuals ##############
+############ Enodia/ACCelerate visualization controller ############
 
-class enoAccelerate
+class enoAcclVizController:
 
-panel1Fn = 'panel03.yaml'
-panel1F  = open(panel1Fn, 'r+t')
+  panel1Fn = 'panel03.yaml'
+  panel1F  = None
+  panel1Y  = None
+
+  panel = []
+
+  dy = 50; idx = 0
+
+  ####################### constructor #######################
+
+  def __init__(self, **kwargs):
+
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+    #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
+
+    self.loadYaml()
+    self.parseYaml()
+
+  ####################### load YAML #######################
+
+  def loadYaml(self):
+
+    try:
+      self.panel1F  = open(panel1Fn, 'r+t')
 panel1Y  = yaml.safe_load(panel1F)
+#panel1Y  = yaml.load(panel1F)
+  panel1F  = None open(panel1Fn, 'r+t')
+  panel1Y  = None yaml.safe_load(panel1F)
 
-global panel
-panel = []
 
-dy = 50; idx = 0
+      self.spreadsYF = open(self.spreadsYFn, "r+t")
+      self.spreadsY = yaml.safe_load(self.spreadsYF)
+    except: print("enoSpreads loadYaml: caught error")
+
+    print(self.spreadsY)
+
+  ####################### parse YAML #######################
+
+  def parseYaml(self):
+
+    if self.spreadsY == None:
+      print("enoSpreads parseYaml: no YAML struct found"); return -1
+
+    self.spreadsL = []
+    try:
+      self.spreadsYL = self.spreadsY["spreads"]  #list of spreads
+      for spreadName in self.spreadsYL:
+        newSpread = enoSpread(spreadName)
+        self.spreadsL.append(newSpread)
+
+    except: print("enoSpreads parseYaml: problems parsing YAML"); traceback.print_exc()
+
+
 
 for row in panel1Y["spreads"]: #rows
   ba = enoButtonArray(row, buttonDim=(250, 30), dx=0, dy=40, 
