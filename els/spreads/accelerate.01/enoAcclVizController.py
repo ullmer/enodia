@@ -68,10 +68,10 @@ class enoAcclVizController:
 
       self.spreadSelectorPanel = []
 
-      for row in self.spreadsYL:
-        ba = enoButtonArray(row, buttonDim=(250, 30), dx=0, dy=40, 
-                            basePos=(1650, 225))
-        self.spreadSelectorPanel.append(ba)
+      #for row in self.spreadsYL:
+      ba = enoButtonArray(self.spreadsYL, buttonDim=(250, 30), dx=0, dy=40, 
+                          basePos=(1650, 225))
+      self.spreadSelectorPanel.append(ba)
 
     except: 
       self.warn("parseYaml: problems parsing YAML"); traceback.print_exc()
