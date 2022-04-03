@@ -3,7 +3,7 @@
 # Begun 2022-04-01
 
 import yaml, sys, traceback
-from enoScrImgBlx import *
+from enoActor import *
 
 ##############################################################
 ####################### Enodia Spreads ####################### 
@@ -165,7 +165,7 @@ class enoSpread:
     elPos = self.getTouchElPos(abbrev)
     print("enoSpread constructTouchEl:", abbrev, name, imgFn, elPos)
 
-    esb = enoScrImgBlx(
+    #esb = enoScrImgBlx(
 
 ####################### main ####################### 
 
