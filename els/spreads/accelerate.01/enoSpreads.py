@@ -64,6 +64,7 @@ class enoSpread:
   tiers, tierPosOff, dim, pos, elPosCache             = [None] * 5
   enoActorL, spreadTouchEls                           = [None] * 2
   touchElBasePos, touchElDxDy                         = [None] * 2
+  touchEl2Tier                                        = None
 
   verbose    = False
 
@@ -75,9 +76,9 @@ class enoSpread:
 
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
-    self.elPosCache = {}
-
-    self.enoActorL       = []
+    self.elPosCache   = {}
+    self.touchEl2Tier = {}
+    self.enoActorL    = []
 
     self.loadYaml(spreadName)
     self.parseTouchElsY()
@@ -99,7 +100,7 @@ class enoSpread:
       self.spreadY = yaml.safe_load(self.spreadYF)
     except: self.warn("loadYaml: caught error"); traceback.print_exc()
 
-    if self.verbose: print(self.spreadY)
+    if self.verbose: self.warn(self.spreadY)
 
   #################### parse touch elements from yaml ###################
 
@@ -149,7 +150,9 @@ class enoSpread:
         if elAbbrev in self.tiers[tier]: whichTier = tier
 
       if whichTier is None: 
-        print("enoSpread calcTouchElPos: whichTier none"); return -1
+        self.warn("calcTouchElPos: whichTier none"); return -1
+
+      self.touchEl2Tier[elAbbrev] = whichTier
 
       tierEls = self.tiers[whichTier]
       elIdx   = tierEls.index(elAbbrev)
@@ -157,7 +160,7 @@ class enoSpread:
       tierPos = self.tierPosOff[whichTier]["pos"]
       tierOff = self.tierPosOff[whichTier]["dxy"]
 
-      if self.verbose: print("tp, to:", tierPos, tierOff)
+      if self.verbose: self.warn("tp, to:", tierPos, tierOff)
 
       tpx, tpy = tierPos[0], tierPos[1]
       tdx, tdy = tierOff[0], tierOff[1]
@@ -171,8 +174,8 @@ class enoSpread:
       #so that we don't have to recalculate, in base case of non-movings els
 
     except: 
-      print("enoSpread calcTouchElPos: caught error"); traceback.print_exc()
-      print("elAbbrev:", elAbbrev)
+      self.warn("calcTouchElPos: caught error"); traceback.print_exc()
+      self.warn("elAbbrev:", elAbbrev)
   
   #################### draw ###################
 
@@ -197,7 +200,7 @@ class enoSpread:
   def constructTouchEl(self, abbrev, name, imgFn):
     elPos = self.getTouchElPos(abbrev)
 
-    print("enoSpread constructTouchEl:", abbrev, name, imgFn, elPos)
+    self.warn("enoSpread constructTouchEl:", abbrev, name, imgFn, elPos)
 
     ete = enoActor(imgFn, abbrev=abbrev, basePos=elPos) #ete: enodia touch element
     self.enoActorL.append(ete)
