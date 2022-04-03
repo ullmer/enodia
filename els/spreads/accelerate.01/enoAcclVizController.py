@@ -14,7 +14,7 @@ from enoSpreads import *
 
 class enoAcclVizController:
 
-  panel1Fn = 'panel03.yaml'
+  panel1Fn = 'yaml/accl01Panel.yaml'
   panel1F, panel1Y, panel1YL  = [None]*3
   scrWidth, scrHeight         = [None]*2
   paperBandActors, touchElActors, spreadSelectorPanel = [None]*3

@@ -16,7 +16,7 @@ winPos = (-2050, 0) #note this is for a multi-screen setup, and might make
 
 #https://stackoverflow.com/questions/57674156/how-to-move-a-no-frame-pygame-windows-when-user-click-on-it/57681853#57681853
 
-if platform.system() is "Windows": 
+if platform.system() == "Windows": 
   from ctypes import windll 
   hwnd = pygame.display.get_wm_info()['window']
   windll.user32.MoveWindow(hwnd, winPos[0], winPos[1], WIDTH, HEIGHT, False)
