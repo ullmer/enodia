@@ -1,0 +1,16 @@
+spreads:
+ - [Smithsonian/Mall, ACCelerate, Past and Future, Fast motion]
+ #- [simap, ACCelerate, Past and Future, Fast motion]
+
+spread:
+ handl: simap
+ name:  Smithsonian/Mall
+ upper: 
+   imgFn: "d6/pband/simap16e-ub"
+   scrOffset: (0, 0)
+
+ loerw: 
+   imgFn: "d6/pband/simap16e-lb"
+   scrOffset: (0, 214+1080/6)
+
+### end ###
