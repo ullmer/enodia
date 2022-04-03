@@ -66,7 +66,7 @@ class enoAcclVizController:
       #  newSpread = enoSpread(spreadName)
       #  self.spreadsL.append(newSpread)
 
-      newSpread = enoSpread("yaml/accBC.yaml")
+      newSpread = enoSpread("accBC")
       self.spreadsL.append(newSpread)
 
       self.spreadSelectorPanel = []
@@ -85,8 +85,8 @@ class enoAcclVizController:
     pb1    = Actor('d6/pband/simap16e-ub', topleft=(0,0))    #upper paper band
     pb2    = Actor('d6/pband/simap16e-lb', topleft=(0,214+1080/6))
 
-    ea1    = enoActor("acc_bc/d1/abc32c-bau", basePos = (30, 327))
-    ea2    = enoActor("acc_bc/d1/abc32c-mkk", basePos = (85, 327))
+    ea1    = enoActor("acc_bc/x1/abc32c-bau", basePos = (30, 327))
+    ea2    = enoActor("acc_bc/x1/abc32c-mkk", basePos = (85, 327))
 
     self.paperBandActors = [pb1, pb2]
     self.touchElActors   = [ea1, ea2]
