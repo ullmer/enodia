@@ -114,7 +114,7 @@ class enoSpread:
 
       for el in self.spreadEls: 
         abbrev = el["abbrev"]; name = el["name"]
-        ifn = self.imgDir1 + self.imgPrefix + \
+        ifn = self.imgDirX1 + self.imgPrefix + \
               abbrev + self.imgPostfixTouch + self.imgExt
         self.constructTouchEl(abbrev, name, ifn)
 
