@@ -2,7 +2,7 @@
 # Brygg Ullmer, Clemson University
 # Begun in-class as pgzImg03.py on 2022-03-29; forked 2022-04-03
 
-import yaml, sys, os, platform
+import yaml, sys, os, traceback
 import pygame
 from enoButton import *
 from enoActor  import *
@@ -15,8 +15,10 @@ class enoAcclVizController:
   panel1Fn = 'panel03.yaml'
   panel1F  = None
   panel1Y  = None
+  panel1YL = None
 
   panel = []
+  firstDrawIter = True
 
   dy = 50; idx = 0
 
@@ -54,63 +56,41 @@ class enoAcclVizController:
     if self.panel1Y is None:
       warn("parseYaml: no YAML struct found); return -1
 
-    self.spreadsL = []
     try:
-      self.spreadsYL = self.spreadsY["spreads"]  #list of spreads
+      self.spreadsYL = self.panel1Y["spreads"]  #list of spreads
       for spreadName in self.spreadsYL:
         newSpread = enoSpread(spreadName)
         self.spreadsL.append(newSpread)
 
-    except: print("enoSpreads parseYaml: problems parsing YAML"); traceback.print_exc()
+      for row in self.spreadsYL:
+        ba = enoButtonArray(row, buttonDim=(250, 30), dx=0, dy=40, 
+                            basePos=(1650, 225))
+        self.panel.append(self.ba); idx += 1
 
+    except: warn("parseYaml: problems parsing YAML"); traceback.print_exc()
 
+  ################# draw #################
 
-for row in panel1Y["spreads"]: #rows
-  ba = enoButtonArray(row, buttonDim=(250, 30), dx=0, dy=40, 
-                           basePos=(1650, 225))
-  panel.append(ba); idx += 1
+  def draw(): 
 
-global actor1, targetpos, nextstate 
-targetpos1 = (50, 50)
-targetpos2 = (300, 300)
-nextstate  = 0
+    if firstDrawIter:
+      #scr = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
+      scr = pygame.display.set_mode((WIDTH, HEIGHT), pygame.NOFRAME)
+      firstDrawIter = False
 
-################# next #################
+    screen.clear()
+    for actor  in actors:  actor.draw()
+    for eactor in eactors: eactor.draw() #integrates enodia interactivity
+    for ba in panel: ba.draw(screen)
 
-def next():
-  global nextstate, actor1
-  if nextstate == 0:
-    nextstate = 1; 
-    animate(actor1, topleft=targetpos1, tween='accel_decel', on_finished=next)
-  else:
-    nextstate = 0; 
-    animate(actor1, topleft=targetpos2, tween='accel_decel', on_finished=next)
+  ################# mouse down #################
 
-################# draw #################
+  def on_mouse_down(pos):
+    global panel, eactors
+    for ba in self.panel:   ba.on_mouse_down(pos)
+    for ea in self.eactors: ea.on_mouse_down(pos)
 
-firstDrawIter = True
-
-def draw(): 
-  global panel, actors, eactors, firstDrawIter, WIDTH, HEIGHT
-
-  if firstDrawIter:
-    #scr = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
-    scr = pygame.display.set_mode((WIDTH, HEIGHT), pygame.NOFRAME)
-    firstDrawIter = False
-
-  screen.clear()
-  for actor  in actors:  actor.draw()
-  for eactor in eactors: eactor.draw() #integrates enodia interactivity
-  for ba in panel: ba.draw(screen)
-
-################# mouse down #################
-
-def on_mouse_down(pos):
-  global panel, eactors
-  for ba in panel:   ba.on_mouse_down(pos)
-  for ea in eactors: ea.on_mouse_down(pos)
-
-################# main #################
+  ################# main #################
 
 global actors, eactors
 #actor1 = Actor('bb05', topleft=targetpos1)
@@ -124,6 +104,4 @@ actors  = [pb1, pb2]
 eactors = [ea1, ea2]
 #animate(actor1, topleft=targetpos2, tween='accel_decel', on_finished=next)
 
-#import pgzrun
-#pgzrun.go()
 ### end ###
