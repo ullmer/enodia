@@ -19,6 +19,7 @@ class enoAcclVizController:
   panel1F, panel1Y, panel1YL  = [None]*3
   scrWidth, scrHeight         = [None]*2
   paperBandActors, touchElActors, spreadSelectorPanel = [None]*3
+  espreadsL = None
 
   firstDrawIter = True
   dy = 50
@@ -66,8 +67,9 @@ class enoAcclVizController:
       #  newSpread = enoSpread(spreadName)
       #  self.spreadsL.append(newSpread)
 
-      newSpread = enoSpread("accBC")
-      self.spreadsL.append(newSpread)
+      self.espreadsL = []
+      newSpread      = enoSpread("accBC")
+      self.espreadsL.append(newSpread)
 
       self.spreadSelectorPanel = []
 
