@@ -96,6 +96,23 @@ class enoAcclVizController:
     self.touchElActors   = []
     #self.touchElActors   = [ea1, ea2]
 
+  ################# draw transp black overlay #################
+
+  def drawTranspOverlayLower(self): 
+    #olDim = self.transpOverlayLowerDim
+    #olPos = self.transpOverlayLowerPos
+
+    olDim = (1920, 130)
+    olPos = (0,    950)
+
+    s = pygame.Surface(olDim) # (1000,750)  the size of your rect
+    s.set_alpha(180)          # alpha level
+    #s.fill((0,0,0))           # this fills the entire surface
+    s.fill((200,200,200))           # this fills the entire surface
+    self.windowSurface.blit(s, olPos)
+
+    # https://stackoverflow.com/questions/6339057/draw-a-transparent-rectangles-and-polygons-in-pygame
+
   ################# draw #################
 
   def draw(self, screen): 
@@ -112,11 +129,7 @@ class enoAcclVizController:
     for tea in self.touchElActors:       tea.draw() 
     for ssp in self.spreadSelectorPanel: ssp.draw(screen)
     for es  in self.espreadsL:           es.draw()
-    if self.alphaCover:
-      s = pygame.Surface((1000,750))  # the size of your rect
-      s.set_alpha(180)                # alpha level
-      s.fill((0,0,0))           # this fills the entire surface
-      self.windowSurface.blit(s, (0,0))
+    if self.alphaCover: self.drawTranspOverlayLower()
 
   ################# mouse down #################
 
