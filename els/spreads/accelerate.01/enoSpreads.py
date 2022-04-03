@@ -62,7 +62,8 @@ class enoSpread:
   imgDirX1, imgDirX6, imgDirD6                        = [None] * 3
   imgPrefix, imgExt, imgPostfixTouch, imgPostfixFull  = [None] * 4
   tiers, tierPosOff, dim, pos, elPosCache             = [None] * 5
-  enoActorL = None
+  enoActorL, spreadTouchEls                           = [None] * 2
+  touchElBasePos, touchElDxDy                         = [None] * 2
 
   verbose    = False
 
@@ -93,7 +94,7 @@ class enoSpread:
     self.spreadName = spreadName
     self.spreadYFn = "yaml/" + self.spreadName + ".yaml"
     try:
-      warn("loadYaml calling open + safe_load on", self.spreadYFn)
+      self.warn("loadYaml calling open + safe_load on " + self.spreadYFn)
       self.spreadYF = open(self.spreadYFn, "r+t")
       self.spreadY = yaml.safe_load(self.spreadYF)
     except: self.warn("loadYaml: caught error"); traceback.print_exc()
@@ -113,6 +114,9 @@ class enoSpread:
 
       self.imgPostfixTouch = panel["imgPostfixTouch"]
       self.imgPostfixFull  = panel["imgPostfixFull"]
+
+      self.touchElBasePos  = panel["touchElBasePos"]
+      self.touchElDxDy     = panel["touchElDxDy"]
 
       self.dim             = panel["dim"]
       self.pos             = panel["pos"]
@@ -182,7 +186,7 @@ class enoSpread:
   ################# mouse down #################
 
   def on_mouse_down(self, pos):
-    if self.enoActorL is none:
+    if self.enoActorL is None:
       self.warn("on_mouse_down: enoActorL is empty"); return
 
     for ete in self.enoActorL:

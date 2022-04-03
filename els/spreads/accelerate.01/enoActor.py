@@ -80,8 +80,8 @@ class enoActor:
 
   def on_mouse_down(self, pos):
     if self.actor.collidepoint(pos): 
-      if selfabbrev is not None: print(self.abbrev, "pressed")
-      else:                      print(self.buttonText, "pressed")
+      if self.abbrev is not None: print(self.abbrev, "pressed1")
+      else:                       print(self.buttonText, "pressed2")
       self.toggle()
       return True
 
