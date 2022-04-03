@@ -25,19 +25,19 @@ if platform.system() == "Windows":
 #os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % winPos
 #os.environ['SDL_VIDEO_CENTERED'] = '1'
 
-eavc = enoAcclVizController(scrWidth=WIDTH, scrHeight=HEIGHT)
+vizController = enoAcclVizController(scrWidth=WIDTH, scrHeight=HEIGHT)
 
-# Route draw, on_mouse_down pgzero event hooks to eavc
+# Route draw, on_mouse_down pgzero event hooks to vizController
 
 #eaa = enoActorArray(
 #  basePos=(30, 327)
 
 def draw():
-  global eavc; global screen
-  eavc.draw(screen)
+  global vizController; global screen
+  vizController.draw(screen)
 
 def on_mouse_down(pos):
-  global eavc
-  eavc.on_mouse_down(pos)
+  global vizController
+  vizController.on_mouse_down(pos)
 
 ### end ###

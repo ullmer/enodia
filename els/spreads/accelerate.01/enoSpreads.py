@@ -52,7 +52,7 @@ class enoSpreads:
 
     except: print("enoSpreads parseYaml: problems parsing YAML"); traceback.print_exc()
 
-#############################################################
+###################################################################
 ####################### Enodia Spread Panel ####################### 
 
 #class enoSpreadPanel:
@@ -65,9 +65,16 @@ class enoSpread:
   enoActorL, spreadTouchEls                           = [None] * 2
   touchEl2Tier, enoActorLTiered, abbrevL              = [None] * 3
   selectedTouchEl, abbrev2enoActor                    = [None] * 2
-  #touchElBasePos, touchElDxDy                         = [None] * 2
+  cursorActor, cursorPos                              = [None] * 2
+  cursorImgFn                                         = "x1/cursor1"
+  tween = 'accel_decel'
+  animDuration = .7
 
+  #touchElBasePos, touchElDxDy                        = [None] * 2
+
+  firstDraw  = True
   verbose    = False
+  cursorDy   = -36
 
   spreadTouchEls = None
 
@@ -88,6 +95,39 @@ class enoSpread:
 
     self.loadYaml(spreadName)
     self.parseTouchElsY()
+
+  ####################### build cursor #######################
+
+  def buildCursor(self, preferredStarterAbbrev = None):
+    if self.cursorPos is None:
+      if preferredStarterAbbrev is not None:
+        if preferredStarterAbbrev in self.abbrevL:
+          targAbbrev = preferredStarterAbbrev
+      else: targAbbrev = self.abbrevL[0]     
+
+      self.cursorPos = self.getTouchElPos(targAbbrev)
+
+    if self.cursorActor is None:
+      cpos = self.cursorPos
+
+      if targAbbrev in self.touchEl2Tier and \
+         self.touchEl2Tier[targAbbrev] == 2: 
+        cpos = (cpos[0], cpos[1] + self.cursorDy)
+
+      self.cursorActor = Actor(self.cursorImgFn, center=cpos)
+
+  ####################### move cursor #######################
+  
+  def moveCursor(self, targetAbbrev):
+    self.cursorPos = self.getTouchElPos(targetAbbrev)
+    cpos = self.cursorPos
+
+    if targetAbbrev in self.touchEl2Tier and \
+      self.touchEl2Tier[targetAbbrev] == 2: 
+      cpos = (cpos[0], cpos[1] + self.cursorDy)
+
+    animate(self.cursorActor, center=cpos, \
+            tween=self.tween, duration=self.animDuration)
 
   ####################### warn #######################
 
@@ -200,6 +240,8 @@ class enoSpread:
     if self.enoActorL is None:
       self.warn("draw: enoActorL is empty"); return
 
+    if self.firstDraw: self.buildCursor(); self.firstDraw=False
+
     idx = 0; thresh = 5
 
     selectedEte = None
@@ -213,7 +255,11 @@ class enoSpread:
         if ete.getAbbrev() is not self.selectedTouchEl: ete.draw()
         else: selectedEte = ete
 
+    if self.cursorActor is not None:
+      self.cursorActor.draw()
+
     transpOverlayFunc()
+
     if selectedEte is not None: selectedEte.draw()
 
   ################# mouse down #################
@@ -231,6 +277,7 @@ class enoSpread:
         selected = ete.on_mouse_down(pos)
         if selected:
           self.selectedTouchEl = ete.getAbbrev()
+          self.moveCursor(self.selectedTouchEl)
           return  #allow for only one selected element
 
   #################### constructTouchEl ###################
