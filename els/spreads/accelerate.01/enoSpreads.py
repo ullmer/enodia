@@ -165,9 +165,10 @@ class enoSpread:
 
   def constructTouchEl(self, abbrev, name, imgFn):
     elPos = self.getTouchElPos(abbrev)
+
     print("enoSpread constructTouchEl:", abbrev, name, imgFn, elPos)
 
-    ete = enoActor(imgFn, abbrev=abbrev)
+    ete = enoActor(imgFn, abbrev=abbrev, basePos=elPos)
 
 ####################### main ####################### 
 
