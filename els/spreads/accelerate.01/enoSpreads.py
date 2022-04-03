@@ -114,8 +114,12 @@ class enoSpread:
 
       for el in self.spreadEls: 
         abbrev = el["abbrev"]; name = el["name"]
+
+        #ifn = self.imgDirX1 + self.imgPrefix + \
+        #      abbrev + self.imgPostfixTouch + self.imgExt
+
         ifn = self.imgDirX1 + self.imgPrefix + \
-              abbrev + self.imgPostfixTouch + self.imgExt
+              abbrev + self.imgPostfixTouch 
         self.constructTouchEl(abbrev, name, ifn)
 
     except: print("enoSpread loadYaml: caught error"); traceback.print_exc()
