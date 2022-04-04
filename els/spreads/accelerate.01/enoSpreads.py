@@ -63,7 +63,8 @@ class enoSpread:
   enoActorL, spreadTouchEls                           = [None] * 2
   touchEl2Tier, enoActorLTiered, abbrevL              = [None] * 3
   selectedTouchEl, abbrev2enoActor                    = [None] * 2
-  cursorActor, cursorPos, enoActorLarge, currentLarge = [None] * 4
+  cursorActor, cursorPos, enoActorLarge               = [None] * 3
+  lastLarge, currentLarge                             = [None] * 2
   cursorImgFn                                         = "x1/cursor1"
   tween = 'accel_decel'
   animDuration = .7
@@ -73,9 +74,10 @@ class enoSpread:
   firstDraw  = True
   verbose    = False
   cursorDy   = -36
-  enoActorLargeHiddenPos  = (50, 850)
-  enoActorLargeVisiblePos = (50, 100)
-  enoActorLargeDy         = 200
+  enoActorLargeHiddenPos   = (50, 850)
+  enoActorLargeVisiblePos  = (50, 100)
+  enoActorLargeDepartedPos = (50, -850)
+  enoActorLargeDy          = 200
 
   spreadTouchEls = None
 
@@ -152,6 +154,12 @@ class enoSpread:
     if abbrev in self.touchEl2Tier and \
        self.touchEl2Tier[abbrev] == 2: 
       vpos = (vpos[0], vpos[1] + self.enoActorLargeDy)
+
+    self.lastLarge = self.currentLarge
+
+    if self.lastLarge is not none:
+      vpos2 = self.enoActorLargeDepartedPos
+      animate(eal, center=vpos2, tween=self.tween, duration=self.animDuration)
 
     animate(eal, center=vpos, tween=self.tween, duration=self.animDuration)
 
@@ -277,8 +285,12 @@ class enoSpread:
         if ete.getAbbrev() is not self.selectedTouchEl: ete.draw()
         else: selectedEte = ete
 
+    if self.lastLarge is not none:
+      self.lastLarge.draw()
+
     if self.currentLarge is not None:
       self.currentLarge.draw()
+
 
     if self.cursorActor is not None:
       self.cursorActor.draw()
