@@ -75,6 +75,7 @@ class enoSpread:
   cursorDy   = -36
   enoActorLargeHiddenPos  = (50, 850)
   enoActorLargeVisiblePos = (50, 100)
+  enoActorLargeDy         = 50
 
   spreadTouchEls = None
 
@@ -147,6 +148,10 @@ class enoSpread:
     else: 
       ifn = self.imgDirX6 + self.imgPrefix + abbrev + self.imgPostfixTouch
       eal = self.enoActorLarge[abbrev] = Actor(ifn, pos=hpos)
+
+    if targAbbrev in self.touchEl2Tier and \
+       self.touchEl2Tier[targAbbrev] == 2: 
+      vpos = (vpos[0], vpos[1] + self.cursorDy)
 
     animate(eal, center=vpos, tween=self.tween, duration=self.animDuration)
 
