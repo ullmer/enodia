@@ -18,7 +18,6 @@ class enoSpreads:
   ####################### constructor ####################### 
 
   def __init__(self, **kwargs):
-
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
@@ -28,7 +27,6 @@ class enoSpreads:
   ####################### load YAML ####################### 
 
   def loadYaml(self):
-
     try:
       self.spreadsYF = open(self.spreadsYFn, "rt")
       self.spreadsY = yaml.safe_load(self.spreadsYF)
@@ -39,7 +37,6 @@ class enoSpreads:
   ####################### parse YAML ####################### 
 
   def parseYaml(self):
-
     if self.spreadsY == None:
       print("enoSpreads parseYaml: no YAML struct found"); return -1
 
@@ -56,6 +53,7 @@ class enoSpreads:
 ####################### Enodia Spread Panel ####################### 
 
 #class enoSpreadPanel:
+
 class enoSpread:
 
   spreadName, spreadYFn, spreadYF, spreadY, spreadEls = [None] * 5
@@ -65,7 +63,7 @@ class enoSpread:
   enoActorL, spreadTouchEls                           = [None] * 2
   touchEl2Tier, enoActorLTiered, abbrevL              = [None] * 3
   selectedTouchEl, abbrev2enoActor                    = [None] * 2
-  cursorActor, cursorPos                              = [None] * 2
+  cursorActor, cursorPos, enoActorLarge, currentLarge = [None] * 4
   cursorImgFn                                         = "x1/cursor1"
   tween = 'accel_decel'
   animDuration = .7
@@ -75,6 +73,8 @@ class enoSpread:
   firstDraw  = True
   verbose    = False
   cursorDy   = -36
+  enoActorLargeHiddenPos  = (50, 850)
+  enoActorLargeVisiblePos = (50, 100)
 
   spreadTouchEls = None
 
@@ -89,6 +89,7 @@ class enoSpread:
     self.enoActorL    = []
     self.abbrevL      = []
     self.enoActorLTiered = {}
+    self.enoActorLarge   = {}
     self.abbrev2enoActor = {}
 
     for t in [1,2]: self.enoActorLTiered[t] = []
@@ -134,6 +135,22 @@ class enoSpread:
   def warn(self, msg):
     try: print("enoSpread warning:", msg)
     except: pass
+
+  ####################### showLarge #######################
+
+  def showLarge(self, abbrev):
+    hpos = self.enoActorLargeHiddenPos
+    vpos = self.enoActorLargeVisiblePos
+
+    if abbrev in self.enoActorLarge:
+      eal = self.enoActorLarge[abbrev]
+    else: 
+      ifn = self.imgDirX6 + self.imgPrefix + abbrev + self.imgPostfixTouch
+      eal = self.enoActorLarge[abbrev] = Actor(ifn, pos=hpos)
+
+    animate(eal, center=vpos, tween=self.tween, duration=self.animDuration)
+
+    self.currentLarge = eal
 
   ####################### load YAML ####################### 
 
@@ -255,9 +272,12 @@ class enoSpread:
         if ete.getAbbrev() is not self.selectedTouchEl: ete.draw()
         else: selectedEte = ete
 
+    if self.currentLarge is not None:
+      self.currentLarge.draw()
+
     if self.cursorActor is not None:
       self.cursorActor.draw()
-
+  
     transpOverlayFunc()
 
     if selectedEte is not None: selectedEte.draw()
@@ -276,8 +296,9 @@ class enoSpread:
         ete = self.abbrev2enoActor[abbrev]
         selected = ete.on_mouse_down(pos)
         if selected:
-          self.selectedTouchEl = ete.getAbbrev()
-          self.moveCursor(self.selectedTouchEl)
+          ste = self.selectedTouchEl = ete.getAbbrev()
+          self.moveCursor(ste)
+          self.showLarge(ste)
           return  #allow for only one selected element
 
   #################### constructTouchEl ###################
