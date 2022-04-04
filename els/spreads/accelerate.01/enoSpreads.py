@@ -30,7 +30,7 @@ class enoSpreads:
   def loadYaml(self):
 
     try:
-      self.spreadsYF = open(self.spreadsYFn, "r+t")
+      self.spreadsYF = open(self.spreadsYFn, "rt")
       self.spreadsY = yaml.safe_load(self.spreadsYF)
     except: print("enoSpreads loadYaml: caught error")
 
@@ -142,7 +142,7 @@ class enoSpread:
     self.spreadYFn = "yaml/" + self.spreadName + ".yaml"
     try:
       self.warn("loadYaml calling open + safe_load on " + self.spreadYFn)
-      self.spreadYF = open(self.spreadYFn, "r+t")
+      self.spreadYF = open(self.spreadYFn, "rt")
       self.spreadY = yaml.safe_load(self.spreadYF)
     except: self.warn("loadYaml: caught error"); traceback.print_exc()
 

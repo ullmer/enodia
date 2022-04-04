@@ -49,7 +49,7 @@ class enoAcclVizController:
   def loadYaml(self):
 
     try:
-      self.panel1F  = open(self.panel1Fn, 'r+t')
+      self.panel1F  = open(self.panel1Fn, 'r')
       self.panel1Y  = yaml.safe_load(self.panel1F)
     except: self.warn("loadYaml caught error"); traceback.print_exc()
 
@@ -127,9 +127,13 @@ class enoAcclVizController:
     screen.clear()
     for pba in self.paperBandActors: pba.draw()
     for tea in self.touchElActors:       tea.draw() 
-    for ssp in self.spreadSelectorPanel: ssp.draw(screen)
+
+    if self.spreadSelectorPanel is not None:
+      for ssp in self.spreadSelectorPanel: ssp.draw(screen)
     #for es  in self.espreadsL:           es.draw()
-    for es  in self.espreadsL:           es.draw(self.drawTranspOverlayLower)
+
+    if self.espreadsL is not None:
+      for es  in self.espreadsL:           es.draw(self.drawTranspOverlayLower)
 
     #if self.alphaCover: self.drawTranspOverlayLower()
 
