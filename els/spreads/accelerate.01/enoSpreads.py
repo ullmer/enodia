@@ -157,7 +157,7 @@ class enoSpread:
 
     self.lastLarge = self.currentLarge
 
-    if self.lastLarge is not none:
+    if self.lastLarge is not None:
       vpos2 = self.enoActorLargeDepartedPos
       animate(eal, center=vpos2, tween=self.tween, duration=self.animDuration)
 
@@ -285,7 +285,7 @@ class enoSpread:
         if ete.getAbbrev() is not self.selectedTouchEl: ete.draw()
         else: selectedEte = ete
 
-    if self.lastLarge is not none:
+    if self.lastLarge is not None:
       self.lastLarge.draw()
 
     if self.currentLarge is not None:
