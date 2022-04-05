@@ -128,8 +128,9 @@ class enoAcclVizController:
     for pba in self.paperBandActors: pba.draw()
     for tea in self.touchElActors:       tea.draw() 
 
-    if self.spreadSelectorPanel is not None:
-      for ssp in self.spreadSelectorPanel: ssp.draw(screen)
+    #if self.spreadSelectorPanel is not None:
+    #  for ssp in self.spreadSelectorPanel: ssp.draw(screen)
+
     #for es  in self.espreadsL:           es.draw()
 
     if self.espreadsL is not None:
