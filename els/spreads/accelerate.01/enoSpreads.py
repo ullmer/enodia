@@ -151,15 +151,19 @@ class enoSpread:
       ifn = self.imgDirX6 + self.imgPrefix + abbrev + self.imgPostfixTouch
       eal = self.enoActorLarge[abbrev] = Actor(ifn, pos=hpos)
 
+    posShim = self.tierPosShim
+
     if abbrev in self.touchEl2Tier and \
        self.touchEl2Tier[abbrev] == 2: 
-      vpos = (vpos[0], vpos[1] + self.enoActorLargeDy)
+      #vpos = (vpos[0], vpos[1] + self.enoActorLargeDy)
+      vpos = (vpos[0] + posShim[0], vpos[1] + posShim[1] + self.enoActorLargeDy)
 
     self.lastLarge = self.currentLarge
 
     if self.lastLarge is not None:
       vpos2 = self.enoActorLargeDepartedPos
-      animate(eal, center=vpos2, tween=self.tween, duration=self.animDuration)
+      vpos3 = (vpos2[0] + posShim[0], vpos2[1] + posShim[1])
+      animate(eal, center=vpos3, tween=self.tween, duration=self.animDuration)
 
     animate(eal, center=vpos, tween=self.tween, duration=self.animDuration)
 
@@ -293,7 +297,6 @@ class enoSpread:
 
     if self.currentLarge is not None:
       self.currentLarge.draw()
-
 
     if self.cursorActor is not None:
       self.cursorActor.draw()
