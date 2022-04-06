@@ -247,14 +247,16 @@ class enoSpread:
 
       tierPos = self.tierPosOff[whichTier]["pos"]
       tierOff = self.tierPosOff[whichTier]["dxy"]
+      tierPosShim = self.tierPosShim
 
       if self.verbose: self.warn("tp, to:", tierPos, tierOff)
 
       tpx, tpy = tierPos[0], tierPos[1]
       tdx, tdy = tierOff[0], tierOff[1]
+      tps = tierPosShim
 
-      x = tpx + tdx * elIdx
-      y = tpy + tdy * elIdx
+      x = tpx + tps[0] + tdx * elIdx
+      y = tpy + tps[1] + tdy * elIdx
 
       elPos = (x, y)
       self.elPosCache[elAbbrev] = elPos 
@@ -296,7 +298,7 @@ class enoSpread:
     if self.cursorActor is not None:
       self.cursorActor.draw()
   
-    transpOverlayFunc()
+    transpOverlayFunc(self.tierPosShim)
 
     if selectedEte is not None: selectedEte.draw()
 

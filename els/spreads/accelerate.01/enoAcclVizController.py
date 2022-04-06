@@ -100,18 +100,19 @@ class enoAcclVizController:
 
   ################# draw transp black overlay #################
 
-  def drawTranspOverlayLower(self): 
+  def drawTranspOverlayLower(self, shimPos):
     #olDim = self.transpOverlayLowerDim
     #olPos = self.transpOverlayLowerPos
 
     olDim = (1920, 140)
     olPos = (0,    255)
+    olPosShimmed = (olPos[0] + shimPos[0], olPos[1] + shimPos[1])
 
     s = pygame.Surface(olDim) # (1000,750)  the size of your rect
     s.set_alpha(150)          # alpha level
     s.fill((0,0,0))           # this fills the entire surface
     #s.fill((200,200,200))           # this fills the entire surface
-    self.windowSurface.blit(s, olPos)
+    self.windowSurface.blit(s, olPosShimmed)
 
     # https://stackoverflow.com/questions/6339057/draw-a-transparent-rectangles-and-polygons-in-pygame
 
