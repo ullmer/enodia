@@ -77,7 +77,8 @@ class enoAcclVizController:
 
       #for row in self.spreadsYL:
       ba = enoButtonArray(self.spreadsYL, buttonDim=(250, 30), dx=0, dy=40, 
-                          basePos=(1650, 225))
+                          basePos=(1650, 425))
+                          #basePos=(1650, 225))
       self.spreadSelectorPanel.append(ba)
 
     except: 
@@ -86,13 +87,14 @@ class enoAcclVizController:
   ####################### initialize visuals #######################
 
   def initViz(self):
-    pb1    = Actor('d6/pband/simap16e-ub', topleft=(0,0))    #upper paper band
-    pb2    = Actor('d6/pband/simap16e-lb', topleft=(0,214+1080/6))
+    #pb1    = Actor('d6/pband/simap16e-ub', topleft=(0,0))    #upper paper band
+    #pb2    = Actor('d6/pband/simap16e-lb', topleft=(0,214+1080/6))
 
     #ea1    = enoActor("acc_bc/x1/abc32c-bau-to", basePos = (30, 327))
     #ea2    = enoActor("acc_bc/x1/abc32c-mkk-to", basePos = (85, 327))
 
-    self.paperBandActors = [pb1, pb2]
+    #self.paperBandActors = [pb1, pb2]
+    self.paperBandActors = []
     self.touchElActors   = []
     #self.touchElActors   = [ea1, ea2]
 

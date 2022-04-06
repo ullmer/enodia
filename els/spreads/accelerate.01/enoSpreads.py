@@ -59,7 +59,7 @@ class enoSpread:
   spreadName, spreadYFn, spreadYF, spreadY, spreadEls = [None] * 5
   imgDirX1, imgDirX6, imgDirD6                        = [None] * 3
   imgPrefix, imgExt, imgPostfixTouch, imgPostfixFull  = [None] * 4
-  tiers, tierPosOff, dim, pos, elPosCache             = [None] * 5
+  tiers, tierPosOff, tierPosShim, dim, pos, elPosCache= [None] * 6
   enoActorL, spreadTouchEls                           = [None] * 2
   touchEl2Tier, enoActorLTiered, abbrevL              = [None] * 3
   selectedTouchEl, abbrev2enoActor                    = [None] * 2
@@ -199,6 +199,7 @@ class enoSpread:
       self.pos             = panel["pos"]
 
       self.tiers           = panel["tiers"]
+      self.tierPosShim     = panel["tierPosShim"]
       self.tierPosOff      = panel["tierPosOff"]
       self.spreadEls       = panel["els"] # later, should handle plurality of panels
 

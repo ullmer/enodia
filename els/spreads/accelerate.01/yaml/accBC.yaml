@@ -26,6 +26,12 @@ panel:
     2: [fg, bau, wen, mkk, jdg, rhj, sd, ss, ty]
     1: [dr, mb, aw, jg, kk, ls, bf, mm]
 
+  #tierPosOff:
+  #  2: {pos: [ 30, 327], dxy: [59, 0]}
+  #  1: {pos: [118, 362], dxy: [59, 0]}
+
+  tierPosShim: [200, 0] # added to pos of both tierPosOff tiers
+
   tierPosOff:
     2: {pos: [ 30, 327], dxy: [59, 0]}
     1: {pos: [118, 362], dxy: [59, 0]}
