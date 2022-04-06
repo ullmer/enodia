@@ -5,12 +5,12 @@ spreads:
 spread:
  handl: simap
  name:  Smithsonian/Mall
- upper: 
-   imgFn: "d6/pband/simap16e-ub"
-   scrOffset: (0, 0)
-
- lower: 
-   imgFn: "d6/pband/simap16e-lb"
-   scrOffset: (0, 214+1080/6)
+ #upper: 
+ #  imgFn: "d6/pband/simap16e-ub"
+ #  scrOffset: (0, 0)
+ #
+ #lower
+ #  imgFn: "d6/pband/simap16e-lb"
+ #  scrOffset: (0, 214+1080/6)
 
 ### end ###
