@@ -260,7 +260,7 @@ class enoSpread:
   #################### setup touch element tiers ###################
 
   def buildBCtouch(self):
-    x=0; y=0; dx = 600
+    x=350; y=1050; dx = 600
     for u in ["bc2", "cu2"]:
       self.constructTouchEl2(u, '', 'acc_bc/x1/'+u, (x,y))
       x += dx
