@@ -441,11 +441,11 @@ class enoSpread:
 
   def getPrIm1(self, abbrev):
      try:    return self.getPrImN[abbrev][0]
-     except: warn("getPrIm1", abbrev)
+     except: self.warn("getPrIm1 " + abbrev)
 
   def getPrIm2(self, abbrev):
      try:    return self.getPrImN[abbrev][1]
-     except: warn("getPrIm1", abbrev)
+     except: self.warn("getPrIm1 " + abbrev)
 
   def showProjImgs(self, abbrev):
     pai1 = self.getPrIm1(abbrev)
