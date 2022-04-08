@@ -120,7 +120,11 @@ class enoSpread:
   ####################### get colorbar info #######################
 
   def getColorBarL(self):
-    return self.colorbarL:
+    return self.colorbarL
+
+  def getColorBarN(self, n):
+    print(self.colorbarL)
+    return self.colorbarL[n]
 
   ####################### build cursor #######################
 
@@ -309,8 +313,12 @@ class enoSpread:
 
     idx = 0; thresh = 5
 
-    blue = (0, 0, 100) 
-    vizController.drawTranspColorbar(blue, 100)
+    colorbarPos = 0; cbDx = 1920/6
+    for i in range(6):
+      color = self.getColorBarN(i)
+      vizController.drawTranspColorbar(color, colorbarPos)
+      colorbarPos += cbDx
+
     vizController.drawTranspOverlayLower(self.tierPosShim)
     self.getColorbarInfo()
 
