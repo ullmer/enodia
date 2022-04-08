@@ -400,27 +400,6 @@ class enoSpread:
 
   #################### show project images ###################
 
-  def showProjImgs(self, abbrev):
-    #if abbrev in projActorCache:
-    pa1 = Actor("acc_bc/x9/bb07")
-    pa2 = Actor("acc_bc/x9/bb08")
-
-    self.projActorCache[abbrev] = []
-    self.projActorCache[abbrev].append(pa1)
-    self.projActorCache[abbrev].append(pa2)
-
-    animate(pa1, center=(500,500), tween=self.tween, duration=self.animDuration)
-
-    animate(pa2, center=(1425,500), tween=self.tween, duration=self.animDuration)
-
-    if self.lastProjImgA1 is not None:
-      oa1, oa2 = self.lastProjImgA1, self.lastProjImgA2
-      animate(oa1, center=(300,-500), tween=self.tween, duration=self.animDuration)
-      animate(oa2, center=(1625,-500), tween=self.tween, duration=self.animDuration)
-
-    self.lastProjImgA1 = pa1
-    self.lastProjImgA2 = pa2
-    
   #################### constructTouchEl ###################
 
   def constructTouchEl(self, abbrev, name, imgFn):
@@ -441,9 +420,40 @@ class enoSpread:
     self.projActors.append(abbrev)
     self.abbrev2enoActor[abbrev] = pa
 
+  #################### show project images ###################
+
+  def showProjImgs(self, abbrev):
+    #if abbrev in projActorCache:
+    #pa1 = Actor("acc_bc/x9/bb07")
+    #pa2 = Actor("acc_bc/x9/bb08")
+
+    pai1 = self.getPrIm1(abbrev)
+    pai2 = self.getPrIm2(abbrev)
+
+    pa1 = Actor(pai1)
+    pa2 = Actor(pai2)
+
+    self.projActorCache[abbrev] = []
+    self.projActorCache[abbrev].append(pa1)
+    self.projActorCache[abbrev].append(pa2)
+
+    animate(pa1, center=(500,500), tween=self.tween, duration=self.animDuration)
+
+    animate(pa2, center=(1425,500), tween=self.tween, duration=self.animDuration)
+
+    if self.lastProjImgA1 is not None:
+      oa1, oa2 = self.lastProjImgA1, self.lastProjImgA2
+      animate(oa1, center=(300,-500), tween=self.tween, duration=self.animDuration)
+      animate(oa2, center=(1625,-500), tween=self.tween, duration=self.animDuration)
+
+    self.lastProjImgA1 = pa1
+    self.lastProjImgA2 = pa2
+
 ####################### main ####################### 
 
 if __name__ == '__main__': 
   es = enoSpreads()
 
+
+    
 ### end ###
