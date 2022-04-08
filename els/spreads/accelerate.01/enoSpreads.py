@@ -60,7 +60,7 @@ class enoSpread:
   imgDirX1, imgDirX6, imgDirD6                        = [None] * 3
   imgPrefix, imgExt, imgPostfixTouch, imgPostfixFull  = [None] * 4
   tiers, tierPosOff, tierPosShim, dim, pos, elPosCache= [None] * 6
-  enoActorL, spreadTouchEls                           = [None] * 2
+  enoActorL, spreadTouchEls, projActorCache           = [None] * 3
   touchEl2Tier, enoActorLTiered, abbrevL              = [None] * 3
   selectedTouchEl, abbrev2enoActor, projActors        = [None] * 3
   cursorActor, cursorPos, enoActorLarge               = [None] * 3
@@ -68,7 +68,7 @@ class enoSpread:
   cursorImgFn                                         = "x1/cursor1"
   tween = 'accel_decel'
   animDuration = .7
-
+    
   #touchElBasePos, touchElDxDy                        = [None] * 2
 
   firstDraw  = True
@@ -348,8 +348,9 @@ class enoSpread:
 
     for a in self.projActors: 
       self.abbrev2enoActor[a].draw() 
-      al = self.projActorCache[a]
-      for ae in al: ae.draw()
+      if a in self.projActorCache:
+        al = self.projActorCache[a]
+        for ae in al: ae.draw()
 
     if self.lastLarge is not None:
       self.lastLarge.draw()
@@ -391,17 +392,17 @@ class enoSpread:
 
   def showProjImgs(self, abbrev):
     #if abbrev in projActorCache:
-    pa1 = Actor("img/acc_bc/x1/bb07")
-    pa2 = Actor("img/acc_bc/x1/bb08")
+    pa1 = Actor("acc_bc/x1/bb07")
+    pa2 = Actor("acc_bc/x1/bb08")
 
-    projActorCache[abbrev] = []
-    projActorCache[abbrev].append(pa1)
-    projActorCache[abbrev].append(pa2)
+    self.projActorCache[abbrev] = []
+    self.projActorCache[abbrev].append(pa1)
+    self.projActorCache[abbrev].append(pa2)
 
     animate(pa1, center=(400,500), \
             tween=self.tween, duration=self.animDuration)
 
-    animate(pa2, center=(800,500), \
+    animate(pa2, center=(1100,500), \
             tween=self.tween, duration=self.animDuration)
 
   #################### constructTouchEl ###################
