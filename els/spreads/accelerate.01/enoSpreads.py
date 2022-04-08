@@ -62,7 +62,7 @@ class enoSpread:
   tiers, tierPosOff, tierPosShim, dim, pos, elPosCache= [None] * 6
   enoActorL, spreadTouchEls                           = [None] * 2
   touchEl2Tier, enoActorLTiered, abbrevL              = [None] * 3
-  selectedTouchEl, abbrev2enoActor                    = [None] * 2
+  selectedTouchEl, abbrev2enoActor, projActors        = [None] * 3
   cursorActor, cursorPos, enoActorLarge               = [None] * 3
   lastLarge, currentLarge, colorBars, colorbarL       = [None] * 4
   cursorImgFn                                         = "x1/cursor1"
@@ -90,6 +90,7 @@ class enoSpread:
     self.enoActorL    = []
     self.abbrevL      = []
     self.colorbarL    = []
+    self.projActors   = []
     self.elPosCache      = {}
     self.touchEl2Tier    = {}
     self.enoActorLTiered = {}
@@ -252,7 +253,14 @@ class enoSpread:
 
       self.setupTouchElTiers() # divide touch elements into tiers 
 
+      self.buildBCtouch()
+
     except: self.warn("loadYaml: caught error"); traceback.print_exc()
+
+  #################### setup touch element tiers ###################
+
+  def buildBCtouch(self):
+    self.constructTouchEl2('cu1', '', 'acc_bc/x1/cu1')
 
   #################### setup touch element tiers ###################
 
@@ -334,6 +342,8 @@ class enoSpread:
         if ete.getAbbrev() is not self.selectedTouchEl: ete.draw()
         else: selectedEte = ete
 
+    for a in self.projActors: self.abbrev2enoActor[a].draw() 
+
     if self.lastLarge is not None:
       self.lastLarge.draw()
 
@@ -353,6 +363,8 @@ class enoSpread:
 
     tier1ActorAbbrevs = self.enoActorLTiered[1]
     tier2ActorAbbrevs = self.enoActorLTiered[2]
+
+    for a in self.projActors: self.abbrev2enoActor[a].on_mouse_down(pos) 
 
     for tieredActorL in [tier1ActorAbbrevs, tier2ActorAbbrevs]:
       for abbrev in tieredActorL:
@@ -374,6 +386,18 @@ class enoSpread:
     ete = enoActor(imgFn, abbrev=abbrev, basePos=elPos) #ete: enodia touch element
     self.enoActorL.append(ete)
     self.abbrev2enoActor[abbrev] = ete
+  
+#################### constructTouchEl2 ###################
+
+  def constructTouchEl2(self, abbrev, name, imgFn):
+    #elPos = self.getTouchElPos(abbrev)
+    elPos = (500, 500)
+
+    print("enoSpread constructTouchEl2:", abbrev, name, imgFn, elPos)
+
+    pa = enoActor(imgFn, abbrev=abbrev, basePos=elPos) #ete: enodia touch element
+    self.projActors.append(abbrev)
+    self.abbrev2enoActor[abbrev] = pa
 
 ####################### main ####################### 
 
