@@ -431,18 +431,18 @@ class enoSpread:
       abbrev, num, type = bc[bcImgN]
       self.abbrev2BCI[abbrev] = [bcImgN, num, type]
 
-  def self.getPrImN(abbrev):
+  def getPrImN(self, abbrev):
     if abbrev not in self.abbrev2BCI:
       warn("getPrImN: abbrev not found:", abbrev)
       return
      result = self.abbrev2BCI[abbrev]
      return result
 
-  def self.getPrIm1(abbrev):
+  def getPrIm1(self, abbrev):
      try:    return self.getPrImN[abbrev][0]
      except: warn("getPrIm1", abbrev)
 
-  def self.getPrIm2(abbrev):
+  def getPrIm2(abbrev, abbrev):
      try:    return self.getPrImN[abbrev][1]
      except: warn("getPrIm1", abbrev)
 
