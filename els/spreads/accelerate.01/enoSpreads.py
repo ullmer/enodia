@@ -259,7 +259,6 @@ class enoSpread:
       self.setupTouchElTiers() # divide touch elements into tiers 
 
       self.buildBCtouch()
-      self.mapPrImg1()
 
     except: self.warn("loadYaml: caught error"); traceback.print_exc()
 
@@ -327,7 +326,10 @@ class enoSpread:
     if self.enoActorL is None:
       self.warn("draw: enoActorL is empty"); return
 
-    if self.firstDraw: self.buildCursor(); self.firstDraw=False
+    if self.firstDraw: 
+      self.buildCursor(); 
+      self.firstDraw=False
+      self.mapPrImg1()
 
     idx = 0; thresh = 5
 
@@ -424,14 +426,14 @@ class enoSpread:
   #################### show project images ###################
     
   def mapPrImg1(self):
-    bc = self.spreadsY["baseballCards"]  
+    bc = self.spreadY["baseballCards"]  
 
     self.abbrev2BCI = {}
 
     for bcImgN in bc:
       abbrev, num, type = bc[bcImgN]
-      if abbrev not in self.abbrev2BCI[abbrev]: self.abbrev2BCI[abbrev] = []
-      self.abbrev2BCI[abbrev].append = [bcImgN, num, type]
+      if abbrev not in self.abbrev2BCI: self.abbrev2BCI[abbrev] = []
+      self.abbrev2BCI[abbrev].append([bcImgN, num, type])
 
     print(self.abbrev2BCI)
 
