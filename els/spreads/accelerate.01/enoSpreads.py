@@ -64,7 +64,7 @@ class enoSpread:
   touchEl2Tier, enoActorLTiered, abbrevL              = [None] * 3
   selectedTouchEl, abbrev2enoActor                    = [None] * 2
   cursorActor, cursorPos, enoActorLarge               = [None] * 3
-  lastLarge, currentLarge, colorBars                  = [None] * 3
+  lastLarge, currentLarge, colorBars, colorbarL       = [None] * 4
   cursorImgFn                                         = "x1/cursor1"
   tween = 'accel_decel'
   animDuration = .7
@@ -87,10 +87,11 @@ class enoSpread:
 
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
-    self.elPosCache   = {}
-    self.touchEl2Tier = {}
     self.enoActorL    = []
     self.abbrevL      = []
+    self.colorbarL    = []
+    self.elPosCache      = {}
+    self.touchEl2Tier    = {}
     self.enoActorLTiered = {}
     self.enoActorLarge   = {}
     self.abbrev2enoActor = {}
@@ -99,6 +100,27 @@ class enoSpread:
 
     self.loadYaml(spreadName)
     self.parseTouchElsY()
+    self.cacheColorbars()
+
+  ####################### get colorbar info #######################
+
+  def cacheColorbars(self):
+    try:
+      for cb in self.colorBars:
+        abbrev = list(cb.keys())[0]
+        self.colorbarL.append(color)
+    except: pass
+
+  ####################### get colorbar info #######################
+
+  def getColorbarInfo(self):
+    #print(self.colorBars)
+    print(self.colorbarL)
+  
+  ####################### get colorbar info #######################
+
+  def getColorBarL(self):
+    return self.colorbarL:
 
   ####################### build cursor #######################
 
@@ -290,6 +312,7 @@ class enoSpread:
     blue = (0, 0, 100) 
     vizController.drawTranspColorbar(blue, 100)
     vizController.drawTranspOverlayLower(self.tierPosShim)
+    self.getColorbarInfo()
 
     selectedEte = None
 
