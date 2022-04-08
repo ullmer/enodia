@@ -96,6 +96,7 @@ class enoSpread:
     self.enoActorLTiered = {}
     self.enoActorLarge   = {}
     self.abbrev2enoActor = {}
+    self.projActorCache  = {}
 
     for t in [1,2]: self.enoActorLTiered[t] = []
 
@@ -345,7 +346,10 @@ class enoSpread:
         if ete.getAbbrev() is not self.selectedTouchEl: ete.draw()
         else: selectedEte = ete
 
-    for a in self.projActors: self.abbrev2enoActor[a].draw() 
+    for a in self.projActors: 
+      self.abbrev2enoActor[a].draw() 
+      al = self.projActorCache[a]
+      for ae in al: ae.draw()
 
     if self.lastLarge is not None:
       self.lastLarge.draw()
@@ -367,7 +371,11 @@ class enoSpread:
     tier1ActorAbbrevs = self.enoActorLTiered[1]
     tier2ActorAbbrevs = self.enoActorLTiered[2]
 
-    for a in self.projActors: self.abbrev2enoActor[a].on_mouse_down(pos) 
+    for a in self.projActors: 
+      selected = self.abbrev2enoActor[a].on_mouse_down(pos) 
+      if selected:
+        self.showProjImgs(a)
+        return
 
     for tieredActorL in [tier1ActorAbbrevs, tier2ActorAbbrevs]:
       for abbrev in tieredActorL:
@@ -378,6 +386,23 @@ class enoSpread:
           self.moveCursor(ste)
           self.showLarge(ste)
           return  #allow for only one selected element
+
+  #################### show project images ###################
+
+  def showProjImgs(self, abbrev):
+    #if abbrev in projActorCache:
+    pa1 = Actor("img/acc_bc/x1/bb07")
+    pa2 = Actor("img/acc_bc/x1/bb08")
+
+    projActorCache[abbrev] = []
+    projActorCache[abbrev].append(pa1)
+    projActorCache[abbrev].append(pa2)
+
+    animate(pa1, center=(400,500), \
+            tween=self.tween, duration=self.animDuration)
+
+    animate(pa2, center=(800,500), \
+            tween=self.tween, duration=self.animDuration)
 
   #################### constructTouchEl ###################
 
