@@ -270,6 +270,11 @@ class enoSpread:
       self.constructTouchEl2(u, '', 'acc_bc/x1/'+u, (x,y))
       x += dx
 
+    x=350; y=0; dx = 600
+    for u in ["bc1", "cu1"]:
+      self.constructTouchEl2(u, '', 'acc_bc/x1/'+u, (x,y))
+      x += dx
+
   #################### setup touch element tiers ###################
 
   def setupTouchElTiers(self):
