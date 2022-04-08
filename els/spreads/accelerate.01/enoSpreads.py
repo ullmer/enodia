@@ -77,6 +77,8 @@ class enoSpread:
   firstDraw  = True
   verbose    = False
   cursorDy   = -36
+
+  bcTouchIdx = 1
   enoActorLargeHiddenPos   = (50, 850)
   enoActorLargeVisiblePos  = (50, 100)
   enoActorLargeDepartedPos = (50, -850)
@@ -258,13 +260,15 @@ class enoSpread:
 
       self.setupTouchElTiers() # divide touch elements into tiers 
 
-      self.buildBCtouch()
+      if   self.bcTouchIdx == 1: self.buildBCtouch1()
+      elif self.bcTouchIdx == 2: self.buildBCtouch2()
+      #elif self.bcTouchIdx == 3: self.buildBCtouch3()
 
     except: self.warn("loadYaml: caught error"); traceback.print_exc()
 
   #################### setup touch element tiers ###################
 
-  def buildBCtouch(self):
+  def buildBCtouch1(self):
     x=350; y=1050; dx = 600
     for u in ["bc2", "cu2"]:
       self.constructTouchEl2(u, '', 'acc_bc/x1/'+u, (x,y))
@@ -272,6 +276,19 @@ class enoSpread:
 
     x=350; y=0; dx = 600
     for u in ["bc1", "cu1"]:
+      self.constructTouchEl2(u, '', 'acc_bc/x1/'+u, (x,y))
+      x += dx
+
+  #################### setup touch element tiers ###################
+
+  def buildBCtouch2(self):
+    x=350; y=1050; dx = 600
+    for u in ["fsu2", "gt2", "ul2"]:
+      self.constructTouchEl2(u, '', 'acc_bc/x1/'+u, (x,y))
+      x += dx
+
+    x=350; y=0; dx = 600
+    for u in ["fsu1", "gt1", "ul1"]:
       self.constructTouchEl2(u, '', 'acc_bc/x1/'+u, (x,y))
       x += dx
 
