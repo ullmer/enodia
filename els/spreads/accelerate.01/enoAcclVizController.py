@@ -25,6 +25,7 @@ class enoAcclVizController:
   firstDrawIter = True
   dy = 50
   verbose = False
+  colorbarDim = [50, 1080]
   alphaCover = False
 
   ####################### constructor #######################
@@ -118,6 +119,21 @@ class enoAcclVizController:
     self.windowSurface.blit(s, olPosShimmed)
 
     # https://stackoverflow.com/questions/6339057/draw-a-transparent-rectangles-and-polygons-in-pygame
+
+  ################# draw transp colorbar overlay #################
+
+  def drawTranspColorbar(self, shimPos, barColor, barPosition):
+    cbDim = self.colorbarDim
+    olPos = (0,    255)
+    if not isinstance(shimPos, tuple):
+      self.warn("drawTranspOverlayLower: shimpos is not tuple"); return
+
+    olPos = (barPosition, 0)
+
+    s = pygame.Surface(olDim) # (1000,750)  the size of your rect
+    s.set_alpha(150)          # alpha level
+    s.fill(barColor)
+    self.windowSurface.blit(s, olPos)
 
   ################# draw #################
 
