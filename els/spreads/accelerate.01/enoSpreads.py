@@ -392,17 +392,17 @@ class enoSpread:
 
   def showProjImgs(self, abbrev):
     #if abbrev in projActorCache:
-    pa1 = Actor("acc_bc/x1/bb07")
-    pa2 = Actor("acc_bc/x1/bb08")
+    pa1 = Actor("acc_bc/x9/bb07")
+    pa2 = Actor("acc_bc/x9/bb08")
 
     self.projActorCache[abbrev] = []
     self.projActorCache[abbrev].append(pa1)
     self.projActorCache[abbrev].append(pa2)
 
-    animate(pa1, center=(400,500), \
+    animate(pa1, center=(500,500), \
             tween=self.tween, duration=self.animDuration)
 
-    animate(pa2, center=(1100,500), \
+    animate(pa2, center=(1425,500), \
             tween=self.tween, duration=self.animDuration)
 
   #################### constructTouchEl ###################
