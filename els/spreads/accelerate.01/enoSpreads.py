@@ -105,10 +105,12 @@ class enoSpread:
   ####################### get colorbar info #######################
 
   def cacheColorbars(self):
+    self.colorbarL = []
     try:
       for cb in self.colorBars:
-        abbrev = list(cb.keys())[0]
-        self.colorbarL.append(color)
+        for abbrev in cb:
+          color  = cb[abbrev]
+          self.colorbarL.append(color)
     except: pass
 
   ####################### get colorbar info #######################
@@ -123,7 +125,6 @@ class enoSpread:
     return self.colorbarL
 
   def getColorBarN(self, n):
-    print(self.colorbarL)
     return self.colorbarL[n]
 
   ####################### build cursor #######################
@@ -313,14 +314,14 @@ class enoSpread:
 
     idx = 0; thresh = 5
 
-    colorbarPos = 0; cbDx = 1920/6
-    for i in range(6):
+    colorbarPos = 50; cbDx = 600
+    for i in range(3):
       color = self.getColorBarN(i)
       vizController.drawTranspColorbar(color, colorbarPos)
       colorbarPos += cbDx
 
     vizController.drawTranspOverlayLower(self.tierPosShim)
-    self.getColorbarInfo()
+    #self.getColorbarInfo()
 
     selectedEte = None
 
