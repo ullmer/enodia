@@ -47,10 +47,15 @@ def on_mouse_down(pos):
   global vizController
   vizController.on_mouse_down(pos)
 
-def on_key_down(key):
-  global inputHooks, vizController
+#def on_key_down(key):
+#  global inputHooks, vizController
+#  #print("key:", key)
+# inputHooks.on_key_down(key, vizController)
 
-  print("key:", key)
-  inputHooks.on_key_down(key, vizController)
+def update():
+  global inputHooks, vizController
+  if keyboard.d: inputHooks.rotorDown(vizController)
+  if keyboard.u: inputHooks.rotorUp(vizController)
+  if keyboard.o: inputHooks.rotorPush(vizController)
 
 ### end ###
