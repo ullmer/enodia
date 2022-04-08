@@ -448,12 +448,14 @@ class enoSpread:
     return result
 
   def getPrIm1(self, abbrev):
-     try:    return self.getPrImN[abbrev][0]
-     except: self.warn("getPrIm1 " + abbrev)
+     try:    
+        result = self.getPrImN(abbrev)[0][0]
+        return result
+     except: self.warn("getPrIm1 " + abbrev); traceback.print_exc()
 
   def getPrIm2(self, abbrev):
-     try:    return self.getPrImN[abbrev][1]
-     except: self.warn("getPrIm1 " + abbrev)
+     try:    return self.getPrImN(abbrev)[1][0]
+     except: self.warn("getPrIm1 " + abbrev); traceback.print_exc()
 
   def showProjImgs(self, abbrev):
     pai1 = self.getPrIm1(abbrev)
@@ -485,7 +487,5 @@ class enoSpread:
 
 if __name__ == '__main__': 
   es = enoSpreads()
-
-
     
 ### end ###
