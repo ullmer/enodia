@@ -430,7 +430,10 @@ class enoSpread:
 
     for bcImgN in bc:
       abbrev, num, type = bc[bcImgN]
-      self.abbrev2BCI[abbrev] = [bcImgN, num, type]
+      if abbrev not in self.abbrev2BCI[abbrev]: self.abbrev2BCI[abbrev] = []
+      self.abbrev2BCI[abbrev].append = [bcImgN, num, type]
+
+    print(self.abbrev2BCI)
 
   def getPrImN(self, abbrev):
     if abbrev not in self.abbrev2BCI:
@@ -438,6 +441,7 @@ class enoSpread:
        return None
 
     result = self.abbrev2BCI[abbrev]
+    print("getPrImN", abbrev, result)
     return result
 
   def getPrIm1(self, abbrev):
