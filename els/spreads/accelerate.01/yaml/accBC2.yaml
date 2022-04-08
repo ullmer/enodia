@@ -9,11 +9,11 @@ spread:
 colorBars:
  - {bc:  [148,  45,  88]}
  - {cu:  [243, 111,  33]}
- - {du:  [  0,  82, 155]}
+ - {du:  [  0,  82, 155], noBC: True}
  - {fsu: [112,  24,  49]}
  - {gt:  [ 35,  31,  32]}
  - {ul:  [228,  27,  36]}
- - {um:  [244, 115,  33]}
+ - {um:  [244, 115,  33], noBC: True}
  - {unc: [123, 174, 213]}
  - {g1:  [0, 0, 0]}
  - {g2:  [0, 0, 0]}
@@ -23,11 +23,11 @@ colorBars:
  - {su:   [  0, 20, 65]}
 
 baseballCards:
- {bb01: [bc, 0, T],  bb02: [bc, 0, I],  bb03: [bc, 1, T],  bb04: [bc, 1, I],
-  bb05: [cu, 0, T],  bb06: [cu, 0, I],  bb07: [cu, 1, T],  bb08: [cu, 1, I],
-  bb09: [fsu, 0, T], bb10: [fsu, 0, I], bb11: [fsu, 1, T], bb12: [fsu, 1, I],
-  bb13: [gt, 0, T],  bb14: [gt, 0, I],  bb15: [gt, 1, T],  bb16: [gt, 1, I],
-  bb17: [ul, 0, T],  bb18: [ul, 0, I],  bb19: [ul, 1, T],  bb20: [ul, 1, I]}
+ {bb01: [bc, 1, T],  bb02: [bc, 1, I],  bb03: [bc, 2, T],  bb04: [bc, 2, I],
+  bb05: [cu, 1, T],  bb06: [cu, 1, I],  bb07: [cu, 2, T],  bb08: [cu, 2, I],
+  bb09: [fsu, 1, T], bb10: [fsu, 1, I], bb11: [fsu, 2, T], bb12: [fsu, 2, I],
+  bb13: [gt, 1, T],  bb14: [gt, 1, I],  bb15: [gt, 2, T],  bb16: [gt, 2, I],
+  bb17: [ul, 1, T],  bb18: [ul, 1, I],  bb19: [ul, 2, T],  bb20: [ul, 2, I]}
 
 panel:
   handle: cu
