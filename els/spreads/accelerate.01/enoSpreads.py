@@ -340,17 +340,17 @@ class enoSpread:
     tier1ActorAbbrevs = self.enoActorLTiered[1]
     tier2ActorAbbrevs = self.enoActorLTiered[2]
 
-    for tieredActorL in [tier1ActorAbbrevs, tier2ActorAbbrevs]:
-      for abbrev in tieredActorL:
-        ete = self.abbrev2enoActor[abbrev]
-        if ete.getAbbrev() is not self.selectedTouchEl: ete.draw()
-        else: selectedEte = ete
-
     for a in self.projActors: 
       self.abbrev2enoActor[a].draw() 
       if a in self.projActorCache:
         al = self.projActorCache[a]
         for ae in al: ae.draw()
+
+    for tieredActorL in [tier1ActorAbbrevs, tier2ActorAbbrevs]:
+      for abbrev in tieredActorL:
+        ete = self.abbrev2enoActor[abbrev]
+        if ete.getAbbrev() is not self.selectedTouchEl: ete.draw()
+        else: selectedEte = ete
 
     if self.lastLarge is not None:
       self.lastLarge.draw()
