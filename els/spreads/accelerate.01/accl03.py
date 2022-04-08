@@ -7,7 +7,7 @@ import pygame
 
 from enoButton import *
 from enoActor  import *
-from enoAcclVizControllerRotor import *
+from enoAcclVizController import *
 
 spread1 = 'yaml/accl02Panel.yaml'
 
@@ -28,7 +28,7 @@ if platform.system() == "Windows":
 #os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % winPos
 #os.environ['SDL_VIDEO_CENTERED'] = '1'
 
-vizController = enoAcclVizControllerRotor(scrWidth=WIDTH, scrHeight=HEIGHT,
+vizController = enoAcclVizController(scrWidth=WIDTH, scrHeight=HEIGHT,
                     panel1Fn = spread1)
 
 # Route draw, on_mouse_down pgzero event hooks to vizController
@@ -43,5 +43,9 @@ def draw():
 def on_mouse_down(pos):
   global vizController
   vizController.on_mouse_down(pos)
+
+def on_key_down(key):
+  global vizController
+  print("key:", key)
 
 ### end ###
