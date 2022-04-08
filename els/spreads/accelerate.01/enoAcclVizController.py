@@ -70,7 +70,7 @@ class enoAcclVizController:
       #  self.spreadsL.append(newSpread)
 
       self.espreadsL = []
-      newSpread      = enoSpread("accBC")
+      newSpread      = enoSpread("accBC2")
       self.espreadsL.append(newSpread)
 
       self.spreadSelectorPanel = []
@@ -106,6 +106,9 @@ class enoAcclVizController:
 
     olDim = (1920, 140)
     olPos = (0,    255)
+    if not isinstance(shimPos, tuple):
+      self.warn("drawTranspOverlayLower: shimpos is not tuple"); return
+
     olPosShimmed = (olPos[0] + shimPos[0], olPos[1] + shimPos[1])
 
     s = pygame.Surface(olDim) # (1000,750)  the size of your rect

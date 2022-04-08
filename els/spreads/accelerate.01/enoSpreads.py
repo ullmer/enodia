@@ -205,7 +205,7 @@ class enoSpread:
       self.dim             = panel["dim"]
       self.pos             = panel["pos"]
 
-      self.colorBars       = self.spread["colorBars"]
+      self.colorBars       = self.spreadY["colorBars"]
 
       self.tiers           = panel["tiers"]
       self.tierPosShim     = panel["tierPosShim"]
