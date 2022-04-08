@@ -106,6 +106,8 @@ class enoAcclVizController:
     #olDim = self.transpOverlayLowerDim
     #olPos = self.transpOverlayLowerPos
 
+    print("drawTranspOverlayLower:", shimPos)
+
     olDim = (1920, 140)
     olPos = (0,    255)
     if not isinstance(shimPos, tuple):
