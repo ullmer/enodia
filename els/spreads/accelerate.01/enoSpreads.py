@@ -451,6 +451,9 @@ class enoSpread:
     pai1 = self.getPrIm1(abbrev)
     pai2 = self.getPrIm2(abbrev)
 
+    print("pai1:", pai1)
+    print("pai2:", pai2)
+
     pa1 = Actor(pai1)
     pa2 = Actor(pai2)
 
