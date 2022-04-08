@@ -259,6 +259,7 @@ class enoSpread:
       self.setupTouchElTiers() # divide touch elements into tiers 
 
       self.buildBCtouch()
+      self.mapPrImg1()
 
     except: self.warn("loadYaml: caught error"); traceback.print_exc()
 
