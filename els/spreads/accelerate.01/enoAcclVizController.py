@@ -21,6 +21,7 @@ class enoAcclVizController:
   paperBandActors, touchElActors, spreadSelectorPanel = [None]*3
   espreadsL     = None
   windowSurface = None
+  currentSelectAbbrev = None
 
   firstDrawIter = True
   dy = 50

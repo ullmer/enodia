@@ -32,9 +32,14 @@ class enoKbRotorHooks:
  #      traceback.print_exc()
 
 
-  def rotorDown(self, vizController): print("rotor down")
-  def rotorUp(self, vizController):   print("rotor up")
-  def rotorPush(self, vizController): print("rotor push")
+  def rotorDown(self, vizController): 
+    print("rotor down")
+
+  def rotorUp(self, vizController):   
+    print("rotor up")
+
+  def rotorPush(self, vizController): 
+    print("rotor push")
 
 
 ### end ###

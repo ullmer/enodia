@@ -68,6 +68,7 @@ class enoSpread:
   cursorImgFn                                         = "x1/cursor1"
   tween = 'accel_decel'
   animDuration = .7
+  contentSelectedAbbrev, actorSelectedAbbrev = [None] * 2
     
   #touchElBasePos, touchElDxDy                        = [None] * 2
 
@@ -373,9 +374,13 @@ class enoSpread:
     tier2ActorAbbrevs = self.enoActorLTiered[2]
 
     for a in self.projActors: 
+      ea = self.abbrev2enoActor[a]
+      selected = ea.on_mouse_down(pos) 
       selected = self.abbrev2enoActor[a].on_mouse_down(pos) 
       if selected:
         self.showProjImgs(a)
+        self.contentSelectedAbbrev = a
+        self.actorSelected         = ea
         return
 
     for tieredActorL in [tier1ActorAbbrevs, tier2ActorAbbrevs]:
@@ -384,6 +389,8 @@ class enoSpread:
         selected = ete.on_mouse_down(pos)
         if selected:
           ste = self.selectedTouchEl = ete.getAbbrev()
+          self.contentSelectedAbbrev = ste
+          self.actorSelected         = ete
           self.moveCursor(ste)
           self.showLarge(ste)
           return  #allow for only one selected element
