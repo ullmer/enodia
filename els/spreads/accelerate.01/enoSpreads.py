@@ -260,7 +260,10 @@ class enoSpread:
   #################### setup touch element tiers ###################
 
   def buildBCtouch(self):
-    self.constructTouchEl2('cu1', '', 'acc_bc/x1/cu1')
+    x=0; y=0; dx = 600
+    for u in ["bc2", "cu2"]:
+      self.constructTouchEl2(u, '', 'acc_bc/x1/'+u, (x,y))
+      x += dx
 
   #################### setup touch element tiers ###################
 
@@ -389,10 +392,7 @@ class enoSpread:
   
 #################### constructTouchEl2 ###################
 
-  def constructTouchEl2(self, abbrev, name, imgFn):
-    #elPos = self.getTouchElPos(abbrev)
-    elPos = (500, 500)
-
+  def constructTouchEl2(self, abbrev, name, imgFn, elPos):
     print("enoSpread constructTouchEl2:", abbrev, name, imgFn, elPos)
 
     pa = enoActor(imgFn, abbrev=abbrev, basePos=elPos) #ete: enodia touch element
