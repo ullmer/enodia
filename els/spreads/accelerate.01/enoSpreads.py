@@ -64,7 +64,7 @@ class enoSpread:
   touchEl2Tier, enoActorLTiered, abbrevL              = [None] * 3
   selectedTouchEl, abbrev2enoActor                    = [None] * 2
   cursorActor, cursorPos, enoActorLarge               = [None] * 3
-  lastLarge, currentLarge                             = [None] * 2
+  lastLarge, currentLarge, colorBars                  = [None] * 3
   cursorImgFn                                         = "x1/cursor1"
   tween = 'accel_decel'
   animDuration = .7
@@ -103,12 +103,13 @@ class enoSpread:
   ####################### build cursor #######################
 
   def buildCursor(self, preferredStarterAbbrev = None):
+    targAbbrev = None
+
     if self.cursorPos is None:
       if preferredStarterAbbrev is not None:
         if preferredStarterAbbrev in self.abbrevL:
           targAbbrev = preferredStarterAbbrev
-      else: targAbbrev = self.abbrevL[0]     
-
+      elif self.abbrevL is not None and len(self.abbrevL) > 0: targAbbrev = self.abbrevL[0]     
       self.cursorPos = self.getTouchElPos(targAbbrev)
 
     if self.cursorActor is None:
@@ -142,16 +143,18 @@ class enoSpread:
   ####################### showLarge #######################
 
   def showLarge(self, abbrev):
+    posShim = self.tierPosShim
+
     hpos = self.enoActorLargeHiddenPos
     vpos = self.enoActorLargeVisiblePos
+
+    hpos2 = (hpos[0]+posShim[0], hpos[1]+posShim[1])
 
     if abbrev in self.enoActorLarge:
       eal = self.enoActorLarge[abbrev]
     else: 
       ifn = self.imgDirX6 + self.imgPrefix + abbrev + self.imgPostfixTouch
-      eal = self.enoActorLarge[abbrev] = Actor(ifn, pos=hpos)
-
-    posShim = self.tierPosShim
+      eal = self.enoActorLarge[abbrev] = Actor(ifn, pos=hpos2)
 
     if abbrev in self.touchEl2Tier and \
        self.touchEl2Tier[abbrev] == 2: 
@@ -202,6 +205,8 @@ class enoSpread:
       self.dim             = panel["dim"]
       self.pos             = panel["pos"]
 
+      self.colorBars       = self.spread["colorBars"]
+
       self.tiers           = panel["tiers"]
       self.tierPosShim     = panel["tierPosShim"]
       self.tierPosOff      = panel["tierPosOff"]
@@ -233,6 +238,7 @@ class enoSpread:
   #################### calcTouchElPos ###################
 
   def getTouchElPos(self, elAbbrev):
+    if elAbbrev is None: return (0, 0) 
     if elAbbrev in self.elPosCache: return self.elPosCache[elAbbrev]
 
     whichTier = None
