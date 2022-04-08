@@ -421,12 +421,32 @@ class enoSpread:
     self.abbrev2enoActor[abbrev] = pa
 
   #################### show project images ###################
+    
+  def mapPrImg1(self):
+    bc = self.spreadsY["baseballCards"]  
+
+    self.abbrev2BCI = {}
+
+    for bcImgN in bc:
+      abbrev, num, type = bc[bcImgN]
+      self.abbrev2BCI[abbrev] = [bcImgN, num, type]
+
+  def self.getPrImN(abbrev):
+    if abbrev not in self.abbrev2BCI:
+      warn("getPrImN: abbrev not found:", abbrev)
+      return
+     result = self.abbrev2BCI[abbrev]
+     return result
+
+  def self.getPrIm1(abbrev):
+     try:    return self.getPrImN[abbrev][0]
+     except: warn("getPrIm1", abbrev)
+
+  def self.getPrIm2(abbrev):
+     try:    return self.getPrImN[abbrev][1]
+     except: warn("getPrIm1", abbrev)
 
   def showProjImgs(self, abbrev):
-    #if abbrev in projActorCache:
-    #pa1 = Actor("acc_bc/x9/bb07")
-    #pa2 = Actor("acc_bc/x9/bb08")
-
     pai1 = self.getPrIm1(abbrev)
     pai2 = self.getPrIm2(abbrev)
 
