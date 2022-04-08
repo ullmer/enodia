@@ -128,8 +128,8 @@ class enoAcclVizController:
 
     olPos = (barPosition, 0)
 
-    s = pygame.Surface(olDim) # (1000,750)  the size of your rect
-    s.set_alpha(150)          # alpha level
+    s = pygame.Surface(cbDim) # (1000,750)  the size of your rect
+    s.set_alpha(200)          # alpha level
     s.fill(barColor)
     self.windowSurface.blit(s, olPos)
 

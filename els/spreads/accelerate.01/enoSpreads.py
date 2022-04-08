@@ -287,6 +287,10 @@ class enoSpread:
 
     idx = 0; thresh = 5
 
+    blue = (0, 0, 100) 
+    vizController.drawTranspColorbar(blue, 100)
+    vizController.drawTranspOverlayLower(self.tierPosShim)
+
     selectedEte = None
 
     tier1ActorAbbrevs = self.enoActorLTiered[1]
@@ -307,10 +311,6 @@ class enoSpread:
     if self.cursorActor is not None:
       self.cursorActor.draw()
  
-    blue = (0, 0, 100) 
-    vizController.drawTranspColorbar(blue, 100)
-    vizController.drawTranspOverlayLower(self.tierPosShim)
-
     if selectedEte is not None: selectedEte.draw()
 
   ################# mouse down #################
