@@ -449,12 +449,15 @@ class enoSpread:
 
   def getPrIm1(self, abbrev):
      try:    
-        result = self.getPrImN(abbrev)[0][0]
-        return result
+        fn   = self.getPrImN(abbrev)[0][0]
+        path = "acc_bc/x9/" + fn
+        return path
      except: self.warn("getPrIm1 " + abbrev); traceback.print_exc()
 
   def getPrIm2(self, abbrev):
-     try:    return self.getPrImN(abbrev)[1][0]
+     try:    
+        fn   = self.getPrImN(abbrev)[1][0]
+        path = "acc_bc/x9/" + fn
      except: self.warn("getPrIm1 " + abbrev); traceback.print_exc()
 
   def showProjImgs(self, abbrev):
