@@ -28,6 +28,8 @@ class enoAcclVizController:
   verbose = False
   colorbarDim = [50, 1080]
   alphaCover = False
+  bcTouchIdx = 1
+  drawTouchEls = 0
 
   ####################### constructor #######################
 
@@ -72,7 +74,7 @@ class enoAcclVizController:
       #  self.spreadsL.append(newSpread)
 
       self.espreadsL = []
-      newSpread      = enoSpread("accBC2")
+      newSpread      = enoSpread("accBC2", bcTouchIdx = self.bcTouchIdx, drawTouchEls=self.drawTouchEls)
       self.espreadsL.append(newSpread)
 
       self.spreadSelectorPanel = []
@@ -149,7 +151,8 @@ class enoAcclVizController:
 
     screen.clear()
     for pba in self.paperBandActors: pba.draw()
-    for tea in self.touchElActors:       tea.draw() 
+    if self.drawTouchEls:
+      for tea in self.touchElActors:       tea.draw() 
 
     #if self.spreadSelectorPanel is not None:
     #  for ssp in self.spreadSelectorPanel: ssp.draw(screen)
@@ -167,7 +170,10 @@ class enoAcclVizController:
   def on_mouse_down(self, pos):
     self.alphaCover = True
     #for pba in self.paperBandActors: pba.on_mouse_down(pos)
-    for tea in self.touchElActors:       tea.on_mouse_down(pos)
+
+    if self.drawTouchEls:
+      for tea in self.touchElActors:       tea.on_mouse_down(pos)
+
     for ssp in self.spreadSelectorPanel: ssp.on_mouse_down(pos)
     for es  in self.espreadsL:           es.on_mouse_down(pos)
 

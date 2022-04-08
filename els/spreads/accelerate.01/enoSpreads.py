@@ -282,6 +282,7 @@ class enoSpread:
   #################### setup touch element tiers ###################
 
   def buildBCtouch2(self):
+    print("BCtouch2")
     x=350; y=1050; dx = 600
     for u in ["fsu2", "gt2", "ul2"]:
       self.constructTouchEl2(u, '', 'acc_bc/x1/'+u, (x,y))
@@ -375,11 +376,12 @@ class enoSpread:
         al = self.projActorCache[a]
         for ae in al: ae.draw()
 
-    for tieredActorL in [tier1ActorAbbrevs, tier2ActorAbbrevs]:
-      for abbrev in tieredActorL:
-        ete = self.abbrev2enoActor[abbrev]
-        if ete.getAbbrev() is not self.selectedTouchEl: ete.draw()
-        else: selectedEte = ete
+    if self.drawTouchEls: 
+      for tieredActorL in [tier1ActorAbbrevs, tier2ActorAbbrevs]:
+        for abbrev in tieredActorL:
+          ete = self.abbrev2enoActor[abbrev]
+          if ete.getAbbrev() is not self.selectedTouchEl: ete.draw()
+          else: selectedEte = ete
 
     if self.lastLarge is not None:
       self.lastLarge.draw()
