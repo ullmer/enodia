@@ -22,6 +22,12 @@ colorBars:
  - {up:   [  0, 20, 65]}
  - {su:   [  0, 20, 65]}
 
+baseballCards:
+ {bb01: [bc, 0, T],  bb02: [bc, 0, I],  bb03: [bc, 1, T],  bb04: [bc, 1, I],
+  bb05: [cu, 0, T],  bb06: [cu, 0, I],  bb07: [cu, 1, T],  bb08: [cu, 1, I],
+  bb09: [fsu, 0, T], bb10: [fsu, 0, I], bb11: [fsu, 1, T], bb12: [fsu, 1, I],
+  bb13: [gt, 0, T],  bb14: [gt, 0, I],  bb15: [gt, 1, T],  bb16: [gt, 1, I],
+  bb17: [ul, 0, T],  bb18: [ul, 0, I],  bb19: [ul, 1, T],  bb20: [ul, 1, I]}
 
 panel:
   handle: cu
