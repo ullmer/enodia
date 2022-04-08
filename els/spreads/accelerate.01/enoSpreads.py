@@ -65,6 +65,8 @@ class enoSpread:
   selectedTouchEl, abbrev2enoActor, projActors        = [None] * 3
   cursorActor, cursorPos, enoActorLarge               = [None] * 3
   lastLarge, currentLarge, colorBars, colorbarL       = [None] * 4
+  lastProjImgA1, lastProjImgA2                        = [None] * 2
+
   cursorImgFn                                         = "x1/cursor1"
   tween = 'accel_decel'
   animDuration = .7
@@ -195,8 +197,9 @@ class enoSpread:
 
     if self.lastLarge is not None:
       vpos2 = self.enoActorLargeDepartedPos
-      vpos3 = (vpos2[0] + posShim[0], vpos2[1] + posShim[1])
-      animate(eal, center=vpos3, tween=self.tween, duration=self.animDuration)
+      #vpos3 = (vpos2[0] + posShim[0], vpos2[1] + posShim[1])
+      vpos3 = (100, -300)
+      animate(self.lastLarge, center=vpos3, tween=self.tween, duration=self.animDuration)
 
     animate(eal, center=vpos, tween=self.tween, duration=self.animDuration)
 
@@ -406,12 +409,18 @@ class enoSpread:
     self.projActorCache[abbrev].append(pa1)
     self.projActorCache[abbrev].append(pa2)
 
-    animate(pa1, center=(500,500), \
-            tween=self.tween, duration=self.animDuration)
+    animate(pa1, center=(500,500), tween=self.tween, duration=self.animDuration)
 
-    animate(pa2, center=(1425,500), \
-            tween=self.tween, duration=self.animDuration)
+    animate(pa2, center=(1425,500), tween=self.tween, duration=self.animDuration)
 
+    if self.lastProjImgA1 is not None:
+      oa1, oa2 = self.lastProjImgA1, self.lastProjImgA2
+      animate(oa1, center=(300,-500), tween=self.tween, duration=self.animDuration)
+      animate(oa2, center=(1625,-500), tween=self.tween, duration=self.animDuration)
+
+    self.lastProjImgA1 = pa1
+    self.lastProjImgA2 = pa2
+    
   #################### constructTouchEl ###################
 
   def constructTouchEl(self, abbrev, name, imgFn):
