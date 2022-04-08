@@ -279,7 +279,7 @@ class enoSpread:
   
   #################### draw ###################
 
-  def draw(self, transpOverlayFunc):
+  def draw(self, vizController):
     if self.enoActorL is None:
       self.warn("draw: enoActorL is empty"); return
 
@@ -306,8 +306,10 @@ class enoSpread:
 
     if self.cursorActor is not None:
       self.cursorActor.draw()
-  
-    transpOverlayFunc(self.tierPosShim)
+ 
+    blue = (0, 0, 100) 
+    vizController.drawTranspColorbar(blue, 100)
+    vizController.drawTranspOverlayLower(self.tierPosShim)
 
     if selectedEte is not None: selectedEte.draw()
 

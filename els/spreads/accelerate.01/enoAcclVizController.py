@@ -122,11 +122,9 @@ class enoAcclVizController:
 
   ################# draw transp colorbar overlay #################
 
-  def drawTranspColorbar(self, shimPos, barColor, barPosition):
+  def drawTranspColorbar(self, barColor, barPosition):
     cbDim = self.colorbarDim
     olPos = (0,    255)
-    if not isinstance(shimPos, tuple):
-      self.warn("drawTranspOverlayLower: shimpos is not tuple"); return
 
     olPos = (barPosition, 0)
 
@@ -156,7 +154,8 @@ class enoAcclVizController:
     #for es  in self.espreadsL:           es.draw()
 
     if self.espreadsL is not None:
-      for es  in self.espreadsL:           es.draw(self.drawTranspOverlayLower)
+      for es  in self.espreadsL:           es.draw(self)
+      #for es  in self.espreadsL:           es.draw(self.drawTranspOverlayLower)
 
     #if self.alphaCover: self.drawTranspOverlayLower()
 
