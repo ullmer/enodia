@@ -8,6 +8,7 @@ import pygame
 from enoButton import *
 from enoActor  import *
 from enoAcclVizController import *
+from enoKbRotorHooks      import *
 
 spread1 = 'yaml/accl02Panel.yaml'
 
@@ -31,6 +32,8 @@ if platform.system() == "Windows":
 vizController = enoAcclVizController(scrWidth=WIDTH, scrHeight=HEIGHT,
                     panel1Fn = spread1)
 
+inputHooks = enoKbRotorHooks()
+
 # Route draw, on_mouse_down pgzero event hooks to vizController
 
 #eaa = enoActorArray(
@@ -45,7 +48,9 @@ def on_mouse_down(pos):
   vizController.on_mouse_down(pos)
 
 def on_key_down(key):
-  global vizController
+  global inputHooks, vizController
+
   print("key:", key)
+  inputHooks.on_key_down(key, vizController)
 
 ### end ###
