@@ -106,12 +106,12 @@ class enoAcclVizController:
     #olDim = self.transpOverlayLowerDim
     #olPos = self.transpOverlayLowerPos
 
-    print("drawTranspOverlayLower:", shimPos)
+    #print("drawTranspOverlayLower:", shimPos)
 
     olDim = (1920, 140)
     olPos = (0,    255)
-    if not isinstance(shimPos, tuple):
-      self.warn("drawTranspOverlayLower: shimpos is not tuple"); return
+    #if not isinstance(shimPos, tuple):
+    #  self.warn("drawTranspOverlayLower: shimpos is not tuple"); return
 
     olPosShimmed = (olPos[0] + shimPos[0], olPos[1] + shimPos[1])
 
