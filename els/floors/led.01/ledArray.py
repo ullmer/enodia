@@ -21,7 +21,7 @@ class np2DCharArr: #
   verbose     = False
   colormap    = {'O': (255, 128, 0), 'P': (128, 0, 128), 
     'R': (255, 0, 0), 'W': (255, 255, 255), 'G': (0, 255, 0),
-    'B': (0, 0, 255)}
+    'B': (0, 0, 255), '.': (0, 0, 0)}
 
   ############## constructor ############## 
 
@@ -72,6 +72,27 @@ class np2DCharArr: #
         c = '%c' % val
         result += c
     return result
+
+  ############## map color string to integer ############## 
+  
+  def mapColor(self, colorCh): #convert color character to RGB triple
+    if colorCh in self.colormap:
+      result = self.colormap(colorCh); return result
+    print("np2DCharArr mapColor: no code for %c found in colormap" % colorCh)
+    return None
+
+  ############## map color string to integer ############## 
+  
+  def mapColorStr2Int(self, targStr): #convert string of color codes to list of RGB triples
+    tslen  = len(targStr)
+    result = []
+
+    for i in range(tslen):
+      ch = targStr[i]
+      co = self.mapColor(ch)
+      result.append(co)
+
+    return result
     
 ############## main #############
 
@@ -81,6 +102,9 @@ if __name__ == '__main__':
   na.fillCol(1, 'O')
   na.fillRow(3, 'P')
   na.print()
-  print("\n" + na.genColWeave())
+  weaveCh = na.genColWeave()
+  weaveCO = na.mapColorStr2Int(weaveCh)
+  print("\n" + weaveCh)
+  print("\n" + weaveCo)
 
 ### end ###
