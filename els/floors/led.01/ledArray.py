@@ -46,13 +46,29 @@ class np2DCharArr: #
     #https://numpy.org/doc/stable/reference/generated/numpy.array2string.html
     s = np.array2string(self.arr, separator='', formatter={'int':lambda x: chr(x)}) 
     print(s)
+
+  ############## genColWeave ############## 
+  
+  def genColWeave(self): #generate column-wise "weave," initially for LED chain
+    numCols = self.shape[0] 
+    numRows = self.shape[1] 
+  
+    result = ''
+    for j in range(numCols):
+      for i in range(numRows):
+        if j % 2 == 0: val = self.arr[i][j]
+        else:          val = self.arr[i][numCols-j]
+        c = '%c' % val
+        result += c
+    return result
     
 ############## main #############
 
 if __name__ == '__main__':
-  na = np2DCharArr((8,8))
+  na = np2DCharArr((4,4))
   na.fillRow(1, 'P')
   na.fillCol(1, 'O')
   na.print()
+  print(na.genColWeave())
 
 ### end ###
