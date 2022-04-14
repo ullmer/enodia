@@ -14,18 +14,23 @@ except ImportError:
 
 ############## numpy|ulab 2D character array #############
 
-class np2DChAr: #
+class np2DCharArr: #
   arr         = None
   shape       = None
   defaultChar = None
 
-  def __init__(shape=(3,3), defaultChar = '.'):
+  def __init__(self, shape=(3,3), defaultChar = '.'):
     self.defaultChar = defaultChar; self.shape = shape
     dcint = ord(defaultChar)
     self.arr = np.full(shape, dcint, dtype=np.uint8)
+  
+  def print(self):
+    s = np.array2string(self.arr)
+    print(s)
     
 ############## main #############
 
-np2dca = np2DChAr()
+na = np2DCharArr()
+na.print()
 
 ### end ###
