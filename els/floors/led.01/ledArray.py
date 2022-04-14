@@ -19,6 +19,9 @@ class np2DCharArr: #
   shape       = None
   defaultChar = None
   verbose     = False
+  colormap    = {'O': (255, 128, 0), 'P': (128, 0, 128), 
+    'R': (255, 0, 0), 'W': (255, 255, 255), 'G': (0, 255, 0),
+    'B': (0, 0, 255)}
 
   ############## constructor ############## 
 
@@ -26,7 +29,11 @@ class np2DCharArr: #
     self.defaultChar = defaultChar; self.shape = shape
     dcint = ord(defaultChar)
     self.arr = np.full(shape, dcint, dtype=np.uint8)
+    # self.buildColormap()
   
+  ############## build colormap ############## 
+  # def buildColormap(self): 
+
   ############## fill row ############## 
   
   def fillRow(self, whichRow, whichChar):
