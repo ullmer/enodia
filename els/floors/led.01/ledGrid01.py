@@ -4,11 +4,11 @@
 
 from ledArray import *
 
-na = np2DCharArr((10,10))
+na = np2DCharArr((13,13))
 
-for i in range(3):
-  na.fillRow(i*3, 'P')
-  na.fillCol(i*3, 'P')
+for i in range(4):
+  na.fillRow(i*4, 'P')
+  na.fillCol(i*4, 'P')
 
 na.print()
 weaveCh = na.genColWeave()
