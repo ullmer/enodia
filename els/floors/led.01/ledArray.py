@@ -19,11 +19,22 @@ class np2DCharArr: #
   shape       = None
   defaultChar = None
 
+  ############## constructor ############## 
+
   def __init__(self, shape=(3,3), defaultChar = '.'):
-    self.defaultChar = defaultChar; self.shape = shape
+    self.defaultChar P= defaultChar; self.shape = shape
     dcint = ord(defaultChar)
     self.arr = np.full(shape, dcint, dtype=np.uint8)
   
+  ############## fill row ############## 
+  
+  def fillRow(self, whichRow, whichChar):
+    wcint = ord(whichChar)
+    maxIdx = shape[0]
+    for i in range(maxIdx): self.arr[whichRow][i] = wcint
+
+  ############## print ############## 
+
   def print(self):
     #https://numpy.org/doc/stable/reference/generated/numpy.array2string.html
     s = np.array2string(self.arr, separator='', formatter={'int':lambda x: chr(x)}) 
