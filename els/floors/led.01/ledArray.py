@@ -77,7 +77,7 @@ class np2DCharArr: #
   
   def mapColor(self, colorCh): #convert color character to RGB triple
     if colorCh in self.colormap:
-      result = self.colormap(colorCh); return result
+      result = self.colormap[colorCh]; return result
     print("np2DCharArr mapColor: no code for %c found in colormap" % colorCh)
     return None
 
@@ -103,8 +103,8 @@ if __name__ == '__main__':
   na.fillRow(3, 'P')
   na.print()
   weaveCh = na.genColWeave()
-  weaveCO = na.mapColorStr2Int(weaveCh)
+  weaveCo = na.mapColorStr2Int(weaveCh)
   print("\n" + weaveCh)
-  print("\n" + weaveCo)
+  print("\n" + str(weaveCo))
 
 ### end ###
