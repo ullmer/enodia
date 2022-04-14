@@ -25,7 +25,7 @@ class np2DCharArr: #
     self.arr = np.full(shape, dcint, dtype=np.uint8)
   
   def print(self):
-    s = np.array2string(self.arr)
+    s = np.array2string(self.arr, formatter={'c':lambda c: chr(c)})
     print(s)
     
 ############## main #############
