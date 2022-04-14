@@ -2,6 +2,8 @@
 # By Brygg Ullmer, Sida Dai, and Mitali Bhosekar, Clemson University
 # Begun 2022-04-13
 
+import os
+
 try: #https://github.com/v923z/micropython-ulab
     from ulab import numpy as np
     from ulab import scipy as sp
@@ -93,6 +95,15 @@ class np2DCharArr: #
       result.append(co)
 
     return result
+  
+  ############## map color string to integer ############## 
+  
+  def clearScr(self):
+    try: os.clear() #Linux-flavors
+    except: pass
+    
+    try: os.cls() #Windows-flavors
+    except: pass
     
 ############## main #############
 
