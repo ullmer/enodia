@@ -56,8 +56,11 @@ class np2DCharArr: #
     result = ''
     for j in range(numCols):
       for i in range(numRows):
-        if j % 2 == 0: val = self.arr[i][j]
-        else:          val = self.arr[i][numCols-j]
+        if j % 2 == 0: j2 = j
+        else:          j2 = numCols-j
+        print("%i,%i" % (i, j2))
+
+        val = self.arr[i][j2]
         c = '%c' % val
         result += c
     return result
