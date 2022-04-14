@@ -18,6 +18,7 @@ class np2DCharArr: #
   arr         = None
   shape       = None
   defaultChar = None
+  verbose     = False
 
   ############## constructor ############## 
 
@@ -56,11 +57,11 @@ class np2DCharArr: #
     result = ''
     for j in range(numCols):
       for i in range(numRows):
-        if j % 2 == 0: j2 = j
-        else:          j2 = numCols-j
-        print("%i,%i" % (i, j2))
+        if j % 2 == 0: i2 = i
+        else:          i2 = numRows-i-1
+        if self.verbose: print("%i,%i" % (i2, j))
 
-        val = self.arr[i][j2]
+        val = self.arr[i2][j]
         c = '%c' % val
         result += c
     return result
@@ -71,7 +72,8 @@ if __name__ == '__main__':
   na = np2DCharArr((4,4))
   na.fillRow(1, 'P')
   na.fillCol(1, 'O')
+  na.fillRow(3, 'P')
   na.print()
-  print(na.genColWeave())
+  print("\n" + na.genColWeave())
 
 ### end ###
