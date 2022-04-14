@@ -25,12 +25,13 @@ class np2DCharArr: #
     self.arr = np.full(shape, dcint, dtype=np.uint8)
   
   def print(self):
-    s = np.array2string(self.arr, formatter={'c':lambda c: chr(c)})
+    #https://numpy.org/doc/stable/reference/generated/numpy.array2string.html
+    s = np.array2string(self.arr, separator='', formatter={'int':lambda x: chr(x)}) 
     print(s)
     
 ############## main #############
 
-na = np2DCharArr()
+na = np2DCharArr((8,8))
 na.print()
 
 ### end ###
