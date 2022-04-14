@@ -49,9 +49,10 @@ class np2DCharArr: #
     
 ############## main #############
 
-na = np2DCharArr((8,8))
-na.fillRow(1, 'P')
-na.fillCol(1, 'O')
-na.print()
+if __name__ == '__main__':
+  na = np2DCharArr((8,8))
+  na.fillRow(1, 'P')
+  na.fillCol(1, 'O')
+  na.print()
 
 ### end ###
