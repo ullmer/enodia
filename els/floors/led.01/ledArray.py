@@ -22,7 +22,7 @@ class np2DCharArr: #
   ############## constructor ############## 
 
   def __init__(self, shape=(3,3), defaultChar = '.'):
-    self.defaultChar P= defaultChar; self.shape = shape
+    self.defaultChar = defaultChar; self.shape = shape
     dcint = ord(defaultChar)
     self.arr = np.full(shape, dcint, dtype=np.uint8)
   
@@ -30,8 +30,15 @@ class np2DCharArr: #
   
   def fillRow(self, whichRow, whichChar):
     wcint = ord(whichChar)
-    maxIdx = shape[0]
+    maxIdx = self.shape[0]
     for i in range(maxIdx): self.arr[whichRow][i] = wcint
+
+  ############## fill col ############## 
+  
+  def fillCol(self, whichCol, whichChar):
+    wcint = ord(whichChar)
+    maxIdx = self.shape[1]
+    for i in range(maxIdx): self.arr[i][whichCol] = wcint
 
   ############## print ############## 
 
@@ -43,6 +50,8 @@ class np2DCharArr: #
 ############## main #############
 
 na = np2DCharArr((8,8))
+na.fillRow(1, 'P')
+na.fillCol(1, 'O')
 na.print()
 
 ### end ###
