@@ -7,13 +7,36 @@ import ledArray
 ############## numpy|ulab 2D character array #############
 
 class ledArrayViz: 
-  ledArrayHandle = None
+  ledArrayHandle   = None
+  rectList         = None
+  rectDim          = (3,3)
+  defaultRectColor = (20, 20, 20)
 
   ############## constructor ##############
 
   def __init__(self, ledArray):
     self.ledArrayHandle = ledArray
 
+  ############## construct rects ##############
+
+  def constructRects(self, vertList):
+    self.rectList = []
+
+    for vert in vertList:
+      rect = Rect(rectPos, self.rectDim)
+      self.rectList.append(rect)
+
+  ############## draw rects ##############
+
+  def drawRects(self):
+    for rect in self.rectList:
+      screen.draw.filled_rect(rect, self.defaultRectColor)
+
+  ############# pgzero draw #############
+
+  def draw(self, screen):
+    self.drawRects()
+    
   ############## draw grid ##############
 
   def draw(self):
