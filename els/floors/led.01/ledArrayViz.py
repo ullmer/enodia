@@ -51,6 +51,13 @@ if __name__ == '__main__':
   na.fillCol(1, 'O')
   na.fillRow(3, 'P')
 
+  global lav
+  lav = self.ledArrayViz(na)
+  
+global lav
 
+def draw(): 
+   global screen, lav
+   lav.draw(screen)
 
 ### end ###
