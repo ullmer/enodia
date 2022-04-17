@@ -9,13 +9,35 @@ import ledArray
 class ledArrayViz: 
   ledArrayHandle   = None
   rectList         = None
+  vertList         = None
   rectDim          = (3,3)
+  basePos          = (50, 50)
+  dx, dy           = 30, 30
   defaultRectColor = (20, 20, 20)
 
   ############## constructor ##############
 
   def __init__(self, ledArray):
     self.ledArrayHandle = ledArray
+    self.constructGridViz()
+
+  ############## construct rects ##############
+
+  def constructGridViz(self):
+    rows, cols = self.ledArrayHandle.getShape()
+    self.vertList = []
+
+    cy = self.basePos[1]
+
+    for i in rows:
+      cx = self.basePos[0]
+      for j in cols:
+        vert = (cx, cy)
+        self.vertList.append(vert)
+        cx += self.dx
+      cy += self.dy
+
+    self.constructRects(self.vertList)
 
   ############## construct rects ##############
 
@@ -28,18 +50,14 @@ class ledArrayViz:
 
   ############## draw rects ##############
 
-  def drawRects(self):
+  def drawRects(self, screen):
     for rect in self.rectList:
       screen.draw.filled_rect(rect, self.defaultRectColor)
 
   ############# pgzero draw #############
 
   def draw(self, screen):
-    self.drawRects()
-    
-  ############## draw grid ##############
-
-  def draw(self):
+    self.drawRects(screen)
     
 ############## main #############
 
