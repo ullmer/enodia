@@ -31,9 +31,9 @@ class ledArrayViz:
 
     cy = self.basePos[1]
 
-    for i in rows:
+    for i in range(rows):
       cx = self.basePos[0]
-      for j in cols:
+      for j in range(cols):
         vert = (cx, cy)
         self.vertList.append(vert)
         cx += self.dx
@@ -47,7 +47,7 @@ class ledArrayViz:
     self.rectList = []
 
     for vert in vertList:
-      rect = Rect(rectPos, self.rectDim)
+      rect = Rect(vert, self.rectDim)
       self.rectList.append(rect)
 
   ############## draw rects ##############

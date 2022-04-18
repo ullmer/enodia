@@ -33,7 +33,7 @@ class np2DCharArr: #
     self.arr = np.full(shape, dcint, dtype=np.uint8)
     # self.buildColormap()
   
-  def getShape(self): return self.shape()
+  def getShape(self): return self.shape
 
   ############## fill row ############## 
   
