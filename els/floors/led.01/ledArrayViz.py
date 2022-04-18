@@ -49,24 +49,26 @@ class ledArrayViz:
 
   def constructRects(self):
     self.rectList = []
-    print("constructRects:", self.vertList)
+    #print("constructRects:", self.vertList)
     self.idx2rect = {}
 
     for vert in self.vertList:
       rect = Rect(vert, self.rectDim)
       idx  = self.vert2idx[vert]
+      #print(idx, vert)
       self.idx2rect[idx] = rect
 
   ############## draw rects ##############
 
   def drawRects(self, screen):
-    printf("drawRects")
-    for vert in vertList:
+    #print("drawRects:", self.vertList)
+    for vert in self.vertList:
       idx  = self.vert2idx[vert]
+      #print("dr1:", vert, idx)
       rect = self.idx2rect[idx]
-      color = ledArrayHandle.getIdxColor(idx)
-      print(idx, color)
-      #if color == (0, 0, 0): color = self.defaultRectColor
+      color = self.ledArrayHandle.getIdxColor(idx)
+      #print("dr2:", idx, color)
+      if color == (0, 0, 0): color = self.defaultRectColor
       color = (200, 100, 100)
 
       screen.draw.filled_rect(rect, color)
