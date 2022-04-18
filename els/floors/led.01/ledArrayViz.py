@@ -2,7 +2,7 @@
 # By Brygg Ullmer, Sida Dai, and Mitali Bhosekar, Clemson University
 # Begun 2022-04-13
 
-import ledArray
+from ledArray import *
 
 ############## numpy|ulab 2D character array #############
 
@@ -24,6 +24,8 @@ class ledArrayViz:
   ############## construct rects ##############
 
   def constructGridViz(self):
+    print("ledArrayViz constructor called")
+
     rows, cols = self.ledArrayHandle.getShape()
     self.vertList = []
 
@@ -61,8 +63,10 @@ class ledArrayViz:
     
 ############## main #############
 
-if __name__ == '__main__':
+#if __name__ == '__main__':
+if True:
 
+  print("main called")
   ### drawGrid ###
   na = np2DCharArr((4,4))
   na.fillRow(1, 'P')
@@ -70,12 +74,11 @@ if __name__ == '__main__':
   na.fillRow(3, 'P')
 
   global lav
-  lav = self.ledArrayViz(na)
+  lav = ledArrayViz(na)
   
-global lav
-
 def draw(): 
    global screen, lav
-   lav.draw(screen)
+   try: lav.draw(screen)
+   except: pass
 
 ### end ###
