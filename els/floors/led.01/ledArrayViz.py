@@ -13,7 +13,7 @@ class ledArrayViz:
   rectDim          = (3,3)
   basePos          = (50, 50)
   dx, dy           = 30, 30
-  defaultRectColor = (20, 20, 20)
+  defaultRectColor = (100, 100, 100)
 
   ############## constructor ##############
 
@@ -45,6 +45,7 @@ class ledArrayViz:
 
   def constructRects(self, vertList):
     self.rectList = []
+    print("constructRects:", vertList)
 
     for vert in vertList:
       rect = Rect(vert, self.rectDim)
