@@ -14,6 +14,8 @@ class ledArrayViz:
   basePos          = (50, 50)
   dx, dy           = 30, 30
   defaultRectColor = (100, 100, 100)
+  vert2idx, idx2vert = None, None
+  rect2idx, idx2rect = None, None
 
   ############## constructor ##############
 
@@ -27,7 +29,7 @@ class ledArrayViz:
     print("ledArrayViz constructor called")
 
     rows, cols = self.ledArrayHandle.getShape()
-    self.vertList = []
+    self.vertList = ]; self.vert2idx = {}; self.idx2vert = {}
 
     cy = self.basePos[1]
 
@@ -36,6 +38,9 @@ class ledArrayViz:
       for j in range(cols):
         vert = (cx, cy)
         self.vertList.append(vert)
+         idx = (i, j)
+        self.vert2idx[vert] = idx
+        self.idx2vert[idx]  = vert
         cx += self.dx
       cy += self.dy
 
@@ -46,16 +51,23 @@ class ledArrayViz:
   def constructRects(self, vertList):
     self.rectList = []
     print("constructRects:", vertList)
+    self.rect2idx = {}; self.idx2rect = {}
 
     for vert in vertList:
       rect = Rect(vert, self.rectDim)
+      idx  = self.vert2idx[vert]
       self.rectList.append(rect)
+      self.rect2idx[rect] = idx; self.idx2rect[idx] = rect
 
   ############## draw rects ##############
 
   def drawRects(self, screen):
     for rect in self.rectList:
-      screen.draw.filled_rect(rect, self.defaultRectColor)
+      idx   = self.rect2idx[rect]
+      color = ledArrayHandle.getIdxColor(idx)
+      if color == (0, 0, 0): color = self.defaultRectColor
+
+      screen.draw.filled_rect(rect, color)
 
   ############# pgzero draw #############
 

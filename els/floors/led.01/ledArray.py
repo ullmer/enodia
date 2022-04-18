@@ -35,6 +35,15 @@ class np2DCharArr: #
   
   def getShape(self): return self.shape
 
+  ############## get idx color ############## 
+  
+  def getIdxColor(self, posIdx):
+    i, j = posIdx
+    idxCol = self.arr[i][j]
+    if idxCol in self.colormap:
+      color = self.colormap[idxCol]; return color
+    return None
+
   ############## fill row ############## 
   
   def fillRow(self, whichRow, whichChar):
