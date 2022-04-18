@@ -29,7 +29,7 @@ class ledArrayViz:
     print("ledArrayViz constructor called")
 
     rows, cols = self.ledArrayHandle.getShape()
-    self.vertList = ]; self.vert2idx = {}; self.idx2vert = {}
+    self.vertList = []; self.vert2idx = {}; self.idx2vert = {}
 
     cy = self.basePos[1]
 
@@ -38,7 +38,7 @@ class ledArrayViz:
       for j in range(cols):
         vert = (cx, cy)
         self.vertList.append(vert)
-         idx = (i, j)
+        idx = (i, j)
         self.vert2idx[vert] = idx
         self.idx2vert[idx]  = vert
         cx += self.dx
@@ -56,15 +56,16 @@ class ledArrayViz:
     for vert in vertList:
       rect = Rect(vert, self.rectDim)
       idx  = self.vert2idx[vert]
-      self.rectList.append(rect)
-      self.rect2idx[rect] = idx; self.idx2rect[idx] = rect
+      self.idx2rect[idx] = rect
 
   ############## draw rects ##############
 
   def drawRects(self, screen):
-    for rect in self.rectList:
-      idx   = self.rect2idx[rect]
+    for vert in vertList:
+      idx  = self.vert2idx[vert]
+      rect = self.idx2rect[idx]
       color = ledArrayHandle.getIdxColor(idx)
+      print(idx, color)
       if color == (0, 0, 0): color = self.defaultRectColor
 
       screen.draw.filled_rect(rect, color)
