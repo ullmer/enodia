@@ -44,16 +44,16 @@ class ledArrayViz:
         cx += self.dx
       cy += self.dy
 
-    self.constructRects(self.vertList)
+    self.constructRects()
 
   ############## construct rects ##############
 
-  def constructRects(self, vertList):
+  def constructRects(self):
     self.rectList = []
-    print("constructRects:", vertList)
+    print("constructRects:", self.vertList)
     self.rect2idx = {}; self.idx2rect = {}
 
-    for vert in vertList:
+    for vert in self.vertList:
       rect = Rect(vert, self.rectDim)
       idx  = self.vert2idx[vert]
       self.idx2rect[idx] = rect
