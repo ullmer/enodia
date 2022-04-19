@@ -38,9 +38,10 @@ class np2DCharArr: #
   ############## get idx color ############## 
   
   def getIdxColor(self, posIdx):
-    #print("getIdxColor:", posIdx)
     i, j = posIdx
-    idxCol = self.arr[i][j]
+    idxColInt = self.arr[i][j]
+    idxCol = '%c' % idxColInt
+    #print("getIdxColor:", posIdx, idxCol)
     if idxCol in self.colormap:
       color = self.colormap[idxCol]; return color
     return None

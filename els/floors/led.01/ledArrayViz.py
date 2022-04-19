@@ -13,7 +13,7 @@ class ledArrayViz:
   rectDim          = (3,3)
   basePos          = (50, 50)
   dx, dy           = 30, 30
-  defaultRectColor = (100, 100, 100)
+  defaultRectColor = (50, 50, 50)
   vert2idx, idx2vert, idx2rect = [None]*3
 
   ############## constructor ##############
@@ -68,8 +68,8 @@ class ledArrayViz:
       rect = self.idx2rect[idx]
       color = self.ledArrayHandle.getIdxColor(idx)
       #print("dr2:", idx, color)
-      if color == (0, 0, 0): color = self.defaultRectColor
-      color = (200, 100, 100)
+      if color == (0, 0, 0) or color == None: 
+        color = self.defaultRectColor
 
       screen.draw.filled_rect(rect, color)
 
@@ -85,10 +85,11 @@ if True:
 
   print("main called")
   ### drawGrid ###
-  na = np2DCharArr((4,4))
+  na = np2DCharArr((8,8))
   na.fillRow(1, 'P')
   na.fillCol(1, 'O')
   na.fillRow(3, 'P')
+  #na.print()
 
   global lav
   lav = ledArrayViz(na)
