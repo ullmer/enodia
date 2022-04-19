@@ -78,25 +78,4 @@ class ledArrayViz:
   def draw(self, screen):
     self.drawRects(screen)
     
-############## main #############
-
-#if __name__ == '__main__':
-if True:
-
-  print("main called")
-  ### drawGrid ###
-  na = np2DCharArr((8,8))
-  na.fillRow(1, 'P')
-  na.fillCol(1, 'O')
-  na.fillRow(3, 'P')
-  #na.print()
-
-  global lav
-  lav = ledArrayViz(na)
-  
-def draw(): 
-   global screen, lav
-   try: lav.draw(screen)
-   except: pass
-
 ### end ###
