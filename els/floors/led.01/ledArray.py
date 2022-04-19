@@ -64,8 +64,30 @@ class np2DCharArr: #
 
   def print(self):
     #https://numpy.org/doc/stable/reference/generated/numpy.array2string.html
-    s = np.array2string(self.arr, separator='', formatter={'int':lambda x: chr(x)}) 
+    s = np.array2string(self.arr, separator='', \
+        formatter={'int':lambda x: chr(x)}) 
     print(s)
+
+  ############## row to string ############## 
+
+  def row2str(self, whichRow):
+    result = ''
+    numCols = self.shape[0]
+    for j in range(numCols):
+      idxColInt = self.arr[whichRow][j]
+      idxCol = '%c' % idxColInt
+      result += idxCol
+    return result
+
+  ############## printCSV ############## 
+
+  def genCSV(self):
+    resultL = []
+    numRows = self.shape[1]
+    for j in range(numRows):
+      resultL.append(self.row2str(j))
+    result = ','.join(resultL)
+    return result
 
   ############## genColWeave ############## 
   

@@ -11,10 +11,12 @@ na = np2DCharArr((8,8))
 na.fillRow(1, 'P')
 na.fillCol(1, 'O')
 na.fillRow(3, 'P')
-#na.print()
+na.print()
+print(na.genCSV())
 
 global lav
 lav = ledArrayViz(na)
+
   
 def draw(): 
    global screen, lav
