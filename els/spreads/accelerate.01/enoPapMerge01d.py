@@ -5,16 +5,12 @@
 #Draws from code by geekfish:
 #https://gist.github.com/Geekfish/a4fe4efd59e158f55ca5c76479831c8d
 
-#from PyPDF2 import PdfFileWriter,PdfFileReader,PdfFileMerger
-#from PyPDF2.pdf import PageObject
+from PyPDF2 import PdfFileWriter,PdfFileReader,PdfFileMerger
+from PyPDF2.pdf import PageObject
 
-import pikepdf
-from pikepdf import Name, PasswordError, Pdf, PdfError, Stream
-
-import yaml, sys, os, glob, shutil
+import yaml, sys, os, glob
 
 fnPrefix = "images/"
-spreadDividerPdfName = fnPrefix + "spreadDivider1a.pdf"
 
 if len(sys.argv) != 2:
   print("Please provide .yaml filename as argument"); sys.exit(-1)
@@ -44,13 +40,11 @@ def procSpreadYaml(spreadYamlFn):
 
   if "enoSpread" in y: spread  = y["enoSpread"]
   else:                
-    print("procSpreadYaml error: no enoSpread in filename", spreadYamlFn); 
-    print(y); sys.exit(-1)
+    print("procSpreadYaml error: no enoSpread in filename", spreadYamlFn); print(y); sys.exit(-1)
 
   if "targDir" in spread: targDir = spread["targDir"]
   else:                  
-    print("procSpreadYaml error: no targDir enoSpread in file enoSpread:", \
-      spreadYamlFn); sys.exit(-1)
+    print("procSpreadYaml error: no targDir enoSpread in file enoSpread:", spreadYamlFn); sys.exit(-1)
 
   targpat = fnPrefix + targDir + "/*.pdf"
   files = glob.glob(targpat)
@@ -67,15 +61,16 @@ for spreadYamlFn in es:
 ########### pdf combine ########### 
 
 def pdfCombine(srcPdfs, targPdf):
-  global spreadDividerPdfName 
   print("pdfCombine src:", srcPdfs, "; targPdf:", targPdf)
 
   pages    = []
   srcFList = []
 
   for pdfFn in srcPdfs:
-    pdff = Pdf.open(pdfFn)
-    srcFList.append(pdff)
+    f = open(pdfFn, 'rb')
+    reader = PdfFileReader(f)
+    pages.append(reader.getPage(0))
+    srcFList.append(f)
 
   widthSum = 0; maxHeight = 0
   for page in pages: 
@@ -89,8 +84,6 @@ def pdfCombine(srcPdfs, targPdf):
   for page in pages:
     mergedPage.mergeTranslatedPage(page, dx, 0)
     dx += page.mediaBox.getWidth()
-
-  shutil.copy(spreadDividerPdfName, targPdf)
 
   writer = PdfFileWriter()
   writer.addPage(mergedPage)
