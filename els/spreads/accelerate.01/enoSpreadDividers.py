@@ -15,6 +15,7 @@ class enoSpreadDividers:
 
   dividerY         = None
   dividerPdfPrefix = None
+  dividerFnHash    = None
 
   ####################### constructor ####################### 
 
@@ -50,16 +51,22 @@ class enoSpreadDividers:
       if yph != self.dhandle: 
         self.warn("loadYaml: panel does not match specified handle"); return None
 
-      ypid   = yph["imgDir"]
-      ypipre = yph["imgPrefix"]
-      ypiext = yph["imgExt"]
+      ypid   = yp["imgDir"]
+      ypipre = yp["imgPrefix"]
+      ypiext = yp["imgExt"]
       ypels  = yp["els"]
-      ypeu   = ypels["upper"]
-      ypel   = ypels["lower"]
+      ypidb  = ypid["base"]
+      ypeup  = ypels["upper"]
+      ypelo  = ypels["lower"]
 
-      self.dividerPdfPrefix = y[panel]
+      self.dividerPdfPrefix = ypidb + ypipre
+      self.dividerFnHash    = {}
+       
+      for el in ypeup + ypelo: #synthesis of both lists
 
-      self.dividerPdfFn = 
+
+
+      
 
 ####################### main ####################### 
 
@@ -68,20 +75,6 @@ if __name__ == '__main__':
     
 ### end ###
 
-
-panel:
-  handle: divider01 #panel dividers on spreads
-  name:   Panel Divider 01
-
-  imgDir:
-    x1: acc_bc/x1/ #100dpi  #for screen animations during rolling, it's
-    x6: acc_bc/x6/ #600dpi  #possible that we may wish pixel/image versions
-    d6: acc_bc/d6/ #100/6 dpi
-
-# images/dividers/x1 : rollDividerCU02e_L2.pdf  rollDividerCU02e_U1.pdf
-
-  imgPrefix:       "rollDividerCU02e_"
-  imgExt:          ".png"
 
   els:
     upper: [U1, U2, U3]
