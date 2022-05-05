@@ -2,65 +2,20 @@
 # Brygg Ullmer, Clemson University
 # Begun 2022-05-05
 
-spread:
+panel:
   handle: divider01 #panel dividers on spreads
   name:   Panel Divider 01
 
-panel:
-  handle: cu
-  name:   Clemson University
-
   imgDir: 
-    x1: acc_bc/x1/ #100dpi
-    x6: acc_bc/x6/ #600dpi
+    x1: acc_bc/x1/ #100dpi  #for screen animations during rolling, it's 
+    x6: acc_bc/x6/ #600dpi  #possible that we may wish pixel/image versions
     d6: acc_bc/d6/ #100/6 dpi
 
 # images/dividers/x1 : rollDividerCU02e_L2.pdf  rollDividerCU02e_U1.pdf  
 
-  imgPrefix:       "abc32c-"
+  imgPrefix:       "rollDividerCU02e_"
   imgExt:          ".png"
-  imgPostfixTouch: "-to"
-  imgPostfixFull:  "-fu"
 
-  dim: [1920, 1080]
-  pos: [1920, 1080]
-
-  olDim: [1920, 130] #to be integrated; not yet complete
-  olPos: [0,    950]
-
-  tiers:
-    2: [fg, bau, wen, mkk, jdg, rhj, sd, ss, ty]
-    1: [dr, mb, aw, jg, kk, ls, bf, mm]
-
-  #tierPosOff:
-  #  2: {pos: [ 30, 327], dxy: [59, 0]}
-  #  1: {pos: [118, 362], dxy: [59, 0]}
-
-  #tierPosShim: [50, 0] # added to pos of both tierPosOff tiers
-  tierPosShim: [50, 680] # added to pos of both tierPosOff tiers
-
-  tierPosOff:
-    2: {pos: [ 30, 327], dxy: [59, 0]}
-    1: {pos: [118, 362], dxy: [59, 0]}
-
-  els:
-    - {abbrev: fg,  name: fargate}
-    - {abbrev: bau, name: ullmer}
-    - {abbrev: wen, name: newman}
-    - {abbrev: mkk, name: konkel}
-    - {abbrev: jdg, name: griffin}
-    - {abbrev: rhj, name: jones}
-    - {abbrev: sd,  name: dai}
-    - {abbrev: ss,  name: sutherland}
-
-    - {abbrev: dr,  name: roberts}
-    - {abbrev: mb,  name: bhosekar}
-    - {abbrev: aw,  name: washington}
-    - {abbrev: jg,  name: graham}
-    - {abbrev: kk,  name: kane}
-    - {abbrev: ls,  name: shafiee}
-    - {abbrev: bf,  name: filipiak}
-    - {abbrev: mm,  name: mclendon}
-    - {abbrev: ty,  name: thanks}
+  els: [U1, U2, U3, L1, L2, L3]
 
 ### end ###
