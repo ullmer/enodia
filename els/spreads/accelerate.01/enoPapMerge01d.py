@@ -1,5 +1,5 @@
 #Merging PDF panels
-#Brygg Ullmer, Clemson University
+spreadSeq01.yaml#Brygg Ullmer, Clemson University
 #Begun 2022-03-26
 
 #Draws from code by geekfish:
@@ -15,7 +15,7 @@ fnPrefix = "images/"
 if len(sys.argv) != 2:
   print("Please provide .yaml filename as argument"); sys.exit(-1)
 
-srcYamlFn = sys.argv[1]
+srcYamlFn = sys.argv[1] #e.g., 'spreadSeq01.yaml'
 
 srcYamlF  = open(srcYamlFn, "rt")
 srcYaml   = yaml.safe_load(srcYamlF)
