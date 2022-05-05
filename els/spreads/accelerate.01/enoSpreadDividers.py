@@ -9,45 +9,31 @@ import yaml, sys, traceback
 
 class enoSpreadDividers:
 
-  yamlFn  = "yaml/divider01.yaml"
-  dhandle = "divider01"
+  dhandle  = "divider01"
+  yamlFn   = "yaml/divider01.yaml"
+  yamlF    = None
+  dividerY = None
 
   ####################### constructor ####################### 
 
-  def __init__(self, spreadName, **kwargs):
+  def __init__(self, **kwargs):
 
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
-    self.enoActorL    = []
-    self.abbrevL      = []
-    self.colorbarL    = []
-    self.projActors   = []
-    self.elPosCache      = {}
-    self.touchEl2Tier    = {}
-    self.enoActorLTiered = {}
-    self.enoActorLarge   = {}
-    self.abbrev2enoActor = {}
-    self.projActorCache  = {}
-
-    for t in [1,2]: self.enoActorLTiered[t] = []
-
-    self.loadYaml(spreadName)
-    self.parseTouchElsY()
-    self.cacheColorbars()
+    self.loadYaml()
+    #for t in [1,2]: self.enoActorLTiered[t] = []
 
   ####################### load YAML ####################### 
 
-  def loadYaml(self, spreadName):
-    self.spreadName = spreadName
-    self.spreadYFn = "yaml/" + self.spreadName + ".yaml"
+  def loadYaml(self):
     try:
       self.warn("loadYaml calling open + safe_load on " + self.spreadYFn)
-      self.spreadYF = open(self.spreadYFn, "rt")
-      self.spreadY = yaml.safe_load(self.spreadYF)
+      self.yamlF = open(self.yamlFn, "rt")
+      self.dividerY = yaml.safe_load(self.yamlF)
     except: self.warn("loadYaml: caught error"); traceback.print_exc()
 
-    if self.verbose: self.warn(self.spreadY)
+    if self.verbose: self.warn(self.dividerY)
 
 ####################### main ####################### 
 
@@ -74,4 +60,3 @@ panel:
   els:
     upper: [U1, U2, U3]
     lower: [L1, L2, L3]
-
