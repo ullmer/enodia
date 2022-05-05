@@ -16,6 +16,8 @@ panel:
   imgPrefix:       "rollDividerCU02e_"
   imgExt:          ".png"
 
-  els: [U1, U2, U3, L1, L2, L3]
+  els: 
+    upper: [U1, U2, U3]
+    lower: [L1, L2, L3]
 
 ### end ###
