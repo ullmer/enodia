@@ -13,8 +13,8 @@ def ledRun(ledstri,ledarr):
     return
 
 #floor configuration
-FLOOR_X = 13
-FLOOR_Y = 13
+FLOOR_X = 12
+FLOOR_Y = 12
 
 # LED strip configuration:
 LED_COUNT      = FLOOR_X * FLOOR_Y      # Number of LED pixels.
