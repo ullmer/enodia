@@ -7,10 +7,10 @@ import yaml, sys, traceback
 ###################################################################
 ####################### Enodia Spread Panel ####################### 
 
-class enoSpread:
+class enoSpreadDividers:
 
-  spreadName, spreadYFn, spreadYF, spreadY, spreadEls = [None] * 5
-  imgDirX1, imgDirX6, imgDirD6                        = [None] * 3
+  yamlFn  = "yaml/divider01.yaml"
+  dhandle = "divider01"
 
   ####################### constructor ####################### 
 
@@ -18,6 +18,7 @@ class enoSpread:
 
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
+
     self.enoActorL    = []
     self.abbrevL      = []
     self.colorbarL    = []
@@ -51,6 +52,26 @@ class enoSpread:
 ####################### main ####################### 
 
 if __name__ == '__main__': 
-  es = enoSpreads()
+  esd = enoSpreadDividers()
     
 ### end ###
+
+
+panel:
+  handle: divider01 #panel dividers on spreads
+  name:   Panel Divider 01
+
+  imgDir:
+    x1: acc_bc/x1/ #100dpi  #for screen animations during rolling, it's
+    x6: acc_bc/x6/ #600dpi  #possible that we may wish pixel/image versions
+    d6: acc_bc/d6/ #100/6 dpi
+
+# images/dividers/x1 : rollDividerCU02e_L2.pdf  rollDividerCU02e_U1.pdf
+
+  imgPrefix:       "rollDividerCU02e_"
+  imgExt:          ".png"
+
+  els:
+    upper: [U1, U2, U3]
+    lower: [L1, L2, L3]
+
