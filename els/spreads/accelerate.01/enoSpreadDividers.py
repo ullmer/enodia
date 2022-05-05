@@ -12,8 +12,9 @@ class enoSpreadDividers:
   dhandle  = "divider01"
   yamlFn   = "yaml/divider01.yaml"
   yamlF    = None
-  dividerY = None
-  dividerPdfFn = None
+
+  dividerY         = None
+  dividerPdfPrefix = None
 
   ####################### constructor ####################### 
 
@@ -24,6 +25,12 @@ class enoSpreadDividers:
 
     self.loadYaml()
     #for t in [1,2]: self.enoActorLTiered[t] = []
+
+  ####################### warn message ####################### 
+
+  def warn(self, msg):
+    try: print("enoSpreadDividers warning:", msg)
+    except: pass
 
   ####################### load YAML ####################### 
 
@@ -37,6 +44,21 @@ class enoSpreadDividers:
     if self.verbose: self.warn(self.dividerY)
 
     try:
+      y = self.dividerY
+      yp  = y["panel"]
+      yph = yp["handle"]
+      if yph != self.dhandle: 
+        self.warn("loadYaml: panel does not match specified handle"); return None
+
+      ypid   = yph["imgDir"]
+      ypipre = yph["imgPrefix"]
+      ypiext = yph["imgExt"]
+      ypels  = yp["els"]
+      ypeu   = ypels["upper"]
+      ypel   = ypels["lower"]
+
+      self.dividerPdfPrefix = y[panel]
+
       self.dividerPdfFn = 
 
 ####################### main ####################### 
