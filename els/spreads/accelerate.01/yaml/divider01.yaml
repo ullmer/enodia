@@ -15,6 +15,8 @@ panel:
     x6: acc_bc/x6/ #600dpi
     d6: acc_bc/d6/ #100/6 dpi
 
+# images/dividers/x1 : rollDividerCU02e_L2.pdf  rollDividerCU02e_U1.pdf  
+
   imgPrefix:       "abc32c-"
   imgExt:          ".png"
   imgPostfixTouch: "-to"
