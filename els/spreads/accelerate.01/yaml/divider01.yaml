@@ -7,9 +7,10 @@ panel:
   name:   Panel Divider 01
 
   imgDir: 
-    x1: acc_bc/x1/ #100dpi  #for screen animations during rolling, it's 
-    x6: acc_bc/x6/ #600dpi  #possible that we may wish pixel/image versions
-    d6: acc_bc/d6/ #100/6 dpi
+    base: images/dividers
+    x1:   x1/ #100dpi  #for screen animations during rolling, it's 
+    x6:   x6/ #600dpi  #possible that we may wish pixel/image versions
+    d6:   d6/ #100/6 dpi
 
 # images/dividers/x1 : rollDividerCU02e_L2.pdf  rollDividerCU02e_U1.pdf  
 

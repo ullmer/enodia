@@ -13,6 +13,7 @@ class enoSpreadDividers:
   yamlFn   = "yaml/divider01.yaml"
   yamlF    = None
   dividerY = None
+  dividerPdfFn = None
 
   ####################### constructor ####################### 
 
@@ -34,6 +35,9 @@ class enoSpreadDividers:
     except: self.warn("loadYaml: caught error"); traceback.print_exc()
 
     if self.verbose: self.warn(self.dividerY)
+
+    try:
+      self.dividerPdfFn = 
 
 ####################### main ####################### 
 
