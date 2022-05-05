@@ -1,0 +1,16 @@
+# ACCelerate22 spread
+# Brygg Ullmer, Clemson University
+# Begun 2022-03-26
+# Revisited 2022-05-05 for 3-module deployment
+
+spread:
+  - siMap1.yaml
+  - siMap2.yaml
+  - accelerateBC1.yaml
+  - accelerateBC2.yaml
+  - interactPostAccelerate1.yaml
+  - interactPostAccelerate2.yaml
+
+spreadTargDir: "images/spread01/"
+
+### end ###
