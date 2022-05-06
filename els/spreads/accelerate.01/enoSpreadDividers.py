@@ -72,6 +72,20 @@ class enoSpreadDividers:
       self.warn("loadYaml error processing data")
       traceback.print_exc()
 
+  ####################### getFn ####################### 
+
+  def getFnKey(self, key):
+    if key not in self.dividerFnHash:
+      self.warn("getFn references unknown key", key); return None
+    result = self.dividerFnHash[key]
+    return result
+  
+ ####################### getFn ####################### 
+
+  def getFnCoord(self, tb, idx):
+    key = tb + str(idx)
+    result = self.getFnKey(key)
+    return result
 
 ####################### main ####################### 
 
