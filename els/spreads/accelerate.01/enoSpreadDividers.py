@@ -63,10 +63,12 @@ class enoSpreadDividers:
       self.dividerFnHash    = {}
        
       for el in ypeup + ypelo: #synthesis of both lists
+        self.dividerFnHash[el] = ypid + ypipre + el + imgExt
+        print(self.dividerFnHash[el])
+    except:
+      self.warn("loadYaml error processing data")
+      traceback.print_exc()
 
-
-
-      
 
 ####################### main ####################### 
 
@@ -75,7 +77,3 @@ if __name__ == '__main__':
     
 ### end ###
 
-
-  els:
-    upper: [U1, U2, U3]
-    lower: [L1, L2, L3]
