@@ -1,6 +1,7 @@
 #Merging PDF panels
 spreadSeq01.yaml#Brygg Ullmer, Clemson University
 #Begun 2022-03-26
+#Reworked 2022-05-05
 
 #Draws from code by geekfish:
 #https://gist.github.com/Geekfish/a4fe4efd59e158f55ca5c76479831c8d
@@ -9,6 +10,8 @@ from PyPDF2 import PdfFileWriter,PdfFileReader,PdfFileMerger
 from PyPDF2.pdf import PageObject
 
 import yaml, sys, os, glob
+
+from enoSpreadDividers import *
 
 fnPrefix = "images/"
 
@@ -102,6 +105,8 @@ print("first key:", firstKey)
 
 panelPdfs = spreadHash[firstKey]
 #print(spreadHash)
+
+esd = enoSpreadDividers()
 
 for panelPdfFnRaw in panelPdfs:
   panelPdfFn = os.path.basename(panelPdfFnRaw)
