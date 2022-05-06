@@ -1,0 +1,47 @@
+ipanel:
+  id:           usa-sc-01a
+  creator:      [Brygg Ullmer, Clemson University]
+  creationDate: 2022-04-15
+  url:          https://github.com/ullmer/enodia/tree/main/els/panels/usa.sc/
+
+  scenes: 
+    clemson01: clemsonScenes.yaml
+    s01: clemsonB01.yaml # base config 1
+    s02: clemsonB02.yaml # dpa emphasis: charleston-oriented
+    s03: clemsonB03.yaml # automotive emphasis: greenville-oriented
+    s04: clemsonB04.yaml # automotive emphasis: SPRI-oriented
+
+  dimensions: 
+    panel:
+      int:  [119199, 119371]
+      inch: [11.906, 11.924]
+    touch:
+      int:  10000
+      inch: 1.
+
+  labels:
+    GSP: {name: Greenville,     bar: L01, geo: G01}
+    CEU: {name: Clemson,        bar: L02, geo: G02}
+    HVS: {name: Hartsville,     bar: L03, geo: G03}
+    CAE: {name: Columbia,       bar: L04, geo: G04}
+    CHS: {name: Charleston,     bar: L05, geo: G05}
+    SAV: {name: Savannah,       bar: L06, geo: G06}
+    SC:  {name: South Carolina, bar: L07, geo: nul}
+
+  coords:
+    L01: [11756, 15664]
+    L02: [11756, 28799]
+    L03: [11756, 41934]
+    L04: [11756, 55069]
+    L05: [11756, 68204]
+    L06: [11756, 81339]
+    L07: [11756, 94474]
+
+    G01: [41002, 31539]
+    G02: [30033, 36447]
+    G03: [84260, 38791]
+    G04: [63289, 50636]
+    G05: [87612, 76655]
+    G06: [69566, 89834]
+
+### end ###
