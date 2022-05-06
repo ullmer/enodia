@@ -6,11 +6,11 @@
 spread:
   - siMap1.yaml
   - siMap2.yaml
-  - accelerateBC1.yaml
-  - accelerateBC2.yaml
-  - interactPostAccelerate1.yaml
-  - interactPostAccelerate2.yaml
+#  - accelerateBC1.yaml
+#  - accelerateBC2.yaml
+#  - interactPostAccelerate1.yaml
+#  - interactPostAccelerate2.yaml
 
-spreadTargDir: "images/spread01/"
+spreadTargDir: "images/spread02/"
 
 ### end ###
