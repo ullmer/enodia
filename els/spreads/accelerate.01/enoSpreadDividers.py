@@ -87,6 +87,13 @@ class enoSpreadDividers:
     result = self.getFnKey(key)
     return result
 
+ ####################### getFn ####################### 
+
+  def getFnIdx(self, idx, numCols=3):
+    if idx < 3: result = self.getFnCoord('U', idx)
+    else:       result = self.getFnCoord('L', idx-numCols) #numCols somewhat problematic
+    return result
+
 ####################### main ####################### 
 
 if __name__ == '__main__': 
