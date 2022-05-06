@@ -1,5 +1,5 @@
 #Merging PDF panels
-spreadSeq01.yaml#Brygg Ullmer, Clemson University
+#Brygg Ullmer, Clemson University
 #Begun 2022-03-26
 #Reworked 2022-05-05
 
