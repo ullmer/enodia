@@ -1,6 +1,9 @@
-# Enodia spreads // touchscreen class
+# Enodia spreads dividers class
 # Brygg Ullmer, Clemson University
-# Begun 2022-04-01
+# Begun 2022-05-05
+
+# Probably should have implemented far more simply initially, but
+# keep targeting prospects for generalizing...
 
 import yaml, sys, traceback
 
@@ -47,7 +50,7 @@ class enoSpreadDividers:
 
     try:
       y = self.dividerY
-      print(y)
+      if self.verbose: print(y)
       yp  = y["panel"]
       yph = yp["handle"]
       if yph != self.dhandle: 
@@ -67,7 +70,7 @@ class enoSpreadDividers:
        
       for el in ypeup + ypelo: #synthesis of both lists
         self.dividerFnHash[el] = ypidb + "/" + ypix1 + ypipre + el + ypiext
-        print(self.dividerFnHash[el])
+        if self.verbose: print(el, self.dividerFnHash[el])
     except:
       self.warn("loadYaml error processing data")
       traceback.print_exc()
@@ -83,7 +86,8 @@ class enoSpreadDividers:
  ####################### getFn ####################### 
 
   def getFnCoord(self, tb, idx):
-    key = tb + str(idx)
+    key = tb + str(idx+1)
+    if self.verbose: print("key:", key)
     result = self.getFnKey(key)
     return result
 
@@ -98,6 +102,9 @@ class enoSpreadDividers:
 
 if __name__ == '__main__': 
   esd = enoSpreadDividers()
+  for i in range(6):
+    fn = esd.getFnIdx(i)
+    print("fn:", fn)
     
 ### end ###
 
