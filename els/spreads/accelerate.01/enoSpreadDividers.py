@@ -58,6 +58,7 @@ class enoSpreadDividers:
       ypiext = yp["imgExt"]
       ypels  = yp["els"]
       ypidb  = ypid["base"]
+      ypix1  = ypid["x1"]
       ypeup  = ypels["upper"]
       ypelo  = ypels["lower"]
 
@@ -65,7 +66,7 @@ class enoSpreadDividers:
       self.dividerFnHash    = {}
        
       for el in ypeup + ypelo: #synthesis of both lists
-        self.dividerFnHash[el] = ypid + ypipre + el + imgExt
+        self.dividerFnHash[el] = ypidb + "/" + ypix1 + ypipre + el + ypiext
         print(self.dividerFnHash[el])
     except:
       self.warn("loadYaml error processing data")
