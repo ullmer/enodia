@@ -12,6 +12,7 @@ class enoSpreadDividers:
   dhandle  = "divider01"
   yamlFn   = "yaml/divider01.yaml"
   yamlF    = None
+  verbose  = False
 
   dividerY         = None
   dividerPdfPrefix = None
@@ -37,7 +38,7 @@ class enoSpreadDividers:
 
   def loadYaml(self):
     try:
-      self.warn("loadYaml calling open + safe_load on " + self.spreadYFn)
+      self.warn("loadYaml calling open + safe_load on " + self.yamlFn)
       self.yamlF = open(self.yamlFn, "rt")
       self.dividerY = yaml.safe_load(self.yamlF)
     except: self.warn("loadYaml: caught error"); traceback.print_exc()
@@ -46,6 +47,7 @@ class enoSpreadDividers:
 
     try:
       y = self.dividerY
+      print(y)
       yp  = y["panel"]
       yph = yp["handle"]
       if yph != self.dhandle: 
