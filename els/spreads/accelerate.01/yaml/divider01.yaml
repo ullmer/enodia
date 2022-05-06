@@ -1,0 +1,24 @@
+# Fargate spread panel divider 
+# Brygg Ullmer, Clemson University
+# Begun 2022-05-05
+
+panel:
+  handle: divider01 #panel dividers on spreads
+  name:   Panel Divider 01
+
+  imgDir: 
+    base: images/dividers
+    x1:   x1/ #100dpi  #for screen animations during rolling, it's 
+    x6:   x6/ #600dpi  #possible that we may wish pixel/image versions
+    d6:   d6/ #100/6 dpi
+
+# images/dividers/x1 : rollDividerCU02e_L2.pdf  rollDividerCU02e_U1.pdf  
+
+  imgPrefix:       "rollDividerCU02e_"
+  imgExt:          ".png"
+
+  els: 
+    upper: [U1, U2, U3]
+    lower: [L1, L2, L3]
+
+### end ###

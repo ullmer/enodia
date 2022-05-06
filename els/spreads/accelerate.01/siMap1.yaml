@@ -1,0 +1,19 @@
+enoSpread:
+  name:    siMap
+  creator: Smithsonian Institution and Brygg Ullmer
+  date:    2022-03-24
+
+  srcFn:    siMap18e.pdf
+  targDir:  siMap  
+  targUbFn: Ub%i.pdf
+  targLbFn: Lb%i.pdf
+
+  divsHoriz: 3
+  divsVert:  3
+  order:     1 #don't recall :-/
+  offset:    0 #toward dividing ensembles of larger numbers of spreads into smaller numbers
+
+  trimsUpperBand: [250, 1910, 200, 200] 
+  trimsLowerBand: [1980, 180, 200, 200] 
+
+### end ###
