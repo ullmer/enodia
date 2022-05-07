@@ -30,7 +30,8 @@ if platform.system() == "Windows":
 #os.environ['SDL_VIDEO_CENTERED'] = '1'
 
 vizController = enoAcclVizController(scrWidth=WIDTH, scrHeight=HEIGHT,
-                    panel1Fn = spread1, bcTouchIdx=2)
+                    panel1Fn=spread1, bcTouchIdx=1)
+#                    panel1Fn=spread1, bcTouchIdx=2)
 
 inputHooks = enoKbRotorHooks()
 
