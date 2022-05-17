@@ -13,6 +13,5 @@ def draw(): #main drawing loop
 def on_key_down(key, mod, unicode):  
   if key == keys.LEFT:  rr.left -= 5 #left  pushed
   if key == keys.RIGHT: rr.left += 5 #right pushed
-  if key == keys.SPACE: pass
 
 ### end ###
