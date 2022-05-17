@@ -1,4 +1,4 @@
-# Brygg Ullmer & Lilleken
+# Brygg & Lilleken
 # Begun 2022-05-16
 
 WIDTH  = 800
