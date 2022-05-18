@@ -3,21 +3,42 @@
 # Begun 2022-05-18
 
 class enoDigits:
+  font            = "LobsterTwo-Regular"
+  numbers         = None 
+  numberPositions = None 
+  nextNumberId    = 0
+
   directory       = 'num-lob/'
   digitActors     = None #individual digits: 0, 1, ...
   digitWidths     = None
-  numberPositions = None #potentially multi-digit numbers
- 
-  x, y  = 100, 100
 
   ##################### initialize #####################
 
   def __init__(self):
-    self.loadDigits()
+    #self.loadDigits() 
+    self.numbers         = {}
+    self.numberPositions = {}
+
+  ##################### initialize #####################
+
+  def introduceNumber(self, whichNum, whichPos):
+    numId = self.nextNumberId
+    self.numbers[numId]         = whichNum
+    self.numberPositions[numId] = whichPos
+    self.nextNumberId += 1
+
+  ##################### initialize #####################
+
+  def drawNumbers(self):
+    numIds = self.numbers.keys()
+
+    for numId in numIds:
+      whichNum = self.numbers[numId]
+      whichPos = self.numberPositions[numId] 
 
   ##################### load digits #####################
 
-  def loadDigits(self):
+  def loadDigits(self):  #initial image-based approached; shelved for the moment
     self.digitActors     = {}
     self.digitWidths     = {}
     self.numberPositions = {}
