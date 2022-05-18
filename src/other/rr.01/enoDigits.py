@@ -3,7 +3,7 @@
 # Begun 2022-05-18
 
 class enoDigits:
-  font            = "LobsterTwo-Regular"
+  font            = "lobstertwo-regular"
   numbers         = None 
   numberPositions = None 
   nextNumberId    = 0
@@ -39,7 +39,7 @@ class enoDigits:
       whichNum = self.numbers[numId]
       whichPos = self.numberPositions[numId] 
 
-      self.screen.draw.text(whichNum, whichPos, fontname = self.font)
+      self.screen.draw.text(str(whichNum), whichPos, fontname = self.font)
 
   ##################### load digits #####################
 
