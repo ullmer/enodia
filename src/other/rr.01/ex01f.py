@@ -1,11 +1,14 @@
 # Lilleken & Brygg
 # Begun 2022-05-16
 
-WIDTH  = 800
-HEIGHT = 800
-
 from enoNumbers import *
 import random
+
+from pgzero.game import screen
+from pgzero.builtins import Actor, animate
+
+WIDTH  = 800
+HEIGHT = 800
 
 T = "accel_decel" # accelerate, then decelerate animation
 D = .2            # 1/5 of a second
