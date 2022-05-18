@@ -7,6 +7,7 @@ class enoDigits:
   numbers         = None 
   numberPositions = None 
   nextNumberId    = 0
+  screen          = None 
 
   directory       = 'num-lob/'
   digitActors     = None #individual digits: 0, 1, ...
@@ -14,10 +15,12 @@ class enoDigits:
 
   ##################### initialize #####################
 
-  def __init__(self):
-    #self.loadDigits() 
+  def __init__(self, screen):
+    self.screen          = screen
     self.numbers         = {}
     self.numberPositions = {}
+
+    #self.loadDigits() 
 
   ##################### initialize #####################
 
@@ -36,9 +39,11 @@ class enoDigits:
       whichNum = self.numbers[numId]
       whichPos = self.numberPositions[numId] 
 
+      self.screen.draw.text(whichNum, whichPos, fontname = self.font)
+
   ##################### load digits #####################
 
-  def loadDigits(self):  #initial image-based approached; shelved for the moment
+  def loadDigits(self):  #initial image-based approach; shelved for the moment
     self.digitActors     = {}
     self.digitWidths     = {}
     self.numberPositions = {}
@@ -52,9 +57,8 @@ class enoDigits:
 
   ##################### draw digits #####################
 
-  def drawDigits(self, digits):
+  def drawDigits(self, digits): #initial imag-ebased approach; shelved for the moment
     if self.digitActors == None: print("enoDigits not initialized!"); return None
-
     result = []
 
 ### end ###
