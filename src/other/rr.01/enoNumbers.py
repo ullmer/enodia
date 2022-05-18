@@ -34,6 +34,7 @@ class enoNumbers:
     self.numbers[numId]         = whichNum
     self.numberPositions[numId] = whichPos
     self.nextNumberId += 1
+    return numId
 
   ##################### draw numbers #####################
 
@@ -63,14 +64,32 @@ class enoNumbers:
 
 class enoAnimNumbers(enoNumbers):
 
+  actorImgFn = "circle01"
+  actorHash  = None
+
   ##################### initialize #####################
 
   def __init__(self, screen):
     super().__init__(screen) 
 
+    self.actorHash = {}
+
   ##################### introduce numbers #####################
 
   def introduceNumber(self, whichNum, whichPos):
-    super().introduceNumber(whichNum, whichPos)
+    handle = super().introduceNumber(whichNum, whichPos)
+
+    a = Actor(self.actorImgFn, whichPos)
+    self.actorHash[handle] = a
+
+  ##################### initialize #####################
+
+  def drawBubbledNumbers(self):
+    super().drawBubbledNumbers()
+
+    actorKeys = self.actorHash.keys()
+    for actorKey in actorKeys:
+      a = self.actorHash[actorKey]
+      a.draw()
 
 ### end ###
