@@ -1,8 +1,8 @@
-# Simple digits library
+# Animated numbers library
 # Brygg Ullmer, Clemson University
 # Begun 2022-05-18
   
-##################### initialize #####################
+##################### enodia numbers #####################
 
 class enoNumbers:
   font            = "lobstertwo-regular"
@@ -58,5 +58,14 @@ class enoNumbers:
 
     self.drawNumbers()
 
+
+##################### enodia animated numbers #####################
+
+class enoAnimNumbers(enoNumbers):
+
+  ##################### initialize #####################
+
+  def __init__(self, screen):
+    super().__init__(screen) 
 
 ### end ###
