@@ -2,7 +2,7 @@
 # Brygg Ullmer, Clemson University
 # Begun 2022-05-18
 
-from pgzero.builtins import Actor, animate, keyboard, surface
+from pgzero.builtins import Actor, animate, keyboard
   
 ##################### enodia numbers #####################
 
