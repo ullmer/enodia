@@ -19,7 +19,7 @@ ed.introduceNumber(11, (70, 70))
 def draw(): #main drawing loop
   screen.clear()
   rr.draw()
-  ed.drawNumbers()
+  ed.drawBubbledNumbers()
 
 def on_key_down(key, mod, unicode):
   x, y = rr.center

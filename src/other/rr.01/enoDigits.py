@@ -4,10 +4,14 @@
 
 class enoDigits:
   font            = "lobstertwo-regular"
+  fontsize        = 40
   numbers         = None 
   numberPositions = None 
   nextNumberId    = 0
   screen          = None 
+  bubbleRadius    = 30     # bubble radius
+  bx, by          = 15, 20 # bubble position offset
+  bubbleColor     = (50, 50, 50)
 
   directory       = 'num-lob/'
   digitActors     = None #individual digits: 0, 1, ...
@@ -22,7 +26,7 @@ class enoDigits:
 
     #self.loadDigits() 
 
-  ##################### initialize #####################
+  ##################### introduce numbers #####################
 
   def introduceNumber(self, whichNum, whichPos):
     numId = self.nextNumberId
@@ -30,7 +34,7 @@ class enoDigits:
     self.numberPositions[numId] = whichPos
     self.nextNumberId += 1
 
-  ##################### initialize #####################
+  ##################### draw numbers #####################
 
   def drawNumbers(self):
     numIds = self.numbers.keys()
@@ -39,7 +43,20 @@ class enoDigits:
       whichNum = self.numbers[numId]
       whichPos = self.numberPositions[numId] 
 
-      self.screen.draw.text(str(whichNum), whichPos, fontname = self.font)
+      self.screen.draw.text(str(whichNum), whichPos, fontname = self.font, 
+        fontsize = self.fontsize)
+
+  ##################### initialize #####################
+
+  def drawBubbledNumbers(self):
+    numIds = self.numbers.keys()
+
+    for numId in numIds:
+      tx, ty = self.numberPositions[numId] 
+      whichPos = (tx + self.bx, ty + self.by)
+      self.screen.draw.filled_circle(whichPos, self.bubbleRadius, self.bubbleColor)
+
+    self.drawNumbers()
 
   ##################### load digits #####################
 
