@@ -68,4 +68,9 @@ class enoAnimNumbers(enoNumbers):
   def __init__(self, screen):
     super().__init__(screen) 
 
+  ##################### introduce numbers #####################
+
+  def introduceNumber(self, whichNum, whichPos):
+    super().introduceNumber(whichNum, whichPos)
+
 ### end ###
