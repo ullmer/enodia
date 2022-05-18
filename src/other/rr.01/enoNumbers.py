@@ -84,6 +84,7 @@ class enoAnimNumbers(enoNumbers):
 
     a = Actor(self.actorImgFn, whichPos)
     self.actorHash[handle] = a
+    return handle
 
   ##################### initialize #####################
 

@@ -38,6 +38,7 @@ def on_key_down(key, mod, unicode):
     rx, ry    = rr.pos
 
     n = ean.introduceNumber(randomNum, (rx, 800))
+    print("N:", n)
     ean.animNumber(n, (rx, 50))
 
 ### end ###
