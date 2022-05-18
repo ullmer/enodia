@@ -1,4 +1,4 @@
-# Brygg & Lilleken
+# Lilleken & Brygg
 # Begun 2022-05-16
 
 WIDTH  = 800
