@@ -4,11 +4,11 @@
 WIDTH  = 800
 HEIGHT = 800
 
-from pgzero.game import screen
-from pgzero.builtins import Actor, animate
+#from pgzero.game import screen
+#from pgzero.builtins import Actor, animate
 
 from enoNumbers import *
-#import random
+import random
 
 T = "accel_decel" # accelerate, then decelerate animation
 D = .2            # 1/5 of a second
