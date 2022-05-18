@@ -64,8 +64,11 @@ class enoNumbers:
 
 class enoAnimNumbers(enoNumbers):
 
-  actorImgFn = "circle01"
+  actorImgFn = "circle02"
   actorHash  = None
+  tween      = "accel_decel" # accelerate, then decelerate animation
+  #duration   = .2            # 1/5 of a second
+  duration   = 5            # 1/5 of a second
 
   ##################### initialize #####################
 
@@ -85,11 +88,23 @@ class enoAnimNumbers(enoNumbers):
   ##################### initialize #####################
 
   def drawBubbledNumbers(self):
+    actorKeys = self.actorHash.keys()
+
+    for actorKey in actorKeys:
+      a = self.actorHash[actorKey]
+      apos = a.pos
+      self.numberPositions[actorKey] = apos
+
     super().drawBubbledNumbers()
 
-    actorKeys = self.actorHash.keys()
     for actorKey in actorKeys:
       a = self.actorHash[actorKey]
       a.draw()
+
+  ##################### initialize #####################
+
+  def animNumber(self, numHandle, targetNumPos):
+    a = self.actorHash[numHandle]
+    animate(a, center=targetNumPos, tween=self.tween, duration=self.duration)
 
 ### end ###

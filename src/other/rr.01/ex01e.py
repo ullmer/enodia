@@ -15,6 +15,7 @@ rr.pos = 100, 700
 ean = enoAnimNumbers(screen)
 ean.introduceNumber(42, (120, 100))
 ean.introduceNumber(11, (70, 70))
+ean.animNumber(0, (400, 400))
 
 def draw(): #main drawing loop
   screen.clear()
