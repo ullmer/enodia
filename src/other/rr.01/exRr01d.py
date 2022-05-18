@@ -4,7 +4,7 @@
 WIDTH  = 800
 HEIGHT = 800
 
-from enoDigits import *
+from enoNumbers import *
 
 T = "accel_decel" # accelerate, then decelerate animation
 D = .2            # 1/5 of a second
@@ -12,14 +12,14 @@ D = .2            # 1/5 of a second
 rr = Actor('redrocket1')
 rr.pos = 100, 700
 
-ed = enoDigits(screen)
-ed.introduceNumber(42, (100, 100))
-ed.introduceNumber(11, (70, 70))
+en = enoNumbers(screen)
+en.introduceNumber(42, (120, 100))
+en.introduceNumber(11, (70, 70))
 
 def draw(): #main drawing loop
   screen.clear()
   rr.draw()
-  ed.drawBubbledNumbers()
+  en.drawBubbledNumbers()
 
 def on_key_down(key, mod, unicode):
   x, y = rr.center
