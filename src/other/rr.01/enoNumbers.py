@@ -7,16 +7,14 @@
 class enoNumbers:
   font            = "lobstertwo-regular"
   fontsize        = 40
+  screen          = None 
+
   numbers         = None 
   numberPositions = None 
   nextNumberId    = 0
-  screen          = None 
-  bubbleRadius    = 30     # bubble radius
-  bubbleColor     = (50, 50, 50)
 
-  directory       = 'num-lob/'
-  digitActors     = None #individual digits: 0, 1, ...
-  digitWidths     = None
+  bubbleRadius    = 30
+  bubbleColor     = (50, 50, 50)
 
   ##################### initialize #####################
 
