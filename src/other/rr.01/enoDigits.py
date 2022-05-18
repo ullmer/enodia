@@ -10,7 +10,6 @@ class enoDigits:
   nextNumberId    = 0
   screen          = None 
   bubbleRadius    = 30     # bubble radius
-  bx, by          = 15, 20 # bubble position offset
   bubbleColor     = (50, 50, 50)
 
   directory       = 'num-lob/'
@@ -43,7 +42,7 @@ class enoDigits:
       whichNum = self.numbers[numId]
       whichPos = self.numberPositions[numId] 
 
-      self.screen.draw.text(str(whichNum), whichPos, fontname = self.font, 
+      self.screen.draw.text(str(whichNum), center = whichPos, fontname = self.font, 
         fontsize = self.fontsize)
 
   ##################### initialize #####################
@@ -52,8 +51,7 @@ class enoDigits:
     numIds = self.numbers.keys()
 
     for numId in numIds:
-      tx, ty = self.numberPositions[numId] 
-      whichPos = (tx + self.bx, ty + self.by)
+      whichPos = self.numberPositions[numId] 
       self.screen.draw.filled_circle(whichPos, self.bubbleRadius, self.bubbleColor)
 
     self.drawNumbers()
