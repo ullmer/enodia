@@ -21,10 +21,14 @@ ean.introduceNumber(42, (120, 100))
 ean.introduceNumber(11, (70, 70))
 ean.animNumber(0, (400, 400))
 
+############# draw ############# 
+
 def draw(): #main drawing loop
   screen.clear()
   rr.draw()
   ean.drawBubbledNumbers()
+
+############# when a key is pressed ############# 
 
 def on_key_down(key, mod, unicode):
   x, y = rr.center
@@ -37,8 +41,7 @@ def on_key_down(key, mod, unicode):
     randomNum = random.randint(0, 13)
     rx, ry    = rr.pos
 
-    n = ean.introduceNumber(randomNum, (rx, 800))
-    print("N:", n)
+    n = ean.introduceNumber(randomNum, (rx, 650))
     ean.animNumber(n, (rx, 50))
 
 ### end ###
