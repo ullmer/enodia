@@ -2,7 +2,7 @@
 # Brygg Ullmer, Clemson University
 # Begun 2022-05-18
 
-from pgzero.builtins import Actor, animate, keyboard
+#from pgzero.builtins import Actor, animate, keyboard
   
 ##################### enodia numbers #####################
 
@@ -68,7 +68,7 @@ class enoAnimNumbers(enoNumbers):
   actorHash  = None
   tween      = "accel_decel" # accelerate, then decelerate animation
   #duration   = .2            # 1/5 of a second
-  duration   = 5            # 1/5 of a second
+  duration   = 1.5
 
   ##################### initialize #####################
 
@@ -84,6 +84,7 @@ class enoAnimNumbers(enoNumbers):
 
     a = Actor(self.actorImgFn, whichPos)
     self.actorHash[handle] = a
+    return handle
 
   ##################### initialize #####################
 

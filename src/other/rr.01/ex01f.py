@@ -4,11 +4,11 @@
 WIDTH  = 800
 HEIGHT = 800
 
-from pgzero.game import screen
-from pgzero.builtins import Actor, animate
+#from pgzero.game import screen
+#from pgzero.builtins import Actor, animate
 
 from enoNumbers import *
-#import random
+import random
 
 T = "accel_decel" # accelerate, then decelerate animation
 D = .2            # 1/5 of a second
@@ -21,10 +21,14 @@ ean.introduceNumber(42, (120, 100))
 ean.introduceNumber(11, (70, 70))
 ean.animNumber(0, (400, 400))
 
+############# draw ############# 
+
 def draw(): #main drawing loop
   screen.clear()
   rr.draw()
   ean.drawBubbledNumbers()
+
+############# when a key is pressed ############# 
 
 def on_key_down(key, mod, unicode):
   x, y = rr.center
@@ -37,7 +41,7 @@ def on_key_down(key, mod, unicode):
     randomNum = random.randint(0, 13)
     rx, ry    = rr.pos
 
-    n = ean.introduceNumber(randomNum, (rx, 800))
+    n = ean.introduceNumber(randomNum, (rx, 650))
     ean.animNumber(n, (rx, 50))
 
 ### end ###
