@@ -60,7 +60,8 @@ class EnoSpaceTime:
 ########### Enodia Space Time base class #########
 
 class EnoSpaceTimeRegistry:
-  events = #warmup example
+  #warmup example
+  events = \
    {'accelerate22':['hbldg:americanhistory.si.edu', ['2022-04-08','2022-04-10']],
     'artisphere22':['clemsonTn:greenvillesc.gov',   ['2022-05-06','2022-05-08']],
    } 
