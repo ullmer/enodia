@@ -17,7 +17,7 @@ class EnoSpace:
     compositeStr = "space %s entangled with space %s" % (
       self.getStr(), other.getStr())
 
-    self.spaceStr = compositeStr
+    return compositeStr
 
   ############# get string ############# 
 
@@ -56,7 +56,6 @@ class EnoSpaceTime:
     result = "%s + %s" % (self.space.getStr(), self.time.getStr())
     return result
 
-
 ################################################## 
 ########### Enodia Space Time base class #########
 
@@ -80,6 +79,12 @@ if __name__ == "__main__":
   es2 = EnoSpace("space2")
 
   c1 = (es1 ** es2)
+  print(c1.getStr())
+
+  estr = EnoSpaceTimeRegistr()
+  est3 = estr.mapEvent2ST('accelerate22')
+  est4 = estr.mapEvent2ST('artisphere22')
+  c2 = (est3 ** est4)
   print(es1.getStr())
 
 ### end ###
