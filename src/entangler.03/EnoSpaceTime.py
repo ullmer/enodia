@@ -14,7 +14,7 @@ class EnoSpace:
   ############# composite (power) ############# 
 
   def __pow__(self, other):
-    compositeStr = "%s entangled with %s" % (
+    compositeStr = "space %s entangled with space %s" % (
       self.getStr(), other.getStr())
 
     self.spaceStr = compositeStr
@@ -27,8 +27,11 @@ class EnoSpace:
 ############# Enodia Time base class #############
 
 class EnoTime:
-  timeStr = None
+  timeStr  = None
   beginTime, endTime, currentTime = [None] * 3
+  timeUnit = None
+  knownTimeUnits = ['zs', 'as', 'fs', 'ps', 'ns', 'us', 'ms', 's', 
+        'mn', 'hr', 'dy', 'wk', 'mo', 'yr', 'cn', 'ty', 'my', 'by']
 
   ############# constructor  ############# 
   def __init__(self, timeStr): self.timeStr = timeStr
