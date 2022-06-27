@@ -56,6 +56,22 @@ class EnoSpaceTime:
     result = "%s + %s" % (self.space.getStr(), self.time.getStr())
     return result
 
+
+################################################## 
+########### Enodia Space Time base class #########
+
+class EnoSpaceTimeRegistry:
+  events = #warmup example
+   {'accelerate22':['hbldg:americanhistory.si.edu', ['2022-04-08','2022-04-10']],
+    'artisphere22':['clemsonTn:greenvillesc.gov',   ['2022-05-06','2022-05-08']],
+   } 
+  
+  ############# get string ############# 
+  def mapEvent2ST(self, event): 
+    if event not in self.events: return None
+    spaceId, timeId = self.events[event]
+    return EnoSpaceTime(spaceId, timeId)
+
 ################################
 ############# main #############
 
