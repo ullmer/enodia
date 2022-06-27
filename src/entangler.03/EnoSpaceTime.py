@@ -27,8 +27,31 @@ class EnoSpace:
 ############# Enodia Time base class #############
 
 class EnoTime:
+  timeStr = None
+  beginTime, endTime, currentTime = [None] * 3
+
+  ############# constructor  ############# 
+  def __init__(self, timeStr): self.timeStr = timeStr
+
+  ############# get string ############# 
+  def getStr(self): return self.timeStr
+
+################################################## 
+########### Enodia Space Time base class #########
+
+class EnoSpaceTime:
   space = None
-  def __init__(self, time): self.space = time
+  time  = None
+  
+  ############# constructor  ############# 
+  def __init__(self, spaceStr, timeStr): 
+    self.space = EnoSpace(spaceStr)
+    self.time  = EnoSpace(timeStr)
+
+  ############# get string ############# 
+  def getStr(self): 
+    result = "%s + %s" % (self.space.getStr(), self.time.getStr())
+    return result
 
 ################################
 ############# main #############
