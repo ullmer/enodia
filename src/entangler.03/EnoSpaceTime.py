@@ -61,13 +61,15 @@ class EnoSpaceTime:
 
 class EnoSpaceTimeRegistry:
   #warmup example
-  events = \
+  loci = \
    {'accelerate22':['hbldg:americanhistory.si.edu', ['2022-04-08','2022-04-10']],
     'artisphere22':['clemsonTn:greenvillesc.gov',   ['2022-05-06','2022-05-08']],
+    'mcadams111a1:now':['hbldg.111a1:computing.clemson.edu',  'now'],
+    'lee1:now':        ['hbldg.foo:arch.clemson.edu', 'now']
    } 
   
   ############# get string ############# 
-  def mapEvent2ST(self, event): 
+  def mapLocus2ST(self, event): 
     if event not in self.events: return None
     spaceId, timeId = self.events[event]
     return EnoSpaceTime(spaceId, timeId)
@@ -83,9 +85,14 @@ if __name__ == "__main__":
   print(c1.getStr())
 
   estr = EnoSpaceTimeRegistry()
-  est3 = estr.mapEvent2ST('accelerate22')
-  est4 = estr.mapEvent2ST('artisphere22')
-  #c2 = (est3 ** est4)
-  #print(es1.getStr())
+  est3 = estr.mapLocus2ST('accelerate22')
+  est4 = estr.mapLocus2ST('artisphere22')
+  c2 = (est3 ** est4)
+  print(c2.getStr())
+
+  est5 = estr.mapLocus2ST('mcadams111a1:now')
+  est6 = estr.mapLocus2ST('lee1:now')
+  c3 = (est5 ** est6)
+  print(c3.getStr())
 
 ### end ###
