@@ -8,6 +8,12 @@ class EnoSpace:
   space = None
   def __init__(self, space): self.space = space
 
+  def __pow__(self, other):
+    compositeSpace = "%s entangled with %s" % (
+      self.space, other.space)
+
+    return EnoSpace(compositeSpace
+
 ############# Enodia Time base class #############
 
 class EnoTime:
