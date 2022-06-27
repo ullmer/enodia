@@ -17,7 +17,7 @@ class EnoSpace:
     compositeStr = "%s entangled with %s" % (
       self.getStr(), other.getStr())
 
-    return EnoSpace(compositeStr)
+    self.spaceStr = compositeStr
 
   ############# get string ############# 
 
