@@ -17,7 +17,7 @@ class EnoSpace:
     compositeStr = "space %s entangled with space %s" % (
       self.getStr(), other.getStr())
 
-    return compositeStr
+    return EnoSpace(compositeStr)
 
   ############# get string ############# 
 
@@ -82,10 +82,10 @@ if __name__ == "__main__":
   c1 = (es1 ** es2)
   print(c1.getStr())
 
-  estr = EnoSpaceTimeRegistr()
+  estr = EnoSpaceTimeRegistry()
   est3 = estr.mapEvent2ST('accelerate22')
   est4 = estr.mapEvent2ST('artisphere22')
-  c2 = (est3 ** est4)
-  print(es1.getStr())
+  #c2 = (est3 ** est4)
+  #print(es1.getStr())
 
 ### end ###
