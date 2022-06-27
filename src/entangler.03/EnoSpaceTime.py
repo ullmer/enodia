@@ -14,7 +14,7 @@ class EnoSpace:
   ############# composite (power) ############# 
 
   def __pow__(self, other):
-    compositeStr = "space %s entangled with space %s" % (
+    compositeStr = "%s entangled with %s" % (
       self.getStr(), other.getStr())
 
     return EnoSpace(compositeStr)
