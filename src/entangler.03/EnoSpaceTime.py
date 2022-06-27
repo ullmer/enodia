@@ -2,6 +2,7 @@
 # By Brygg Ullmer and Sida Dai, Clemson University
 # Begun 2022-06-26
 
+################################################### 
 ############# Enodia Space base class #############
 
 class EnoSpace:
@@ -22,10 +23,21 @@ class EnoSpace:
 
   def getStr(self): return self.spaceStr 
 
+################################################## 
 ############# Enodia Time base class #############
 
 class EnoTime:
   space = None
   def __init__(self, time): self.space = time
+
+################################
+############# main #############
+
+if __name__ == "__main__":
+  es1 = EnoSpace("space1")
+  es2 = EnoSpace("space2")
+
+  c1 = (es1 ** es2)
+  print(es1.getStr())
 
 ### end ###
