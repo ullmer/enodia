@@ -5,14 +5,22 @@
 ############# Enodia Space base class #############
 
 class EnoSpace:
-  space = None
-  def __init__(self, space): self.space = space
+  spaceStr = None
+
+  ############# constructor  ############# 
+  def __init__(self, spaceStr): self.spaceStr = spaceStr
+
+  ############# composite (power) ############# 
 
   def __pow__(self, other):
-    compositeSpace = "%s entangled with %s" % (
-      self.space, other.space)
+    compositeStr = "%s entangled with %s" % (
+      self.getStr(), other.getStr())
 
-    return EnoSpace(compositeSpace
+    return EnoSpace(compositeStr)
+
+  ############# get string ############# 
+
+  def getStr(self): return self.spaceStr 
 
 ############# Enodia Time base class #############
 
