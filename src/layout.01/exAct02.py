@@ -7,8 +7,8 @@ HEIGHT = 1024
 
 import math
 
-fn1 = "mri-fargate-08b1b"
-fn2 = "mri-fargate-08b2b"
+fn2 = "person01f"
+fn1 = "mri-fargate-08h-overlay1b"
 
 apos         = (150, 150)
 currentAngle = 0.
@@ -54,13 +54,13 @@ def on_mouse_down(pos):
 ################# mouse up #################
 
 def on_mouse_move(pos):
-  global lastMouseLoc, rimTouched
+  global lastMouseLoc, rimTouched, a1, a2
   if rimTouched:
     dx = pos[0] - lastMouseLoc[0]
     dy = pos[1] - lastMouseLoc[1]
     x, y = a1.pos[0] + dx, a1.pos[1] + dy; newPos = (x, y)
     a1.pos = newPos; a2.pos = newPos
-    lastMouseLoc = pos
+    lastMouseLoc  = pos
 
 ################# mouse up #################
 
