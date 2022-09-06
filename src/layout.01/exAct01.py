@@ -7,8 +7,8 @@ HEIGHT = 1024
 
 import math
 
-fn1 = "mri-fargate-08b1b"
-fn2 = "mri-fargate-08b2b"
+fn1 = "mri-fargate-08h-overlay1b"
+fn2 = "person01f"
 
 apos         = (150, 150)
 currentAngle = 0.
