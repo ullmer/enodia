@@ -10,8 +10,8 @@ from pgzero.builtins import Actor, animate, keyboard
 
 class enoScrEnsemble:
 
-  glyphFn1 = "mri-fargate-08b1b"
-  glyphFn2 = "mri-fargate-08b2b"
+  glyphFn1 = "mri-fargate-08h-overlay1b"
+  glyphFn2 = "person01f"
   
   currentPos      = (150, 150)
   currentAngle    = 0.
