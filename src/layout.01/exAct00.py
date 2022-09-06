@@ -5,8 +5,9 @@
 WIDTH  = 1920
 HEIGHT = 1024
 
+fn2 = "person01f"
+#fn1 = "mri-fargate-08b2b"
 fn1 = "mri-fargate-08b1b"
-fn2 = "mri-fargate-08b2b"
 
 apos = (150, 150)
 
