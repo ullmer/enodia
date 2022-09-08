@@ -248,8 +248,6 @@ class enoSceneManager:
     self.yamlD = yaml.safe_load(yf)
     print(self.yamlD)
 
-    for row in self.yamlD: 
-      class enoScrEnsemble:
       
 
 ### end ###
