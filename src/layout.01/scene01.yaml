@@ -1,0 +1,10 @@
+# Enodia Scene layout example 1
+# Brygg Ullmer, Clemson University
+# Begun 2022-09-08
+
+- {imgFn: person03f, overlayFn: overlay1b, pos: [150, 150], angle: 0, key: a}
+- {imgFn: person03f, overlayFn: overlay1b, pos: [150, 550], angle: 0, key: b}
+- {imgFn: person03f, overlayFn: overlay1b, pos: [550, 550], angle: 0, key: c}
+- {imgFn: person03f, overlayFn: overlay1b, pos: [550, 150], angle: 0, key: d}
+
+### end ###
