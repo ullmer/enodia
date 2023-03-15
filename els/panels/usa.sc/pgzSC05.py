@@ -11,7 +11,8 @@ r1  = csv.reader(f1, delimiter=',')
 
 towns    = {}
 
-def map(lat, long):
+def mapCoords(lat, long):
+  minlat, maxlat, minlong, maxlong = 32.16, 35.06, -82.4, -81
   
 
 for row in r1:
